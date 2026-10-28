@@ -1,0 +1,188 @@
+2024-10-16 12:42:09.214Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Direct auth=Local group=.admin-group
+2024-10-16 12:42:38.960Z [admin]: Called - DB: Args action="update",msg="virtual node 192.168.1.2"
+2024-10-16 12:42:38.964Z [admin]: Called - DB: Args action="update",msg="physical node 0"
+2024-10-16 12:42:38.964Z [admin]: Called - set_network: Args ip_address="10.197.56.157 from 192.168.1.2",netmask="255.255.254.0 from 255.255.255.0",gateway_address="10.197.56.1 from 192.168.1.1",vlan_tag=" from Untagged"
+2024-10-16 12:42:41.940Z [admin]: Logout - - ip=Direct group=.admin-group trigger_event=Normal\040Logout
+2024-10-16 12:51:31.393Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Direct auth=Local group=.admin-group
+2024-10-16 12:52:12.544Z [admin]: Called - DB: Args action="insert",msg="product license of type nios"
+2024-10-16 12:52:12.545Z [admin]: Called - set_temp_license: Args temp_license="NIOS license for 60 days",grid_wide=False
+2024-10-16 12:52:19.637Z [admin]: Called - DB: Args action="insert",msg="product license of type dns"
+2024-10-16 12:52:19.642Z [admin]: Called - DB: Args action="insert",msg="product license of type dhcp"
+2024-10-16 12:52:19.647Z [admin]: Called - DB: Args action="insert",msg="product license of type enterprise"
+2024-10-16 12:52:19.648Z [admin]: Called - set_temp_license: Args temp_license="DNSone with Grid license for 60 days",grid_wide=False
+2024-10-16 13:00:18.963Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Direct auth=Local group=.admin-group
+2024-10-16 13:00:50.964Z [admin]: Called - DB: Args action="update",msg="grid security"
+2024-10-16 13:00:50.964Z [admin]: Called - set_remote_console: Args remote_console="true from false"
+2024-10-16 13:00:58.398Z [admin]: Called - DB: Args action="update",msg="grid security"
+2024-10-16 13:00:58.398Z [admin]: Called - set_support_access: Args scope="grid",support_access="true from false"
+2024-10-16 13:00:58.398Z [admin]: Called - set_support_access_init: Args code="created",expires_in_minutes=1440
+2024-10-16 13:02:05.008Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.29.125 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-16 13:02:22.969Z [admin]: Modified EULA 0: Changed action:"NONE"->"ACCEPT",eula_display_enabled:True->False
+2024-10-16 13:02:24.462Z [admin]: Created DashboardConfiguration Default: Set dashboard_type="NIOS",name="Default"
+2024-10-16 13:02:24.462Z [admin]: Created DashboardConfiguration Security: Set dashboard_type="NIOS",name="Security"
+2024-10-16 13:02:30.224Z [admin]: Created DashboardConfiguration Default: Set dashboard_type="TASK_FLOW",name="Default"
+2024-10-16 13:02:45.993Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-16 13:06:33.513Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 13:06:34.732Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-16 13:09:39.648Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Remote ip=10.120.21.59 auth=Local group=.admin-group
+2024-10-16 13:09:39.937Z [admin]: Logout - - ip=10.120.21.59 group=.admin-group trigger_event=Normal\040Logout
+2024-10-16 13:09:40.557Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 13:09:46.665Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Remote ip=10.120.21.59 auth=Local group=.admin-group
+2024-10-16 13:09:47.702Z [admin]: Logout - - ip=10.120.21.59 group=.admin-group trigger_event=Normal\040Logout
+2024-10-16 13:11:49.469Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 13:11:50.946Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-16 13:22:28.442Z [admin]: Logout - - ip=10.195.29.125 group=admin-group trigger_event=Session\040Expiration
+2024-10-16 13:44:26.037Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.29.125 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-16 13:45:17.824Z [admin]: Modified MemberDns infoblox.localdomain: Changed member_view_nats:[[displayname="default",parent=NULL]]->[[displayname="default",parent=MemberDns:0]],recursion_enabled:False->True,use_recursive_query_setting:False->True
+2024-10-16 13:45:20.078Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-16 13:45:22.464Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-16 13:45:35.949Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 13:45:50.990Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-16 13:47:10.509Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 13:47:26.869Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-16 13:55:23.269Z [admin]: Logout - - ip=10.195.29.125 group=admin-group trigger_event=Session\040Expiration
+2024-10-16 16:06:00.866Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 16:06:17.094Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-16 16:08:59.605Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.29.125 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-16 16:10:25.580Z [admin]: Modified GridDns Infoblox: Changed allow_forwarder:[]->["10.39.16.160"],bulk_host_name_templates:[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet]->[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet],dtc_backup_setting:[password="******",restore_password="******"]->[password="******",restore_password="******"],forwarders_only:False->True,protocol_record_name_policies:[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]->[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]
+2024-10-16 16:10:28.620Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-16 16:10:31.435Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-16 16:11:42.731Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 16:11:58.985Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-16 16:14:11.565Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-16 16:14:11.906Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-16 16:20:32.476Z [admin]: Logout - - ip=10.195.29.125 group=admin-group trigger_event=Session\040Expiration
+2024-10-17 04:20:14.687Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 04:20:15.037Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-17 04:21:07.939Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 04:21:22.992Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-17 06:18:16.621Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.5 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-17 06:28:28.225Z [admin]: Logout - - ip=10.195.28.5 group=admin-group trigger_event=Session\040Expiration
+2024-10-17 07:29:56.395Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:30:11.439Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-17 07:30:33.246Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:30:33.603Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com"
+2024-10-17 07:31:06.822Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:31:07.122Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.c.sv123.com"
+2024-10-17 07:31:49.339Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:31:49.388Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123..com"
+2024-10-17 07:33:21.205Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:33:22.396Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123..comm"
+2024-10-17 07:33:38.918Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:33:39.219Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.comm"
+2024-10-17 07:33:46.902Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:33:46.944Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.comm"
+2024-10-17 07:34:52.368Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:34:52.665Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm"
+2024-10-17 07:35:26.450Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:35:41.504Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-17 07:36:35.749Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:36:50.805Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm",name_server="8.8.8.8"
+2024-10-17 07:38:26.901Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.5 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-17 07:39:09.736Z [admin]: Modified GridDns Infoblox: Changed allow_forwarder:["10.39.16.160"]->[],bulk_host_name_templates:[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet]->[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet],dtc_backup_setting:[password="******",restore_password="******"]->[password="******",restore_password="******"],forwarders_only:True->False,protocol_record_name_policies:[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]->[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]
+2024-10-17 07:39:12.091Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-17 07:39:16.736Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=True,mode="GROUPED"
+2024-10-17 07:39:25.031Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:39:40.083Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm",name_server="8.8.8.8"
+2024-10-17 07:39:50.558Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:40:05.607Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm",name_server="8.8.8.8"
+2024-10-17 07:40:45.787Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:41:00.849Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm"
+2024-10-17 07:41:26.024Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:41:41.064Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.commm"
+2024-10-17 07:43:13.147Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:43:28.200Z [admin]: Called - QueryFqdnOnMember: Args fqdn="google.com",name_server="8.8.8.8"
+2024-10-17 07:45:15.275Z [admin]: Modified GridDns Infoblox: Changed allow_forwarder:[]->["8.8.8.8"],bulk_host_name_templates:[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet]->[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet],dtc_backup_setting:[password="******",restore_password="******"]->[password="******",restore_password="******"],forwarders_only:False->True,protocol_record_name_policies:[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]->[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]
+2024-10-17 07:45:17.199Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-17 07:45:20.030Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-17 07:49:01.565Z [admin]: Modified GridDns Infoblox: Changed bulk_host_name_templates:[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet]->[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet],dtc_backup_setting:[password="******",restore_password="******"]->[password="******",restore_password="******"],forwarders_only:True->False,protocol_record_name_policies:[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]->[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]
+2024-10-17 07:49:03.709Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-17 07:49:05.524Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-17 07:50:42.810Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:50:42.855Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com",name_server="10.197.80.10"
+2024-10-17 07:51:31.145Z [admin]: Modified GridDns Infoblox: Changed bulk_host_name_templates:[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet]->[BulkHostNameTemplate:Four\040Octets,BulkHostNameTemplate:Three\040Octets,BulkHostNameTemplate:Two\040Octets,BulkHostNameTemplate:One\040Octet],dtc_backup_setting:[password="******",restore_password="******"]->[password="******",restore_password="******"],protocol_record_name_policies:[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any]->[RecordNamePolicy:Strict\040Hostname\040Checking,RecordNamePolicy:Allow\040Underscore,RecordNamePolicy:Allow\040Any],recursion_enabled:False->True
+2024-10-17 07:51:33.673Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-17 07:51:35.662Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-17 07:51:41.428Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:51:41.469Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com",name_server="10.197.80.10"
+2024-10-17 07:51:57.024Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:51:57.068Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="nonexisting.csv123.com",name_server="10.197.80.10"
+2024-10-17 07:54:23.226Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:54:23.254Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="a.fake.zone",name_server="10.197.80.10"
+2024-10-17 07:55:01.766Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:55:01.808Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="a.fake.zonee",name_server="10.197.80.10"
+2024-10-17 07:55:51.301Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 07:55:51.343Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="b.fake.zone",name_server="10.197.80.10"
+2024-10-17 08:01:36.911Z [admin]: Logout - - ip=10.195.28.5 group=admin-group trigger_event=Session\040Expiration
+2024-10-17 09:55:43.457Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.5 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-17 10:06:13.241Z [admin]: Logout - - ip=10.195.28.5 group=admin-group trigger_event=Session\040Expiration
+2024-10-17 12:47:42.647Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.5 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-17 12:59:11.287Z [admin]: Logout - - ip=10.195.28.5 group=admin-group trigger_event=Session\040Expiration
+2024-10-17 15:17:14.982Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 15:19:28.596Z [admin]: Login_Allowed - - to=AdminConnector ip=10.197.56.157 auth=LOCAL group=admin-group apparently_via=API
+2024-10-17 15:19:29.934Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,record_type="A",fqdn="b.fake.zone[28~",name_server="10.197.80.10"
+2024-10-18 10:35:49.552Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.125 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-18 10:41:24.114Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-18 10:43:23.656Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-18 10:46:25.720Z [admin]: Created AuthZone test.com DnsView=default: Set extensible_attributes=[],comment="",disabled=False,fqdn="test.com",locked=False,ms_ad_integrated=False,view=DnsView:default,zone_format="FORWARD",create_ptr_for_bulk_hosts=False,create_ptr_for_hosts=False,ddns_principal_group=NULL,dns_integrity_check_member=NULL,do_host_abstraction=False,grid_primaries=[[grid_member=Member:infoblox.localdomain,stealth=False]],is_multimaster=False,ns_group=NULL,use_import_from=False,use_scavenging=False
+2024-10-18 10:46:30.133Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-18 10:46:32.772Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-18 10:46:50.845Z [admin]: Modified AuthZone test.com DnsView=default: Changed disabled:False->True
+2024-10-18 10:46:54.269Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-18 10:46:56.133Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-18 10:49:46.034Z [admin]: Login_Allowed - - to=AdminConnector ip=10.120.21.59 auth=LOCAL group=admin-group apparently_via=API
+2024-10-18 10:50:04.313Z [admin]: Called - QueryFqdnOnMember: Args member=Member:infoblox.localdomain,fqdn="test.com"
+2024-10-18 10:57:47.522Z [admin]: Modified AuthZone test.com DnsView=default: Changed disabled:True->False
+2024-10-18 10:57:49.640Z [admin]: Called - RequestRestartServiceStatus: Args service_option="ALL"
+2024-10-18 10:57:51.539Z [admin]: Called - RestartService: Args services=["ALL"],parents=[],force=False,mode="GROUPED"
+2024-10-18 11:07:52.310Z [admin]: Logout - - ip=10.195.28.125 group=admin-group trigger_event=Session\040Expiration
+2024-10-21 04:41:13.762Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.29.70 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-21 06:41:46.201Z [admin]: Logout - - ip=10.195.29.70 group=admin-group trigger_event=Session\040Expiration
+2024-10-23 10:28:30.433Z [admin]: Login_Allowed - - to=AdminConnector ip=10.195.28.117 auth=LOCAL group=admin-group apparently_via=GUI
+2024-10-23 10:37:57.663Z [admin]: Called - RequestRestartServiceStatus: Args member="infoblox.localdomain",service_option="ALL"
+2024-10-23 10:40:47.126Z [admin]: Login_Allowed - - to=Serial\040Console apparently_via=Remote ip=10.120.21.59 auth=Local group=.admin-group
+2024-10-23 10:41:21.967Z [admin]: Logout - - ip=10.120.21.59 group=.admin-group trigger_event=Normal\040Logout
+2024-10-23 10:49:05.131Z [admin]: Called - GetSupportFiles message=downloaded\040support\040files: Args message="downloaded support files"
+2024-10-23 10:50:50.920Z [admin]: Called - DataGetComplete message=data\040get\040completed: Args message="data get completed"
+2024-10-23 10:53:42.409Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:54:15.934Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:54:34.649Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:54:55.353Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:56:01.443Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:56:14.907Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:56:56.626Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:57:16.328Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:57:32.216Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:57:51.695Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:58:13.752Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:58:30.421Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:58:48.362Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:59:12.442Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 10:59:29.725Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 10:59:50.447Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:00:15.362Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:00:36.707Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:00:55.756Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:01:19.503Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:01:41.904Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:02:05.463Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:02:24.786Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:02:56.373Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:03:38.903Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:03:56.895Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:04:16.113Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:04:30.580Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:04:46.360Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:05:05.702Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:05:26.463Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:05:52.379Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:06:25.561Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:06:59.724Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:07:31.481Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:07:51.597Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:08:15.888Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:08:38.555Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:09:07.618Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:09:33.857Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True
+2024-10-23 11:09:58.575Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:True->False
+2024-10-23 11:10:24.351Z [admin]: Modified MemberDns infoblox.localdomain: Changed enable_service:False->True

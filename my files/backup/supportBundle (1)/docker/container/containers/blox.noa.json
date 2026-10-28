@@ -1,0 +1,258 @@
+[
+    {
+        "Id": "f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32",
+        "Created": "2024-10-16T12:37:50.62750043Z",
+        "Path": "client",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 13887,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2024-10-16T12:37:50.943492581Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:e941a344eb48786f645f422d44fc95b18a90b9bd97bbf187e73b5a2607edd5ed",
+        "ResolvConfPath": "/rw/host/docker/containers/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/resolv.conf",
+        "HostnamePath": "/rw/host/docker/containers/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/hostname",
+        "HostsPath": "/rw/host/docker/containers/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/hosts",
+        "LogPath": "/rw/host/docker/containers/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32-json.log",
+        "Name": "/blox.noa",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/rw/noa/cache:/var/cache/scheduler",
+                "/rw/etc:/mount/etc:ro",
+                "/rw/noa/zoneinfo:/usr/share/zoneinfo",
+                "/var/run/docker.sock:/var/run/docker.sock",
+                "/rw/noa/onprem.d:/etc/onprem.d",
+                "/rw/noa/certs:/var/lib/infoblox/certs",
+                "/rw/noa/onprem.d/hwid:/sys/class/dmi/id/product_uuid"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "2",
+                    "max-size": "4m"
+                }
+            },
+            "NetworkMode": "host",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "host",
+            "Privileged": true,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "label=disable"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": null,
+            "ReadonlyPaths": null
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/rw/host/docker/overlay2/067b8d9ccad7c83007244a77f807caaf45bb2806cc2198a7497015cf173c6af1-init/diff:/rw/host/docker/overlay2/89c795ae576b8e46156e4610480de7e1c9888e1841d6a5d96f873e40442a6c62/diff:/rw/host/docker/overlay2/a5eb795d792d7701e9bceacf410c55af4e76e4abd7e68e167b88855a85b76d88/diff:/rw/host/docker/overlay2/1437226edaa4ecb408e20b19bc98e8d7a8a08bd332ad792d909819282ae74264/diff:/rw/host/docker/overlay2/9405fa5eb5235b5c845117e0ef1256d598ecd1f25e5d30f113e05abaadc4dca9/diff:/rw/host/docker/overlay2/45ecf9159ec20766535174d993e95a5c240e9c3807edb346221fd55d5d3062b2/diff:/rw/host/docker/overlay2/5a55ea3b743b2be655dda8dbe9373b2111fcb84d296d4921acdc94bcb277f78b/diff:/rw/host/docker/overlay2/3a8db1f262da8ec20830e5873d87a72b594ed86c427d3a0f7f6810605bd52d1e/diff:/rw/host/docker/overlay2/45bd7db43255c3c2a05edf75ec97483f0880de97f24bff5c8b77e7539aec17a5/diff:/rw/host/docker/overlay2/ebbb6ec51283a72ef3392cc52af153c80d58767ecae8ba116260ea12b7e68aa0/diff",
+                "MergedDir": "/rw/host/docker/overlay2/067b8d9ccad7c83007244a77f807caaf45bb2806cc2198a7497015cf173c6af1/merged",
+                "UpperDir": "/rw/host/docker/overlay2/067b8d9ccad7c83007244a77f807caaf45bb2806cc2198a7497015cf173c6af1/diff",
+                "WorkDir": "/rw/host/docker/overlay2/067b8d9ccad7c83007244a77f807caaf45bb2806cc2198a7497015cf173c6af1/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/rw/noa/onprem.d",
+                "Destination": "/etc/onprem.d",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/rw/noa/certs",
+                "Destination": "/var/lib/infoblox/certs",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/rw/noa/onprem.d/hwid",
+                "Destination": "/sys/class/dmi/id/product_uuid",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/rw/noa/cache",
+                "Destination": "/var/cache/scheduler",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/rw/etc",
+                "Destination": "/mount/etc",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/rw/noa/zoneinfo",
+                "Destination": "/usr/share/zoneinfo",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/var/run/docker.sock",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "localhost",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "BIND_VOL_HWID=/rw/noa/onprem.d/hwid",
+                "BIND_VOL_CERTS=/rw/noa/certs",
+                "BIND_VOL_CACHE=/rw/noa/cache",
+                "DEPLOYMENT_TYPE=CNIOS",
+                "BIND_VOL_ZONEINFO=/rw/noa/zoneinfo",
+                "BIND_VOL_ACCESS_KEY=/rw/noa/onprem.d",
+                "ETC_VOL_NIOS=/rw/etc",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "infobloxcto/onprem.agent:v5.4.6",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "client"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "cc7105d24fee0c8903630fcc03419c00850aec6d5edb9a304b7aebacd9cfd260",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/default",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "01c71c329cf6b08c3ca473f20f6af8ef9631c9097d9a0a9b957aca4f4dcdf02e",
+                    "EndpointID": "ae846e23819cb70c6262e5028acc1520d10d08712c218ab91cd6c5260f292706",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]

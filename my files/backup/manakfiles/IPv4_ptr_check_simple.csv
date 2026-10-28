@@ -1,0 +1,4 @@
+header-authzone,fqdn*,zone_format*,allow_active_dir,allow_query,allow_transfer,allow_update,allow_update_forwarding,comment,create_underscore_zones,disable_forwarding,disabled,external_primaries,external_secondaries,grid_primaries,grid_secondaries,is_multimaster,notify_delay,ns_group,prefix,_new_prefix,soa_default_ttl,soa_email,soa_expire,soa_mnames,soa_negative_ttl,soa_refresh,soa_retry,soa_serial_number,update_forwarding,view,zone_type
+header-ptrrecord,dname*,_new_dname,address,_new_address,comment,disabled,fqdn,_new_fqdn,ttl,view,creator
+authzone,25.0.0.0/8,IPV4,,,,,,,False,False,False,,,,,FALSE,,nsg1,,,,,,,,,,1,,default,Authoritative
+ptrrecord,arec1.test_1.com,,25.0.0.1,,,False,arec1.test_1.com,,,default,DYNAMIC

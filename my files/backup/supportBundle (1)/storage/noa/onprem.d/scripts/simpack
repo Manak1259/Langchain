@@ -1,0 +1,1376 @@
+#!/usr/bin/python
+# Copyright (c) 2020 Infoblox Inc. All Rights Reserved.
+#########################################################
+# This scripts collects data for simplified packaging
+# 1. QPS: DNS QPS data for each member and whole GRID
+# 2. LPS: Lease data
+# 3. IPAM Data: To be done
+#########################################################
+
+# __future__ for floating point division
+from __future__ import division
+import sys
+import os
+import time
+import calendar
+import glob
+import subprocess
+import json
+import getopt
+import csv
+import datetime
+import re
+
+import infoblox.one.onedb as onedb
+import infoblox.common.util as cu
+import infoblox.one.util as ou
+import infoblox.one.license_util as lu
+import infoblox.one.one_include as oi
+import infoblox.common.ilog as ilog
+import infoblox.one.clusterd as clusterd
+from infoblox.one.onetypes import Member_Service_Status
+from infoblox.common.inherited_lock import InheritedFileLock
+import heka_data_dir.common_utils as common
+
+
+SIMPACK_VERSION = "1.0"
+OBJS = ['.com.infoblox.dns.dhcp_range']
+PHYSICAL_NODE = '.com.infoblox.one.physical_node'
+VIRTUAL_NODE = '.com.infoblox.one.virtual_node'
+
+DHCP_RANGE=".com.infoblox.dns.dhcp_range"
+LEASE=".com.infoblox.dns.lease"
+FIXED_ADDRESS=".com.infoblox.dns.fixed_address"
+HOST_ADDRESS=".com.infoblox.dns.host_address"
+A_RECORD=".com.infoblox.dns.bind_a"
+AAAA_RECORD=".com.infoblox.dns.bind_aaaa"
+PTR_RECORD=".com.infoblox.dns.bind_ptr"
+DISCOVERY_DATA=".com.infoblox.dns.discovery_data"
+NIOS_VERSION = int(common.nios_version())
+
+if NIOS_VERSION >= 905:
+    if os.access("/storage/simpack/", os.R_OK):
+        ilog.debug("Removing /storage/simpack/ directory")
+        cu.rm_rf("/storage/simpack/")
+    SIMPACK_DIR="/storage/noa/onprem.d/simpack/"
+else :
+    if os.access("/storage/noa/onprem.d/simpack/", os.R_OK):
+        ilog.debug("Removing /storage/noa/onprem.d/simpack/ directory")
+        cu.rm_rf("/storage/noa/onprem.d/simpack/")
+    SIMPACK_DIR="/storage/simpack/"
+
+if NIOS_VERSION >= 905:
+    if os.access("/storage/heka/", os.R_OK):
+        ilog.debug("Removing /storage/heka/ directory")
+        cu.rm_rf("/storage/heka/")
+    HEKA_DIR="/storage/noa/onprem.d/heka/"
+else :
+    HEKA_DIR="/storage/heka/"
+
+NAMED_STAT_FILE="/storage/tmp/named_stat.txt"
+DHCP_STAT_FILE="/tmpfs/dhcp_packets_stat.txt"
+DHCPV6_STAT_FILE="/storage/tmp/dhcpdv6/dhcp_packets_stat.txt"
+TMP_AGGREGATE_DAY=SIMPACK_DIR + "tmp_aggregate_day"
+AGGREGATE_DAY=SIMPACK_DIR + "aggregate_day"
+
+SIMPACK_DATA_FILE="simpack_data.json"
+SIMPACK_DATA_FILE_TMP=".tmp.simpack_data.json"
+
+MASTER_VPN_ADDR_FILE = '/infoblox/var/vpn_addrs/my_master_vpn_addr'
+TMP_DIR="/tmp/"
+QUERY_FILE=""
+
+MEMBER_USAGE="member_usage"
+GRID_USAGE="grid_usage"
+
+# Globals used to calculate aggregates
+min_ts = 0
+max_ts = 0
+agg_queries = 0
+raw_agg_queries = 0
+agg_ipv4_leases = 0
+agg_ipv6_leases = 0
+
+awk_cmd = "/usr/bin/awk"
+awk_named_script='BEGIN {\
+    ts=\"date \+\%s\";\
+    ts | getline result;\
+    close(ts);\
+    queries=0;\
+}\
+{\
+    if(match($1, "#"))\
+    {next}\
+    if (match($2, "__infoblox_global__"))\
+    {for (i=4; i<=9; i++) {queries+=$i;}}\
+    else\
+    { exit 0 }\
+}\
+END {\
+    print result, queries > OUTPUT_FILE;\
+}'
+
+awk_dhcp_script='BEGIN {\
+    ts=\"date \+\%s\";\
+    ts | getline result;\
+    close(ts);\
+    leases=0;\
+}\
+{\
+    leases+=$6;\
+}\
+END {\
+    print result, leases > OUTPUT_FILE;\
+}'
+
+awk_dhcpv6_script='BEGIN {\
+    ts=\"date \+\%s\";\
+    ts | getline result;\
+    close(ts);\
+    leases=V4LEASES;\
+}\
+{\
+    leases+=$6;\
+}\
+END {\
+    print result, leases > OUTPUT_FILE;\
+}'
+
+def is_heka_enabled():
+    db = onedb.Db()
+    try:
+        with db.begin(onedb.RO):
+            grid = db.call('?one.cluster', factory=onedb.todict, single=True)
+            if grid is not None and 'heka_opt_in' in grid:
+                ilog.debug("heka status: %d" % (grid['heka_opt_in']))
+                return grid['heka_opt_in']
+            else:
+                ilog.log("Error getting Heka status")
+                return False
+    except onedb.DBStateError as e:
+        ilog.log("Error getting Heka status.", e)
+        return False
+    except Exception as e:
+        return False
+
+def is_dhcp_enabled(IPv4=True):
+    db = onedb.Db()
+    vnode_id = ou.get_my_vnode_id()
+    try:
+        with db.begin(onedb.RO):
+            member_dhcp_object = db.call('?dns.member_dhcp_properties',
+                {'virtual_node' : vnode_id}, single = True)
+            if member_dhcp_object is not None:
+                if IPv4 == True:
+                    service_enabled = bool(member_dhcp_object['service_enabled'])
+                    lan2_service_enabled = bool(member_dhcp_object['service_enabled_on_lan2'])
+                    if (service_enabled or lan2_service_enabled):
+                        return True
+                else: 
+                    v6_service_enabled = bool(member_dhcp_object['v6_service_enable'])
+                    lan2_v6_service_enabled = bool(member_dhcp_object['v6_service_enabled_on_lan2'])
+                    if (v6_service_enabled or lan2_v6_service_enabled):
+                        return True
+            return False
+    except onedb.DBStateError as e:
+        ilog.log("Error getting DHCP service status.", e)
+        return False
+    except Exception as e:
+        return False
+
+def is_dns_enabled():
+    db = onedb.Db()
+    vnode_id = ou.get_my_vnode_id()
+    try:
+        with db.begin(onedb.RO):
+            member_dns_object = db.call('?dns.member_dns_properties',
+                {'virtual_node' : vnode_id}, single = True)
+            if member_dns_object is not None:
+                service_enabled = bool(member_dns_object['service_enabled'])
+                if (service_enabled):
+                    return True
+                else:
+                    return False
+            else:
+                return False
+    except onedb.DBStateError as e:
+        ilog.log("Error getting DNS service status.", e)
+        return False
+    except Exception as e:
+        return False
+
+def check_license(lic_type):
+    db = onedb.Db()
+    try:
+        with db.begin(onedb.RO):
+            return lu.check_member_for_license_type(db,
+                lic_type, ou.get_my_vnode_ref(db))
+
+    except onedb.DBStateError as e:
+        ilog.log("Error getting license.", e)
+        return False
+    except Exception as e:
+        return False
+
+def get_hosts_in_ranges():
+    db = onedb.Db()
+    count_range_hosts = 0
+
+    try:
+        with db.begin(onedb.RO):
+            for r in db.cursor(DHCP_RANGE, {'server_association_type':'Member'}):
+                if r['server_association_type'] == "Member":
+                    count_range_hosts += r['static_hosts']
+                    count_range_hosts += r['dynamic_hosts']
+
+    except onedb.DBStateError as e:
+        ilog.log("Error getting ranges.", e)
+        return 0
+    except Exception as e:
+        return 0
+
+    return count_range_hosts
+
+def get_unmanaged_addresses():
+    db = onedb.Db()
+    count_unmanaged_addresses = 0
+
+    try:
+        with db.begin(onedb.RO):
+            for r in db.cursor(DHCP_RANGE, {'server_association_type':'None'}):
+                count_unmanaged_addresses += r['total_hosts']
+
+    except onedb.DBStateError as e:
+        ilog.log("Error getting unmanaged addresses.", e)
+        return 0
+    except Exception as e:
+        return 0
+
+    return count_unmanaged_addresses
+
+def ib_get_count(obj_type, condition=None):
+    db = onedb.Db()
+    params = {} 
+    query = "SELECT count(*) AS count " \
+            "FROM " + obj_type + " "
+    where = "" 
+    if condition:
+        if len(condition) > 1: 
+            where = " WHERE (&"
+        else:
+            where = " WHERE "
+        temp_str = "" 
+        for key in condition:
+            temp_str += "(" + key + " = '${" + key + "}')"
+
+        if len(condition) > 1: 
+            temp_str += ")"
+        where += temp_str
+
+    with db.begin(onedb.RO) as txn: 
+        count = db.call(query + where, condition)
+        if count:
+            return int(count[0]['count'])
+    return 0
+
+# Iterative version
+def get_lindex_iter(data, pnodeid):
+    i=0
+    for d in data:
+        if d['pnode_id'] == pnodeid:
+            return i
+        else:
+            i = i+1
+    return -1
+
+# List comprehension version
+def get_lindex_lc(data, pnodeid):
+    return next((i for i,sub in enumerate(data) if sub['pnode_id']==pnodeid ), -1)
+
+def prepare_data_for_member(usage, existing_data, data, pat):
+    # We know there'll be only one key
+    pnodeid = data['pnode_id']
+    if len(data[pat]) == 0:
+        return
+
+    # Check if usage present
+    if usage in existing_data:
+        #check if pnodeid present
+        tempindex = get_lindex_lc(existing_data[usage], pnodeid)
+        if tempindex >= 0:
+            lindex = tempindex
+
+            #check if pat present
+            if pat in existing_data[usage][lindex]:
+                existing_data[usage][lindex][pat] = existing_data[usage][lindex][pat] + data[pat]
+            else:
+                # add list for pat
+                # add dict from incoming data to pat list
+                existing_data[usage][lindex][pat] = data[pat]
+        else:
+            # add dict is usage list
+            existing_data[usage].append(data.copy())
+    else:
+        # Initialize usage
+        existing_data[usage] = []
+        # add dict is usage list
+        existing_data[usage].append(data.copy())
+
+    return existing_data
+
+def prepare_data_for_grid(usage, existing_data, data, pat):
+    if not existing_data:
+        existing_data = {}
+
+    if usage not in existing_data:
+        existing_data[usage] = {}
+
+    if pat not in existing_data[usage]:
+        existing_data[usage][pat] = []
+
+    if isinstance(data, dict):
+        existing_data[usage][pat].append(data)
+    elif isinstance(data, list):
+        existing_data[usage][pat].extend(data)
+
+    return existing_data
+
+# Returns whether current is in the range [start, end]
+def time_in_range(start, end, current):
+    return start <= current <= end
+
+# Write data to json file.
+# Merge this data if file exists with some data
+def write_to_json(usage, data, pat):
+    existing_data = {}
+
+    # Read existing json data
+    if os.access(SIMPACK_DATA_FILE_TMP, os.R_OK):
+        with open(SIMPACK_DATA_FILE_TMP, 'r') as qf:
+            try:
+                existing_data = json.load(qf)
+                if 'version' not in existing_data.keys():
+                    existing_data['version'] = SIMPACK_VERSION
+            except ValueError:
+                ilog.debug("No existing data found")
+
+    if usage == MEMBER_USAGE:
+        final_data = prepare_data_for_member(usage, existing_data, data, pat)
+    elif usage == GRID_USAGE:
+        final_data = prepare_data_for_grid(usage, existing_data, data, pat)
+
+    # Write the merged json data
+    try:
+        with open(SIMPACK_DATA_FILE_TMP, 'w') as qf:
+            json.dump(final_data, qf)
+    except Exception as e:
+        ilog.log("Exception occurred during json dump %d" %(e))
+
+def roundup(num):
+    return "{0:.2f}".format(round(num, 2))
+
+# Calculate aggregate using globals filled by find_per_sec_data
+def calc_lps_aggregate():
+    pat = 'lps'
+    diff_tis = int(max_ts) - int(min_ts)
+    if diff_tis <= 0:
+        return;
+
+    ipv4_lps = agg_ipv4_leases / diff_tis
+    ipv6_lps = agg_ipv6_leases / diff_tis
+    jd = {}
+    jd['ts'] = str(max_ts)
+    jd['ipv4'] = str(roundup(ipv4_lps))
+    jd['ipv6'] = str(roundup(ipv6_lps))
+    jd['total'] = str(roundup(ipv4_lps + ipv6_lps))
+    write_to_json(GRID_USAGE, jd, pat)
+
+    leases_data = {}
+    leases_data['ts'] = str(max_ts)
+
+    leases_data['ipv4'] = str(agg_ipv4_leases)
+    leases_data['ipv6'] = str(agg_ipv6_leases)
+    leases_data['total'] = str(agg_ipv4_leases + agg_ipv6_leases)
+    write_to_json(GRID_USAGE, leases_data, "leases")
+
+def calc_qps_aggregate():
+    pat = 'qps'
+    diff_tis = int(max_ts) - int(min_ts)
+    if diff_tis <= 0:
+        return;
+
+    tmp = agg_queries / diff_tis
+    aqps = roundup(tmp)
+    jd = {}
+    jd['ts'] = str(max_ts)
+    jd['value'] = str(aqps)
+    write_to_json(GRID_USAGE, jd, pat)
+
+    queries_data = {}
+    queries_data['ts'] = str(max_ts)
+    queries_data['value'] = str(agg_queries)
+    write_to_json(GRID_USAGE, queries_data, "queries")
+
+    write_queries_day(agg_queries)
+
+# Clear existing data and keep only the last line
+def clear_file(f, line):
+    ilog.debug("clearing the file %s" % (f))
+    with open(f, "w") as wf:
+        wf.write(line)
+
+# Calculate QPS and collect raw queries
+def find_qps_and_queries(file):
+    global min_ts
+    global max_ts
+    global agg_queries
+    global raw_agg_queries
+    pat = 'qps'
+    tmp_raw_agg_queries = 0
+    last_timestamp = 0
+    last_data = 0
+    dps = 0 # Data per second
+    save_line=""
+
+    # Get pnode id from the filename
+    pnodeid = file.split("_")[1]
+    out = {}
+    raw_out = {}
+    if not os.access(file, os.R_OK):
+        return out, raw_out
+
+    out['pnode_id'] = pnodeid
+    out[pat] = []
+    raw_out['pnode_id'] = pnodeid
+    raw_out['queries'] = []
+
+    jd = {}
+    raw_data={}
+
+    with open(file, "r") as f:
+        line = f.readline()
+        while line:
+            cur_timestamp, cur_data = line.split()
+
+            # Keep first entry to be used by 2nd entry and onward
+            # tag: Marker-1
+            if last_timestamp == 0:
+                if min_ts == 0 or min_ts > int(cur_timestamp):
+                    min_ts = int(cur_timestamp)
+
+                last_timestamp = cur_timestamp
+                last_data = cur_data
+            else:
+                time_in_seconds = int(cur_timestamp) - int(last_timestamp)
+                diff_data = (int(cur_data) - int(last_data))
+
+                # Add this data in raw data
+                raw_data['ts'] = cur_timestamp
+                raw_data['value'] = cur_data
+                raw_out['queries'].append(raw_data.copy())
+
+                # -ve count indicates service restart
+                # Service restart resets corresponding stat file
+                if diff_data < 0:
+                    ilog.log("Query count is -ve. This marks a restart.")
+                    # Data reset detected. Skip this line and save timestamp
+                    # and last data.
+                    # This is same as tag: Marker-1
+                    last_timestamp = cur_timestamp
+                    last_data = cur_data
+
+                    save_line = line
+
+                    # Save data to calculate aggregate
+                    # In restart scenario, take queries as it is
+                    agg_queries += int(cur_data)
+
+                    line = f.readline()
+                    continue
+                else:
+                    tmp = int(diff_data) / int(time_in_seconds)
+                    dps = roundup(tmp)
+
+                    # Save data to calculate aggregate
+                    # In other cases, take only diff
+                    agg_queries += diff_data
+
+                jd['ts'] = cur_timestamp
+                jd['value'] = dps
+                out[pat].append(jd.copy())
+
+                last_timestamp = cur_timestamp
+                last_data = cur_data
+
+                tmp_raw_agg_queries = int(cur_data)
+
+                if min_ts == 0 or min_ts > int(cur_timestamp):
+                    min_ts = int(cur_timestamp)
+
+                if max_ts == 0 or max_ts < int(cur_timestamp):
+                    max_ts = int(cur_timestamp)
+
+            save_line = line
+            line = f.readline()
+
+    # We need only the last entry from file
+    raw_agg_queries += tmp_raw_agg_queries
+    
+    # Clear the file. Keep only last line
+    clear_file(file, save_line)
+
+    return out, raw_out
+
+# Calculate LPS and collect raw ipv4 and ipv6 leases
+def find_lps_and_leases(file):
+    global min_ts
+    global max_ts
+    global agg_ipv4_leases
+    global agg_ipv6_leases
+
+    pat ='lps'
+    tmp_agg_ipv4_leases = 0
+    tmp_agg_ipv6_leases = 0
+    last_timestamp = 0
+    last_data = 0
+    save_line=""
+
+    # Get pnode id from the filename
+    pnodeid = file.split("_")[1]
+    out = {}
+    raw_out = {}
+    if not os.access(file, os.R_OK):
+        return out
+
+    out[pat] = []
+    out['pnode_id'] = pnodeid
+    raw_out['pnode_id'] = pnodeid
+    raw_out['leases'] = []
+
+    with open(file, "r") as f:
+        line = f.readline()
+        while line:
+            cur_timestamp, cur_ipv4, cur_ipv6 = line.split()
+
+            # Keep first entry to be used by 2nd entry and onward
+            # tag: Marker-1
+            if last_timestamp == 0:
+                if min_ts == 0 or min_ts > cur_timestamp:
+                    min_ts = cur_timestamp
+                last_timestamp = cur_timestamp
+                last_ipv4 = cur_ipv4
+                last_ipv6 = cur_ipv6
+            else:
+                # Collect raw leases
+                raw_data={}
+                raw_data['ts'] = cur_timestamp
+                raw_data['ipv4'] = cur_ipv4
+                raw_data['ipv6'] = cur_ipv6
+                raw_data['total'] = str(int(cur_ipv4) + int(cur_ipv6))
+                raw_out['leases'].append(raw_data.copy())
+
+                time_in_seconds = int(cur_timestamp) - int(last_timestamp)
+                diff_ipv4 = int(cur_ipv4) - int(last_ipv4)
+                diff_ipv6 = int(cur_ipv6) - int(last_ipv6)
+
+                # -ve count indicates service restart
+                # Service restart resets corresponding stat file
+                if diff_ipv4 < 0 or diff_ipv6 < 0:
+                    ilog.log("Query count is -ve. This marks a restart.")
+                    # Data reset detected. Skip this line and save timestamp
+                    # and last data.
+                    # This is same as tag: Marker-1
+                    last_timestamp = cur_timestamp
+                    last_ipv4 = cur_ipv4
+                    last_ipv6 = cur_ipv6
+
+                    if min_ts == 0 or min_ts > cur_timestamp:
+                        min_ts = cur_timestamp
+
+                    if max_ts == 0 or max_ts < cur_timestamp:
+                        max_ts = cur_timestamp
+
+                    agg_ipv4_leases += int(cur_ipv4)
+                    agg_ipv6_leases += int(cur_ipv6)
+
+                    save_line = line
+                    line = f.readline()
+                    continue
+                else:
+                    agg_ipv4_leases += diff_ipv4
+                    agg_ipv6_leases += diff_ipv6
+
+                # Calculate LPS
+                jd = {}
+                jd['ts'] = cur_timestamp
+                jd['ipv4'] = roundup(int(diff_ipv4) / int(time_in_seconds))
+                jd['ipv6'] = roundup(int(diff_ipv6) / int(time_in_seconds))
+                out[pat].append(jd.copy())
+
+                last_timestamp = cur_timestamp
+                last_ipv4 = cur_ipv4
+                last_ipv6 = cur_ipv6
+                tmp_agg_ipv4_leases = int(cur_ipv4)
+                tmp_agg_ipv6_leases = int(cur_ipv6)
+
+                if min_ts == 0 or min_ts > cur_timestamp:
+                    min_ts = cur_timestamp
+
+                if max_ts == 0 or max_ts < cur_timestamp:
+                    max_ts = cur_timestamp
+
+            save_line = line
+            line = f.readline()
+
+    # Clear the file. Keep only last line
+    clear_file(file, save_line)
+
+    return out, raw_out
+
+def format_ipam_data():
+    ilog.debug ("Formatting IPAM Data")
+    ipam_data_file = os.path.join(SIMPACK_DIR, "resultipam_grid-usage");
+    ipam_data = []
+
+    if not os.access(ipam_data_file, os.R_OK):
+        return ipam_data
+
+    with open(ipam_data_file, "r") as f:
+        line = f.readline()
+        while line:
+            ts, ipv4_val, ipv6_val, others, total = line.split()
+            # Add others in 'total'
+            entry = {}
+            entry['ts'] = ts
+            entry['ipv4'] = ipv4_val
+            entry['ipv6'] = ipv6_val
+            entry['total'] = str(total) 
+
+            ipam_data.append(entry.copy())
+            line = f.readline()
+
+    cu.rm_rf(ipam_data_file)
+    return ipam_data
+
+def format_ipam_data_day():
+    ilog.debug ("Formatting IPAM Day Data")
+    ipam_data_day = []
+    
+    if os.access(AGGREGATE_DAY, os.R_OK):
+        fd = open(AGGREGATE_DAY)
+        data = json.load(fd)
+        fd.close()
+
+        entry = {}
+        entry['ipv4'] = str(data['ipam_day']['ipv4'])
+        entry['ipv6'] = str(data['ipam_day']['ipv6'])
+        entry['total'] = str(data['ipam_day']['total'])
+        entry['day'] = str(data['day'])
+        
+        ipam_data_day.append(entry.copy())
+
+    return ipam_data_day
+
+def prepare_ipam_result():
+    ilog.debug ("Collecting IPAM data")
+    data = format_ipam_data()
+    if not data:
+        return
+
+    write_to_json(GRID_USAGE, data, "ipam")
+
+    # Write the ipam day data capturing IPAM counts for a day
+    data_day = format_ipam_data_day()
+    if not data_day:
+        return
+    write_to_json(GRID_USAGE, data_day, "ipam_day")
+
+# resultlease_* files will have all merged data till now
+def prepare_lps_result():
+    files_path = os.path.join(SIMPACK_DIR, "resultlease_*")
+    files = glob.glob(files_path)
+    global min_ts
+    global max_ts
+    global agg_ipv4_leases
+    global agg_ipv6_leases
+
+    min_ts = 0
+    max_ts = 0
+    agg_ipv4_leases = 0
+    agg_ipv6_leases = 0
+
+    calc_agg = False
+    # Calculate for all members individually
+    for f in files:
+        data, raw_data = find_lps_and_leases(f)
+
+        if 'lps' in data and len(data['lps']):
+            write_to_json(MEMBER_USAGE, data, "lps")
+            calc_agg = True
+        
+        if 'leases' in raw_data and len(raw_data['leases']):
+            write_to_json(MEMBER_USAGE, raw_data, "leases")
+            calc_agg = True
+
+    # Calculate aggregate values
+    if calc_agg:
+        calc_lps_aggregate()
+
+# resultquery_* files will have all merged data till now
+def prepare_qps_result():
+    files_path = os.path.join(SIMPACK_DIR, "resultquery_*")
+    files = glob.glob(files_path)
+    global min_ts
+    global max_ts
+    global agg_queries
+
+    min_ts = 0
+    max_ts = 0
+    agg_queries = 0
+
+    calc_agg = False
+    # Calculate for all members individually
+    for f in files:
+        data, raw_data = find_qps_and_queries(f)
+        if 'qps' in data and not data['qps']:
+            continue
+        calc_agg = True
+        key = data.keys()[0]
+        if len(data[key]):
+            write_to_json(MEMBER_USAGE, data, "qps")
+
+        key = raw_data.keys()[0]
+        if len(raw_data[key]):
+            write_to_json(MEMBER_USAGE, raw_data, "queries")
+
+    # Calculate aggregate values
+    if calc_agg:
+        calc_qps_aggregate()
+
+def parse_dhcpv6_stat(out_file, ts, pnode_id):
+    if not os.path.isfile(DHCPV6_STAT_FILE):
+        ilog.log("File do not exist %s" % (DHCPV6_STAT_FILE))
+        return out_file
+
+    v4leases = 0
+
+    if out_file is None:
+        LEASE_FILE = TMP_DIR + "lease_" + str(pnode_id) +"_"+str(ts)
+        out_file="OUTPUT_FILE=" + LEASE_FILE
+    else:
+        # If DHCPV4 leases are there count them in
+        if os.access(out_file, os.R_OK):
+            with open(out_file, "r") as f:
+                lpsdata = f.readline()
+                ts, v4leases = lpsdata.split()
+
+    v4l = "V4LEASES=" + str(v4leases)
+    output_f="OUTPUT_FILE=" + out_file
+    # Call awk script to do parsing job
+    ret = cu.iexec([awk_cmd, "-v", v4l, "-v", output_f, awk_dhcpv6_script, DHCPV6_STAT_FILE])
+    if ret != 0:
+        ilog.log("Error parsing %s. Error code %d" % (DHCPV6_STAT_FILE, ret))
+
+    return out_file
+
+def _get_stat(col, IPv4=True):
+    stat_file = DHCP_STAT_FILE if IPv4 else DHCPV6_STAT_FILE
+    count = 0
+
+    if not os.access(stat_file, os.R_OK):
+        ilog.log("File doesn't exist %s" % (stat_file))
+        return count
+
+    with open(stat_file) as f:
+        csv_reader = csv.reader(f, delimiter=' ')
+        for row in csv_reader:
+            count = count + int(row[col])
+
+    return count
+
+def _write_stat(FILE, ts, v4, v6):
+    with open(FILE, "a") as f:
+        f.write ("%d %d %d\n" % (ts, v4, v6))
+
+def parse_dhcp_stat(ts, pnode_id):
+    dhcpv4_count = 0
+    dhcpv6_count = 0
+    LEASE_FILE = None
+
+    service_ipv4 = is_dhcp_enabled()
+    service_ipv6 =  is_dhcp_enabled(False)
+
+    if service_ipv4:
+        dhcpv4_count = _get_stat(5)
+
+    if service_ipv6:
+        dhcpv6_count = _get_stat(5, False)
+
+    if service_ipv4 or service_ipv6:
+        LEASE_FILE = TMP_DIR + "lease_" + str(pnode_id) + "_" + str(ts)
+        _write_stat(LEASE_FILE, ts, dhcpv4_count, dhcpv6_count)
+
+    return LEASE_FILE
+
+def parse_named_stat(ts, pnode_id):
+    global TMP_DIR
+    global QUERY_FILE
+    if is_dns_enabled():
+        if not os.path.isfile(NAMED_STAT_FILE):
+            ilog.log("File do not exist %s" % (NAMED_STAT_FILE))
+            return None
+
+        QUERY_FILE = TMP_DIR + "query_" + str(pnode_id) +"_"+str(ts)
+        out_file="OUTPUT_FILE=" + QUERY_FILE
+        # Call awk script to do parsing job
+        ret = cu.iexec([awk_cmd, "-v", out_file, awk_named_script, NAMED_STAT_FILE])
+        if ret != 0:
+            ilog.log("Error parsing %s. Error code %d" % (NAMED_STAT_FILE, ret))
+            return None
+        else:
+            return QUERY_FILE
+    else:
+        return None
+
+def get_master_vip():
+    if os.path.isfile(MASTER_VPN_ADDR_FILE):
+        with open(MASTER_VPN_ADDR_FILE) as fp:
+            master_vip = fp.read().strip()
+            ilog.debug("Master vpn file opened successfully, vpn is %s", master_vip)
+            return master_vip
+    else:
+        ilog.debug("Master vpn file doesn't exist")
+        return None
+
+# TODO: Enhance this function to take care of previous
+# transfer failures
+def rsync_files(q_file):
+    is_active_master = clusterd.is_node_active_master()
+
+    master_vpn = get_master_vip()
+    if master_vpn is None:
+        #Assigning defualt master VPN
+        master_vpn = '169.254.0.1'
+    src = q_file
+    if is_active_master:
+        ret = cu.iexec(['/bin/cp', src, SIMPACK_DIR])
+    else:
+        dest = master_vpn + "::simpack_data_collection_dir/"
+        ret = cu.iexec(['/usr/bin/rsync', '--timeout=30', src, dest])
+
+    if ret != 0:
+        ilog.log("Error sending named stat to GM : %d", ret)
+    else:
+        ilog.debug("%s successfully transferred to GM %s", q_file, master_vpn)
+        # File is transferred to GM. Remove local copy.
+        rm_files(src)
+
+# Return last 10 characters (which is timestamp in filename)
+def fts(x):
+    return(x[-10:])
+
+# Get a list of files matching pattern 'pat'
+def get_files(pat):
+    ilog.debug("Merging file")
+    files = {}
+    ff = glob.glob(SIMPACK_DIR + pat + "_*")
+
+    # Sort files based on timestamp
+    file_list = sorted(ff, key = fts)
+    for f in file_list:
+        pnode_id = f.split("_")[1]
+        if pnode_id in files:
+            files[pnode_id].append(f)
+        else:
+            files[pnode_id] = []
+            files[pnode_id].append(f)
+
+    return files
+
+def rm_files(files):
+    if not files:
+        return None
+
+    command = "/bin/rm " + files
+    ret = subprocess.call(command, shell=True)
+    if ret != 0:
+        ilog.log("Failed to remove files %s", files)
+
+# Concatenate files into a single file
+def concatenate_files(pat, pnode_id, files):
+    output_filename = SIMPACK_DIR + "/result" + pat + "_" + pnode_id
+    input_files = ""
+    for f in files:
+        input_files = input_files + " " + f
+    command = "/bin/cat " + input_files + " >> " + output_filename
+    ret = subprocess.call(command, shell=True)
+
+    if ret != 0:
+        ilog.log("Failed to concatenate ", ret)
+
+    return input_files
+
+# Merge data from multipe files into one
+# Create only one file per member
+def merge_files(pat):
+    all_files = get_files(pat)
+    flist=""
+    for pnode_id in all_files:
+        ilog.debug("concatenating for pnode_id %s" % (pnode_id))
+        flist = flist + " "+ concatenate_files(pat, pnode_id, all_files[pnode_id])
+    
+    ilog.debug("deleting %s" % (flist))
+    rm_files(flist)
+
+def get_ipam_data(ts):
+    managed_ip_addresses = 0
+    ipv4_count = 0
+    ipv6_count = 0
+    others = 0
+
+    #managed_ip_addresses += get_hosts_in_ranges()
+    tmp_ipv4 = ib_get_count(FIXED_ADDRESS, {'is_ipv4':'true'})
+    tmp_ipv6 = ib_get_count(FIXED_ADDRESS, {'is_ipv4':'false'})
+    ipv4_count += tmp_ipv4
+    ipv6_count += tmp_ipv6
+
+    tmp_ipv4 = ib_get_count(HOST_ADDRESS, {'is_ipv4':'true'})
+    tmp_ipv6 = ib_get_count(HOST_ADDRESS, {'is_ipv4':'false'})
+    ipv4_count += tmp_ipv4
+    ipv6_count += tmp_ipv6
+
+    tmp_ipv4 = ib_get_count(LEASE, {'binding_state':'active', 'is_ipv4':'true'})
+    tmp_ipv6 = ib_get_count(LEASE, {'binding_state':'active', 'is_ipv4':'false'})
+    ipv4_count += tmp_ipv4
+    ipv6_count += tmp_ipv6
+
+    # IPV4 only
+    tmp_ipv4 = ib_get_count(A_RECORD)
+    ipv4_count += tmp_ipv4
+
+    # IPV6 only
+    tmp_ipv6 = ib_get_count(AAAA_RECORD)
+    ipv6_count += tmp_ipv6
+
+    tmp_ipv4 = ib_get_count(DISCOVERY_DATA, {'unmanaged':'false', 'is_ipv4':'true'})
+    tmp_ipv6 = ib_get_count(DISCOVERY_DATA, {'unmanaged':'false', 'is_ipv4':'false'})
+    ipv4_count += tmp_ipv4
+    ipv6_count += tmp_ipv6
+    
+    # For PTR records, No field in DB to identify IPv4 or IPv6, 
+    # hence keeping such values in 'others'
+    # Because of this reason, total = ipv4 + ipv6 + others
+    # TODO: Explore the way to identify such data and categorize them appropriately
+    others = ib_get_count(PTR_RECORD)
+
+    managed_ip_addresses += others
+    managed_ip_addresses += ipv4_count
+    managed_ip_addresses += ipv6_count
+
+    # Write to file in this format
+    # IPv4 IPv6 others total
+    w_data = str(ts) + " " + str(ipv4_count) + " " +\
+             str(ipv6_count) + " " + str(others) + " " + \
+             str(managed_ip_addresses) + "\n"
+    ipam_data_file = os.path.join(SIMPACK_DIR, "resultipam_grid-usage");
+    
+    with open(ipam_data_file, "a") as f:
+        f.write(w_data)
+        
+    return ipam_data_file
+
+# Write the IPAM data day into tmp_aggregate_day once 24  hour is reached
+def write_ipam_data_day(cleanup):
+    entry = {}
+    entry['ipv4'] = 0
+    entry['ipv6'] = 0
+    entry['total'] = 0
+
+    ipv4_count = 0
+    ipv6_count = 0
+    ptr_count = 0
+
+    # IPV4 addresses
+    unique_ipv4_file = os.path.join(SIMPACK_DIR, "unique_ipv4.txt");
+    if os.access(unique_ipv4_file, os.R_OK):
+        ipv4_count = sum(1 for line in open(unique_ipv4_file))
+
+    # IPV6 addresses
+    unique_ipv6_file = os.path.join(SIMPACK_DIR, "unique_ipv6.txt");
+    if os.access(unique_ipv6_file, os.R_OK):
+        ipv6_count = sum(1 for line in open(unique_ipv6_file))
+
+    # Others/PTR records
+    unique_ptr_file = os.path.join(SIMPACK_DIR, "unique_ptr.txt");
+    if os.access(unique_ptr_file, os.R_OK):
+        ptr_count = sum(1 for line in open(unique_ptr_file))
+
+    # Write the data to tmp_aggregate_day
+    entry['ipv4'] = ipv4_count
+    entry['ipv6'] = ipv6_count
+    entry['total'] = ipv6_count + ipv4_count + ptr_count
+
+    if os.access(TMP_AGGREGATE_DAY, os.R_OK):
+        fd = open(TMP_AGGREGATE_DAY)
+        data = json.load(fd)
+        fd.close()
+
+        data_new = {}
+        data_new['ipam_day'] = {}
+                
+        data_new['day'] = data['day']
+        data_new['queries'] = data['queries']
+        data_new['ipam_day'] = entry
+        with open(TMP_AGGREGATE_DAY, 'w') as f:
+            json.dump(data_new, f, default=str)
+
+    if cleanup:
+        # Clean-up files
+        rm_files(unique_ipv4_file)
+        rm_files(unique_ipv6_file)
+        rm_files(unique_ptr_file)
+
+
+def prepare_unique_ip_file(type, addresses):
+    output_file = TMP_DIR + "/output_" + type + ".txt"
+    unique_file = SIMPACK_DIR + "/unique_" + type + ".txt"
+    unique_tmp_file = TMP_DIR + "/unique_" + type + "_tmp.txt"
+
+    with open(output_file, "a") as f:
+        for item in addresses:
+            data = str(item) + "\n"
+            f.write(data)
+
+    if os.access(unique_file, os.R_OK):
+        command = '/bin/cat ' + output_file + ' ' + unique_file + ' > ' + unique_tmp_file
+    else:
+        command = '/bin/cat ' + output_file + ' > ' + unique_tmp_file
+
+    ret = subprocess.call(command, shell=True)
+    if ret != 0:
+        ilog.log('Failed to concatenate files %s : %s', output_file, unique_file)
+        rm_files(output_file)
+        return
+
+    command = '/bin/sort ' + unique_tmp_file + ' | /usr/bin/uniq > ' + unique_file
+    ret = subprocess.call(command, shell=True)
+    if ret != 0:
+        ilog.log("Failed to sort file %s", unique_tmp_file)
+
+    rm_files(output_file)
+    rm_files(unique_tmp_file)
+    
+# Write all the unique entries to files every fifteen minutes
+def write_unique_ip_to_file(unique_ipv4_address, unique_ipv6_address, ptr_address):
+    # IPV4 addresses
+    prepare_unique_ip_file('ipv4', unique_ipv4_address)
+    #IPV6 addresses
+    prepare_unique_ip_file('ipv6', unique_ipv6_address)
+    # Others/PTR records
+    prepare_unique_ip_file('ptr', ptr_address)
+                
+def write_queries_day(queries):
+    if os.access(TMP_AGGREGATE_DAY, os.R_OK):
+        fd = open(TMP_AGGREGATE_DAY)
+        data = json.load(fd)
+        fd.close()
+
+        data['queries'] = queries + data['queries']
+        with open(TMP_AGGREGATE_DAY, 'w') as f:
+            json.dump(data, f, default=str)
+
+def write_fresh_data():
+    data = {}
+    data['day'] = str(datetime.datetime.now().date())
+    data['queries'] = 0
+
+    ipam_entry = {}
+    ipam_entry['ipv4'] = 0
+    ipam_entry['ipv6'] = 0
+    ipam_entry['total'] = 0
+    data['ipam_day'] = ipam_entry
+
+    with open(TMP_AGGREGATE_DAY, 'w') as f:
+        json.dump(data, f, default=str)
+    
+# Calculate total queries in a day across grid
+def calc_aggr_day():
+    try:
+        # Check if time is midnight local time.
+        # Adding 6 minutes delta time to accomodate the five minute time interval of running simpack
+        start = datetime.time(0, 0, 0)
+        end = datetime.time(0, 6, 0)
+        current = datetime.datetime.now().time()
+        if time_in_range(start, end, current):
+            # If aggregate file is present
+            if os.access(TMP_AGGREGATE_DAY, os.R_OK):
+                # Read date and compare with current date
+                fd = open(TMP_AGGREGATE_DAY)
+                data = json.load(fd)
+                fd.close()
+                if data['day'] == str(datetime.datetime.now().date()):
+                    # Started calculating aggregate already for current date
+                    ilog.log("Started collecting queries for the day %s " % str(data['day']))
+                else:
+                    # Midnight of next day is reached. Populate the aggrgate file for this day.
+                    # Populate the IPAM count based on unique IP text files
+                    write_ipam_data_day(True)
+                    # Copy the file to final file
+                    ret = cu.iexec(['/bin/cp', TMP_AGGREGATE_DAY, AGGREGATE_DAY])
+                    if ret != 0:
+                        ilog.log("Failed to copy tmp_aggregate_day to aggregate_day", ret)
+                    # Clean-up temporary files
+                    cu.rm_rf(TMP_AGGREGATE_DAY)
+
+                    # Create fresh data for current date
+                    write_fresh_data()
+            else:
+                # Create fresh data
+                write_fresh_data()
+        else:
+            if not os.access(TMP_AGGREGATE_DAY, os.R_OK):
+                # Simpack aggregate collection not started at midnight. Starting collection from current time to midnight
+                write_fresh_data()
+    except Exception as e:
+        ilog.log("Exception occurred during aggregate day data %s" %str(e))
+        
+# This is the default mode.
+# This mode is applicable on members as well as GM
+def collect_mode(collect_ipam=False):
+    ilog.debug ("Default mode")
+    ts = calendar.timegm(time.gmtime())
+
+    pnode_id = ou.get_my_pnode_id()
+    # 1. Parse and sync named stat
+    if check_license(oi.IB_LICENSE_TYPE_DNS):
+        of = parse_named_stat(ts, pnode_id)
+        if of != None:
+            rsync_files(of)
+
+    # 2. Parse and sync dhcp stat
+    if check_license(oi.IB_LICENSE_TYPE_DHCP):
+        # dhcpv4 and dhcpv6 data will be combined in same file
+        of = parse_dhcp_stat(ts, pnode_id)
+        if of != None:
+            rsync_files(of)
+
+    # 3. Collect IPAM Data
+    # IPAM data collected on GM, so no need to sync.
+    if collect_ipam:
+        get_ipam_data(ts)
+    
+        # 4. Calculate total queries in a day across grid
+        calc_aggr_day()
+        
+
+# 'merge' mode runs only on GM
+def merge_mode():
+    ilog.debug ("Merge mode")
+    # Merge dns query data files
+    merge_files("query")
+
+    # Merge lease data files
+    merge_files("lease")
+
+# clean_up_stale_files removes the simpack qps/lease result files
+# of members which is not running
+def clean_up_stale_files(active_members,pattern):
+    files_path = os.path.join(SIMPACK_DIR, pattern)
+    files = glob.glob(files_path)
+
+    for f in files:
+        pnode_id = f.split("_")[1]
+        if pnode_id in active_members:
+            #Skip removal of active member result files
+            continue
+        else:
+            #Remove stale member result files
+            ilog.log(' Stale member file to be removed: %s' %f)
+            cu.rm_rf(f)
+
+# get_active_members identifies the list of DNS and DHCP service enabled active members
+def get_active_members():
+
+    dns_active_members = []
+    dhcp_active_members = []
+    db = onedb.Db()
+    with db.begin(onedb.RO) as txn:
+        # get the list of active member pnode id which is running
+        pnodes = db.call('?one.physical_node', factory=onedb.todict)
+        for node in pnodes:
+            pnode_id = node['physical_oid']
+            pnode_status = ou.get_pnode_status(node['physical_oid'])
+            if pnode_status == "Running":
+                index = int(node['virtual_node'])
+                vnode_obj = db.call('?one.virtual_node',{'virtual_oid' : index }, single = True)
+                if vnode_obj is not None:
+                    vnode_id = int(vnode_obj['virtual_oid'])
+
+                    # Check for HA active/passive members, this check removes stale file during failover scenario
+                    if vnode_obj['ha_enabled']:
+                        if int(vnode_obj['active_position']) != int(node['position']):
+                            # For passive member DHCP/DNS service check is not required
+                            # And not include this pnode id to the active dns/dhcp members list
+                            continue
+
+                    #Additional check to confirm whether DNS service enabled for the current member
+                    member_dns_object = db.call('?dns.member_dns_properties',
+                        {'virtual_node' : vnode_id}, single = True)
+                    if member_dns_object is not None:
+                        service_enabled = bool(member_dns_object['service_enabled'])
+                        if (service_enabled):
+                            dns_active_members.append(pnode_id)
+
+                    #Additional check to confirm whether DHCP service enabled for the current member
+                    member_dhcp_object = db.call('?dns.member_dhcp_properties',
+                        {'virtual_node' : vnode_id}, single = True)
+                    if member_dhcp_object is not None:
+                        service_enabled = bool(member_dhcp_object['service_enabled'])
+                        lan2_service_enabled = bool(member_dhcp_object['service_enabled_on_lan2'])
+                        if (service_enabled or lan2_service_enabled):
+                            dhcp_active_members.append(pnode_id)
+                        else:
+                            v6_service_enabled = bool(member_dhcp_object['v6_service_enable'])
+                            lan2_v6_service_enabled = bool(member_dhcp_object['v6_service_enabled_on_lan2'])
+                            if (v6_service_enabled or lan2_v6_service_enabled):
+                                dhcp_active_members.append(pnode_id)
+
+
+    ilog.debug('dns active members pnode id %s' %dns_active_members)
+    ilog.debug('dhcp active members pnode id %s' %dhcp_active_members)
+    clean_up_stale_files(dns_active_members,"resultquery_*")
+    clean_up_stale_files(dhcp_active_members,"resultlease_*")
+
+# 'calculate' mode run only on GM
+def calculate_mode():
+    ilog.debug ("Calculate mode")
+
+    # This func will identify active members and removes the stale result query/lease file
+    # based on DNS/DHCP service status
+    get_active_members()
+
+    # Use timestamp to generate unique filename
+    # Each invocation of this script will create a new unique file.
+    file_ts = calendar.timegm(time.gmtime())
+    data_file = os.path.join (SIMPACK_DIR, SIMPACK_DATA_FILE)
+    data_file += "." + str(file_ts)
+
+    # Remove temp file if it exists
+    if os.access(SIMPACK_DATA_FILE_TMP, os.R_OK):
+        cu.rm_rf(SIMPACK_DATA_FILE_TMP)
+
+    # These function will write data to SIMPACK_DATA_FILE_TMP
+    prepare_qps_result()
+    prepare_lps_result()
+    prepare_ipam_result()
+    
+    # Write the ipam counts to temporary aggregate file every fifteen mins
+    if os.access(TMP_AGGREGATE_DAY, os.R_OK):
+        write_ipam_data_day(False)
+
+    # Rename temp file
+    if os.access(SIMPACK_DATA_FILE_TMP, os.R_OK):
+        try:
+            os.rename(SIMPACK_DATA_FILE_TMP, data_file)
+        except Exception as e:
+            ilog.log("Exception occurred while renaming %d" %(e))
+    else:
+        ilog.log("%s file not found" % (SIMPACK_DATA_FILE_TMP))
+
+# Performs all taks required at member
+def member_node(mode):
+    # Member can run only collect (default) mode
+    if mode is not None:
+        return
+
+    ilog.debug("Member node")
+    # TODO: Get VIP
+    # Execute only on active member
+    if ou.node_is_active():
+        collect_mode()
+
+# Performs all taks required at master (GM)
+# Master node runs collect mode and merge/calculate mode
+# There are chances that both mode run at the same time
+# Hence introduced locks to serialize the collection and merge/calculate
+def master_node(mode):
+    ilog.debug("Master node")
+
+    simpack_lock = InheritedFileLock('/tmp/simpack.lock')
+    # Collect DNS query and lease data from GM as well
+    if mode == None:
+        simpack_lock.acquire_lock()
+        collect_mode(True)
+        simpack_lock.release_lock()
+
+    # Merge all relevant files
+    if mode == "merge":
+        simpack_lock.acquire_lock()
+        merge_mode()
+
+    #To combine modes, remove these checks
+    #if mode == "calculate":
+        calculate_mode()
+        simpack_lock.release_lock()
+
+def check_create_dir():
+    if not os.path.exists(SIMPACK_DIR):
+        os.makedirs(SIMPACK_DIR, 0o644)
+        ilog.debug("%s directory created." % (SIMPACK_DIR))
+
+    if not os.path.exists(HEKA_DIR):
+        os.makedirs(HEKA_DIR, 0o644)
+        ilog.debug("%s directory created." % (HEKA_DIR))
+
+def main(mode):
+    is_active_master = clusterd.is_node_active_master()
+    ilog.debug("GM active node : %s", is_active_master)
+
+    # Run it only on GM
+    if (is_active_master):
+        check_create_dir()
+        master_node(mode)
+    else:
+        # Member runs only default mode.
+        # Ignore if some mode is passed.
+        # Run only on active node
+        if ou.node_is_active():
+            member_node(mode)
+
+MODES=[None, "merge", "calculate"]
+def is_valid_mode(mode):
+   if mode in MODES:
+       return True
+   else:
+       return False
+
+usage_msg = "usage: %s [-h] [-m <mode>]\n"\
+        "\t-h : print out this usage\n"\
+        "\t-m <mode> : run script in this mode\n"\
+        "\tavailable modes default, merge, calculate\n"\
+        "\tnot specifying any mode is default mode\n"
+
+PROGNAME = '/infoblox/one/bin/simpack'
+def print_usage(msg=None):
+    if msg:
+        print ('%s: %s' % (PROGNAME, msg))
+    print (usage_msg % PROGNAME)
+    sys.exit(1)
+
+if __name__ == "__main__":
+    mode = None
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 'hm:')
+        if args:
+            print_usage('argument unexpected')
+        for opt, value in opts:
+            if opt == '-m':
+                mode = value
+            if opt == '-h':
+                print_usage()
+    except getopt.error as msg:
+        print_usage(msg)
+
+    # Run this script only when Heka is opted
+    if is_valid_mode(mode) and is_heka_enabled():
+        main(mode)

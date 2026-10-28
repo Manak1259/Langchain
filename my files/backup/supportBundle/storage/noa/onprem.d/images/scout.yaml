@@ -1,0 +1,34 @@
+version: "3.2"
+services:
+  scout:
+    deploy:
+      placement:
+        constraints:
+          - com.infoblox.auth.group == ib-nios-host
+    image: infobloxcto/atlas.onprem.scout:v1.4.1
+    labels:
+      com.infoblox.maintainer: "infoblox"
+      com.infoblox.app.version: v1.2.9
+    restart: always
+    command: [
+      "--config.file",
+      /etc/onprem.d/params.json,
+      "--check.frequency",
+      5m,
+      "--log.level",
+      "debug"
+    ]
+    environment:
+      - DEPLOYMENT_TYPE
+      - CONFIG_FILE
+      - BIND_VOL_ACCESS_KEY
+      - BIND_VOL_HOST_ROOT
+    volumes:
+      - ${BIND_VOL_ACCESS_KEY:-/etc/onprem.d}:/etc/onprem.d
+      - ${BIND_VOL_HOST_ROOT:-/}:/host-root:ro
+    logging:
+      driver: json-file
+      options:
+        max-file: "2"
+        max-size: 1m
+    network_mode: "host"

@@ -1,0 +1,814 @@
+Check all 9 devices on the system, include some ones no data availabe
+NIC dev:docker0 ---
+No stats available for device not setup, or virtual device.
+no stats available
+NIC dev:eth0 ---
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 1
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 2
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 3
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Rx Queue#: 0
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 1
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 2
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 3
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     tx timeout count: 0
+NIC dev:eth1 ---
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 12816
+       TSO bytes tx: 32420126
+       ucast pkts tx: 24532
+       ucast bytes tx: 34620486
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 4269
+       bcast bytes tx: 179298
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 1
+       TSO pkts tx: 37440
+       TSO bytes tx: 100281536
+       ucast pkts tx: 50278
+       ucast bytes tx: 102993582
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 11541
+       bcast bytes tx: 484722
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 2
+       TSO pkts tx: 12425
+       TSO bytes tx: 31389050
+       ucast pkts tx: 25264
+       ucast bytes tx: 33684953
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 3731
+       bcast bytes tx: 156702
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 3
+       TSO pkts tx: 12947
+       TSO bytes tx: 32689784
+       ucast pkts tx: 25038
+       ucast bytes tx: 34789202
+       mcast pkts tx: 1
+       mcast bytes tx: 78
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Rx Queue#: 0
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 26924
+       ucast bytes rx: 3300240
+       mcast pkts rx: 172
+       mcast bytes rx: 14792
+       bcast pkts rx: 1901671
+       bcast bytes rx: 114100260
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 1
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 28607
+       ucast bytes rx: 3464369
+       mcast pkts rx: 3968
+       mcast bytes rx: 450880
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 2
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 26797
+       ucast bytes rx: 3376484
+       mcast pkts rx: 476
+       mcast bytes rx: 40936
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 3
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 48236
+       ucast bytes rx: 4627103
+       mcast pkts rx: 1727
+       mcast bytes rx: 148522
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     tx timeout count: 0
+NIC dev:eth2 ---
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 1
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 2
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 3
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Rx Queue#: 0
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 1
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 2
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 3
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     tx timeout count: 0
+NIC dev:eth3 ---
+NIC statistics:
+     Tx Queue#: 0
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 1
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 2
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Tx Queue#: 3
+       TSO pkts tx: 0
+       TSO bytes tx: 0
+       ucast pkts tx: 0
+       ucast bytes tx: 0
+       mcast pkts tx: 0
+       mcast bytes tx: 0
+       bcast pkts tx: 0
+       bcast bytes tx: 0
+       pkts tx err: 0
+       pkts tx discard: 0
+       drv dropped tx total: 0
+          too many frags: 0
+          giant hdr: 0
+          hdr err: 0
+          tso: 0
+       ring full: 0
+       pkts linearized: 0
+       hdr cloned: 0
+       giant hdr: 0
+     Rx Queue#: 0
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 1
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 2
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     Rx Queue#: 3
+       LRO pkts rx: 0
+       LRO byte rx: 0
+       ucast pkts rx: 0
+       ucast bytes rx: 0
+       mcast pkts rx: 0
+       mcast bytes rx: 0
+       bcast pkts rx: 0
+       bcast bytes rx: 0
+       pkts rx OOB: 0
+       pkts rx err: 0
+       drv dropped rx total: 0
+          err: 0
+          fcs: 0
+       rx buf alloc fail: 0
+     tx timeout count: 0
+NIC dev:ip6tnl0 ---
+No stats available for device not setup, or virtual device.
+Cannot get driver information: Operation not supported
+NIC dev:lo ---
+No stats available for device not setup, or virtual device.
+Cannot get driver information: Operation not supported
+NIC dev:sit0 ---
+No stats available for device not setup, or virtual device.
+Cannot get driver information: Operation not supported
+NIC dev:tunl0 ---
+No stats available for device not setup, or virtual device.
+Cannot get driver information: Operation not supported
+ 
+check netstat
+Kernel Interface table
+Iface       MTU Met    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+docker0    1500   0        0      0      0      0        0      0      0      0 BMU
+eth1       1500   0  2038578      0   3917      0   144654      0      0      0 BMRU
+lo        65536   0  5809201      0      0      0  5809201      0      0      0 LRU
+ 
+Collect all from system /sys/class/net/*/statistics 
+/sys/class/net/docker0/statistics/rx_nohandler:0
+/sys/class/net/docker0/statistics/tx_fifo_errors:0
+/sys/class/net/docker0/statistics/rx_frame_errors:0
+/sys/class/net/docker0/statistics/rx_missed_errors:0
+/sys/class/net/docker0/statistics/collisions:0
+/sys/class/net/docker0/statistics/tx_aborted_errors:0
+/sys/class/net/docker0/statistics/tx_dropped:0
+/sys/class/net/docker0/statistics/tx_carrier_errors:0
+/sys/class/net/docker0/statistics/rx_crc_errors:0
+/sys/class/net/docker0/statistics/tx_errors:0
+/sys/class/net/docker0/statistics/tx_packets:0
+/sys/class/net/docker0/statistics/rx_compressed:0
+/sys/class/net/docker0/statistics/rx_fifo_errors:0
+/sys/class/net/docker0/statistics/tx_bytes:0
+/sys/class/net/docker0/statistics/rx_over_errors:0
+/sys/class/net/docker0/statistics/rx_length_errors:0
+/sys/class/net/docker0/statistics/rx_dropped:0
+/sys/class/net/docker0/statistics/rx_errors:0
+/sys/class/net/docker0/statistics/multicast:0
+/sys/class/net/docker0/statistics/tx_window_errors:0
+/sys/class/net/docker0/statistics/rx_packets:0
+/sys/class/net/docker0/statistics/tx_heartbeat_errors:0
+/sys/class/net/docker0/statistics/rx_bytes:0
+/sys/class/net/docker0/statistics/tx_compressed:0
+/sys/class/net/eth0/statistics/rx_nohandler:0
+/sys/class/net/eth0/statistics/tx_fifo_errors:0
+/sys/class/net/eth0/statistics/rx_frame_errors:0
+/sys/class/net/eth0/statistics/rx_missed_errors:0
+/sys/class/net/eth0/statistics/collisions:0
+/sys/class/net/eth0/statistics/tx_aborted_errors:0
+/sys/class/net/eth0/statistics/tx_dropped:0
+/sys/class/net/eth0/statistics/tx_carrier_errors:0
+/sys/class/net/eth0/statistics/rx_crc_errors:0
+/sys/class/net/eth0/statistics/tx_errors:0
+/sys/class/net/eth0/statistics/tx_packets:0
+/sys/class/net/eth0/statistics/rx_compressed:0
+/sys/class/net/eth0/statistics/rx_fifo_errors:0
+/sys/class/net/eth0/statistics/tx_bytes:0
+/sys/class/net/eth0/statistics/rx_over_errors:0
+/sys/class/net/eth0/statistics/rx_length_errors:0
+/sys/class/net/eth0/statistics/rx_dropped:9
+/sys/class/net/eth0/statistics/rx_errors:0
+/sys/class/net/eth0/statistics/multicast:0
+/sys/class/net/eth0/statistics/tx_window_errors:0
+/sys/class/net/eth0/statistics/rx_packets:0
+/sys/class/net/eth0/statistics/tx_heartbeat_errors:0
+/sys/class/net/eth0/statistics/rx_bytes:0
+/sys/class/net/eth0/statistics/tx_compressed:0
+/sys/class/net/eth1/statistics/rx_nohandler:0
+/sys/class/net/eth1/statistics/tx_fifo_errors:0
+/sys/class/net/eth1/statistics/rx_frame_errors:0
+/sys/class/net/eth1/statistics/rx_missed_errors:0
+/sys/class/net/eth1/statistics/collisions:0
+/sys/class/net/eth1/statistics/tx_aborted_errors:0
+/sys/class/net/eth1/statistics/tx_dropped:0
+/sys/class/net/eth1/statistics/tx_carrier_errors:0
+/sys/class/net/eth1/statistics/rx_crc_errors:0
+/sys/class/net/eth1/statistics/tx_errors:0
+/sys/class/net/eth1/statistics/tx_packets:144654
+/sys/class/net/eth1/statistics/rx_compressed:0
+/sys/class/net/eth1/statistics/rx_fifo_errors:0
+/sys/class/net/eth1/statistics/tx_bytes:206909023
+/sys/class/net/eth1/statistics/rx_over_errors:0
+/sys/class/net/eth1/statistics/rx_length_errors:0
+/sys/class/net/eth1/statistics/rx_dropped:3917
+/sys/class/net/eth1/statistics/rx_errors:0
+/sys/class/net/eth1/statistics/multicast:6343
+/sys/class/net/eth1/statistics/tx_window_errors:0
+/sys/class/net/eth1/statistics/rx_packets:2038578
+/sys/class/net/eth1/statistics/tx_heartbeat_errors:0
+/sys/class/net/eth1/statistics/rx_bytes:129523586
+/sys/class/net/eth1/statistics/tx_compressed:0
+/sys/class/net/eth2/statistics/rx_nohandler:0
+/sys/class/net/eth2/statistics/tx_fifo_errors:0
+/sys/class/net/eth2/statistics/rx_frame_errors:0
+/sys/class/net/eth2/statistics/rx_missed_errors:0
+/sys/class/net/eth2/statistics/collisions:0
+/sys/class/net/eth2/statistics/tx_aborted_errors:0
+/sys/class/net/eth2/statistics/tx_dropped:0
+/sys/class/net/eth2/statistics/tx_carrier_errors:0
+/sys/class/net/eth2/statistics/rx_crc_errors:0
+/sys/class/net/eth2/statistics/tx_errors:0
+/sys/class/net/eth2/statistics/tx_packets:0
+/sys/class/net/eth2/statistics/rx_compressed:0
+/sys/class/net/eth2/statistics/rx_fifo_errors:0
+/sys/class/net/eth2/statistics/tx_bytes:0
+/sys/class/net/eth2/statistics/rx_over_errors:0
+/sys/class/net/eth2/statistics/rx_length_errors:0
+/sys/class/net/eth2/statistics/rx_dropped:3
+/sys/class/net/eth2/statistics/rx_errors:0
+/sys/class/net/eth2/statistics/multicast:0
+/sys/class/net/eth2/statistics/tx_window_errors:0
+/sys/class/net/eth2/statistics/rx_packets:0
+/sys/class/net/eth2/statistics/tx_heartbeat_errors:0
+/sys/class/net/eth2/statistics/rx_bytes:0
+/sys/class/net/eth2/statistics/tx_compressed:0
+/sys/class/net/eth3/statistics/rx_nohandler:0
+/sys/class/net/eth3/statistics/tx_fifo_errors:0
+/sys/class/net/eth3/statistics/rx_frame_errors:0
+/sys/class/net/eth3/statistics/rx_missed_errors:0
+/sys/class/net/eth3/statistics/collisions:0
+/sys/class/net/eth3/statistics/tx_aborted_errors:0
+/sys/class/net/eth3/statistics/tx_dropped:0
+/sys/class/net/eth3/statistics/tx_carrier_errors:0
+/sys/class/net/eth3/statistics/rx_crc_errors:0
+/sys/class/net/eth3/statistics/tx_errors:0
+/sys/class/net/eth3/statistics/tx_packets:0
+/sys/class/net/eth3/statistics/rx_compressed:0
+/sys/class/net/eth3/statistics/rx_fifo_errors:0
+/sys/class/net/eth3/statistics/tx_bytes:0
+/sys/class/net/eth3/statistics/rx_over_errors:0
+/sys/class/net/eth3/statistics/rx_length_errors:0
+/sys/class/net/eth3/statistics/rx_dropped:0
+/sys/class/net/eth3/statistics/rx_errors:0
+/sys/class/net/eth3/statistics/multicast:0
+/sys/class/net/eth3/statistics/tx_window_errors:0
+/sys/class/net/eth3/statistics/rx_packets:0
+/sys/class/net/eth3/statistics/tx_heartbeat_errors:0
+/sys/class/net/eth3/statistics/rx_bytes:0
+/sys/class/net/eth3/statistics/tx_compressed:0
+/sys/class/net/ip6tnl0/statistics/rx_nohandler:0
+/sys/class/net/ip6tnl0/statistics/tx_fifo_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_frame_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_missed_errors:0
+/sys/class/net/ip6tnl0/statistics/collisions:0
+/sys/class/net/ip6tnl0/statistics/tx_aborted_errors:0
+/sys/class/net/ip6tnl0/statistics/tx_dropped:0
+/sys/class/net/ip6tnl0/statistics/tx_carrier_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_crc_errors:0
+/sys/class/net/ip6tnl0/statistics/tx_errors:0
+/sys/class/net/ip6tnl0/statistics/tx_packets:0
+/sys/class/net/ip6tnl0/statistics/rx_compressed:0
+/sys/class/net/ip6tnl0/statistics/rx_fifo_errors:0
+/sys/class/net/ip6tnl0/statistics/tx_bytes:0
+/sys/class/net/ip6tnl0/statistics/rx_over_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_length_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_dropped:0
+/sys/class/net/ip6tnl0/statistics/rx_errors:0
+/sys/class/net/ip6tnl0/statistics/multicast:0
+/sys/class/net/ip6tnl0/statistics/tx_window_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_packets:0
+/sys/class/net/ip6tnl0/statistics/tx_heartbeat_errors:0
+/sys/class/net/ip6tnl0/statistics/rx_bytes:0
+/sys/class/net/ip6tnl0/statistics/tx_compressed:0
+/sys/class/net/lo/statistics/rx_nohandler:0
+/sys/class/net/lo/statistics/tx_fifo_errors:0
+/sys/class/net/lo/statistics/rx_frame_errors:0
+/sys/class/net/lo/statistics/rx_missed_errors:0
+/sys/class/net/lo/statistics/collisions:0
+/sys/class/net/lo/statistics/tx_aborted_errors:0
+/sys/class/net/lo/statistics/tx_dropped:0
+/sys/class/net/lo/statistics/tx_carrier_errors:0
+/sys/class/net/lo/statistics/rx_crc_errors:0
+/sys/class/net/lo/statistics/tx_errors:0
+/sys/class/net/lo/statistics/tx_packets:5809201
+/sys/class/net/lo/statistics/rx_compressed:0
+/sys/class/net/lo/statistics/rx_fifo_errors:0
+/sys/class/net/lo/statistics/tx_bytes:1194543775
+/sys/class/net/lo/statistics/rx_over_errors:0
+/sys/class/net/lo/statistics/rx_length_errors:0
+/sys/class/net/lo/statistics/rx_dropped:0
+/sys/class/net/lo/statistics/rx_errors:0
+/sys/class/net/lo/statistics/multicast:0
+/sys/class/net/lo/statistics/tx_window_errors:0
+/sys/class/net/lo/statistics/rx_packets:5809201
+/sys/class/net/lo/statistics/tx_heartbeat_errors:0
+/sys/class/net/lo/statistics/rx_bytes:1194543775
+/sys/class/net/lo/statistics/tx_compressed:0
+/sys/class/net/sit0/statistics/rx_nohandler:0
+/sys/class/net/sit0/statistics/tx_fifo_errors:0
+/sys/class/net/sit0/statistics/rx_frame_errors:0
+/sys/class/net/sit0/statistics/rx_missed_errors:0
+/sys/class/net/sit0/statistics/collisions:0
+/sys/class/net/sit0/statistics/tx_aborted_errors:0
+/sys/class/net/sit0/statistics/tx_dropped:0
+/sys/class/net/sit0/statistics/tx_carrier_errors:0
+/sys/class/net/sit0/statistics/rx_crc_errors:0
+/sys/class/net/sit0/statistics/tx_errors:0
+/sys/class/net/sit0/statistics/tx_packets:0
+/sys/class/net/sit0/statistics/rx_compressed:0
+/sys/class/net/sit0/statistics/rx_fifo_errors:0
+/sys/class/net/sit0/statistics/tx_bytes:0
+/sys/class/net/sit0/statistics/rx_over_errors:0
+/sys/class/net/sit0/statistics/rx_length_errors:0
+/sys/class/net/sit0/statistics/rx_dropped:0
+/sys/class/net/sit0/statistics/rx_errors:0
+/sys/class/net/sit0/statistics/multicast:0
+/sys/class/net/sit0/statistics/tx_window_errors:0
+/sys/class/net/sit0/statistics/rx_packets:0
+/sys/class/net/sit0/statistics/tx_heartbeat_errors:0
+/sys/class/net/sit0/statistics/rx_bytes:0
+/sys/class/net/sit0/statistics/tx_compressed:0
+/sys/class/net/tunl0/statistics/rx_nohandler:0
+/sys/class/net/tunl0/statistics/tx_fifo_errors:0
+/sys/class/net/tunl0/statistics/rx_frame_errors:0
+/sys/class/net/tunl0/statistics/rx_missed_errors:0
+/sys/class/net/tunl0/statistics/collisions:0
+/sys/class/net/tunl0/statistics/tx_aborted_errors:0
+/sys/class/net/tunl0/statistics/tx_dropped:0
+/sys/class/net/tunl0/statistics/tx_carrier_errors:0
+/sys/class/net/tunl0/statistics/rx_crc_errors:0
+/sys/class/net/tunl0/statistics/tx_errors:0
+/sys/class/net/tunl0/statistics/tx_packets:0
+/sys/class/net/tunl0/statistics/rx_compressed:0
+/sys/class/net/tunl0/statistics/rx_fifo_errors:0
+/sys/class/net/tunl0/statistics/tx_bytes:0
+/sys/class/net/tunl0/statistics/rx_over_errors:0
+/sys/class/net/tunl0/statistics/rx_length_errors:0
+/sys/class/net/tunl0/statistics/rx_dropped:0
+/sys/class/net/tunl0/statistics/rx_errors:0
+/sys/class/net/tunl0/statistics/multicast:0
+/sys/class/net/tunl0/statistics/tx_window_errors:0
+/sys/class/net/tunl0/statistics/rx_packets:0
+/sys/class/net/tunl0/statistics/tx_heartbeat_errors:0
+/sys/class/net/tunl0/statistics/rx_bytes:0
+/sys/class/net/tunl0/statistics/tx_compressed:0
+Complete collection

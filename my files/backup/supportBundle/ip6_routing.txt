@@ -1,0 +1,17 @@
+Rules:
+
+0:	from all lookup local 
+32766:	from all lookup main 
+
+-----------------------------------
+
+Route Tables:
+
+Table local:
+local ::1 dev lo proto unspec metric 0 pref medium
+local fe80::20c:29ff:feae:8f4e dev lo proto unspec metric 0 pref medium
+ff00::/8 dev eth1 metric 256 pref medium
+
+Table main:
+fe80::/64 dev eth1 proto kernel metric 256 pref medium
+

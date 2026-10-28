@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test Report</title>
+    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function find_all(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sort_column(elem) {
+    toggle_sort_states(elem);
+    var colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    var key;
+    if (elem.classList.contains('numeric')) {
+        key = key_num;
+    } else if (elem.classList.contains('result')) {
+        key = key_result;
+    } else {
+        key = key_alpha;
+    }
+    sort_table(elem, key(colIndex));
+}
+
+function show_all_extras() {
+    find_all('.col-result').forEach(show_extras);
+}
+
+function hide_all_extras() {
+    find_all('.col-result').forEach(hide_extras);
+}
+
+function show_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.remove("collapsed");
+    expandcollapse.classList.remove("expander");
+    expandcollapse.classList.add("collapser");
+}
+
+function hide_extras(colresult_elem) {
+    var extras = colresult_elem.parentNode.nextElementSibling;
+    var expandcollapse = colresult_elem.firstElementChild;
+    extras.classList.add("collapsed");
+    expandcollapse.classList.remove("collapser");
+    expandcollapse.classList.add("expander");
+}
+
+function show_filters() {
+    var filter_items = document.getElementsByClassName('filter');
+    for (var i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
+}
+
+function add_collapse() {
+    // Add links for show/hide all
+    var resulttable = find('table#results-table');
+    var showhideall = document.createElement("p");
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
+        var extras = elem.parentNode.nextElementSibling;
+        var expandcollapse = document.createElement("span");
+        if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add("collapsed");
+            expandcollapse.classList.add("expander");
+        } else {
+            expandcollapse.classList.add("collapser");
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener("click", function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains("collapsed")) {
+                show_extras(event.currentTarget);
+            } else {
+                hide_extras(event.currentTarget);
+            }
+        });
+    })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () {
+    reset_sort_headers();
+
+    add_collapse();
+
+    show_filters();
+
+    sort_column(find('.initial-sort'));
+
+    find_all('.sortable').forEach(function(elem) {
+        elem.addEventListener("click",
+                              function(event) {
+                                  sort_column(elem);
+                              }, false)
+    });
+
+};
+
+function sort_table(clicked, key_func) {
+    var rows = find_all('.results-table-row');
+    var reversed = !clicked.classList.contains('asc');
+    var sorted_rows = sort(rows, key_func, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    var thead = document.getElementById("results-table-head");
+    document.getElementById('results-table').remove();
+    var parent = document.createElement("table");
+    parent.id = "results-table";
+    parent.appendChild(thead);
+    sorted_rows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName("BODY")[0].appendChild(parent);
+}
+
+function sort(items, key_func, reversed) {
+    var sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
+    });
+
+    sort_array.sort(function(a, b) {
+        var key_a = a[0];
+        var key_b = b[0];
+
+        if (key_a == key_b) return 0;
+
+        if (reversed) {
+            return (key_a < key_b ? 1 : -1);
+        } else {
+            return (key_a > key_b ? 1 : -1);
+        }
+    });
+
+    return sort_array.map(function(item) {
+        var index = item[1];
+        return items[index];
+    });
+}
+
+function key_alpha(col_index) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+    };
+}
+
+function key_num(col_index) {
+    return function(elem) {
+        return parseFloat(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function key_result(col_index) {
+    return function(elem) {
+        var strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+                       'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+    };
+}
+
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    find_all('.sortable').forEach(function(elem) {
+        var icon = document.createElement("div");
+        icon.className = "sort-icon";
+        icon.textContent = "vvv";
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove("desc", "active");
+        elem.classList.add("asc", "inactive");
+    });
+}
+
+function toggle_sort_states(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        reset_sort_headers();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function is_all_rows_hidden(value) {
+  return value.hidden == false;
+}
+
+function filter_table(elem) {
+    var outcome_att = "data-test-result";
+    var outcome = elem.getAttribute(outcome_att);
+    class_outcome = outcome + " results-table-row";
+    var outcome_rows = document.getElementsByClassName(class_outcome);
+
+    for(var i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
+    }
+
+    var rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    var all_rows_hidden = rows.length == 0 ? true : false;
+    var not_found_message = document.getElementById("not-found-message");
+    not_found_message.hidden = !all_rows_hidden;
+}
+</script>
+    <h1>report.html</h1>
+    <p>Report generated on 27-Mar-2024 at 08:51:00 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.22.1</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Packages</td>
+        <td>{&apos;py&apos;: &apos;1.8.0&apos;, &apos;pytest&apos;: &apos;3.0.4&apos;, &apos;pluggy&apos;: &apos;0.4.0&apos;}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Linux-4.8.13-100.fc23.x86_64-x86_64-with-fedora-23-Twenty_Three</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{&apos;html&apos;: &apos;1.22.1&apos;, &apos;metadata&apos;: &apos;1.3.0&apos;}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>2.7.11</td></tr></table>
+    <h2>Summary</h2>
+    <p>39 tests ran in 5.31 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">25 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">14 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable" col="name">Test</th>
+          <th class="sortable numeric" col="duration">Duration</th>
+          <th>Links</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_001_Create_validate_auth_zone</td>
+          <td class="col-duration">0.06</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_001_Create_validate_auth_zone&gt;<br/><br/>    @pytest.mark.run(order=1)<br/>    def test_001_Create_validate_auth_zone(self):<br/>        display_message("\n========================================================\n")<br/>        display_message("Creating an Authoratative zone")<br/>        display_message("\n========================================================\n")<br/>    <br/>        data = {"fqdn": config.grid1_master_zone,"grid_primary": [{"name": config.grid1_master_fqdn}, {"name": config.grid1_member1_fqdn}, {"name": config.grid1_member2_fqdn} ]}<br/>        response = ib_NIOS.wapi_request('POST', object_type="zone_auth", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        display_message(response)<br/>        if response[0]==400 or response[0]==401 or response[0]==404 or response[0]==500:<br/>            display_message("FAILURE: Create authoratative zone.")<br/>&gt;           assert False<br/><span class="error">E           AssertionError: assert False</span><br/><br/>NIOS_10242.py:56: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_015_validate_fqdn_sourceip_lan2ipmember</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_015_validate_fqdn_sourceip_lan2ipmember&gt;<br/><br/>    @pytest.mark.run(order=15)<br/>    def test_015_validate_fqdn_sourceip_lan2ipmember(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : config.grid1_master_zone,"source_ip": config.grid1_member1_lan2,"member": config.grid1_member1_fqdn}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>&gt;       response=json.loads(response)<br/><br/>NIOS_10242.py:337: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/lib64/python2.7/json/__init__.py:339: in loads<br/>    return _default_decoder.decode(s)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x7f7085d15350&gt;<br/>s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')<br/>_w = &lt;built-in method match of _sre.SRE_Pattern object at 0x7f7085d3c850&gt;<br/><br/>    def decode(self, s, _w=WHITESPACE.match):<br/>        """Return the Python representation of ``s`` (a ``str`` or ``unicode``<br/>            instance containing a JSON document)<br/>    <br/>            """<br/>&gt;       obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/><span class="error">E       TypeError: expected string or buffer</span><br/><br/>/usr/lib64/python2.7/json/decoder.py:364: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_018_validate_fqdn_sourceip_passivememberipha_halanipnameserver</td>
+          <td class="col-duration">0.14</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_018_validate_fqdn_sourceip_passivememberipha_halanipnameserver&gt;<br/><br/>    @pytest.mark.run(order=18)<br/>    def test_018_validate_fqdn_sourceip_passivememberipha_halanipnameserver(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : config.grid1_master_zone,"member": config.grid1_member2_fqdn,"name_server":config.grid1_member2_vip,"source_ip": config.grid1_member2_ha_passiveip}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        # response=json.loads(response)<br/>        print("manak")<br/>        # print(response[1])<br/>        response = response[1]<br/>        # print(type(response))<br/>    <br/>        display_message(response)<br/>        if "Source ip is not a valid interface on the queried member" in response:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn is executed with souce address as member's PassiveIP of HA member and member as Hostname of member and nameserver as HA LAN VIP")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn is Not executed with souce address as member's PassiveIP of HA member and member as Hostname of member and nameserver as HA LAN VIP")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:400: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_019_validate_fqdn_sourceip_mgmtmemberipha_halanipnameserver_recordtype_a</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_019_validate_fqdn_sourceip_mgmtmemberipha_halanipnameserver_recordtype_a&gt;<br/><br/>    @pytest.mark.run(order=19)<br/>    def test_019_validate_fqdn_sourceip_mgmtmemberipha_halanipnameserver_recordtype_a(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : config.grid1_master_zone,"member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_master_mgmt_vip, "record_type": "A"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>&gt;       response=json.loads(response)<br/><br/>NIOS_10242.py:409: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/lib64/python2.7/json/__init__.py:339: in loads<br/>    return _default_decoder.decode(s)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x7f7085d15350&gt;<br/>s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')<br/>_w = &lt;built-in method match of _sre.SRE_Pattern object at 0x7f7085d3c850&gt;<br/><br/>    def decode(self, s, _w=WHITESPACE.match):<br/>        """Return the Python representation of ``s`` (a ``str`` or ``unicode``<br/>            instance containing a JSON document)<br/>    <br/>            """<br/>&gt;       obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/><span class="error">E       TypeError: expected string or buffer</span><br/><br/>/usr/lib64/python2.7/json/decoder.py:364: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_020_validate_fqdn_sourceip_anyrecord</td>
+          <td class="col-duration">0.18</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_020_validate_fqdn_sourceip_anyrecord&gt;<br/><br/>    @pytest.mark.run(order=20)<br/>    def test_020_validate_fqdn_sourceip_anyrecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : ""+config.grid1_master_aaaa_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "ANY"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with AANY record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with AANY record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:434: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_021_validate_fqdn_sourceip_AAAArecord</td>
+          <td class="col-duration">0.20</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_021_validate_fqdn_sourceip_AAAArecord&gt;<br/><br/>    @pytest.mark.run(order=21)<br/>    def test_021_validate_fqdn_sourceip_AAAArecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" :  ""+config.grid1_master_aaaa_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "AAAA"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with AAAA record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with AAAA record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:451: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_022_validate_fqdn_sourceip_CNAMErecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_022_validate_fqdn_sourceip_CNAMErecord&gt;<br/><br/>    @pytest.mark.run(order=22)<br/>    def test_022_validate_fqdn_sourceip_CNAMErecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" :  ""+config.grid1_master_cname_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "CNAME"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with CNAME record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with CNAME record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:468: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_023_validate_fqdn_sourceip_DNAMErecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_023_validate_fqdn_sourceip_DNAMErecord&gt;<br/><br/>    @pytest.mark.run(order=23)<br/>    def test_023_validate_fqdn_sourceip_DNAMErecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" :  ""+config.grid1_master_dname_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "DNAME"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with DNAME record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with DNAME record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:485: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_024_validate_fqdn_sourceip_NAPTRrecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_024_validate_fqdn_sourceip_NAPTRrecord&gt;<br/><br/>    @pytest.mark.run(order=24)<br/>    def test_024_validate_fqdn_sourceip_NAPTRrecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" :  ""+config.grid1_master_naptr_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "NAPTR"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NAPTR record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NAPTR record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:503: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_025_validate_fqdn_sourceip_NSRrecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_025_validate_fqdn_sourceip_NSRrecord&gt;<br/><br/>    @pytest.mark.run(order=25)<br/>    def test_025_validate_fqdn_sourceip_NSRrecord(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" :  ""+config.grid1_master_ns_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"name_server":config.grid1_member1_vip,"source_ip": config.grid1_member1_mgmt_ip, "record_type": "NS"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>        if "status: NOERROR" in response["result_text"] and config.grid1_member1_mgmt_ip in response['source_address']:<br/>                display_message(response["result_text"])<br/>                display_message("SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NSR record type")<br/>                assert True<br/>        else:<br/>                display_message("FAILURE: fqdn field is Not executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NSR record type")<br/>&gt;               assert False<br/><span class="error">E               AssertionError: assert False</span><br/><br/>NIOS_10242.py:520: AssertionError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_035_validate_fqdn_sourceip_with_Invalid_ipaddress</td>
+          <td class="col-duration">0.03</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_035_validate_fqdn_sourceip_with_Invalid_ipaddress&gt;<br/><br/>    @pytest.mark.run(order=35)<br/>    def test_035_validate_fqdn_sourceip_with_Invalid_ipaddress(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        print(ref)<br/>        print(config.grid1_master_mgmt_vip)<br/>        data = {"fqdn" : ""+config.grid1_master_a_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn, "source_ip": "10.36.191"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=grid, params="?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        print(response)<br/>&gt;       response=json.loads(response[1])<br/><br/>NIOS_10242.py:691: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/lib64/python2.7/json/__init__.py:339: in loads<br/>    return _default_decoder.decode(s)<br/>/usr/lib64/python2.7/json/decoder.py:364: in decode<br/>    obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x7f7085d15350&gt;<br/>s = '&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;\n&lt;html&gt;&lt;head&gt;\n&lt;title&gt;400 Bad Request&lt;/title&gt;\n&lt;/head&gt;&lt;body&gt;\n&lt;h1&gt;Bad Request&lt;/h1&gt;\n&lt;p&gt;Your browser sent a request that this server could not understand.&lt;br /&gt;\n&lt;/p&gt;\n&lt;/body&gt;&lt;/html&gt;\n'<br/>idx = 0<br/><br/>    def raw_decode(self, s, idx=0):<br/>        """Decode a JSON document from ``s`` (a ``str`` or ``unicode``<br/>            beginning with a JSON document) and return a 2-tuple of the Python<br/>            representation and the index in ``s`` where the document ended.<br/>    <br/>            This can be used to decode a JSON document from a string that may<br/>            have extraneous data at the end.<br/>    <br/>            """<br/>        try:<br/>            obj, end = self.scan_once(s, idx)<br/>        except StopIteration:<br/>&gt;           raise ValueError("No JSON object could be decoded")<br/><span class="error">E           ValueError: No JSON object could be decoded</span><br/><br/>/usr/lib64/python2.7/json/decoder.py:382: ValueError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_037_validate_fqdn_Anycast_ipv4_ipv6</td>
+          <td class="col-duration">0.07</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_037_validate_fqdn_Anycast_ipv4_ipv6&gt;<br/><br/>    @pytest.mark.run(order=37)<br/>    def test_037_validate_fqdn_Anycast_ipv4_ipv6(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : ""+config.grid1_master_a_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn,"source_ip":config.grid1_member1_anycast_ipv4,"name_server": config.grid1_member1_vip,"record_type":"A"}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>&gt;       response=json.loads(response)<br/><br/>NIOS_10242.py:727: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/lib64/python2.7/json/__init__.py:339: in loads<br/>    return _default_decoder.decode(s)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x7f7085d15350&gt;<br/>s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')<br/>_w = &lt;built-in method match of _sre.SRE_Pattern object at 0x7f7085d3c850&gt;<br/><br/>    def decode(self, s, _w=WHITESPACE.match):<br/>        """Return the Python representation of ``s`` (a ``str`` or ``unicode``<br/>            instance containing a JSON document)<br/>    <br/>            """<br/>&gt;       obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/><span class="error">E       TypeError: expected string or buffer</span><br/><br/>/usr/lib64/python2.7/json/decoder.py:364: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_038_validate_fqdn_sourceip_mgmt_GMC</td>
+          <td class="col-duration">0.06</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_038_validate_fqdn_sourceip_mgmt_GMC&gt;<br/><br/>    @pytest.mark.run(order=38)<br/>    def test_038_validate_fqdn_sourceip_mgmt_GMC(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : config.grid1_master_zone,"source_ip": config.grid1_member1_mgmt_ip}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>&gt;       response=json.loads(response)<br/><br/>NIOS_10242.py:756: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/usr/lib64/python2.7/json/__init__.py:339: in loads<br/>    return _default_decoder.decode(s)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x7f7085d15350&gt;<br/>s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')<br/>_w = &lt;built-in method match of _sre.SRE_Pattern object at 0x7f7085d3c850&gt;<br/><br/>    def decode(self, s, _w=WHITESPACE.match):<br/>        """Return the Python representation of ``s`` (a ``str`` or ``unicode``<br/>            instance containing a JSON document)<br/>    <br/>            """<br/>&gt;       obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/><span class="error">E       TypeError: expected string or buffer</span><br/><br/>/usr/lib64/python2.7/json/decoder.py:364: TypeError<br/></div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_039_validate_fqdn_disabled_sourceip</td>
+          <td class="col-duration">0.10</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;NIOS_10242.NIOS_10242 testMethod=test_039_validate_fqdn_disabled_sourceip&gt;<br/><br/>    @pytest.mark.run(order=39)<br/>    def test_039_validate_fqdn_disabled_sourceip(self):<br/>        logging.info("Create grid_primary with required fields")<br/>        grid =  ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)<br/>        ref = json.loads(grid)[0]['_ref']<br/>        data = {"fqdn" : ""+config.grid1_master_a_record+"."+config.grid1_master_zone+"","member": config.grid1_member1_fqdn, "source_ip": config.grid1_member1_mgmt_ip}<br/>        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member", fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)<br/>        response=json.loads(response)<br/>        display_message(response)<br/>&gt;       if "Source ip is not a valid interface on the queried member" in response["text"]:<br/><span class="error">E       KeyError: 'text'</span><br/><br/>NIOS_10242.py:775: KeyError<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_002_validate_fqdn_field</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_003_validate_fqdn_field_with_member_as_GM</td>
+          <td class="col-duration">0.10</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_004_validate_fqdn_member_as_GM_Nameserver_as_masterlanip</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_005_validate_fqdn_member_as_GM_Nameserver_as_master_mgmtip</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_006_validate_fqdn_member_as_GM_Nameserver_as_memberlanip</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_007_validate_fqdn_member_as_GM_Nameserver_as_memberlanip_with_recordA</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_008_validate_fqdn_recursivequery_false</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_009_validate_fqdn_new_rfe_object_sourceip_as_masterlanip</td>
+          <td class="col-duration">0.10</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_010_validate_fqdn_source_mastermgmtip</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_011_validate_fqdn_source_masterlan2_ip</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_012_validate_digquery_gridmaster_Lanip_Lan2ip_Mgmtip</td>
+          <td class="col-duration">0.59</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_013_validate_fqdn_sourceip_member_lanip</td>
+          <td class="col-duration">0.15</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_014_validate_fqdn_sourceip_mgmtipmember</td>
+          <td class="col-duration">0.11</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_016_validate_fqdn_sourceip_vip_HA_HAlanipnameserver</td>
+          <td class="col-duration">0.12</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_017_validate_fqdn_sourceip_activememberipha_halanipnameserver</td>
+          <td class="col-duration">0.16</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_026_validate_fqdn_sourceip_PTRrecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_027_validate_fqdn_sourceip_SRVrecord</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_028_validate_fqdn_sourceip_TXTrecord</td>
+          <td class="col-duration">0.11</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_029_validate_fqdn_sourceip_AXFR_Record</td>
+          <td class="col-duration">0.41</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_030_validate_fqdn_sourceip_memberip_hostname_recursivequery_true</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_031_validate_fqdn_sourceip_memberip_hostname_recursivequery_false</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_032_validate_fqdn_sourceip_with_mgmt_IPV6_member</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_033_validate_fqdn_sourceip_with_mgmt_IPV6_master</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_034_validate_fqdn_sourceip_with_LAN_IPV6_member</td>
+          <td class="col-duration">0.09</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">NIOS_10242.py::NIOS_10242::test_036_validate_fqdn_Loopback_address_member1</td>
+          <td class="col-duration">0.08</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>

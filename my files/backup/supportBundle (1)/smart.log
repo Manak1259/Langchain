@@ -1,0 +1,18 @@
+----------------------------------------------------------
+Smart Logs for Device: "/dev/sda" : "/sys/block/sda"
+----------------------------------------------------------
+smartctl 5.41 2011-06-09 r3365 [x86_64-linux-4.9.58] (local build)
+Copyright (C) 2002-11 by Bruce Allen, http://smartmontools.sourceforge.net
+
+Vendor:               VMware  
+Product:              Virtual disk    
+Revision:             1.0 
+User Capacity:        268,435,456,000 bytes [268 GB]
+Logical block size:   512 bytes
+Device type:          disk
+Local Time is:        Wed Oct 23 11:11:38 2024 UTC
+Device does not support SMART
+
+Error Counter logging not supported
+Device does not support Self Test logging
+

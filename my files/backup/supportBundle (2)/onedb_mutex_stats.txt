@@ -1,0 +1,30 @@
+948MB 120KB	Mutex region size
+53	The number of region locks that required waiting (0%)
+4	Mutex alignment
+200	Mutex test-and-set spins
+17753057	Mutex total count
+16179487	Mutex free count
+1573570	Mutex in-use count
+1573616	Mutex maximum in-use count
+Mutex counts
+16179487	Unallocated
+65	db handle
+11	env dblist
+22	env handle
+1	env region
+1	log filename
+1	log flush
+12	log region
+5	mpoolfile handle
+445	mpool buffer
+47	mpool filehandle
+17	mpool file bucket
+11	mpool handle
+1572869	mpool hash bucket
+1	mpool region
+1	mutex region
+11	twister
+11	txn active list
+1	transaction checkpoint
+37	txn mvcc
+1	txn region

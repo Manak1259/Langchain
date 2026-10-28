@@ -1,0 +1,871 @@
+ server as member's LAN IP ,with DNAME record type
+PASSED
+RFE_10242.py::NIOS_10242::test_023_validate_fqdn_sourceip_NAPTRrecord "record:naptr/ZG5zLmJpbmRfbmFwdHIkLl9kZWZhdWx0LmNvbS50ZXN0LG5hcHRyLDEwLDEwLCxodHRwK0UyVSwsYXJlYy5vdXRib3VuZF90ZXN0LmNvbQ:naptr.test.com/default"
+[
+    {
+        "_ref": "record:naptr/ZG5zLmJpbmRfbmFwdHIkLl9kZWZhdWx0LmNvbS50ZXN0LG5hcHRyLDEwLDEwLCxodHRwK0UyVSwsYXJlYy5vdXRib3VuZF90ZXN0LmNvbQ:naptr.test.com/default",
+        "name": "naptr.test.com",
+        "order": 10,
+        "preference": 10,
+        "regexp": "",
+        "replacement": "arec.outbound_test.com",
+        "services": "http+E2U",
+        "view": "default"
+    }
+]
+naptr.test.com
+SUCCESS: naptr.test.com record is created successfully
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost naptr.test.com NAPTR -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 27437\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 150613a780caf9a0010000006655e8c4da4e29b6af005464 (good)\n;; QUESTION SECTION:\n;naptr.test.com.\t\t\tIN\tNAPTR\n\n;; ANSWER SECTION:\nnaptr.test.com.\t\t28800\tIN\tNAPTR\t10 10 "" "http+E2U" "" arec.outbound_test.com.\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:00 PDT 2024\n;; MSG SIZE  rcvd: 122\n\n', u'dig_started': 1716906181, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NAPTR record type
+PASSED
+RFE_10242.py::NIOS_10242::test_024_validate_fqdn_sourceip_NSRrecord "record:ns/ZG5zLmJpbmRfbnMkLl9kZWZhdWx0LmNvbS50ZXN0Li4xMC4zNS4xNzguMjE:10.35.178.21/test.com/default"
+[
+    {
+        "_ref": "record:naptr/ZG5zLmJpbmRfbmFwdHIkLl9kZWZhdWx0LmNvbS50ZXN0LG5hcHRyLDEwLDEwLCxodHRwK0UyVSwsYXJlYy5vdXRib3VuZF90ZXN0LmNvbQ:naptr.test.com/default",
+        "name": "naptr.test.com",
+        "order": 10,
+        "preference": 10,
+        "regexp": "",
+        "replacement": "arec.outbound_test.com",
+        "services": "http+E2U",
+        "view": "default"
+    }
+]
+naptr.test.com
+SUCCESS: naptr.test.com record is created successfully
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost ns.test.com NS -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 34946\n;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 81b62e07a23541e9010000006655e8c53b316d73a4a4c0cc (good)\n;; QUESTION SECTION:\n;ns.test.com.\t\t\tIN\tNS\n\n;; AUTHORITY SECTION:\ntest.com.\t\t900\tIN\tSOA\tmember0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 6 10800 3600 2419200 900\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:01 PDT 2024\n;; MSG SIZE  rcvd: 166\n\n', u'dig_started': 1716906181, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with NSR record type
+PASSED
+RFE_10242.py::NIOS_10242::test_025_validate_fqdn_sourceip_PTRrecord "record:ptr/ZG5zLmJpbmRfcHRyJC5fZGVmYXVsdC5jb20udGVzdC5wdHIud3d3LmluZm9ibG94LmNvbQ:ptr.test.com/default"
+[
+    {
+        "_ref": "record:ptr/ZG5zLmJpbmRfcHRyJC5fZGVmYXVsdC5hcnBhLmluLWFkZHIuMTI3LjAuMC4xLmxvY2FsaG9zdA:1.0.0.127.in-addr.arpa/default",
+        "ptrdname": "localhost",
+        "view": "default"
+    },
+    {
+        "_ref": "record:ptr/ZG5zLmJpbmRfcHRyJC5fZGVmYXVsdC5hcnBhLmlwNi4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjAuMC4wLjEuLmxvY2FsaG9zdA:1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa/default",
+        "ptrdname": "localhost",
+        "view": "default"
+    },
+    {
+        "_ref": "record:ptr/ZG5zLmJpbmRfcHRyJC5fZGVmYXVsdC5jb20udGVzdC5wdHIud3d3LmluZm9ibG94LmNvbQ:ptr.test.com/default",
+        "ptrdname": "www.infoblox.com",
+        "view": "default"
+    }
+]
+record:ptr/ZG5zLmJpbmRfcHRyJC5fZGVmYXVsdC5hcnBhLmluLWFkZHIuMTI3LjAuMC4xLmxvY2FsaG9zdA:1.0.0.127.in-addr.arpa/default
+SUCCESS: ptr record is created successfully
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost ptr.test.com PTR -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 44207\n;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: e12fe61e8aa20547010000006655e8c52e6d7b648823887a (good)\n;; QUESTION SECTION:\n;ptr.test.com.\t\t\tIN\tPTR\n\n;; AUTHORITY SECTION:\ntest.com.\t\t900\tIN\tSOA\tmember0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 7 10800 3600 2419200 900\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:01 PDT 2024\n;; MSG SIZE  rcvd: 167\n\n', u'dig_started': 1716906181, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with PTR record type
+PASSED
+RFE_10242.py::NIOS_10242::test_026_validate_fqdn_sourceip_SRVrecord "record:srv/ZG5zLmJpbmRfc3J2JC5fZGVmYXVsdC5jb20udGVzdC9zcnYvMC8wLzIyL3Rlc3QuY29t:srv.test.com/default"
+[
+    {
+        "_ref": "record:srv/ZG5zLmJpbmRfc3J2JC5fZGVmYXVsdC5jb20udGVzdC9zcnYvMC8wLzIyL3Rlc3QuY29t:srv.test.com/default",
+        "name": "srv.test.com",
+        "port": 22,
+        "priority": 0,
+        "target": "test.com",
+        "view": "default",
+        "weight": 0
+    }
+]
+srv.test.com
+SUCCESS: srv.test.com record is created successfully
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost srv.test.com SRV -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 55420\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 8293042f9daf93a3010000006655e8c56bbd861fa68d27da (good)\n;; QUESTION SECTION:\n;srv.test.com.\t\t\tIN\tSRV\n\n;; ANSWER SECTION:\nsrv.test.com.\t\t28800\tIN\tSRV\t0 0 22 test.com.\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:01 PDT 2024\n;; MSG SIZE  rcvd: 97\n\n', u'dig_started': 1716906181, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with SVR record type
+PASSED
+RFE_10242.py::NIOS_10242::test_027_validate_fqdn_sourceip_TXTrecord "record:txt/ZG5zLmJpbmRfdHh0JC5fZGVmYXVsdC5jb20udGVzdC50eHQuInRlc3Rpbmci:txt.test.com/default"
+[
+    {
+        "_ref": "record:txt/ZG5zLmJpbmRfdHh0JC5fZGVmYXVsdC5jb20udGVzdC50eHQuInRlc3Rpbmci:txt.test.com/default",
+        "name": "txt.test.com",
+        "text": "testing",
+        "view": "default"
+    }
+]
+txt.test.com
+SUCCESS: txt.test.com record is created successfully
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost txt.test.com TXT -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 10053\n;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: b15128b6b8ef6478010000006655e8c5f492bc1c06abeef0 (good)\n;; QUESTION SECTION:\n;txt.test.com.\t\t\tIN\tTXT\n\n;; AUTHORITY SECTION:\ntest.com.\t\t900\tIN\tSOA\tmember0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 9 10800 3600 2419200 900\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:01 PDT 2024\n;; MSG SIZE  rcvd: 167\n\n', u'dig_started': 1716906181, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+SUCCESS: fqdn field is executed with souce address as MGMT ip of master and member as SA member and name server as member's LAN IP ,with TXT record type
+PASSED
+RFE_10242.py::NIOS_10242::test_028_validate_fqdn_sourceip_AXFR_Record 
+
+Disconnect NOW if you have not been expressly authorized to use this system.
+-bash-5.1# dig @10.35.152.16 test.com -b 10.36.178.21
+dig @10.35.152.16 test.com -b 10.36.178.21
+
+; <<>> DiG 9.16.23-S1 <<>> @10.35.152.16 test.com -b 10.36.178.21
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64110
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1220
+; COOKIE: 927fc3bf82f46c63010000006655e8c574011c9af0a8e922 (good)
+;; QUESTION SECTION:
+;test.com.                      IN      A
+
+;; AUTHORITY SECTION:
+test.com.               900     IN      SOA     member0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900
+
+;; Query time: 0 msec
+;; SERVER: 10.35.152.16#53(10.35.152.16)
+ dig @10.35.152.16 test.com -b 10.36.178.21
+
+; <<>> DiG 9.16.23-S1 <<>> @10.35.152.16 test.com -b 10.36.178.21
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64110
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1220
+; COOKIE: 927fc3bf82f46c63010000006655e8c574011c9af0a8e922 (good)
+;; QUESTION SECTION:
+;test.com.                      IN      A
+
+;; AUTHORITY SECTION:
+test.com.               900     IN      SOA     member0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900
+
+;; Query time: 0 msec
+;; SERVER: 10.35.152.16
+SUCCESS: fqdn field is executed with AXFR record
+PASSED
+RFE_10242.py::NIOS_10242::test_029_validate_fqdn_sourceip_memberip_hostname_recursivequery_true {u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost a.test.com ANY -b 10.36.152.16  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64162\n;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 9fed8d0710fb7805010000006655e8c63c1528ce2ad2994e (good)\n;; QUESTION SECTION:\n;a.test.com.\t\t\tIN\tANY\n\n;; ANSWER SECTION:\na.test.com.\t\t28800\tIN\tA\t3.3.3.3\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:02 PDT 2024\n;; MSG SIZE  rcvd: 83\n\n', u'dig_started': 1716906182, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+
+; <<>> DiG 9.16.23-S1 <<>> @localhost a.test.com ANY -b 10.36.152.16  
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64162
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1220
+; COOKIE: 9fed8d0710fb7805010000006655e8c63c1528ce2ad2994e (good)
+;; QUESTION SECTION:
+;a.test.com.                    IN      ANY
+
+;; ANSWER SECTION:
+a.test.com.             28800   IN      A       3.3.3.3
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Tue May 28 07:23:02 PDT 2024
+;; MSG SIZE  rcvd: 83
+
+
+SUCCESS: fqdn is executed with source ip as member IP and member as hostname and recursive query as True
+PASSED
+RFE_10242.py::NIOS_10242::test_030_validate_fqdn_sourceip_memberip_hostname_recursivequery_false {u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost a.test.com ANY -b 10.36.152.16 +norecurse \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 21554\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: c3e5d174a0310112010000006655e8c62bcf73994d170136 (good)\n;; QUESTION SECTION:\n;a.test.com.\t\t\tIN\tANY\n\n;; ANSWER SECTION:\na.test.com.\t\t28800\tIN\tA\t3.3.3.3\n\n;; Query time: 3 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:23:02 PDT 2024\n;; MSG SIZE  rcvd: 83\n\n', u'dig_started': 1716906182, u'source_address': u'10.36.152.16', u'result': u'NOERROR'}
+
+; <<>> DiG 9.16.23-S1 <<>> @localhost a.test.com ANY -b 10.36.152.16 +norecurse 
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 21554
+;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1220
+; COOKIE: c3e5d174a0310112010000006655e8c62bcf73994d170136 (good)
+;; QUESTION SECTION:
+;a.test.com.                    IN      ANY
+
+;; ANSWER SECTION:
+a.test.com.             28800   IN      A       3.3.3.3
+
+;; Query time: 3 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Tue May 28 07:23:02 PDT 2024
+;; MSG SIZE  rcvd: 83
+
+
+SUCCESS: fqdn is executed with source ip as member IP and member as hostname and recursive query as False
+PASSED
+RFE_10242.py::NIOS_10242::test_031_validate_fqdn_sourceip_with_mgmt_IPV6_member 
+========================================================
+
+Adding forwarder ip to grid
+
+========================================================
+
+Add DNS forwarder : 10.30.16.160
+FAILED
+RFE_10242.py::NIOS_10242::test_032_validate_fqdn_sourceip_with_mgmt_IPV6_master {u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @2001:550:40A:2500::B215 test.com ANY -b 2001:550:40a:2500::b215  \n; (1 server found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47481\n;; flags: qr aa rd; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 127a3aace1831ab3010000006655e8c6132820800dcaa37a (good)\n;; QUESTION SECTION:\n;test.com.\t\t\tIN\tANY\n\n;; ANSWER SECTION:\ntest.com.\t\t28800\tIN\tSOA\tmaster.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900\ntest.com.\t\t28800\tIN\tNS\tmember1.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\tmember0.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\tmaster.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\t10.35.178.21.\n\n;; Query time: 0 msec\n;; SERVER: 2001:550:40a:2500::b215#53(2001:550:40a:2500::b215)\n;; WHEN: Tue May 28 07:23:02 PDT 2024\n;; MSG SIZE  rcvd: 246\n\n', u'dig_started': 1716906182, u'source_address': u'2001:550:40a:2500::b215', u'result': u'NOERROR'}
+NOERROR
+SUCCESS: fqdn is executed with source ip as master's mgmt ipv6 address
+PASSED
+RFE_10242.py::NIOS_10242::test_033_validate_fqdn_sourceip_with_LAN_IPV6_member {u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @2001:0550:040A:2400:0000:0000:0000:9810 test.com ANY -b 2001:550:40a:2400::9810  \n; (1 server found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26736\n;; flags: qr aa rd; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: 95bffb92c20e1f10010000006655e8c632b39c7e8326cfc2 (good)\n;; QUESTION SECTION:\n;test.com.\t\t\tIN\tANY\n\n;; ANSWER SECTION:\ntest.com.\t\t28800\tIN\tSOA\tmember0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900\ntest.com.\t\t28800\tIN\tNS\tmember0.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\tmember1.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\t10.35.178.21.\ntest.com.\t\t28800\tIN\tNS\tmaster.grid_1.infoblox.com.\n\n;; Query time: 0 msec\n;; SERVER: 2001:550:40a:2400::9810#53(2001:550:40a:2400::9810)\n;; WHEN: Tue May 28 07:23:02 PDT 2024\n;; MSG SIZE  rcvd: 246\n\n', u'dig_started': 1716906182, u'source_address': u'2001:550:40a:2400::9810', u'result': u'NOERROR'}
+NOERROR
+SUCCESS: fqdn is executed with source ip as member's ipv6 address
+PASSED
+RFE_10242.py::NIOS_10242::test_034_validate_fqdn_sourceip_with_Invalid_ipaddress grid/b25lLmNsdXN0ZXIkMA:Infoblox
+10.36.178.21
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>400 Bad Request</title>
+</head><body>
+<h1>Bad Request</h1>
+<p>Your browser sent a request that this server could not understand.<br />
+</p>
+</body></html>
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>400 Bad Request</title>
+</head><body>
+<h1>Bad Request</h1>
+<p>Your browser sent a request that this server could not understand.<br />
+</p>
+</body></html>
+
+SUCCESS: fqdn with member as GM executed with expected invalid source address
+PASSED
+RFE_10242.py::NIOS_10242::test_035_validate_fqdn_Loopback_address_member1 
+========================================================
+
+Adding loopback IP address to member
+
+========================================================
+
+('response is', [{u'platform': u'VNIOS', u'_ref': u'member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com', u'config_addr_type': u'BOTH', u'host_name': u'master.grid_1.infoblox.com', u'service_type_configuration': u'ALL_V4'}, {u'platform': u'VNIOS', u'_ref': u'member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com', u'config_addr_type': u'BOTH', u'host_name': u'member0.grid_1.infoblox.com', u'service_type_configuration': u'ALL_V4'}, {u'platform': u'VNIOS', u'_ref': u'member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com', u'config_addr_type': u'BOTH', u'host_name': u'member1.grid_1.infoblox.com', u'service_type_configuration': u'ALL_V4'}])
+('reference is', u'member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com')
+[
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com",
+        "config_addr_type": "BOTH",
+        "host_name": "master.grid_1.infoblox.com",
+        "platform": "VNIOS",
+        "service_type_configuration": "ALL_V4"
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com",
+        "config_addr_type": "BOTH",
+        "host_name": "member0.grid_1.infoblox.com",
+        "platform": "VNIOS",
+        "service_type_configuration": "ALL_V4"
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com",
+        "config_addr_type": "BOTH",
+        "host_name": "member1.grid_1.infoblox.com",
+        "platform": "VNIOS",
+        "service_type_configuration": "ALL_V4"
+    }
+]
+]
+
+
+"member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com"
+Success: configure loopback IP address
+"member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com"
+Success: configure loopback IP address
+"member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com"
+Success: configure loopback IP address
+{u'result_text': u'\n; <<>> DiG 9.16.23-S1 <<>> @localhost test.com ANY -b 1.1.1.1  \n; (2 servers found)\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15961\n;; flags: qr aa rd; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n;; WARNING: recursion requested but not available\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags:; udp: 1220\n; COOKIE: d889fd2741a4d7fb010000006655e9d5c3f3c78543def386 (good)\n;; QUESTION SECTION:\n;test.com.\t\t\tIN\tANY\n\n;; ANSWER SECTION:\ntest.com.\t\t28800\tIN\tSOA\tmember0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900\ntest.com.\t\t28800\tIN\tNS\t10.35.178.21.\ntest.com.\t\t28800\tIN\tNS\tmaster.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\tmember1.grid_1.infoblox.com.\ntest.com.\t\t28800\tIN\tNS\tmember0.grid_1.infoblox.com.\n\n;; Query time: 0 msec\n;; SERVER: 127.0.0.1#53(127.0.0.1)\n;; WHEN: Tue May 28 07:27:33 PDT 2024\n;; MSG SIZE  rcvd: 246\n\n', u'dig_started': 1716906453, u'source_address': u'1.1.1.1', u'result': u'NOERROR'}
+
+; <<>> DiG 9.16.23-S1 <<>> @localhost test.com ANY -b 1.1.1.1  
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15961
+;; flags: qr aa rd; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1220
+; COOKIE: d889fd2741a4d7fb010000006655e9d5c3f3c78543def386 (good)
+;; QUESTION SECTION:
+;test.com.                      IN      ANY
+
+;; ANSWER SECTION:
+test.com.               28800   IN      SOA     member0.grid_1.infoblox.com. please_set_email.absolutely.nowhere. 10 10800 3600 2419200 900
+test.com.               28800   IN      NS      10.35.178.21.
+test.com.               28800   IN      NS      master.grid_1.infoblox.com.
+test.com.               28800   IN      NS      member1.grid_1.infoblox.com.
+test.com.               28800   IN      NS      member0.grid_1.infoblox.com.
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Tue May 28 07:27:33 PDT 2024
+;; MSG SIZE  rcvd: 246
+
+
+SUCCESS: fqdn is executed with loopback ip address
+PASSED
+RFE_10242.py::NIOS_10242::test_036_validate_fqdn_Anycast_ipv4_ipv6 
+
+Disconnect NOW if you have not been expressly authorized to use this system.
+admin@10.36.178.21's password: infoblox
+
+
+
+               Infoblox NIOS Release 9.0.4-52043-98676ea16160 (64bit)
+     Copyright (c) 1999-2024 Infoblox Inc. All Rights Reserved.
+
+                   type 'help' for more information
+
+
+Infoblox > show version
+show version
+Version : 9.0.4-52043-98676ea16160
+SN      : 564DEF3B317E9241744F1818BCAD7A2D
+Hotfix  : N/A
+Infoblox > 
+************Appliances is Working************
+ 
+
+============================================
+
+create OSFP IVP4 & IPV6 for member 
+
+============================================
+
+[
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com",
+        "additional_ip_list": []
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com",
+        "additional_ip_list": [
+            {
+                "anycast": false,
+                "enable_bgp": false,
+                "enable_ospf": false,
+                "interface": "LOOPBACK",
+                "ipv4_network_setting": {
+                    "address": "1.1.1.1",
+                    "dscp": 0,
+                    "primary": false,
+                    "subnet_mask": "255.255.255.255",
+                    "use_dscp": false
+                }
+            }
+        ]
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com",
+        "additional_ip_list": []
+    }
+]
+"member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com"
+"member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com"
+"member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com"
+
+============================================
+
+Configuring IVP4 & IPV6 Anycast IP for member
+
+============================================
+
+[
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com",
+        "additional_ip_list": []
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com",
+        "additional_ip_list": [
+            {
+                "anycast": false,
+                "enable_bgp": false,
+                "enable_ospf": false,
+                "interface": "LOOPBACK",
+                "ipv4_network_setting": {
+                    "address": "1.1.1.1",
+                    "dscp": 0,
+                    "primary": false,
+                    "subnet_mask": "255.255.255.255",
+                    "use_dscp": false
+                }
+            }
+        ]
+    },
+    {
+        "_ref": "member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com",
+        "additional_ip_list": []
+    }
+]
+"member/b25lLnZpcnR1YWxfbm9kZSQw:master.grid_1.infoblox.com"
+"member/b25lLnZpcnR1YWxfbm9kZSQx:member0.grid_1.infoblox.com"
+"member/b25lLnZpcnR1YWxfbm9kZSQy:member1.grid_1.infoblox.com"
+Timeout exceeded.
+<pexpect.pty_spawn.spawn object at 0x7fa07fef9a50>
+command: /usr/local/bin/ssh
+args: ['/usr/local/bin/ssh', '-o', 'StrictHostKeyChecking=no', 'admin@10.36.178.21']
+buffer (last 100 chars): ''
+before (last 100 chars): ''
+after: <class 'pexpect.exceptions.TIMEOUT'>
+match: None
+match_index: None
+exitstatus: None
+flag_eof: False
+pid: 8237
+child_fd: 6
+closed: False
+timeout: 30
+delimiter: <class 'pexpect.exceptions.EOF'>
+logfile: <open file '<stdout>', mode 'w' at 0x7fa08fac8150>
+logfile_read: None
+logfile_send: None
+maxread: 2000
+ignorecase: False
+searchwindowsize: None
+delaybeforesend: 0.05
+delayafterclose: 0.1
+delayafterterminate: 0.1
+searcher: searcher_re:
+    0: re.compile("password:")
+Failure
+FAILED
+RFE_10242.py::NIOS_10242::test_037_validate_fqdn_disabled_sourceip FAILED
+
+=============================================== FAILURES ===============================================
+_______________________________ NIOS_10242.test_001_validate_fqdn_field ________________________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_001_validate_fqdn_field>
+
+    @pytest.mark.run(order=1)
+    def test_001_validate_fqdn_field(self):
+    
+        logging.info("Start DNS Service")
+        get_ref = ib_NIOS.wapi_request('GET', object_type="member:dns")
+        logging.info(get_ref)
+        res = json.loads(get_ref)
+        for i in res:
+            logging.info("Modify a enable_dns")
+            data = {"enable_dns": True}
+            response = ib_NIOS.wapi_request('PUT', ref=i['_ref'], fields=json.dumps(data))
+            display_message(response)
+    
+        logging.info(response)
+        read = re.search(r'200', response)
+        print(read)
+    
+        for read in response:
+            assert True
+        display_message("DNS Service Started")
+        display_message("\n========================================================\n")
+        display_message("Creating an Authoratative zone")
+        display_message("\n========================================================\n")
+    
+        data = {"fqdn": config.grid1_master_zone,
+                "grid_primary": [{"name": config.grid1_master_fqdn}, {"name": config.grid1_member1_fqdn},
+                                 {"name": config.grid1_member2_fqdn}]}
+        response = ib_NIOS.wapi_request('POST', object_type="zone_auth", fields=json.dumps(data),
+                                        grid_vip=config.grid1_master_mgmt_vip)
+        display_message(response)
+        print("manak", response)
+        grid = ib_NIOS.wapi_request('GET', object_type="zone_auth")
+        print(grid)
+        ref = json.loads(grid)[0]["fqdn"]
+        print("zone created :", response)
+        if response[0] == 400 or response[0] == 401 or response[0] == 404 or response[0] == 500:
+            display_message("FAILURE: Create authoratative zone.")
+>           assert False
+E           AssertionError: assert False
+
+RFE_10242.py:165: AssertionError
+________________________ NIOS_10242.test_010_validate_fqdn_source_masterlan2_ip ________________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_010_validate_fqdn_source_masterlan2_ip>
+
+    @pytest.mark.run(order=10)
+    def test_010_validate_fqdn_source_masterlan2_ip(self):
+        logging.info("Validating fqdn field with master master lan2 ip")
+        grid = ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)
+        ref = json.loads(grid)[0]['_ref']
+        display_message(ref)
+        data = {"fqdn": config.grid1_master_zone, "source_ip": config.grid1_master_lan2}
+        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member",
+                                        fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)
+        # display_message(response)
+>       response = json.loads(response)
+
+RFE_10242.py:431: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib64/python2.7/json/__init__.py:339: in loads
+    return _default_decoder.decode(s)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7fa083402350>
+s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')
+_w = <built-in method match of _sre.SRE_Pattern object at 0x7fa083483ad0>
+
+    def decode(self, s, _w=WHITESPACE.match):
+        """Return the Python representation of ``s`` (a ``str`` or ``unicode``
+            instance containing a JSON document)
+    
+            """
+>       obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+E       TypeError: expected string or buffer
+
+/usr/lib64/python2.7/json/decoder.py:364: TypeError
+_________________ NIOS_10242.test_011_validate_digquery_gridmaster_Lanip_Lan2ip_Mgmtip _________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_011_validate_digquery_gridmaster_Lanip_Lan2ip_Mgmtip>
+
+    @pytest.mark.run(order=11)
+    def test_011_validate_digquery_gridmaster_Lanip_Lan2ip_Mgmtip(self):
+        try:
+    
+            logging.info("Perform dig query with master lan, lan2 and mgmt ip address")
+            child = pexpect.spawn('ssh -o StrictHostKeyChecking=no root@' + config.grid1_master_mgmt_vip)
+            child.logfile = sys.stdout
+            child.expect('#')
+            record_data = "" + config.grid1_master_a_record + "." + config.grid1_master_zone + ""
+            child.sendline(
+                "dig @" + config.grid1_master_vip + " " + record_data + " -b " + config.grid1_master_mgmt_vip + "")
+            child.expect("#")
+            output1 = child.before
+            display_message(output1)
+            child.expect('#')
+            child.sendline(
+                "dig @" + config.grid1_master_lan2 + " " + record_data + " -b " + config.grid1_master_mgmt_vip + "")
+            child.expect('#')
+            output2 = child.before
+            child.expect('#')
+            child.sendline(
+                "dig @" + config.grid1_master_mgmt_vip + " " + record_data + " -b " + config.grid1_master_mgmt_vip + "")
+            child.expect('#')
+            output3 = child.before
+            child.close()
+        except Exception as e:
+            child.close()
+            display_message(e)
+            sleep(20)
+            display_message("Failure")
+    
+        if config.grid1_dig_expected_ip in output1:
+            display_message(output1)
+            display_message(
+                "SUCCESS: fqdn field is executed with dig query for grid master cli LAN IP " + config.grid1_master_vip + "")
+        else:
+            display_message(
+                "FAILURE: fqdn field is Not executed with dig query for grid master cli LAN IP " + config.grid1_master_vip + "")
+    
+        if config.grid1_dig_expected_ip in output2:
+            display_message(output2)
+            display_message(
+                "SUCCESS: fqdn field is executed with dig query for grid master cli LAN2 IP " + config.grid1_master_lan2 + "")
+        else:
+            display_message(
+                "FAILURE: fqdn field is Not executed with dig query for grid master cli LAN2 IP " + config.grid1_master_lan2 + "")
+    
+        if config.grid1_dig_expected_ip in output3:
+            display_message(output3)
+            display_message(
+                "SUCCESS: fqdn field is executed with dig query for grid master cli MGMT IP " + config.grid1_master_mgmt_vip + " ")
+            assert True
+        else:
+            display_message(
+                "FAILURE: fqdn field is Not executed with dig query for grid master cli MGMT IP " + config.grid1_master_mgmt_vip + " ")
+>           assert False
+E           AssertionError: assert False
+
+RFE_10242.py:498: AssertionError
+_______________________ NIOS_10242.test_014_validate_fqdn_sourceip_lan2ipmember ________________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_014_validate_fqdn_sourceip_lan2ipmember>
+
+    @pytest.mark.run(order=14)
+    def test_014_validate_fqdn_sourceip_lan2ipmember(self):
+        logging.info("Validating fqdn field with member lan2 ip")
+        grid = ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)
+        ref = json.loads(grid)[0]['_ref']
+        data = {"fqdn": config.grid1_master_zone, "source_ip": config.grid1_member1_lan2,
+                "member": config.grid1_member1_fqdn}
+        response = ib_NIOS.wapi_request('POST', object_type=ref + "?_function=query_fqdn_on_member",
+                                        fields=json.dumps(data), grid_vip=config.grid1_master_mgmt_vip)
+>       response = json.loads(response)
+
+RFE_10242.py:551: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib64/python2.7/json/__init__.py:339: in loads
+    return _default_decoder.decode(s)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7fa083402350>
+s = (400, '{ "Error": "AdmConDataError: None (IBDataError: IB.Data:Source IP address has not been configured on the specif...n  "code": "Client.Ibap.Data",\n  "text": "Source IP address has not been configured on the specified grid member"\n}')
+_w = <built-in method match of _sre.SRE_Pattern object at 0x7fa083483ad0>
+
+    def decode(self, s, _w=WHITESPACE.match):
+        """Return the Python representation of ``s`` (a ``str`` or ``unicode``
+            instance containing a JSON document)
+    
+            """
+>       obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+E       TypeError: expected string or buffer
+
+/usr/lib64/python2.7/json/decoder.py:364: TypeError
+____________ NIOS_10242.test_016_validate_fqdn_sourceip_activememberipha_halanipnameserver _____________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_016_validate_fqdn_sourceip_activememberipha_halanipnameserver>
+
+    @pytest.mark.run(order=16)
+    def test_016_validate_fqdn_sourceip_activememberipha_halanipnameserver(self):
+        logging.info("Validating fqdn field with HA active member lan ip")
+        grid = ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)
+        ref = json.loads(grid)[0]['_ref']
+        data = {"fqdn": config.grid1_master_zone, "member": config.grid1_member2_fqdn,
+>               "name_server": config.grid1_member2_vip, "source_ip": config.grid1_member2_ha_activeip}
+E       AttributeError: 'module' object has no attribute 'grid1_member2_ha_activeip'
+
+RFE_10242.py:590: AttributeError
+__________ NIOS_10242.test_017_validate_fqdn_sourceip_passive_member_ip_ha_lan_ip_nameserver ___________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_017_validate_fqdn_sourceip_passive_member_ip_ha_lan_ip_nameserver>
+
+    @pytest.mark.run(order=17)
+    def test_017_validate_fqdn_sourceip_passive_member_ip_ha_lan_ip_nameserver(self):
+        logging.info("Validating fqdn field with HA passive member lan ip")
+        grid = ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)
+        ref = json.loads(grid)[0]['_ref']
+        data = {"fqdn": config.grid1_master_zone, "member": config.grid1_member2_fqdn,
+>               "name_server": config.grid1_member2_vip, "source_ip": config.grid1_member2_ha_passiveip}
+E       AttributeError: 'module' object has no attribute 'grid1_member2_ha_passiveip'
+
+RFE_10242.py:612: AttributeError
+___________________ NIOS_10242.test_031_validate_fqdn_sourceip_with_mgmt_IPV6_member ___________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_031_validate_fqdn_sourceip_with_mgmt_IPV6_member>
+
+    @pytest.mark.run(order=31)
+    def test_031_validate_fqdn_sourceip_with_mgmt_IPV6_member(self):
+        display_message("\n========================================================\n")
+        display_message("Adding forwarder ip to grid")
+        display_message("\n========================================================\n")
+        display_message("Add DNS forwarder : 10.30.16.160")
+        grid_dns_ref = ib_NIOS.wapi_request('GET', object_type='grid:dns')
+>       data = {"forwarders": [config.forwarder_ip]}
+E       AttributeError: 'module' object has no attribute 'forwarder_ip'
+
+RFE_10242.py:1036: AttributeError
+_________________________ NIOS_10242.test_036_validate_fqdn_Anycast_ipv4_ipv6 __________________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_036_validate_fqdn_Anycast_ipv4_ipv6>
+
+    @pytest.mark.run(order=36)
+    def test_036_validate_fqdn_Anycast_ipv4_ipv6(self):
+        check_able_to_login_appliances(config.grid_vip)
+        display_message("\n============================================\n")
+        display_message("create OSFP IVP4 & IPV6 for member ")
+        display_message("\n============================================\n")
+    
+        get_ref = ib_NIOS.wapi_request('GET', object_type='member?_return_fields=additional_ip_list')
+        display_message(get_ref)
+        for ref in json.loads(get_ref):
+    
+            data = {"ospf_list": [
+                {
+                    "area_id": "0.0.0.12",
+                    "area_type": "STANDARD",
+                    "authentication_type": "NONE",
+                    "auto_calc_cost_enabled": True,
+                    "cost": 1,
+                    "dead_interval": 40,
+                    "enable_bfd": False,
+                    "hello_interval": 10,
+                    "interface": "LAN_HA",
+                    "is_ipv4": True,
+                    "key_id": 1,
+                    "retransmit_interval": 5,
+                    "transmit_delay": 1
+                },
+                {
+                    "area_id": "0.0.0.12",
+                    "area_type": "STANDARD",
+                    "authentication_type": "NONE",
+                    "auto_calc_cost_enabled": True,
+                    "cost": 1,
+                    "dead_interval": 40,
+                    "enable_bfd": False,
+                    "hello_interval": 10,
+                    "interface": "LAN_HA",
+                    "is_ipv4": False,
+                    "key_id": 1,
+                    "retransmit_interval": 5,
+                    "transmit_delay": 1
+                }
+            ]}
+    
+            response = ib_NIOS.wapi_request('PUT', ref=ref['_ref'], fields=json.dumps(data), grid_vip=config.grid_vip)
+    
+            display_message(response)
+            if type(response) == tuple:
+                if response[0] == 400 or response[0] == 401:
+                    display_message("Failure: Configure OSPF ipv6 for advertising")
+                    assert False
+                else:
+                    display_message("Success: Configure OSPF ipv6 for advertising")
+                    assert True
+        display_message("\n============================================\n")
+        display_message("Configuring IVP4 & IPV6 Anycast IP for member")
+        display_message("\n============================================\n")
+    
+        get_ref = ib_NIOS.wapi_request('GET', object_type='member?_return_fields=additional_ip_list')
+        display_message(get_ref)
+        for ref in json.loads(get_ref):
+            data = {"config_addr_type": "BOTH",
+                    "additional_ip_list": [
+                        {
+                            "anycast": True,
+                            "enable_bgp": False,
+                            "enable_ospf": True,
+                            "interface": "LOOPBACK",
+                            "ipv4_network_setting": {
+                                "address": "1.3.3.3",
+                                "dscp": 0,
+                                "primary": False,
+                                "subnet_mask": "255.255.255.255",
+                                "use_dscp": False
+                            }
+                        },
+                        {
+                            "anycast": True,
+                            "enable_bgp": False,
+                            "enable_ospf": True,
+                            "interface": "LOOPBACK",
+                            "ipv6_network_setting": {
+                                "cidr_prefix": 128,
+                                "dscp": 0,
+                                "enabled": True,
+                                "primary": False,
+                                "use_dscp": False,
+                                "virtual_ip": "3333::3331"
+                            }
+                        }
+                    ]}
+    
+            response = ib_NIOS.wapi_request('PUT', ref=ref['_ref'], fields=json.dumps(data))
+            display_message(response)
+    
+            if type(response) == tuple:
+                if response[0] == 400 or response[0] == 401:
+                    display_message("Failure: Anycast configuration")
+                    assert False
+                else:
+                    display_message("Success: Anycast configuration")
+                sleep(90)
+                check_able_to_login_appliances(config.grid_vip)
+    
+        sleep(30)
+>       check_able_to_login_appliances(config.grid_vip)
+
+RFE_10242.py:1317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ip_address = '10.36.178.21'
+
+    def check_able_to_login_appliances(ip_address=config.grid_vip):
+        # remove()
+        # for i in range(5):
+        try:
+            child = pexpect.spawn('ssh -o StrictHostKeyChecking=no admin@' + ip_address)
+            child.logfile = sys.stdout
+            child.expect('password:')
+            child.sendline('infoblox')
+            child.expect('Infoblox >')
+    
+            child.sendline('show version')
+    
+            child.expect('>')
+    
+            if 'Version :' in child.before:
+                child.close()
+                display_message("\n************Appliances is Working************\n ")
+                sleep(60)
+                assert True
+            else:
+    
+                raise (Exception)
+    
+        except Exception as e:
+            child.close()
+            display_message(e)
+            sleep(20)
+            display_message("Failure")
+    
+>           assert False
+E           AssertionError: assert False
+
+RFE_10242.py:89: AssertionError
+_________________________ NIOS_10242.test_037_validate_fqdn_disabled_sourceip __________________________
+
+self = <RFE_10242.NIOS_10242 testMethod=test_037_validate_fqdn_disabled_sourceip>
+
+    @pytest.mark.run(order=37)
+    def test_037_validate_fqdn_disabled_sourceip(self):
+        logging.info("Validating fqdn field with disabled source ip")
+>       grid = ib_NIOS.wapi_request('GET', object_type="grid", grid_vip=config.grid1_master_mgmt_vip)
+
+RFE_10242.py:1385: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../ib_utils/ib_NIOS.py:49: in wapi_request
+    conn.request(operation, url, fields, request_header)
+/usr/lib64/python2.7/httplib.py:1057: in request
+    self._send_request(method, url, body, headers)
+/usr/lib64/python2.7/httplib.py:1097: in _send_request
+    self.endheaders(body)
+/usr/lib64/python2.7/httplib.py:1053: in endheaders
+    self._send_output(message_body)
+/usr/lib64/python2.7/httplib.py:897: in _send_output
+    self.send(msg)
+/usr/lib64/python2.7/httplib.py:859: in send
+    self.connect()
+/usr/lib64/python2.7/httplib.py:1270: in connect
+    HTTPConnection.connect(self)
+/usr/lib64/python2.7/httplib.py:836: in connect
+    self.timeout, self.source_address)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+address = ('10.36.178.21', 443), timeout = <object object at 0x7fa08fa7c140>, source_address = None
+
+    def create_connection(address, timeout=_GLOBAL_DEFAULT_TIMEOUT,
+                          source_address=None):
+        """Connect to *address* and return the socket object.
+    
+        Convenience function.  Connect to *address* (a 2-tuple ``(host,
+        port)``) and return the socket object.  Passing the optional
+        *timeout* parameter will set the timeout on the socket instance
+        before attempting to connect.  If no *timeout* is supplied, the
+        global default timeout setting returned by :func:`getdefaulttimeout`
+        is used.  If *source_address* is set it must be a tuple of (host, port)
+        for the socket to bind as a source address before making the connection.
+        An host of '' or port 0 tells the OS to use the default.
+        """
+    
+        host, port = address
+        err = None
+        for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+            af, socktype, proto, canonname, sa = res
+            sock = None
+            try:
+                sock = socket(af, socktype, proto)
+                if timeout is not _GLOBAL_DEFAULT_TIMEOUT:
+                    sock.settimeout(timeout)
+                if source_address:
+                    sock.bind(source_address)
+                sock.connect(sa)
+                return sock
+    
+            except error as _:
+                err = _
+                if sock is not None:
+                    sock.close()
+    
+        if err is not None:
+>           raise err
+E           error: [Errno 111] Connection refused
+
+/usr/lib64/python2.7/socket.py:575: error

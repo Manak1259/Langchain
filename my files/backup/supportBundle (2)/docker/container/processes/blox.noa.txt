@@ -1,0 +1,181 @@
+PID   USER     TIME  COMMAND
+    1 root      0:00 /sbin/init
+    2 root      0:00 [kthreadd]
+    3 root      0:19 [ksoftirqd/0]
+    5 root      0:00 [kworker/0:0H]
+    6 root      0:13 [kworker/u8:0]
+    7 root      4:46 [rcu_sched]
+    8 root      0:00 [rcu_bh]
+    9 root      0:38 [migration/0]
+   10 root      0:00 [lru-add-drain]
+   11 root      0:00 [cpuhp/0]
+   12 root      0:00 [cpuhp/1]
+   13 root      0:39 [migration/1]
+   14 root      0:14 [ksoftirqd/1]
+   16 root      0:00 [kworker/1:0H]
+   17 root      0:00 [cpuhp/2]
+   18 root      0:38 [migration/2]
+   19 root      0:22 [ksoftirqd/2]
+   20 root      0:00 [kworker/2:0]
+   21 root      0:00 [kworker/2:0H]
+   22 root      0:00 [cpuhp/3]
+   23 root      0:37 [migration/3]
+   24 root      0:16 [ksoftirqd/3]
+   26 root      0:00 [kworker/3:0H]
+   27 root      0:00 [netns]
+  294 root      0:00 [khungtaskd]
+  295 root      0:00 [oom_reaper]
+  296 root      0:00 [writeback]
+  298 root      0:00 [kcompactd0]
+  300 root      0:00 [crypto]
+  301 root      0:00 [bioset]
+  303 root      0:00 [kblockd]
+  381 root      0:06 /infoblox/one/bin/ib_err_log
+  871 root      0:00 [ata_sff]
+  889 root      0:00 [watchdogd]
+  958 root      0:29 /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift
+ 1004 root      0:00 [kswapd0]
+ 1006 root      0:00 [vmstat]
+ 1130 root      0:00 [kthrotld]
+ 1147 root      0:00 [acpi_thermal_pm]
+ 1679 root      0:00 [bioset]
+ 1680 root      0:00 [bioset]
+ 1681 root      0:00 [bioset]
+ 1682 root      0:00 [bioset]
+ 1683 root      0:00 [bioset]
+ 1684 root      0:00 [bioset]
+ 1685 root      0:00 [bioset]
+ 1686 root      0:00 [bioset]
+ 1687 root      0:00 [bioset]
+ 1688 root      0:00 [bioset]
+ 1689 root      0:00 [bioset]
+ 1690 root      0:00 [bioset]
+ 1691 root      0:00 [bioset]
+ 1692 root      0:00 [kworker/3:1]
+ 1693 root      0:00 [bioset]
+ 1694 root      0:00 [bioset]
+ 1695 root      0:00 [bioset]
+ 1729 root      0:00 [bioset]
+ 1732 root      0:00 [bioset]
+ 1735 root      0:00 [bioset]
+ 1738 root      0:00 [bioset]
+ 1741 root      0:00 [bioset]
+ 1744 root      0:00 [bioset]
+ 1747 root      0:00 [bioset]
+ 1750 root      0:00 [bioset]
+ 1787 root      0:00 [scsi_eh_0]
+ 1788 root      0:00 [scsi_tmf_0]
+ 1791 root      0:00 [scsi_eh_1]
+ 1792 root      0:00 [scsi_tmf_1]
+ 1795 root      0:00 [mpt_poll_0]
+ 1804 root      0:00 [mpt/0]
+ 1805 root      0:00 [bioset]
+ 1811 root      0:00 [scsi_eh_2]
+ 1812 root      0:00 [scsi_tmf_2]
+ 1818 root      0:00 [bioset]
+ 1843 root      0:00 [ipv6_addrconf]
+ 1845 root      0:17 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+ 1855 root      0:00 /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3
+ 1862 root      0:25 [kworker/3:2]
+ 1879 root      1:23 /infoblox/one/bin/fastpath_monitor
+ 1887 root      0:18 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+ 1898 root      0:00 /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3
+ 1913 root      0:00 [nvme]
+ 1916 root      0:00 [ena]
+ 2212 root      1:09 [jbd2/sda5-8]
+ 2213 root      0:00 [ext4-rsv-conver]
+ 2246 105      20:04 /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:SurvivorRatio=32 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:HeapDumpPath=/storage/cores -XX:ErrorFile=/storage/cores/hs_err_pid%p.log -XX:+HeapDumpOnOutOfMemoryError -XX:OnOutOfMemoryError=kill -9 %p -Djava.awt.headless=true -Dwicket.configuration=deployment -server -Dorg.eclipse.equinox.http.jetty.customizer.class=com.infoblox.nios.app.jetty.NiosJettyCustomizer -Dwebui.config=FILE:///infoblox/one/webgui/configuration/defaults.properties -Dbundles.configuration.location=/infoblox/one/webgui/configuration/logging -Dfile.Encoding=UTF8 -Xss256k -Dcom.infoblox.server.internal.error.stacktrace=false -Dcom.infoblox.server.internal.error.stacktrace=false -Dorg.eclipse.equinox.http.jetty.http.host=127.0.0.1 -Dnios.rmi.agent.port=9999 -javaagent:/infoblox/one/webgui/deploy/rmiagent.jar -jar /infoblox/one/webgui/org.eclipse.osgi_3.10.0.v20140606-1445.jar -configuration /storage/webui/configuration
+ 2292 105       0:00 /infoblox/one/bin/ib_log -n webui-java -e (29564)
+ 2318 root      0:00 [jbd2/sda1-8]
+ 2319 root      0:00 [ext4-rsv-conver]
+ 2331 root      0:00 [kworker/2:1H]
+ 2333 root      0:00 [kworker/1:1H]
+ 2390 root      2h09 /infoblox/one/bin/monitor
+ 2453 root      0:00 /infoblox/one/bin/mail_daemon
+ 2824 root      0:00 /sbin/acpid
+ 2982 root      0:01 /usr/sbin/crond -l 3
+ 3011 root      0:00 supervise-daemon docker --start --retry TERM/60/KILL/10 --stderr /var/log/docker.log --stdout /var/log/docker.log /usr/bin/dockerd --
+ 3013 root     20:18 /usr/bin/dockerd
+ 3070 root      0:00 [kworker/3:1H]
+ 3085 root      0:00 [kworker/0:1H]
+ 3092 root      0:00 [kworker/1:2]
+ 3184 root      1h09 containerd --config /var/run/docker/containerd/containerd.toml --log-level info
+ 3470 root      5:21 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82 -address /var/run/docker/containerd/containerd.sock
+ 3507 root      0:04 init [3]
+ 3613 root     19:45 /usr/bin/ptop -C -Ms -Nn -T -D -d60 -b -V -l/var/log
+ 3700 root      0:00 sshd: /usr/sbin/sshd [listener] 0 of 10-100 startups
+ 3961 root      0:00 [kworker/0:2]
+ 4079 root      0:11 [kworker/2:2]
+ 4145 root      0:00 /sbin/syslogd -t
+ 4177 root      0:00 /usr/bin/fcgiwrap -c 3 -s unix:/var/run/fcgiwrap/fcgiwrap.sock
+ 4202 root      0:01 /usr/bin/fcgiwrap -c 3 -s unix:/var/run/fcgiwrap/fcgiwrap.sock
+ 4203 root      0:01 /usr/bin/fcgiwrap -c 3 -s unix:/var/run/fcgiwrap/fcgiwrap.sock
+ 4204 root      0:01 /usr/bin/fcgiwrap -c 3 -s unix:/var/run/fcgiwrap/fcgiwrap.sock
+ 4215 root      0:00 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf
+ 4216 102       0:00 nginx: worker process
+ 4217 102       0:00 nginx: worker process
+ 4218 102       0:00 nginx: worker process
+ 4219 102       0:07 nginx: worker process
+ 4654 root      0:00 [jbd2/sda4-8]
+ 4655 root      0:00 [ext4-rsv-conver]
+ 4758 root      6:56 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 661ba4eecb3274f7dae77852395961c2055063cea3be836ac02b59c914672c96 -address /var/run/docker/containerd/containerd.sock
+ 4778 root      1:47 server --poll.interval 24h --first.interval 8h --dataout.address 0.0.0.0 --dataout.port 9346 --log.level info --data.type heka_data --dump.setting cloudonprem --grpc.address cp.noa.infoblox.com --grpc.port 443 --secure true --sampling.interval 30s --upload.interval 1h --check.interval 15m --file.copy.service.host grpc.csp.infoblox.com --file.copy.service.port 443 --hekaapi.address csp.infoblox.com
+ 5189 root      0:00 {syslog-ng} supervising syslog-ng
+ 5190 root      0:01 syslog-ng
+ 5483 root      0:00 /usr/sbin/acpid -l
+ 6388 root     22:13 /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log
+ 6438 root      6:56 /usr/bin/vmtoolsd
+ 7175 root      0:08 /infoblox/one/bin/watchdog
+ 7177 root      0:03 /infoblox/one/bin/smart_check_io
+ 7178 root      0:24 /infoblox/one/bin/check_clustd
+ 7634 root      0:00 /usr/sbin/sshd
+ 7637 104       0:17 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+ 7834 root      0:19 [kworker/u8:2]
+ 8038 104       0:14 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+ 8040 104       0:13 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+ 8041 104       0:17 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+10736 205       0:03 /usr/lib64/erlang/erts-12.0/bin/epmd -daemon
+12016 root      0:00 [loop0]
+12017 root      0:00 [jbd2/loop0-8]
+12018 root      0:00 [ext4-rsv-conver]
+12447 root     29:18 /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid
+13865 root      1:59 /usr/bin/containerd-shim-runc-v2 -namespace moby -id f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32 -address /var/run/docker/containerd/containerd.sock
+13887 root      0:54 client
+14042 root      1:57 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 908e009099a243b4618b7f5c551358da187619703bca8b6eaa48f9f2b9c7191b -address /var/run/docker/containerd/containerd.sock
+14063 root      0:54 server --config.file /etc/onprem.d/params.json --check.frequency 5m --log.level debug
+15187 root      0:00 [kauditd]
+17791 104       0:08 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+17892 104       0:08 /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf
+19301 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+20218 root      0:11 [kworker/1:0]
+20556 root      0:31 /infoblox/one/bin/restart_ctrld
+24010 root      0:32 /infoblox/one/bin/restart_execd
+24117 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25000 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25122 99        0:00 /usr/sbin/named -E  -4 -c /infoblox/var/named_conf/named.conf -u nobody
+25206 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25288 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25289 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25491 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+25794 103       0:00 /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf
+26634 root      0:00 {transfer_suppor} /bin/bash /infoblox/one/bin/transfer_support_files supportBundle:core,log,rotate_log,recursive_cache_dump
+27110 root      0:00 sleep 3
+27215 root      0:00 /usr/bin/timeout -s SIGKILL 10 docker container exec blox.noa ps -ef
+27216 root      0:00 docker container exec blox.noa ps -ef
+27223 root      0:00 runc --root /var/run/docker/runtime-runc/moby --log /var/run/docker/containerd/daemon/io.containerd.runtime.v2.task/moby/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/log.json --log-format json exec --process /tmp/runc-process2960258327 --detach --pid-file /var/run/docker/containerd/daemon/io.containerd.runtime.v2.task/moby/f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32/76fcf468db6d7447564c016192ecf61e05f897cfc182b653168a2d3101627f67.pid f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32
+27233 root      0:00 ps -ef
+28207 root      0:00 /infoblox/one/bin/cored
+28318 root      0:00 sshd: root@pts/0
+28325 root      0:00 -bash
+31442 root      2:27 [kworker/0:0]
+31488 root      7:14 /infoblox/one/bin/clusterd
+31766 root      1h04 /infoblox/one/bin/db_sentinel
+31767 root      2h39 /infoblox/one/bin/process_manager
+31962 root      1:35 {ib_sensor} /bin/bash /infoblox/one/bin/ib_sensor start
+32054 root      0:28 /infoblox/one/bin/duplicate_ipd
+32055 root      0:30 /infoblox/one/bin/db_checkpoint
+32056 root      0:46 /infoblox/one/bin/journal_gc
+32103 root      0:00 /infoblox/one/bin/serial_console console
+32104 root      0:00 /infoblox/one/bin/serial_console console_2nd
+32214 root      0:02 /infoblox/one/bin/disable_ipv6d
+32716 root      0:00 /infoblox/one/bin/controld

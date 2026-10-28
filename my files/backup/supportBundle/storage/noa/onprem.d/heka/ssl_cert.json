@@ -1,0 +1,19 @@
+{
+    "ssl_certs": {
+        "proxy_server": [], 
+        "http": [], 
+        "ca_cert": [], 
+        "endpoint_rest_api_cert": [], 
+        "sfnt_server": [], 
+        "endpoint_cisco_ise_cert": [], 
+        "endpoint_dxl_cert": [], 
+        "saml_auth_idp": [], 
+        "captive": [], 
+        "endpoint_syslog_cert": [], 
+        "ifmap_cert": [], 
+        "cluster_syslog_server": [], 
+        "ocsp_server": [], 
+        "vnode_syslog_server": [], 
+        "idns_cert": []
+    }
+}

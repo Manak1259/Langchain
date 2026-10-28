@@ -1,0 +1,297 @@
+[
+    {
+        "Id": "6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82",
+        "Created": "2024-10-16T12:35:48.063864497Z",
+        "Path": "/sbin/init",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 3507,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2024-10-16T12:35:49.49248584Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2024-10-23T12:42:40.236917174Z",
+                        "End": "2024-10-23T12:42:40.358090672Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2024-10-23T12:43:10.360693389Z",
+                        "End": "2024-10-23T12:43:10.478034432Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2024-10-23T12:43:40.486275646Z",
+                        "End": "2024-10-23T12:43:40.593294352Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2024-10-23T12:44:10.594603225Z",
+                        "End": "2024-10-23T12:44:10.726083455Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2024-10-23T12:44:40.72740514Z",
+                        "End": "2024-10-23T12:44:40.827150268Z",
+                        "ExitCode": 0,
+                        "Output": ""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:62f9bc7b692781b6cd3bd5b35dc59cf223a96a0d6feff16b16392596b25b9093",
+        "ResolvConfPath": "/rw/host/docker/containers/6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82/resolv.conf",
+        "HostnamePath": "/rw/host/docker/containers/6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82/hostname",
+        "HostsPath": "/rw/host/docker/containers/6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82/hosts",
+        "LogPath": "/rw/host/docker/containers/6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82/6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82-json.log",
+        "Name": "/nios",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "host",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": true,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": [
+                "label=disable"
+            ],
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/var/log",
+                    "Target": "/host/var/log",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/var/run/docker.sock",
+                    "Target": "/host/var/run/docker.sock",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/etc/docker",
+                    "Target": "/host/etc/docker"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/etc/conf.d/docker",
+                    "Target": "/host/etc/conf.d/docker"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/opt/nios/flags",
+                    "Target": "/host/flags"
+                }
+            ],
+            "MaskedPaths": null,
+            "ReadonlyPaths": null
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/rw/host/docker/overlay2/a08ab3bdcc1d114303ff87d1182f3312e6b2ee1ffb520404f8a9ce225f8aefd5-init/diff:/rw/host/docker/overlay2/8de269a304de6ed6fe8c3c2eeb590b5fc3110933fa401319655660ab26eb8bc0/diff",
+                "MergedDir": "/rw/host/docker/overlay2/a08ab3bdcc1d114303ff87d1182f3312e6b2ee1ffb520404f8a9ce225f8aefd5/merged",
+                "UpperDir": "/rw/host/docker/overlay2/a08ab3bdcc1d114303ff87d1182f3312e6b2ee1ffb520404f8a9ce225f8aefd5/diff",
+                "WorkDir": "/rw/host/docker/overlay2/a08ab3bdcc1d114303ff87d1182f3312e6b2ee1ffb520404f8a9ce225f8aefd5/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/var/log",
+                "Destination": "/host/var/log",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/var/run/docker.sock",
+                "Destination": "/host/var/run/docker.sock",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/etc/docker",
+                "Destination": "/host/etc/docker",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/etc/conf.d/docker",
+                "Destination": "/host/etc/conf.d/docker",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/opt/nios/flags",
+                "Destination": "/host/flags",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "localhost",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DOCKER_HOST=unix:///host/var/run/docker.sock"
+            ],
+            "Cmd": [
+                "/sbin/init"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "curl --silent -o /dev/null -k --fail https://localhost/ || exit 1"
+                ],
+                "Interval": 30000000000,
+                "Timeout": 30000000000,
+                "StartPeriod": 120000000000,
+                "Retries": 5
+            },
+            "Image": "nios:base",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "64246a1ba01a36c30d2b05ef6872621f41d52e1a4b2ed8b6bcc9e13d8db4fe5b",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/default",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "host": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "01c71c329cf6b08c3ca473f20f6af8ef9631c9097d9a0a9b957aca4f4dcdf02e",
+                    "EndpointID": "e6b545fd6982729c3add12d42fdc324bbaabeb163d565253155cd3e0ec3bec8d",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]

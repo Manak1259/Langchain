@@ -1,0 +1,6 @@
+{
+    "federation": {
+        "routing_realms_count": 0, 
+        "federation_enabled": false
+    }
+}

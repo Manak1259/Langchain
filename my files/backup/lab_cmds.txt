@@ -1,0 +1,147 @@
+	1)For virutal applicanes we have to use ddl.ova.
+2)For hardware applicanes we have to use .bin file.
+3)For Virtual appliacnes for resveration -H and for hardware appliance reservation use -h.
+4)To get the system information use -H.
+
+Credential for appliance(default)
+username-admin
+passswrd-infoblox
+
+---------
+extend_lease -H blrkvm-30-01 -c akumar11 -o msahu2
+
+• get_lab_info -H ALL 
+ • get_lab_info -H  vm-xx-xx
+ • get_lab_info  -p vnios -H FREE -g fr_automation 
+ • reserve_test_resources -p vnios -n 1  -l 5d -g fr_automation
+ • reserve_test_resources -h HARDWARE_IB_1410 -n 1 -g fr_automation
+ • console_connect -H vm-xx-xx                       
+ • set network 
+ • show network
+ • set temp_license 
+ • show license all
+ • upgrade_test_system -H eng-lab-xxxx -F nios-8.6-414387-2021-05-06-13-00-15_x86_64.bin
+ • reboot_system -H vm-xx-xx
+ • reboot_system -H vm-xx-xx -a poweroff 
+ • release_test_system -H eng-lab-xxxx
+• extend_lease -H vm_name -ccurrent_owner -o new_owner -l 5d
+ get_lab_info -H ALL -g fr_automation
+reset_console -H vm-12-32
+vm_specs -H  vm-14-25
+
+reserve_test_resources -H Heng-lab-980 -n 1 -g fr_automation
+
+identify_lab_unit ip
+set remote_console 
+set support_access 
+addkeys ip- set remote_console and set support_access is mandate for it.
+set nogrid -> coming out of the grid master
+set membership -> to add the member to the grid.
+default key secret is -test when doing test memberhsip.
+---
+-p vnios = vm's
+-g = groups 
+-H = HOST
+-n = number of applainces
+-l = lease 
+-a = power on / off 
+-h = hardware 
+
+get_lab_info = to see / know the details 
+reserve_test_resources = reserve anything which presents in lab 
+console_connect = to enter into the applainces
+------------
+1)to see all the  details in fr automation group- get_lab_info  -H ALL -g fr_automation
+2)to see free sepecific hardware type details from fr_automation group- get_lab_info  -H FREE -g fr_automation -h HARDWARE_IB_1410
+3) get_lab_info  -H LIST -g fr_automation -h  HARDWARE_IB_1410
+-----
+To upgrade to build with specfic ownership-----
+upgrade_test_system -H eng-lab-1301 -f nios-8.5.2-409296-2021-01-08-05-02-37_x86_64.bin -c ssrivastava
+
+NIOS Build path--	
+/import/builds/nios/develop/9.0
+--------
+Reserve a priavte nw-
+
+request_network -N 25
+-------------
+To  get info of a  network
+ get_lab_info -S 10.34.1.112
+ get_lab_info -S 10.197.23.6
+
+
+
+
+----
+Steps for Load installation-
+1)First reserve  one appilance vm dd.ova/hw .bin.
+2)Install which verion build you want
+3)console connect enter that machine config network setting.
+
+----------
+For evry nw first ip is the gateway ip-
+4)set license (NIOS and GRID)
+5)launch grid
+----------
+1)Install discovery member-discovery.ova
+2)GMC(Grid Member Candidate)-ddi.ova
+3)Reporting member-ddi.ova
+4)Normal member
+---
+Build path
+/import/builds/nios/develop/9.0
+
+-----
+wapi url-
+
+https://10.35.160.12/wapidoc/index.html
+
+--------
+SUPPORT BUNDLE-
+
+set transfer_supportbundle scp IP USER PASSWORD dest /tmp/mem-10_34_97_8.tar.gz core_files current_logs rotated_log
+
+
+---------
+cmd To show the log inside NIOS VM-
+show logs debug follow
+----------
+To install IB_ hardware appliances use  .bin file
+-----------
+To install ND hardware appliances use discovery.bin file.
+-----------
+To login to hardware appliance--
+ssh -p 7025 console@eng-console-046
+-------
+netctl_system -H vm-Name  -i lan -S 10.34.19.0 -a vlanset
+netctl_system -H vm-Name  -i lan -S 10.34.19.0 -a enable (edited) 
+----------
+netctl_system -H vm-Name  -i lan -S 10.34.19.0 -a vlanset
+netctl_system -H vm-Name  -i lan -S 10.34.19.0 -a enable (edited) 
+
+
+
+netctl_system -H vm-09-03d  -i lan -S 10.34.34.0 -a vlanset
+
+9.0.4-51402-11182a6bd0ba
+
+netctl_system -i lan -S 10.35.0.0 -a vlanset -H vm-04-74
+	
+  netctl_system -i HA -S <network> -a vlanset -H vm-08-05c
+netctl_system -H vm-16-25 -i lan2 -S 10.34.174.0 -a vlanset (Lan2) (edited) 
+netctl_system -H vm-06-70 -i lan2 -S 10.34.1.16 -a vlanset
+
+
+
+netctl_system -i HA -S 10.34.1.104 -a vlanset -H vm-04-34
+
+netctl_system -H vm-06-70 -i lan2 -S 10.34.1.19 -c ashetty
+
+
+reset all licenses
+
+to remove member from grid
+set nogrid
+
+
+REGINAL OFFICE BOB 

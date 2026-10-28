@@ -1,0 +1,73 @@
+#!/usr/bin/python
+import os
+import re
+import sys
+import json
+import infoblox.one.util as ou
+import infoblox.one.onedb as onedb
+import infoblox.one.one_include as oi
+IB_LICENSE_TEMP = (oi.IB_LICENSE_STATUS_TEMPORARY | oi.IB_LICENSE_STATUS_EXPIRED | oi.IB_LICENSE_STATUS_DISABLED | oi.IB_LICENSE_STATUS_REVOKED)
+
+def dump_json(data):
+    print (json.dumps(data))
+    sys.exit(0)
+
+def get_current_version(config_file):
+    curr_ver = None
+    with open(config_file) as fd:
+        lines = fd.readlines()
+        for line in lines:
+            if 'EXTERNAL_VERSION' in line:
+                curr_ver = line.partition('=')[2]
+                break
+    return curr_ver
+
+def check_if_lab_device():
+    is_lab_device = False
+    temp_license_count = 0
+    pnode_count = 0
+    db = onedb.Db()
+
+    with db.begin(onedb.RO) as txn:
+        license_type = oi.IB_LICENSE_TYPE_ENTERPRISE
+        for vnode in db.cursor('?one.virtual_node', factory=onedb.DBRecord):
+            for pnode in ou.get_pnodes_for_vnode(db, vnode.ref()):
+                if os.path.exists('/infoblox/config'):
+                    curr_ver = get_current_version('/infoblox/config')
+                if curr_ver == "":
+                    return is_lab_device
+                match = re.match(r'^(\d+)\.(\d+)\.(\d+)', curr_ver)
+                extracted_version = int(match.group(1) + match.group(2) + match.group(3))
+                # extracted version gives version in the format of an integer for example 8.6.2 will be given as 862
+                operState = ou.get_pnode_status(pnode['physical_oid'])
+                if operState == "Running":
+                    pnode_count += 1
+                    for lic in db.cursor('?one.product_license',
+                                    {'pnode': pnode.ref(),
+                                    'license_type': license_type},
+                                    factory=onedb.todict):
+                        if extracted_version >= 902 :
+                            is_virtual = ou.is_pnode_virtual(pnode)
+                            lic_info = ou.ib_get_license_info(lic['license_string'],
+                                                    pnode['hwid'],is_virtual)
+                        else :
+                            lic_info = ou.ib_get_license_info(lic['license_string'],
+                                                    pnode['hwid'])
+                        status = lic_info['status']
+                        # Checking the license status for VALID and TEMPORARY
+                        if status & oi.IB_LICENSE_STATUS_VALID:
+                            if status & IB_LICENSE_TEMP:
+                                temp_license_count +=1
+    if pnode_count == temp_license_count:
+        is_lab_device = True
+
+    return is_lab_device
+
+if __name__ == "__main__":
+    try:
+        is_lab_device = check_if_lab_device()
+        # Return code 0 on success
+        dump_json({'is_lab_device':is_lab_device,'message':''})
+    except Exception as e:
+        # Return code 1 on failure
+        dump_json({'is_lab_device':False,'message':str(e)})

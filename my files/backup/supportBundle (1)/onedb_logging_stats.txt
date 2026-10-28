@@ -1,0 +1,20 @@
+0x40988	Log magic number
+15	Log version number
+32KB	Log record cache size
+0	Log file mode
+10Mb	Current log file size
+4717699	Records entered into the log
+342MB 498KB 820B	Log bytes written
+64KB	Log bytes written since last checkpoint
+12395	Total log file I/O writes
+10436	Total log file I/O writes due to overflow
+1959	Total log file flushes
+2469	Total log file I/O reads
+35	Current log file number
+10173631	Current log file offset
+35	On-disk log file number
+10101039	On-disk log file offset
+1	Maximum commits in a log flush
+1	Minimum commits in a log flush
+432KB	Log region size
+104	The number of region locks that required waiting (0%)

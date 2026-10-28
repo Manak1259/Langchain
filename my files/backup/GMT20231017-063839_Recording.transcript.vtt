@@ -1,0 +1,1014 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.369
+Siva Krishna: First, I will explain about the lap tools. Okay, what are the laptops beyond? What are the laptops who are using daily? Okay.
+
+2
+00:00:15.620 --> 00:00:23.939
+Siva Krishna: So whenever you want to. First thing is like, you want to reserve any. Vm, hardware. Okay, for that. First, you need to use that
+
+3
+00:00:24.290 --> 00:00:26.249
+Siva Krishna: is that, okay?
+
+4
+00:00:27.380 --> 00:00:32.650
+Siva Krishna: But you need to check whether appliances are there in the pool or not. We have some 3 pools. Okay.
+
+5
+00:00:32.750 --> 00:00:48.540
+Siva Krishna: okay.
+
+6
+00:00:48.600 --> 00:00:51.310
+Siva Krishna: by default, you will have the access for the engineering pool.
+
+7
+00:00:52.890 --> 00:01:03.409
+Siva Krishna: So this is the engineering pool. So you like, this will be accessible by everyone in info box. So on, our team is having a separate phone, just like functional queueing.
+
+8
+00:01:07.650 --> 00:01:14.939
+Siva Krishna: This will be used by only our team. Okay. and we have one more pool which should be used for automation
+
+9
+00:01:15.240 --> 00:01:22.060
+Siva Krishna: that we can't use for any manual testing. That is for only automation. Okay, automation is, Jenkins is here on execution
+
+10
+00:01:24.230 --> 00:01:25.739
+Siva Krishna: hit. And this put, okay.
+
+11
+00:01:27.810 --> 00:01:30.550
+Siva Krishna: So now, I'm reserving a Vm from.
+
+12
+00:01:31.500 --> 00:01:41.809
+Siva Krishna: we don't have any vms. So for just demo purpose. second, I already have the video from functional. Qv.
+
+13
+00:01:42.300 --> 00:01:43.010
+Siva Krishna: yeah.
+
+14
+00:01:44.340 --> 00:01:48.140
+Siva Krishna: So already, how I took on. Vm, okay. this is the Vm.
+
+15
+00:01:48.210 --> 00:01:58.350
+Siva Krishna: I took, and I installed the bill. Hmm. so this is the command which we need to use.
+
+16
+00:01:58.550 --> 00:02:12.890
+Siva Krishna: No, we can't take from any pool functional queue we need to use that is given to our team. So we need to use for functional queues. So whenever you reserve. Vm, so you particularly check that details. Okay, just check
+
+17
+00:02:13.810 --> 00:02:36.699
+Siva Krishna: if you want to know the details of the Vm, so use the git lab info command. These are the laptop command. So using that command, you will get the details. The Vm mostname LAN, IP address, okay, subnet gateway, an Mgm typ. And also, you can find the resource group. If it is a file automation, if it is functional. Qms, it says, functional. Qvm.
+
+18
+00:02:36.700 --> 00:02:51.830
+Siva Krishna: okay, so now, this is the Vm, which I install the bill. So I think you both know how to install a build. So this is the command we need to use for installing the build. Okay, upgrade the system. I think it's the Vm, id, the bill. Okay.
+
+19
+00:02:52.020 --> 00:02:56.840
+Siva Krishna: So now I have configured and started the build. So now I'm configuring the network. Okay.
+
+20
+00:03:06.580 --> 00:03:10.889
+Siva Krishna: we have Blr also, Blr appliances there. Okay.
+
+21
+00:03:16.020 --> 00:03:20.120
+Siva Krishna: think I have allocated for everyone. That was also 1 s.
+
+22
+00:03:20.820 --> 00:03:22.369
+Siva Krishna: And this is removed.
+
+23
+00:03:24.930 --> 00:03:33.889
+Siva Krishna: Yeah, these are the 4 Vms of functional Qvms. Okay. And this is a, the Ips for which can be used for a 6 serial network
+
+24
+00:03:33.950 --> 00:03:37.420
+Siva Krishna: Esx service and for 4 people, one Asx service.
+
+25
+00:03:38.320 --> 00:03:42.590
+Siva Krishna: I think, one. Bookkeeping thing or not.
+
+26
+00:03:42.910 --> 00:03:44.420
+Siva Krishna: I think. Let me
+
+27
+00:03:53.910 --> 00:03:59.890
+Siva Krishna: on hardware. So these are the hardware's we have. We are send to people, and if you need any hardware, then let us know
+
+28
+00:04:00.360 --> 00:04:02.360
+Siva Krishna: it provoked hardware. Okay.
+
+29
+00:04:04.710 --> 00:04:09.890
+Siva Krishna: so by default, this will be the network. Okay, you want to configure your own network.
+
+30
+00:04:11.650 --> 00:04:15.069
+Siva Krishna: So I'm using this. IP, 1035, 1, 51 update.
+
+31
+00:04:16.170 --> 00:04:19.540
+Siva Krishna: That depends. You want not enter.
+
+32
+00:04:22.680 --> 00:04:26.699
+Siva Krishna: This is the subnet mask. Okay, this will be the
+
+33
+00:04:26.760 --> 00:04:35.649
+Siva Krishna: for 1030. Okay, if you use any private network. For example, we have private networks also. So the way how you reset
+
+34
+00:04:35.810 --> 00:04:57.639
+Siva Krishna: vmware. Another network. Okay, I'm using it
+
+35
+00:05:00.040 --> 00:05:02.679
+Siva Krishna: every time you have to do get webinar
+
+36
+00:05:05.270 --> 00:05:06.410
+Siva Krishna: happiness.
+
+37
+00:05:08.080 --> 00:05:17.290
+Siva Krishna: So this is the 8 network. So it will be an 8 ips. Okay? So this can convert 11 dot, 10 to one dot 40,
+
+38
+00:05:17.710 --> 00:05:19.479
+Siva Krishna: you can configure it. Okay.
+
+39
+00:05:19.760 --> 00:05:26.450
+Siva Krishna: but this subnet mask, this is subnet mask for this one. So we chose.
+
+40
+00:05:43.590 --> 00:05:54.129
+Siva Krishna: It depends upon your requirement. For example, if you need just 4 or 5 Ips this agent. So if you want some 2030 Ips. Then you have to go with 2 59. Okay.
+
+41
+00:05:54.700 --> 00:05:56.080
+Siva Krishna: so this is the network.
+
+42
+00:05:57.770 --> 00:06:05.539
+Siva Krishna: So even you can configure this one also. So when you want, I will show you when you configure this network port account.
+
+43
+00:06:07.470 --> 00:06:09.239
+Siva Krishna: Yeah, this is the gateway.
+
+44
+00:06:10.090 --> 00:06:13.390
+Siva Krishna: And if you want to configure ipv. 6,
+
+45
+00:06:13.730 --> 00:06:15.830
+Siva Krishna: then just go with type basics.
+
+46
+00:06:21.020 --> 00:06:24.900
+Siva Krishna: 64 is a gateway. You can see here. Hmm.
+
+47
+00:06:26.860 --> 00:06:28.490
+Siva Krishna: 60% subtitles.
+
+48
+00:06:30.800 --> 00:06:32.760
+Siva Krishna: etc. This is the gateway.
+
+49
+00:06:42.240 --> 00:06:45.100
+Siva Krishna: It will restart sushi shuttle.
+
+50
+00:07:33.790 --> 00:07:47.470
+Siva Krishna: Let's check that up. So if, for example, if someone Vm has also uses the same IP at the time, you will get a notification as duplicate. IP address here. Okay, so make sure whenever you are configuring a IP address. IP,
+
+51
+00:07:47.490 --> 00:07:53.699
+Siva Krishna: the first thing you should do is you should ping the IP, okay? You should ping from the outside. If Ap is already.
+
+52
+00:07:56.230 --> 00:07:59.080
+Siva Krishna: it's not been 1 s something
+
+53
+00:08:01.090 --> 00:08:02.150
+Siva Krishna: you can enter.
+
+54
+00:08:05.110 --> 00:08:12.819
+Siva Krishna: Hmm! The gateway is not pinging. The IP address is not ping the reason why it is not pinging is, you see, this Ethernet address? Okay.
+
+55
+00:08:13.770 --> 00:08:25.389
+Siva Krishna: this Ethernet address should be configured with the same network. Now the Ethernet is configured with the private network, 1030 for 1, 30. For that we have to change to 1035. Okay.
+
+56
+00:08:26.670 --> 00:08:29.430
+Siva Krishna: hmm.
+
+57
+00:09:54.390 --> 00:10:00.419
+Siva Krishna: Here. Now the Vrin is set for 1030, an network. So now, if you do get 7 for this.
+
+58
+00:10:08.120 --> 00:10:11.710
+Siva Krishna: you see, Ethernet network is set for 1035 observations.
+
+59
+00:10:11.910 --> 00:10:12.810
+Siva Krishna: Okay.
+
+60
+00:10:24.230 --> 00:10:30.450
+Siva Krishna: then, you can change this one also.
+
+61
+00:10:30.510 --> 00:10:34.070
+Siva Krishna: Okay, okay.
+
+62
+00:10:45.910 --> 00:10:47.670
+Siva Krishna: who.
+
+63
+00:11:24.500 --> 00:11:42.669
+Siva Krishna: if you want to do root logging for this grid? Okay, by default, as our neas grid login license admin in 4 blocks. Okay? And if you want to do root login, route access through clms. So first you have to. Now, I have to then cancel counted. Okay. If you want to log in with Ssh, admin. Okay.
+
+64
+00:11:44.030 --> 00:11:44.859
+Siva Krishna: I mean.
+
+65
+00:11:45.420 --> 00:11:50.239
+Siva Krishna: okay, this is not allowing. So the reason is, you have to enable some security thing.
+
+66
+00:11:50.550 --> 00:11:53.170
+Siva Krishna: Okay, set remote console. Hmm.
+
+67
+00:11:53.890 --> 00:11:59.790
+Siva Krishna: This will allow you to log in with the Admin. Okay? And if you set support taxes.
+
+68
+00:12:02.050 --> 00:12:10.950
+Siva Krishna: this will generate a key. Okay. so now you have to do add keys. If you do add keys, then you will allow you to log in with that.
+
+69
+00:12:59.330 --> 00:13:09.449
+Siva Krishna: Now I'm inserting the licenses. Okay, so what are the licenses we want? You gonna try the Dns Dhcp grid. License. Nia's license. So I'm inserting Dns Dhcp and grid license. Okay.
+
+70
+00:13:12.620 --> 00:13:13.410
+Siva Krishna: well.
+
+71
+00:13:14.640 --> 00:13:20.250
+Siva Krishna: license. So you can install any. Ib, H. 0, miss. This is a reporting. Okay.
+
+72
+00:13:20.430 --> 00:13:27.249
+Siva Krishna: 8, 1, 5. You can install. R. 1, 4, 1, 5. I can install. R. 1, 5, 1, 6 I can install. I'm going to
+
+73
+00:13:33.000 --> 00:13:35.760
+Siva Krishna: when you utilize the license. The system which that will happen.
+
+74
+00:13:36.390 --> 00:13:47.079
+Siva Krishna: No, no, no. 1, 5, 1, 6 isn't just another license. Okay, reporting is 8, 1, 8, 0 5
+
+75
+00:13:47.180 --> 00:13:49.950
+Siva Krishna: high, maybe age 0 5. Hmm.
+
+76
+00:14:10.140 --> 00:14:10.850
+and
+
+77
+00:14:11.040 --> 00:14:13.230
+Siva Krishna: able to log in with that.
+
+78
+00:14:25.600 --> 00:14:26.720
+Siva Krishna: Yeah, please.
+
+79
+00:14:33.880 --> 00:14:41.679
+Siva Krishna: The address is a 2. Okay. so it will add that keys of this grid I mean
+
+80
+00:14:41.710 --> 00:14:47.709
+Siva Krishna: security key of this grid to this client to this client mission. So I went to my workstation. Italian
+
+81
+00:14:55.140 --> 00:14:56.820
+Siva Krishna: Museum is very slow.
+
+82
+00:15:03.980 --> 00:15:08.680
+Siva Krishna: Whenever you install a bill after contacting the network. First, you need to log in
+
+83
+00:15:09.870 --> 00:15:11.910
+Siva Krishna: the log. You need to check the locks.
+
+84
+00:15:12.530 --> 00:15:17.830
+Siva Krishna: able to make sure that lock should be open. Whatever the option you do, you do and amounts. Okay.
+
+85
+00:15:20.280 --> 00:15:29.109
+Siva Krishna: So now I have installed Dns, Dhcp connection set. So now. if I reload, this is good. So you will find Dns, Dhcp, everything.
+
+86
+00:16:08.790 --> 00:16:11.810
+Siva Krishna: You see. Dns, Dhcp.
+
+87
+00:16:11.940 --> 00:16:14.410
+Siva Krishna: okay. 100.
+
+88
+00:16:21.250 --> 00:16:24.410
+Siva Krishna: So this is how we'll apply a vm. okay.
+
+89
+00:16:25.850 --> 00:16:28.019
+Siva Krishna: let's just start on service.
+
+90
+00:16:50.310 --> 00:16:51.360
+Siva Krishna: Be in this.
+
+91
+00:16:57.970 --> 00:16:59.550
+Siva Krishna: And I will. Yes.
+
+92
+00:17:04.480 --> 00:17:05.230
+Siva Krishna: okay.
+
+93
+00:17:07.310 --> 00:17:12.059
+Siva Krishna: this is how we configure a Vm, okay, now, I will show how to add a member.
+
+94
+00:17:16.650 --> 00:17:19.819
+Siva Krishna: So I already have one. Vm, okay, let me on that.
+
+95
+00:17:34.680 --> 00:17:44.480
+Siva Krishna: So this is the Vm, okay. So now I'm adding this, Vm, as a member to that master Grid. Okay, thing is like, so both master members should be the same question.
+
+96
+00:17:44.600 --> 00:17:56.250
+Siva Krishna: So if they are in different version. For example, if master is in 9, 0 or 2, okay, and member is in 9 0 one. And if we add this member to that master, this member will automatically sink to that master version.
+
+97
+00:17:56.280 --> 00:18:00.569
+Siva Krishna: Okay, autoscal will happen. So the both will have the same option. Okay.
+
+98
+00:18:12.960 --> 00:18:25.129
+Siva Krishna: we get 2 member types. Is that okay? When you are adding any hardware hardware to this mem, Master Grid, okay, as a member, then you have to select info box. Okay? And when you are adding any vm, then you're set virtual name. Okay.
+
+99
+00:18:25.750 --> 00:18:28.130
+Siva Krishna: post name, can you? Anyone's name
+
+100
+00:18:28.550 --> 00:18:29.410
+Siva Krishna: and
+
+101
+00:18:36.870 --> 00:18:38.540
+Siva Krishna: basics?
+
+102
+00:19:11.630 --> 00:19:17.699
+Siva Krishna: So I haven't had this list is asking for the password. We don't do our case. Then it will ask for the password
+
+103
+00:19:20.930 --> 00:19:26.129
+Siva Krishna: passport will not open. So yeah. So if you need password.
+
+104
+00:19:26.230 --> 00:19:28.439
+Siva Krishna: So how you need to get right? Okay.
+
+105
+00:19:31.780 --> 00:19:40.419
+Siva Krishna: this shows up, what's this key is right? So you have to copy this, and then you have to use this command. Request, password.
+
+106
+00:19:40.660 --> 00:19:44.910
+Siva Krishna: This is the lab command. So now copy this.
+
+107
+00:19:46.940 --> 00:19:50.460
+Siva Krishna: I said. Support installed.
+
+108
+00:19:52.800 --> 00:20:00.930
+Siva Krishna: No, no, you can log in with password. If this is a password. Okay? So anyway, here I have an ad. This means so it will not.
+
+109
+00:20:01.130 --> 00:20:04.720
+Siva Krishna: ask for the password. I will show you. We will ask for the password. Yeah.
+
+110
+00:20:13.450 --> 00:20:15.030
+Siva Krishna: I'm logging 20.
+
+111
+00:20:29.370 --> 00:20:31.169
+Siva Krishna: So here it is, asking for the password
+
+112
+00:20:34.530 --> 00:20:35.830
+Siva Krishna: mode slowing.
+
+113
+00:20:36.400 --> 00:20:41.630
+Siva Krishna: So if I don't want to give password, then I can. I need to do add keys. Okay?
+
+114
+00:20:42.290 --> 00:20:50.799
+Siva Krishna: Sometimes the admissions may get paid due to some other reason. So at the time you have you follow this method request password. Okay.
+
+115
+00:20:51.060 --> 00:20:56.670
+Siva Krishna: so if you want to do a kiss, make sure the set support taxes is enabled. This should be enabled. Okay.
+
+116
+00:20:57.830 --> 00:21:01.350
+Siva Krishna: if you want to log in with admin. Then you have to enable remote console.
+
+117
+00:21:01.430 --> 00:21:06.759
+Siva Krishna: If you want to log in with the root, then you are to enable support access. Okay, don't confuse with this. Okay.
+
+118
+00:21:07.280 --> 00:21:08.010
+Siva Krishna: yeah.
+
+119
+00:21:11.940 --> 00:21:14.380
+Siva Krishna: every time you are tenable amounts.
+
+120
+00:21:29.990 --> 00:21:30.670
+Yeah.
+
+121
+00:21:37.820 --> 00:21:38.780
+this one
+
+122
+00:22:27.410 --> 00:22:32.219
+Siva Krishna: stand alone.
+
+123
+00:22:38.300 --> 00:22:59.150
+Siva Krishna: That I will explain. Okay, for now, just yours. So, standard is like a normal standard. Both are normal members. Only member or master read anything standard and also can be a member, or it can be a master grid. Okay, it's not like a member. Standard is a grid. Unh is also great, but only difference between HD and standard is like, See normal member. If the
+
+124
+00:22:59.220 --> 00:23:17.190
+Siva Krishna: having only one node. So if that goes down it's dead, you will have 2 nodes. One is active, Node, one is passing out, so it's like alternator. So if the act active Node goes down automatically, passenger will be working will be serving. You will be serving that protocols. Okay?
+
+125
+00:23:17.190 --> 00:23:42.590
+Siva Krishna: If so, I mean, it means the passenger node will be off, not be offline, it will be running on it, but it will not come into, so it will not serve the protocols. It will be just syncing with the active node. It will be data that are the data having active node. The same data will be with the password as well. But when the active node goes down, then only this passenger will come into picture. So yeah, the protocols will be sold on the vip for active and password. There will be an Vip common vip.
+
+126
+00:23:42.760 --> 00:23:48.730
+Siva Krishna: Okay, whatever the that sort of protocols which we are serving that will be served on this vap.
+
+127
+00:23:48.970 --> 00:24:03.920
+Siva Krishna: So when when that node goes on automatically, this vip will be connected to that person. So then, again, the service is running as usual. But if normal member, for example, is 1 51.8, is that this member? If this goes down it's dead.
+
+128
+00:24:04.020 --> 00:24:06.900
+Siva Krishna: and then nothing you found anything. Yeah.
+
+129
+00:24:12.090 --> 00:24:20.149
+Siva Krishna: So here we are using. If you want to add this 1 60 dot section as a member. Okay, you are used on command. That is, set members command. Hmm.
+
+130
+00:24:20.720 --> 00:24:27.870
+Siva Krishna: set membership command. So okay, it is. Ask, model, enter new Gridmaster, IP, so you have to give this IP, master. IP. Hmm.
+
+131
+00:24:28.640 --> 00:24:38.459
+Siva Krishna: It is asking, enter grid name default by default, it will be in 4 blocks. Okay. So from where this name is getting is from here. If you see here in 4 blocks.
+
+132
+00:24:38.980 --> 00:24:40.660
+Siva Krishna: This is the name. Okay.
+
+133
+00:24:42.640 --> 00:24:52.860
+Siva Krishna: this is this name, and this is the password. So by default, our info blocks design grid name as info blocks. Password is test. Tst, last month. Okay? Test is small. Okay.
+
+134
+00:24:53.530 --> 00:25:12.649
+Siva Krishna: For example, if we take some customer, Davis, okay, they might be hanging some different name on different password at that time, so we might not. We may not know this secret password, this name which is visible, but password, is not visible, so you change it to info blocks under whatever you want, you can change. But the same thing we have to use there. But okay.
+
+135
+00:25:13.930 --> 00:25:16.440
+Siva Krishna: Mr. Hilda Ish.
+
+136
+00:25:25.770 --> 00:25:28.239
+Siva Krishna: I executed that command got into the logs.
+
+137
+00:25:28.340 --> 00:25:33.109
+Siva Krishna: Okay, now the restart is happening because it is trying to connect to the master.
+
+138
+00:25:33.290 --> 00:25:36.330
+Siva Krishna: So whenever it is system activities happen, it will restart
+
+139
+00:25:51.260 --> 00:25:56.479
+Siva Krishna: show how to configure hardware.
+
+140
+00:25:56.500 --> 00:25:57.859
+Siva Krishna: Let's let it come to
+
+141
+00:25:58.340 --> 00:25:59.050
+villain
+
+142
+00:26:00.450 --> 00:26:01.260
+Siva Krishna: plus.
+
+143
+00:26:34.130 --> 00:26:40.390
+Siva Krishna: So it is synchronizing. And the master with the hardware. Okay. this is the hardware.
+
+144
+00:26:47.320 --> 00:26:48.959
+Siva Krishna: You bring a new device.
+
+145
+00:26:48.970 --> 00:26:53.589
+Siva Krishna: Okay? Any device. When you have a Vm idea, hardware. Id, first book, get live info.
+
+146
+00:26:54.130 --> 00:26:57.629
+Siva Krishna: because you should make sure that Vm. And hardware it is an even
+
+147
+00:26:57.740 --> 00:27:02.339
+Siva Krishna: we can't use some of us via my other.
+
+148
+00:27:02.690 --> 00:27:03.820
+Siva Krishna: Okay, well.
+
+149
+00:27:04.580 --> 00:27:08.229
+Siva Krishna: to login to this. Vm, so you have to do. Ssh.
+
+150
+00:27:09.590 --> 00:27:11.939
+Siva Krishna: put on to the 100. Sorry.
+
+151
+00:27:12.690 --> 00:27:13.610
+Siva Krishna: Thank you.
+
+152
+00:27:14.690 --> 00:27:16.419
+Siva Krishna: The port. Okay.
+
+153
+00:27:21.550 --> 00:27:23.030
+Siva Krishna: Hmm.
+
+154
+00:27:23.420 --> 00:27:27.560
+Siva Krishna: From the report. 7, 0 create
+
+155
+00:27:32.800 --> 00:27:35.240
+Siva Krishna: password is an open box. Report
+
+156
+00:27:42.070 --> 00:27:45.769
+Siva Krishna: is a default number. So now I'm configuring. Ipv. 4. Address.
+
+157
+00:27:51.310 --> 00:27:54.919
+Siva Krishna: See, this is duplicate. After showing, because 1 90
+
+158
+00:27:54.950 --> 00:28:02.849
+Siva Krishna: to one this IP address might be used in semi devices. Default address. When you install, enable it will be default. Address. Okay.
+
+159
+00:28:03.610 --> 00:28:07.440
+Siva Krishna: yeah.
+
+160
+00:28:08.110 --> 00:28:10.799
+Siva Krishna: Before continuing Mini IP, you are looking.
+
+161
+00:28:11.270 --> 00:28:19.430
+Siva Krishna: These are like a physical economic. These Ips are assigned to this hardware. So people most may not be using. But when you use any private network.
+
+162
+00:28:19.580 --> 00:28:23.179
+Siva Krishna: okay, for a good network might be using many people. Okay.
+
+163
+00:28:23.970 --> 00:28:35.069
+Siva Krishna: said the time you ought to be careful. Make sure. You think that even when configuration, the IP's near successor also, first, you ping the IP. Then, whatever thy pieces are not pinging, you take those Ips.
+
+164
+00:28:39.840 --> 00:28:41.899
+Siva Krishna: So now I'm not going to my basics again.
+
+165
+00:28:47.410 --> 00:29:08.669
+Siva Krishna: This is a hardware. So this is how you need to connect to the hardware. Okay, there is a difference between Vm on our for vm, you can directly go with Ss console, connect, iphone H. But here you need to give this Ssh console and this one you will be gay. The details you'll be getting from here. ENG. Console. Ok, console, host, console port. These 2 are important for an hardware. Okay.
+
+166
+00:29:08.790 --> 00:29:17.109
+Siva Krishna: using these 2 only, you will be connected initially. Okay. Once, after enabling remote console. You can just log in with Ssh channel. Okay
+
+167
+00:29:23.270 --> 00:29:26.070
+Siva Krishna: for synchronization computer for that number.
+
+168
+00:29:28.300 --> 00:29:33.289
+Siva Krishna: But there's like, no, it's congratulations. Member. This is how you'll configure this member. Okay?
+
+169
+00:29:33.300 --> 00:29:36.920
+Siva Krishna: So you can start services. Do whatever you want
+
+170
+00:29:59.600 --> 00:30:02.630
+Siva Krishna: this sometimes after computing network. So
+
+171
+00:30:02.770 --> 00:30:08.559
+Siva Krishna: you feel like, I mean, just in the gateway in the gateway from this hardware rpm.
+
+172
+00:30:08.700 --> 00:30:13.529
+Siva Krishna: not the IP gateway. Okay, remember, you should ping the gateway, and then you'll come.
+
+173
+00:30:17.620 --> 00:30:18.400
+Siva Krishna: Yeah.
+
+174
+00:30:20.780 --> 00:30:23.389
+Siva Krishna: Now, I'm starting a license. Okay?
+
+175
+00:30:29.330 --> 00:30:34.539
+Siva Krishna: So it is already having Dns grid. And since it is available by default, the license are there? Okay?
+
+176
+00:30:34.900 --> 00:30:36.939
+Siva Krishna: Didn't start any else. License.
+
+177
+00:30:46.820 --> 00:30:49.349
+Siva Krishna: Use it everything. Still.
+
+178
+00:30:56.220 --> 00:31:00.020
+Siva Krishna: we have to come as one is, show license and show license app as, okay.
+
+179
+00:31:00.600 --> 00:31:09.809
+Siva Krishna: If you show a license, it will display the license of that. Vm, okay, if you give show license up, it will display license up all the vms which are connected to the setup. So now you have.
+
+180
+00:31:10.180 --> 00:31:15.879
+Siva Krishna: How's it? Gonna this is a master grid open. Hear the usual lessons.
+
+181
+00:31:20.360 --> 00:31:27.599
+Siva Krishna: and just listed. Okay, now, I'm going to show a lesson song in this place. This is the master, and this is the member lessons also.
+
+182
+00:31:33.470 --> 00:31:38.019
+Siva Krishna: So now I'm adding hardware. So I need to use info blocks, not also links. Okay.
+
+183
+00:31:43.450 --> 00:31:46.059
+Siva Krishna: was not given anything.
+
+184
+00:31:48.170 --> 00:31:51.590
+Siva Krishna: It will be like a postman routing.com something like that.
+
+185
+00:31:51.680 --> 00:31:54.099
+Siva Krishna: And the extension should get.
+
+186
+00:32:19.990 --> 00:32:21.460
+Siva Krishna: and the hardware
+
+187
+00:32:23.150 --> 00:32:24.310
+Siva Krishna: membership.
+
+188
+00:32:38.890 --> 00:32:47.849
+Siva Krishna: Why don't you put options set 9 cents above one day. So clinical, 19 on options are there.
+
+189
+00:32:47.960 --> 00:32:58.450
+Siva Krishna: We have different services. Production
+
+190
+00:32:58.540 --> 00:33:09.319
+Siva Krishna: outbound outbound different services. So when you are working. You will come to know. Dns, Dtc, you will be having
+
+191
+00:33:09.340 --> 00:33:12.350
+Siva Krishna: the details. License. Okay. Rpzet.
+
+192
+00:33:13.040 --> 00:33:15.060
+Siva Krishna: through production. Hmm.
+
+193
+00:33:17.880 --> 00:33:20.520
+Siva Krishna: Security ecosystem is related or is outbound.
+
+194
+00:33:20.710 --> 00:33:26.160
+Siva Krishna: That analytics. I reflex. You will have different, many services. Okay.
+
+195
+00:33:26.540 --> 00:33:32.849
+Siva Krishna: all these lens are but related to the services based on our requirement.
+
+196
+00:33:33.060 --> 00:33:40.299
+Siva Krishna: So you can use Dns, Dlc. Will look Dns, DC. License. If any. Dn, GM, I'll go with this multi grid management. License.
+
+197
+00:33:41.110 --> 00:33:41.840
+Siva Krishna: Hmm.
+
+198
+00:33:43.160 --> 00:33:46.740
+Siva Krishna: Depending on to touch Dtc. Then I have to go with this list.
+
+199
+00:33:47.230 --> 00:33:59.389
+Siva Krishna: Dtc. Is part of Dns, Dtr business. These are part of Dns. So if you want to install this kind of licenses, these are dependents on Dns Dns, then only you can install this Dtc.
+
+200
+00:34:35.199 --> 00:34:38.359
+Siva Krishna: Now, even the hardware, or synchronized with the
+
+201
+00:34:38.429 --> 00:34:39.860
+Siva Krishna: master. Okay.
+
+202
+00:34:39.980 --> 00:34:43.569
+Siva Krishna: so now just you ask, like related to each year. Right? Okay.
+
+203
+00:34:45.889 --> 00:34:46.929
+Siva Krishna: cube
+
+204
+00:34:50.409 --> 00:34:53.739
+Siva Krishna: setup. I will explain you in that. Okay.
+
+205
+00:35:46.360 --> 00:35:48.830
+Siva Krishna: before the chair. Let's talk about gmc, okay.
+
+206
+00:35:48.930 --> 00:36:03.510
+Siva Krishna: so gmc, is like a grid master candidate, Gridmaster candidate means it's like a the data, whatever the master design, it will be. Come to member that me master candidate. Also, the reason why we have this master candidate is like, for example, if the master goes down.
+
+207
+00:36:03.600 --> 00:36:23.279
+Siva Krishna: So you can make this master candidate as a master. Okay, similar to ha! In ha! If Node goes not America, the passenger will become active here, so if the master goes down, you can make this member as a master. So like, first, you want, if you wanna want to make a Gmc, first, you have to enable this master candidate.
+
+208
+00:36:23.470 --> 00:36:24.380
+Siva Krishna: Okay.
+
+209
+00:36:27.350 --> 00:36:31.580
+Siva Krishna: enable the master candidate fake edit.
+
+210
+00:36:33.870 --> 00:36:39.759
+Siva Krishna: The car got changed. See this, the icons as well. Okay
+
+211
+00:36:42.190 --> 00:36:46.739
+Siva Krishna: for reporting. It will be different for discovery. It will be different. Yeah.
+
+212
+00:36:52.390 --> 00:36:56.680
+Siva Krishna: City frame. And and nobody is having some issue.
+
+213
+00:36:58.050 --> 00:36:58.740
+Okay?
+
+214
+00:37:13.110 --> 00:37:18.600
+Siva Krishna: So when you enable master candidate will restart the system should restart. So I mean
+
+215
+00:37:43.120 --> 00:37:53.629
+Siva Krishna: Gnc, like, we have a master, so that there is a big master added, so that we need to take a new vm, or
+
+216
+00:38:09.440 --> 00:38:10.800
+Siva Krishna: who have who
+
+217
+00:38:11.230 --> 00:38:18.079
+Siva Krishna: connect with like in the video and just kind of dig boxes. Then, master. So
+
+218
+00:38:18.830 --> 00:38:19.930
+Siva Krishna: after
+
+219
+00:38:19.940 --> 00:38:27.230
+Siva Krishna: candidate
+
+220
+00:38:27.510 --> 00:38:31.429
+Siva Krishna: until, unless it's just an Admin member, yeah, condensing
+
+221
+00:38:31.840 --> 00:38:35.349
+Siva Krishna: you, contact good set, promote master command. Okay.
+
+222
+00:38:35.970 --> 00:38:38.410
+Siva Krishna: I'll show you what happens if there is no.
+
+223
+00:38:42.640 --> 00:38:44.730
+Siva Krishna: This is a command used for
+
+224
+00:38:44.740 --> 00:38:54.879
+Siva Krishna: do you say? Promote master? Okay, the master version. So now I did not enable master candidate for this IP for this member. Okay, only members, that may mark as the master candidate can be promoted.
+
+225
+00:38:55.040 --> 00:38:57.139
+Siva Krishna: Okay, so now.
+
+226
+00:38:58.520 --> 00:39:00.119
+Siva Krishna: this is a master kind of
+
+227
+00:39:09.170 --> 00:39:12.470
+Siva Krishna: I'm promoting as a master. Okay.
+
+228
+00:39:26.660 --> 00:39:29.200
+Siva Krishna: Larry. 1 1.
+
+229
+00:39:44.310 --> 00:39:45.899
+Siva Krishna: Now, that is what is done.
+
+230
+00:40:07.280 --> 00:40:10.370
+Siva Krishna: You need to log in with the master? Can it type in
+
+231
+00:41:00.260 --> 00:41:01.020
+Siva Krishna: one sec.
+
+232
+00:41:04.010 --> 00:41:13.619
+Siva Krishna: Promotion is done. So the member hasn't become the master. Okay.
+
+233
+00:41:14.180 --> 00:41:16.989
+Siva Krishna: identity ensuring unsupported
+
+234
+00:41:17.370 --> 00:41:21.050
+Siva Krishna: and of like, why, like is it click.
+
+235
+00:41:26.360 --> 00:41:34.360
+Siva Krishna: We did not enable any services.
+
+236
+00:41:36.470 --> 00:41:40.080
+Siva Krishna: So you want to check this when you do
+
+237
+00:41:51.330 --> 00:41:53.749
+Siva Krishna: will set from one master. Okay.
+
+238
+00:41:54.150 --> 00:41:54.940
+Siva Krishna: yeah.
+
+239
+00:41:55.170 --> 00:42:01.059
+Siva Krishna: So after doing once, this member has become master, it will send a notification. Okay.
+
+240
+00:42:17.400 --> 00:42:26.400
+Siva Krishna: come out as new master. You will send a notification to the members not like that. I am the new master sojourn with me. So then the members will join with them. Hmm!
+
+241
+00:42:28.070 --> 00:42:31.499
+Siva Krishna: So this is how this grid with member, and adding hardware.
+
+242
+00:42:31.800 --> 00:42:36.300
+Siva Krishna: installing vm, hardware under adding, Member and gmc, master Canada, okay.
+
+243
+00:42:36.480 --> 00:42:43.329
+Siva Krishna: so you people try these things. Okay, tomorrow. Okay.
+
+244
+00:42:43.390 --> 00:42:46.350
+Siva Krishna: for this, I enable exist.
+
+245
+00:42:47.020 --> 00:42:48.790
+Siva Krishna: You can't do the music server.
+
+246
+00:42:49.040 --> 00:42:54.609
+Siva Krishna: You know how to configure, how to configure. Okay, configure the vms. Okay.
+
+247
+00:42:57.320 --> 00:43:10.359
+Siva Krishna: don't depend upon functional key or something better to go with. So configure today. Config grid with member and gmc, make sure you configure. Okay.
+
+248
+00:43:10.820 --> 00:43:17.549
+Siva Krishna: any questions. Yeah.
+
+249
+00:43:17.680 --> 00:43:26.759
+Siva Krishna: yeah. Okay.
+
+250
+00:43:28.480 --> 00:43:36.560
+Siva Krishna: this is, how about I mean how to install the Vm hardware on the how to install licenses doing so, adding a member to a master
+
+251
+00:43:36.860 --> 00:43:40.970
+Siva Krishna: hardware, master Cannon. Okay? Which I will explain.
+
+252
+00:43:41.990 --> 00:43:45.579
+Siva Krishna: any other questions. We're also making
+
+253
+00:43:45.700 --> 00:43:53.009
+Siva Krishna: how to use private network.
+

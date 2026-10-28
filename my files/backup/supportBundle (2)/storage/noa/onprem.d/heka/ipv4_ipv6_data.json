@@ -1,0 +1,17 @@
+{
+    "grid_feature_usage": {
+        "dhcp.ipv4.hosts": 0, 
+        "dhcp.ipv4.networks": 0, 
+        "dhcp.ipv6.fixed_addresses": 0, 
+        "dhcp.ipv4.roaming_hosts": 0, 
+        "dhcp.ipv4.exclusion_ranges": 0, 
+        "dhcp.ipv4.reservations": 0, 
+        "dhcp.ipv4.fixed_addresses": 0, 
+        "dhcp.ipv6.ranges": 0, 
+        "dhcp.ipv6.networks": 0, 
+        "dhcp.ipv4.superhost": 0, 
+        "dhcp.ipv4.ranges": 0, 
+        "dhcp.filters": 0, 
+        "dhcp.ipv6.shared_networks": 0
+    }
+}

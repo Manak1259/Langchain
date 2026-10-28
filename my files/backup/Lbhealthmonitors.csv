@@ -1,0 +1,796 @@
+header-dtcmonitorhttp,name*,_new_name,ciphers,client_cert,comment,content_check,content_check_input,content_check_op,content_check_regex,content_extract_group,content_extract_type,content_extract_value,enable_sni,interval,port,request,result,result_code,retry_down,retry_up,secure,timeout,validate_cert,EA-Owner,EAInherited-Owner
+header-dtcmonitoricmp,name*,_new_name,comment,interval,retry_down,retry_up,timeout
+header-dtcmonitorpdp,name*,_new_name,port*,comment,interval,retry_down,retry_up,timeout
+header-dtcmonitorsip,name*,_new_name,ciphers,client_cert,comment,interval,port,request,result,result_code,retry_down,retry_up,timeout,transport,validate_cert,EA-Owner,EAInherited-Owner
+header-dtcmonitorsnmp,name*,_new_name,port*,comment,community,context,engine_id,interval,oids,retry_down,retry_up,timeout,user,version,EA-Owner,EAInherited-Owner
+header-dtcmonitortcp,name*,_new_name,port*,comment,interval,retry_down,retry_up,timeout,EA-Owner,EAInherited-Owner
+dtcmonitoricmp,icmp,,Default ICMP health monitor,5,1,1,15
+dtcmonitortcp,tcp_1344,,1344,,15,1,1,46,WLP,OVERRIDE
+dtcmonitortcp,tcp_ 2636,,2636,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_2020,,2020,,30,1,1,91,WLP,OVERRIDE
+dtcmonitortcp,tcp_25,,25,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_80,,80,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_443,,443,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_5060,,5060,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_44441,,44441,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_44442,,44442,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_44443,,44443,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_44444,,44444,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_389,,389,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_636,,636,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_3389,,3389,,5,1,1,15,WLP,OVERRIDE
+dtcmonitortcp,tcp_10001,,10001,,10,1,1,30,WLP,OVERRIDE
+dtcmonitortcp,tcp_514,,514,,5,1,1,15,Anthem,OVERRIDE
+dtcmonitortcp,test_tcp_2020,,2020,,30,1,1,91,Anthem,OVERRIDE
+dtcmonitortcp,tcp_22,,22,,10,1,1,30,Anthem,OVERRIDE
+dtcmonitortcp,tcp_1812,,1812,,15,1,1,46,Anthem,OVERRIDE
+dtcmonitortcp,tcp_53,,53,,5,1,1,15,Anthem,OVERRIDE
+dtcmonitortcp,tcp_445_oci,,443,"30 min interval, 3 fails for down",1800,3,1,5,Anthem,OVERRIDE
+dtcmonitortcp,tcp_6514,,6514,,30,1,1,90,Anthem,OVERRIDE
+dtcmonitortcp,tcp_1305,,1305,,5,1,1,15,Anthem,OVERRIDE
+dtcmonitortcp,tcp_1325,,1325,,5,1,1,15,Anthem,OVERRIDE
+dtcmonitortcp,tcp_6443,,6443,,5,1,1,15,Anthem,OVERRIDE
+dtcmonitortcp,tcp_27000,,27000,,30,1,1,90,Anthem,OVERRIDE
+dtcmonitortcp,test_mon_80,,80,,30,1,1,90,Anthem,OVERRIDE
+dtcmonitortcp,test_mon_443,,443,,30,1,1,90,Anthem,OVERRIDE
+dtcmonitorhttp,http,,,,Default HTTP health monitor,NONE,ALL,EQ,,0,STRING,,False,5,80,"GET /
+
+",ANY,200,1,1,False,15,False,,
+dtcmonitorhttp,https,,,,Default HTTPS health monitor,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,https_19446,,,,,NONE,ALL,EQ,,0,STRING,,False,5,19446,"GET /
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,https_8080,,,,,NONE,ALL,EQ,,0,STRING,,False,5,8080,"GET /
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,http_8080,,,,,NONE,ALL,EQ,,0,STRING,,False,5,8080,"GET / HTTP/1.0
+
+",ANY,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default_http,,,,,NONE,ALL,EQ,,0,STRING,,False,5,80,"GET / HTTP/1.0
+
+",ANY,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,api.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: api.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,amis.test.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: amis.test.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,ssp.test.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: ssp.test.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,citrix_https,,DEFAULT:+SHA:+3DES:+kEDH,,,NONE,ALL,EQ,,0,STRING,,False,15,443,"GET /vpn/index.html HTTP/1.0
+
+",CODE_IS,200,1,1,True,46,False,WLP,OVERRIDE
+dtcmonitorhttp,amis.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: amis.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,ssp.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: ssp.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,https_9444,,,,,NONE,ALL,EQ,,0,STRING,,False,5,9443,"GET / HTTP/1.1\r\nHost: wsl-bpm-services.wellpoint.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,https_9443,,,,,NONE,ALL,EQ,,0,STRING,,False,5,9443,"GET / HTTP/1.1\r\nHost: wsl-bpm-services.wellpoint.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,wsl-bpm-services.wellpoint.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.1\r\nHost: wsl-bpm-services.wellpoint.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,emep-services.anthem.com_product,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /product/F5HealthCheckApp/F5HealthCheck.jsp HTTP/1.1\r\nHost: emep-services.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,emep-services.anthem.com_member,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /member/F5HealthCheckApp/F5HealthCheck.jsp HTTP/1.1\r\nHost: emep-services.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,emep-services.anthem.com_claims,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /claims/F5HealthCheckApp/F5HealthCheck.jsp HTTP/1.1\r\nHost: emep-services.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,emep-services.anthem.com_misc,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /misc/F5HealthCheckApp/F5HealthCheck.jsp HTTP/1.1\r\nHost: emep-services.anthem.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,pm.net-nms.internal.das_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,8182,"GET / HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,prdndf2.vl.wellpoint.com_dynamic,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /F5/F5Health.jsp HTTP/1.1\r\nHost: prdndf2.vl.wellpoint.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,prdndf2.vl.wellpoint.comZ_static,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /static/F5Health.jsp HTTP/1.1\r\nHost: prdndf2.vl.wellpoint.com\r\nConnection: Close
+Connection: close
+
+",ANY,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,cyberark.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /PasswordVault/ HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,sr_ivr_monitor,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /static/F5Health.jsp HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default-F5-VIP-443,,,,Queries a port without SSL and assumes a HTTP status of 200 in response,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,sr_ivr_monitor_extranet,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /dn/F5Health.jsp HTTP/1.0
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default-F5-VIP-10443,,,,Requires a unencrypted HTTP 200 response from the F5 iRule for infoblox monitoring,NONE,ALL,EQ,,0,STRING,,False,5,10443,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,gengms.dev.va.wellpoint.com_http,,,,Queries a port without SSL and assumes a HTTP status 200 in response,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,gengms.wellpoint.com-443,,,,Queries a port without SSL and assumes a HTTP status 200 in response,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,False,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default-F5-VIP-24500,,,,"Queries a port without SSL and assumes a HTTP status of 200 in response
+",NONE,ALL,EQ,,0,STRING,,False,5,24500,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,True,WLP,OVERRIDE
+dtcmonitorhttp,WP-Default_https_1.1,,,,,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET /
+
+",ANY,200,1,1,True,15,False,WLP,OVERRIDE
+dtcmonitorhttp,http_514,,,,,NONE,ALL,EQ,,0,STRING,,False,5,514,"GET /
+
+",ANY,200,1,1,False,15,True,Anthem,OVERRIDE
+dtcmonitorhttp,http_53053,,,,Default monitor for external LBDNs.,NONE,ALL,EQ,,0,STRING,,False,30,53053,"GET /
+
+",CODE_IS,200,1,1,False,90,True,Anthem,OVERRIDE
+dtcmonitorhttp,https_7779,,,,,NONE,ALL,EQ,,0,STRING,,False,10,7779,"GET /
+
+",ANY,200,1,1,True,30,False,Anthem,OVERRIDE
+dtcmonitorhttp,https_8443,,,,,NONE,ALL,EQ,,0,STRING,,False,5,8443,"GET /
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,https_1812,,,,,NONE,ALL,EQ,,0,STRING,,False,5,1812,"GET /
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,http_1812,,,,,NONE,ALL,EQ,,0,STRING,,False,10,1812,"GET /
+
+",ANY,200,1,1,False,30,True,Anthem,OVERRIDE
+dtcmonitorhttp,aceapp.anthem.com_https,,,,,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.0
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,WP-testprop,,,,delete me when done,MATCH,BODY,EQ,online,0,STRING,,False,5,443,"GET /testprop.html
+
+",CODE_IS,200,5,5,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,https_8081,,,,"GET / HTTP/1.1
+Connection: close
+",NONE,ALL,EQ,,0,STRING,,False,5,8081,"GET / HTTP/1.1
+Connection: close
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,provider-api-capi.anthem.com_https,,,,,NONE,ALL,EQ,200 OK,0,STRING,200 OK,False,5,443,"GET /providers-service/v2.0/health HTTP/1.1
+Connection: close
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,radar.anthem.com_https_200,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: radar.anthem.com
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,idiom-cloud.anthem.com_https_200,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: idiom-cloud.anthem.com
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,idiom-cloud.anthem.com_https_304,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: idiom-cloud.anthem.com
+Connection: close
+
+",CODE_IS,304,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,radar.anthem.com_https_304,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: radar.anthem.com
+Connection: close
+
+",CODE_IS,304,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,capialertsapi-capi_https,,,,"/capialertsapi/v1.0/health    ""UP""",MATCH,BODY,EQ,UP,0,STRING,"{""status"":""UP""}",False,30,443,"GET /capialertsapi/v1.0/health HTTP/1.0
+Host:capialertsapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,WP-Default-F5-VIP-8443,,,,,NONE,ALL,EQ,,0,STRING,,False,5,8443,"GET / HTTP/1.0
+
+",CODE_IS,200,1,1,False,15,True,Anthem,OVERRIDE
+dtcmonitorhttp,test_http,,,,delete me,NONE,ALL,EQ,,0,STRING,,False,5,443,"GET / HTTP/1.0
+Host: pulse.dr.elevancehealth.com
+Connection: close
+
+",ANY,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,cmgw-ib-um-srvc_https,,,,/mmsg/um/rest/health  IB Service Pulse,MATCH,BODY,EQ,IB Service Pulse,0,STRING,,False,30,443,"GET /mmsg/um/rest/health HTTP/1.0
+Host:cmgw-ib-um-srvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cmgw-ib-um-srvc-gbd_https,,,,/mmsg/um/rest/health    IB Service Pulse,MATCH,ALL,EQ,IB Service Pulse,0,STRING,,False,30,443,"GET /mmsg/um/rest/health HTTP/1.0
+Host:cmgw-ib-um-srvc-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cmgw-ob-um-srvc-gbd_https,,,,"/mmsg/um/rest/health ""OB Service Pulse""",MATCH,ALL,EQ,OB Service Pulse,0,STRING,,False,30,443,"GET /mmsg/um/rest/health HTTP/1.0
+Host:cmgw-ob-um-srvc-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cmgw-ob-um-srvc_https,,,,"/mmsg/um/rest/health  ""OB Service Pulse""",MATCH,ALL,EQ,OB Service Pulse,0,STRING,,False,30,443,"GET /mmsg/um/rest/health HTTP/1.0
+Host:cmgw-ob-um-srvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,um-inquiry-eapi_https,,,,/mmsg/um/rest/health HTTP/1.0    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /uminquiry-service/v1.0/um/icr/health HTTP/1.0
+Host:um-inquiry-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,dos-vldn-eapi_https,,,,/dosValidation-details/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /dosValidation-details/v1.0/health HTTP/1.0
+Host:dos-vldn-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,preauth-eapi_https,,,,/preauthsubmission-details/v1.0/health   UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /preauthsubmission-details/v1.0/health HTTP/1.0
+Host:preauth-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,member-bft-eapi_https,,,,/memberBenefits/v2.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /memberBenefits/v2.0/health HTTP/1.0
+Host:member-bft-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,autoapproval-eapi_https,,,,/autoApprovalValidation-details/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /autoApprovalValidation-details/v1.0/health HTTP/1.0
+Host:autoapproval-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,ntwrkcheck-eapi_https,,,,/networkcheck/v2.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /networkcheck/v2.0/health HTTP/1.0
+Host:ntwrkcheck-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,route-clinical-eapi_https,,,,/routeclinicalupdateservice/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /routeclinicalupdateservice/v1.0/health HTTP/1.0
+Host:route-clinical.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,memberv2-eapi_https,,,,/memberservice/v2.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /memberservice/v2.0/health HTTP/1.0
+Host:memberv2-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,auxillary-eapi_https,,,,/procedure-diagnosis-validation/v1.0/health    UP,MATCH,ALL,EQ,UP,0,STRING,,False,30,443,"GET /procedure-diagnosis-validation/v1.0/health HTTP/1.0
+Host:auxillary-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,reqcase-vldn-eapi_https,,,,/reqCaseTypeValidation-details/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /reqCaseTypeValidation-details/v1.0/health HTTP/1.0
+Host:reqcase-vldn-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,prec-pred-eapi_https,,,,/precpredservice/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /precpredservice/v1.0/health HTTP/1.0
+Host:prec-pred-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,provider-vldn-eapi_https,,,,/v2.0/health HTTP/1.0    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /providers-service/v2.0/health HTTP/1.0
+Host:provider-vldn-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,postos-eapi_https,,,,/postosMapping-details/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /postosMapping-details/v1.0/health HTTP/1.0
+Host:postos-icr.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,testlbdn4.internal.das_https,,,,/autoApprovalValidation-details/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /autoApprovalValidation-details/v1.0/health HTTP/1.1
+Host:autoapproval-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmp-vldn-services.internal.das_https,,,,/acmp/validationservices/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp/validationservices/health HTTP/1.0
+Host:acmp-vldn-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmpgbd-rest-services.internal.das_https,,,,/acmpgbd-rest-service/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmpgbd-rest-service/actuator/health HTTP/1.0
+Host:acmpgbd-rest-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmpgbd-umi-services.internal.das_https,,,,/acmpgbd/umiservices/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmpgbd/umiservices/health HTTP/1.0
+Host:acmpgbd-umi-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmp-umi-services.internal.das_https,,,,/acmp/umiservices/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp/umiservices/health HTTP/1.0
+Host:acmp-umi-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmp-rest-services.internal.das_https,,,,/acmp-rest-service/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp-rest-service/actuator/health HTTP/1.0
+Host:acmp-rest-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmpgbd-case-services.internal.das_https,,,,/acmpgbd/caseservice/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmpgbd/caseservice/health HTTP/1.0
+Host:acmpgbd-case-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmpgbd-vldn-services.internal.das_https,,,,/acmpgbd/validationservices/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmpgbd/validationservices/health HTTP/1.0
+Host:acmpgbd-vldn-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmp-case-services.internal.das_https,,,,/acmp/caseservice/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp/caseservice/health HTTP/1.0
+Host:acmp-case-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmpgbd-api.internal.das_https,,,,/acmp-api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp-api/actuator/health HTTP/1.1
+Host:acmpgbd-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,acmp-api.internal.das_https,,,,/acmp-api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /acmp-api/actuator/health HTTP/1.1
+Host:acmp-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,WP-Default_https_200,,,,HTTPS Monitor that expects 200 response,NONE,ALL,EQ,,0,STRING,,False,10,443,"GET /
+
+",CODE_IS,200,1,1,True,30,False,Anthem,OVERRIDE
+dtcmonitorhttp,cob-leadfinder.carelon.com_https_200,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: cob-leadfinder.carelon.com
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cob-leadfinder.carelon.com_https_304,,,,host,NONE,ALL,EQ,,0,STRING,,False,30,443,"GET / HTTP/1.1
+Connection: close
+Host: cob-leadfinder.carelon.com
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,mhsud-api-origin.carelonbh.com,,,,HTTPS monitor that expects a 200 response - used on ext LBDN,NONE,HEADERS,EQ,Host: mhsud-api.carelonbh.com,0,STRING,,False,40,443,"POST /health/health HTTP/1.1
+Host: mhsud-api.carelonbh.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,120,False,Anthem,OVERRIDE
+dtcmonitorhttp,mhsud-api-origin.carelonbh.com_https,,,,HTTPS monitor that expects a 403 response,NONE,ALL,EQ,403,0,STRING,,False,5,443,"GET /proxy HTTP/1.1
+Host: tf-lb-20230531111708726500000008-2073628304.us-east-1.elb.amazonaws.com
+Connection: close
+
+",CODE_IS,403,1,1,True,30,False,Anthem,OVERRIDE
+dtcmonitorhttp,Amhsud-api-origin.carelonbh.com_test,,,,,NONE,ALL,EQ,SSO,0,STRING,,False,40,443,"GET / HTTP/1.1
+Host: mhsud-api.carelonbh.com
+Content-Type: application/x-www-form-urlencoded
+Connection: close
+
+",CODE_IS,200,1,1,True,120,False,Anthem,OVERRIDE
+dtcmonitorhttp,telesales-dcc-callcenter-uat.elevancehealth.com_https,,,,,MATCH,ALL,EQ,us-east-1,0,STRING,,True,30,443,"GET /healthcheck HTTP/1.1
+Connection: close
+Host: telesales-dcc-callcenter-uat.elevancehealth.com
+Connection: close
+
+",CODE_IS,200,1,1,True,90,True,Anthem,OVERRIDE
+dtcmonitorhttp,AAA-test,,,,testing only,NONE,ALL,EQ,,0,STRING,,False,5,443,"POST /health/health HTTP/1.1
+Host: mhsud-api.carelonbh.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,15,False,Anthem,OVERRIDE
+dtcmonitorhttp,telesales-dcc-api-uat.elevancehealth.com_https,,,,/uat/HealthCheck/getRegion     us-west-2,MATCH,BODY,EQ,us-west-2,0,STRING,,True,30,443,"GET /uat/HealthCheck/getRegion HTTP/1.1
+Host: telesales-dcc-api-uat.elevancehealth.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,telesales-dcc-api.elevancehealth.com_https,,,,,MATCH,BODY,EQ,us-east-1,0,STRING,,True,30,443,"GET /telesales/HealthCheck/getRegion HTTP/1.1
+Host: telesales-dcc-api.elevancehealth.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,capi-config-server.internal.das_https,,,,/clinicalapi-configserver/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /clinicalapi-configserver/actuator/health HTTP/1.1
+Host:capi-config-server.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursfacetsgetprechkv1-capi.internal.das_https,,,,/cm/v1/urspreauth/facets/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urspreauth/facets/health HTTP/1.1
+Host:ursfacetsgetprechkv1.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urshipaaservice-capi.internal.das_https,,,,/cm/v1/urs/hipaa/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urs/hipaa/health HTTP/1.1
+Host:urshipaaservice.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursnascogetprechkv1-capi.internal.das_https,,,,/cm/v1/urspreauth/nasco/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urspreauth/nasco/health HTTP/1.1
+Host:ursnascogetprechkv1.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urslimliabservice-capi.internal.das_https,,,,/cm/v1/urs/limliab/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urs/limliab/health HTTP/1.1
+Host:urslimliabservice.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursproducteligibilityaggregator-capi.internal.das_https,,,,/cm/v1/urssmpe/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/health HTTP/1.1
+Host:ursproducteligibilityaggregator.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpetrimed-capi.internal.das_https,,,,/cm/v1/urssmpe/chips/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/chips/health HTTP/1.1
+Host:urssmpetrimed.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpe-capi.internal.das_https,,,,/cm/v1/urssmpe/gbd/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/gbd/health HTTP/1.1
+Host:urssmpe.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpefacetsv1-capi.internal.das_https,,,,/cm/v1/urssmpe/facets/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/facets/health HTTP/1.1
+Host:urssmpefacetsv1.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpenasco-capi.internal.das_https,,,,/cm/v1/urssmpe/nasco/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/nasco/health HTTP/1.1
+Host:urssmpenasco.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpewgs-capi.internal.das_https,,,,/cm/v1/urssmpe/wgs/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/wgs/health HTTP/1.1
+Host:urssmpewgs.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urspcpdetails-capi.internal.das_https,,,,/cm/v1/urs/pcpdetails/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urs/pcpdetails/health HTTP/1.1
+Host:urspcpdetails.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursprechkgbdsvc-capi.internal.das_https,,,,/cm/v1/urspreauth/gbd/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urspreauth/gbd/health HTTP/1.1
+Host:ursprechkgbdsvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursprechksvc-capi.internal.das_https,,,,/cm/v1/urspreauth/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urspreauth/health HTTP/1.1
+Host:ursprechksvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursprechkwgssvc-capi.internal.das_https,,,,/cm/v1/urspreauth/wgs/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urspreauth/wgs/health HTTP/1.1
+Host:ursprechkwgssvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpecs90-capi.internal.das_https,,,,/cm/v1/urssmpe/cs90/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/cs90/health HTTP/1.1
+Host:urssmpecs90.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,ursproducteligibilityaggregatorv2-capi.internal.das_https,,,,/cm/v1/urssmpe/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/health HTTP/1.1
+Host:ursproducteligibilityaggregatorv2.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,urssmpeaces-capi.internal.das_https,,,,/cm/v1/urssmpe/aces/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cm/v1/urssmpe/aces/health HTTP/1.1
+Host:urssmpeaces.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,fhir-capi.internal.das_https,,,,/capi/eab/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /capi/eab/health HTTP/1.1
+Host:fhir.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,carecoordinator-capi.internal.das_https,,,,/carecoordinator-api/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /carecoordinator-api/health HTTP/1.1
+Host:carecoordinator.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,capi-adt-notification-capi.internal.das_https,,,,/adt/processor/health    ADT Application Heart Beat,MATCH,BODY,EQ,ADT Application Heart Beat,0,STRING,,False,30,443,"GET /adt/processor/health HTTP/1.1
+Host:capi-adt-notification.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,getintouchapi-capi.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:getintouchapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,acmp-getnonumicdbi-capi.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:acmp-getnonumicdbi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cbotui-capi.internal.das_https,,,,/cbot/health   UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cbot/health HTTP/1.1
+Host:cbotui.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,clinicalgraphql-capi.internal.das_https,,,,/clinicalgraphql/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /clinicalgraphql/health HTTP/1.1
+Host:clinicalgraphql.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,assessmentsapi-capi.internal.das_https,,,,/assessments/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /assessments/v1.0/health HTTP/1.1
+Host:assessmentsapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,benefitsapi-capi.internal.das_https,,,,/BenefitsApi/v2.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /BenefitsApi/v2.0/health HTTP/1.1
+Host:benefitsapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,capidataconformation-capi.internal.das_https,,,,/capidataconformation/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /capidataconformation/v1.0/health HTTP/1.1
+Host:capidataconformation.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,dupcheckapi-capi.internal.das_https,,,,/duplicatecheck/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /duplicatecheck/v1.0/health HTTP/1.1
+Host:dupcheckapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,gsp-api-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /gsp-api/health HTTP/1.1
+Host:gsp-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,correspondenceapi-capi.internal.das_https,,,,/correspondence/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /correspondence/v1.0/health HTTP/1.1
+Host:correspondenceapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,cmiapi-capi.internal.das_https,,,,/cmi/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /cmi/health HTTP/1.1
+Host:cmiapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,getengagementmodel-capi.internal.das_https,,,,/getEngagementModel-war/health    Engagement Model Heart Beat,MATCH,BODY,EQ,Engagement Model Heart Beat,0,STRING,,False,30,443,"GET /getEngagementModel-war/health HTTP/1.1
+Host:get-engagement-model.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,capi-prec-pred-pyt-capi.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:capi-prec-pred-pyt.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,careplanapi-capi.internal.das_https,,,,/careplan/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /careplan/v1.0/health HTTP/1.1
+Host:careplanapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,appealmicrsrvc-capi.internal.das_https,,,,/clinical-appealmicrsvc/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /clinical-appealmicrsvc/health HTTP/1.1
+Host:appealmicrsvc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,njhra-capi.internal.das_https,,,,/capi/njhra/v1/health    NJHRA Service Heart Beat,MATCH,BODY,EQ,NJHRA Service Heart Beat,0,STRING,,False,30,443,"GET /capi/njhra/v1/health HTTP/1.1
+Host:njhra.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,zuul-gtwy-capi.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:zuul-gtwy.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,gsp-web-capi.internal.das_https,,,,/gsp/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /gsp/health HTTP/1.1
+Host:gsp-web.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,process-referral-capi.internal.das_https,,,,/capi/prapi/v1/health    Referral Service Heart Beat,MATCH,BODY,EQ,Referral Service Heart Beat,0,STRING,,False,30,443,"GET /capi/prapi/v1/health HTTP/1.1
+Host:process-referral.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,medicalinjectableapi-capi.internal.das_https,,,,/medicalInjectable/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /medicalInjectable/health HTTP/1.1
+Host:medicalinjectableapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,mhpi-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /MemberHealthProgramInfo/health HTTP/1.1
+Host:mhpi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,idtfyquestapi-capi.internal.das_https,,,,/IdentifyQuestionnaire/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /IdentifyQuestionnaire/health HTTP/1.1
+Host:idtfyquestapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,provider-api-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /providers-service/v2.0/health HTTP/1.1
+Host:provider-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,memauthhistapi-capi.internal.das_https,,,,/authhistory-api/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /authhistory-api/health HTTP/1.1
+Host:memauthhistapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,memberapi-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /MemberApi/v2.0/health HTTP/1.1
+Host:memberapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,umdelegation-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /umdelegation/health HTTP/1.1
+Host:umdelegation.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,membercasesummaryapi-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /casesummary/v1.0/health HTTP/1.1
+Host:membercasesummaryapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,gsp-async-capi.internal.das_https,,,,UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /gsp-async/health HTTP/1.1
+Host:gsp-async.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,provider-ntwk-api-capi.internal.das_https,,,,/networkcheck/v3.0/health    Network Check Heart Beat,MATCH,BODY,EQ,Network Check Heart Beat,0,STRING,,False,30,443,"GET /networkcheck/v3.0/health HTTP/1.1
+Host:provider-ntwk-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,redirectionapi-capi.internal.das_https,,,,/redirection-api/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /redirection-api/health HTTP/1.1
+Host:redirectionapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,lookup-api-capi.internal.das_https,,,,/LookupApi/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /LookupApi/v1.0/health HTTP/1.1
+Host:lookup-api.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umattdesk-capi.internal.das_https,,,,/attestation-desk/health    Attestation Desk Pulse,MATCH,BODY,EQ,Attestation Desk Pulse,0,STRING,,False,30,443,"GET /attestation-desk/health HTTP/1.1
+Host:umattdesk.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,vip-indicatorservice-capi.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:vip-indicatorservice.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,smartum-gbd-umde.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:smartum-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umdeapi-umde.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:umdeapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,preeligibility-umde.internal.das_https,,,,/umde/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /umde/actuator/health HTTP/1.1
+Host:umde-preeligibility.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umdeapi-gbd-umde.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:umdeapi-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umde-services-gbd-umde.internal.das_https,,,,/umde/services/rest/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /umde/services/rest/health HTTP/1.1
+Host:umde-services-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,cmgw-lookup-svc.internal.das_https,,,,/mmsg/lkup-svc/health    Natl service healthy,MATCH,BODY,EQ,Natl service healthy,0,STRING,,False,30,443,"GET /mmsg/lkup-svc/health HTTP/1.1
+Host:cmgw-lookup-svc.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,smartum-umde.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:smartum.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umde-services-umde.internal.das_https,,,,/umde/services/rest/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /umde/services/rest/health HTTP/1.1
+Host:umde-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,genericruleapi-eapi.internal.das_https,,,,/genericRules/v1.0/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /genericRules/v1.0/health HTTP/1.1
+Host:genericruleapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,umdedsbapi-umde.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:umdedsbapi.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,preeligibility-gbd-umde.internal.das_https,,,,/umde/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /umde/actuator/health HTTP/1.1
+Host:umde-preeligibility-gbd.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,provcoe.internal.das_https,,,,/provcoe/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /provcoe/health HTTP/1.1
+Host:provcoe.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,vantage-publisher.internal.das_https,,,,/clin-integ/kafka-plug/health    Kafka Plug Heart Beat,MATCH,BODY,EQ,Kafka Plug Heart Beat,0,STRING,,False,30,443,"GET /clin-integ/kafka-plug/health HTTP/1.1
+Host:vantage-publisher.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,cmgw-hipdata-tributary.internal.das_https,,,,/clin-integ/hdt/health    Kafka Plug Heart Beat,MATCH,BODY,EQ,Kafka Plug Heart Beat,0,STRING,,False,30,443,"GET /clin-integ/hdt/health HTTP/1.1
+Host:hipdata-tributary.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,process-cmdm-events.internal.das_https,,,,/clinical-integ/cmdm-events/health    CMDM Event Service Heart Beat,MATCH,BODY,EQ,CMDM Event Service Heart Beat,0,STRING,,False,30,443,"GET /clinical-integ/cmdm-events/health HTTP/1.1
+Host:process-cmdm-events.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,api.appointment-origin.carelonbh.com_https,,,,/health    200,NONE,BODY,EQ,200,0,STRING,,False,30,443,"POST /health HTTP/1.1
+Host:api.appointment.carelonbh.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,de-aiml.internal.das_https,,,,/dataextractionapi/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /dataextractionapi/actuator/health HTTP/1.1
+Host:smartintake-aiml-prod.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,mars-services.internal.das_https,,,,/mars/svc/healthCheck    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /mars/svc/healthCheck HTTP/1.1
+Host:mars-services.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,pce.elevancehealth.com_https,,,,/healthcheck us-west-2,MATCH,ALL,EQ,us-west-2,0,STRING,,False,30,443,"GET /prod/healthcheck HTTP/1.1
+host:qykcxsvpx4.execute-api.us-west-2.amazonaws.com
+User-Agent: curl/7.43.0
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,Anthem,OVERRIDE
+dtcmonitorhttp,acmp-common.internal.das_https,,,,/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /health HTTP/1.1
+Host:acmp-common.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorhttp,marskafkaconnector.internal.das_https,,,,/api/actuator/health    UP,MATCH,BODY,EQ,UP,0,STRING,,False,30,443,"GET /api/actuator/health HTTP/1.1
+Host:marskafkaconnector.apps.lz-prod.ent-ocp4-useast1.aws.internal.das
+Connection: close
+
+",CODE_IS,200,1,1,True,90,False,,
+dtcmonitorsip,sip,,,,Default SIP health monitor,5,5060,,ANY,200,1,1,15,TCP,False,,
+dtcmonitorsip,udp_1812,,,,,10,1812,,ANY,200,1,1,30,UDP,True,Anthem,OVERRIDE
+dtcmonitorsip,udp_514,,,,,10,514,,ANY,200,1,1,30,UDP,True,Anthem,OVERRIDE
+dtcmonitorpdp,pdp,,2123,Default PDP health monitor,5,1,1,15
+dtcmonitorsnmp,snmp,,161,Default SNMP health monitor,public,,,5,,1,1,15,,V2C,,
+dtcmonitorsnmp,test_snmp_monitor,,161,,public,,,5,".1.3.6.1.4.1.9.2.1.8.0/test1/INTEGER/EXACT/0/None,.1.3.6.1.2.1.1.3.0/test/INTEGER/EXACT/1/None",1,1,15,,V2C,Anthem,OVERRIDE

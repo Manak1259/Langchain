@@ -1,0 +1,20 @@
+Member Licenses
+
+License Type	: NIOS (Model IB-V1415)
+Expiration Date	: 12/15/2024
+License String	: GwAAAKlwuCJZHy5KtW3AXA3MELuVhJFifoa7Vy+Qig==
+
+License Type	: DNS
+Expiration Date	: 12/15/2024
+License String	: EwAAAKN3pC0XGWYHsSSOXg/KWKTBlpM=
+
+License Type	: DHCP
+Expiration Date	: 12/15/2024
+License String	: FAAAAKNxtCFZHy5KtW3AXA3MELuSkpdj
+
+License Type	: Grid
+Expiration Date	: 12/15/2024
+License String	: GgAAAKJ3ozRXXWhf9z3AXAmCFfLYkpBke8+tCy+T
+
+Grid License UID: 82a89ee306104d7398e88169f6e3c70c
+

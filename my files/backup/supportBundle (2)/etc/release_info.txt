@@ -1,0 +1,12 @@
+ASLAN_TAR_FILE: aslan-1.1.193-100622-2010-08-27-19-52-19.tar.bz2
+LWGASLAN_TAR_FILE: lwg_aslan_1.0.2_44_55b27e086b96_2024-04-23-07-18-17.tar.bz2
+GRANVILLE_BUILD_DIR_64: /import/builds/nios.granville/develop/8.6
+GRANVILLE_TAR_FILE_64: granville_g_0.0.0_1082_a7f1a20447b8_b_0.0.0_c5c13d73bf1d_2024-10-05-10-48-33_x86_64.tar.bz2
+SNIC_RPM_DIR: /import/builds/nios.snic/release/snic-8.6
+SNIC_RPM_FILE: snic_4.21.24_1.ib_922_a6367ea32c64_granville_g_0.0.0_21ccb6d3c2d3_b_0.0.0_c5c13d73bf1d_2024-06-19-06-46-39_x86_64.rpm
+SW_ATP_RPM_DIR: /import/builds/nios.sw_atp/develop/8.6
+SW_ATP_RPM_FILE: sw_atp_3.2.3_8.41.Infoblox_1.ib_192_62bc0029b5e4_granville_g_0.0.0_21ccb6d3c2d3_b_0.0.0_c5c13d73bf1d_2024-09-06-00-56-25_x86_64.rpm
+NETMRI_BUILD_DIR: /import/builds/nios/develop/8.6/netmri
+NETMRI_BUILD_FILE: nios_8.6.5_51520_cbace95e5df8_augusta_8.6.5.108225_2024-09-26-02-18-26_x86_64_netmriDiscovery.tar.bz2
+IB_6WIND_PKG_BUILD_DIR: /import/builds/nios.dpdk_fastpath/develop/8.6
+IB_6WIND_PKG_FILE: 6windgate_rpms_4.21.INFOBLOX.5_ib_1.8.102_280_8a3274a60477_granville_g_0.0.0_21ccb6d3c2d3_b_0.0.0_c5c13d73bf1d_2024-09-25-20-40-28.tgz

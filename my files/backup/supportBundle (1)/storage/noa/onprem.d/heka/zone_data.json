@@ -1,0 +1,25 @@
+{
+    "grid_feature_usage": {
+        "zones.delegate_zone_type": 0, 
+        "dhcp_custom_options.ipv4_type": 0, 
+        "dns.secondary_authoritative_zones": 0, 
+        "zones.nondnshost_zone_type": 1, 
+        "zones.responsepolicy_zone_type": 1, 
+        "zones.sharedrecordgroup_zone_type": 1, 
+        "zone.dnssec": false, 
+        "zones.primary_none_type": 8, 
+        "dns.forwarding_zones": 0, 
+        "zones.view_zone_type": 2, 
+        "zones.is_multimaster": 0, 
+        "dns.aws_r53": false, 
+        "zones.primary_grid_type": 1, 
+        "dhcp_custom_options.ipv6_type": 0, 
+        "zones.stub_zones": 0, 
+        "zones.idnsroot_zone_type": 1, 
+        "zones.dummy_zone_type": 2, 
+        "zones.is_external_primary": 0, 
+        "dhcp.zone_network_association": false, 
+        "dns.multi_master": false, 
+        "zones.authoritative_zone_type": 1
+    }
+}

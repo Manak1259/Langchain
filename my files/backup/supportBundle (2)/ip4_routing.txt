@@ -1,0 +1,37 @@
+Rules:
+
+0:	from all lookup local 
+100:	from 10.197.56.157 lookup 50 
+200:	from 10.197.56.157 lookup 51 
+32766:	from all lookup main 
+32767:	from all lookup default 
+
+-----------------------------------
+
+Route Tables:
+
+Table default:
+
+Table local:
+broadcast 10.197.56.0 dev eth1 proto kernel scope link src 10.197.56.157 
+local 10.197.56.157 dev eth1 proto kernel scope host src 10.197.56.157 
+broadcast 10.197.57.255 dev eth1 proto kernel scope link src 10.197.56.157 
+broadcast 127.0.0.0 dev lo proto kernel scope link src 127.0.0.1 
+local 127.0.0.0/8 dev lo proto kernel scope host src 127.0.0.1 
+local 127.0.0.1 dev lo proto kernel scope host src 127.0.0.1 
+broadcast 127.255.255.255 dev lo proto kernel scope link src 127.0.0.1 
+broadcast 169.254.251.0 dev docker0 proto kernel scope link src 169.254.251.1 linkdown 
+local 169.254.251.1 dev docker0 proto kernel scope host src 169.254.251.1 
+broadcast 169.254.251.255 dev docker0 proto kernel scope link src 169.254.251.1 linkdown 
+
+Table main:
+default via 10.197.56.1 dev eth1 proto static 
+10.197.56.0/23 dev eth1 proto kernel scope link src 10.197.56.157 
+169.254.251.0/24 dev docker0 proto kernel scope link src 169.254.251.1 linkdown 
+
+Table 50:
+10.197.56.0/23 dev eth1 scope link 
+
+Table 51:
+default via 10.197.56.1 dev eth1 
+

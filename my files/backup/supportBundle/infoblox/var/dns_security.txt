@@ -1,0 +1,14 @@
+
+Data collection start: Wed Oct 23 10:48:42 2024
+
+
+Command: show monitor dns alert
+DNS Network Monitoring is disabled.
+Alerting is disabled.
+
+Command: show ip_rate_limit
+Rate limits disabled.
+No rate limits present.
+
+Data collection end: Wed Oct 23 10:48:42 2024
+

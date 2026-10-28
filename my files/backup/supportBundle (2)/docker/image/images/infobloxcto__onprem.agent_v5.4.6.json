@@ -1,0 +1,100 @@
+[
+    {
+        "Id": "sha256:e941a344eb48786f645f422d44fc95b18a90b9bd97bbf187e73b5a2607edd5ed",
+        "RepoTags": [
+            "infobloxcto/onprem.agent:v5.4.6"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2024-03-18T06:40:23.129096Z",
+        "Container": "cc3b04e3cb69cd83856f3373999cf7be8e23d78fe00d732de1d3d0afece89786",
+        "ContainerConfig": {
+            "Hostname": "cc3b04e3cb69",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "ENTRYPOINT [\"client\"]"
+            ],
+            "Image": "sha256:b2f25b7d41502ea3015818007eb9aba8825b036427fcb0ef246a69cc06118bff",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "client"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "DockerVersion": "20.10.7",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "sha256:b2f25b7d41502ea3015818007eb9aba8825b036427fcb0ef246a69cc06118bff",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "client"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 146933246,
+        "VirtualSize": 146933246,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/rw/host/docker/overlay2/a5eb795d792d7701e9bceacf410c55af4e76e4abd7e68e167b88855a85b76d88/diff:/rw/host/docker/overlay2/1437226edaa4ecb408e20b19bc98e8d7a8a08bd332ad792d909819282ae74264/diff:/rw/host/docker/overlay2/9405fa5eb5235b5c845117e0ef1256d598ecd1f25e5d30f113e05abaadc4dca9/diff:/rw/host/docker/overlay2/45ecf9159ec20766535174d993e95a5c240e9c3807edb346221fd55d5d3062b2/diff:/rw/host/docker/overlay2/5a55ea3b743b2be655dda8dbe9373b2111fcb84d296d4921acdc94bcb277f78b/diff:/rw/host/docker/overlay2/3a8db1f262da8ec20830e5873d87a72b594ed86c427d3a0f7f6810605bd52d1e/diff:/rw/host/docker/overlay2/45bd7db43255c3c2a05edf75ec97483f0880de97f24bff5c8b77e7539aec17a5/diff:/rw/host/docker/overlay2/ebbb6ec51283a72ef3392cc52af153c80d58767ecae8ba116260ea12b7e68aa0/diff",
+                "MergedDir": "/rw/host/docker/overlay2/89c795ae576b8e46156e4610480de7e1c9888e1841d6a5d96f873e40442a6c62/merged",
+                "UpperDir": "/rw/host/docker/overlay2/89c795ae576b8e46156e4610480de7e1c9888e1841d6a5d96f873e40442a6c62/diff",
+                "WorkDir": "/rw/host/docker/overlay2/89c795ae576b8e46156e4610480de7e1c9888e1841d6a5d96f873e40442a6c62/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:89ae5c4ee501a09c879f5b58474003539ab3bb978a553af2a4a6a7de248b5740",
+                "sha256:85cc0dc6d3e3780eee89d96a5a865d8987ba2cf1ef9cc65d8e739b74adcd9463",
+                "sha256:6492f05a200fc11aae3e6ca222c67e2ec6c0cb416c0632d3f26602d0400bf890",
+                "sha256:6600dc7678264f1f90b20b6171907c0d8ca0276394005ac87629c0c3347fe05f",
+                "sha256:ce05bfb834830d10bd360d32c1fffe7e835150b5e631296add3566294e8e7436",
+                "sha256:c9a4d00f845e788b118bca9c9083c1341aa9eb8168f6c6eb615c8ee95804f36c",
+                "sha256:013ccdd903aed86e672c2079817ce41357d4e740a5259e7c84757cc67c0c961f",
+                "sha256:a36dbbe8560c0509d03f5d4b0df90d6640ca53fc140fd51f2dbd9f1a38cd690b",
+                "sha256:3097d4f7eb8439048e8f44dbe23a2c6458dd033e53497f5d6120182b7a123905"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

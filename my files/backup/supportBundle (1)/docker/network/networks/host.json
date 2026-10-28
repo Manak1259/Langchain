@@ -1,0 +1,54 @@
+[
+    {
+        "Name": "host",
+        "Id": "01c71c329cf6b08c3ca473f20f6af8ef9631c9097d9a0a9b957aca4f4dcdf02e",
+        "Created": "2024-10-16T12:34:24.170411026Z",
+        "Scope": "local",
+        "Driver": "host",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": []
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "661ba4eecb3274f7dae77852395961c2055063cea3be836ac02b59c914672c96": {
+                "Name": "heka_heka_1",
+                "EndpointID": "e84bfabd965a94e390ad431019c0f4125dff9a97a91910ab7d426297c0af162d",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            },
+            "6b060a846ab095bea21dd35ea84a55b8c6da1b432f9045ba1bc3bc49a0fcef82": {
+                "Name": "nios",
+                "EndpointID": "e6b545fd6982729c3add12d42fdc324bbaabeb163d565253155cd3e0ec3bec8d",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            },
+            "908e009099a243b4618b7f5c551358da187619703bca8b6eaa48f9f2b9c7191b": {
+                "Name": "scout_scout_1",
+                "EndpointID": "1c14eef4d3b17cf4c992c7dc8c21f01e9a3111846193d2548496af48f52ba745",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            },
+            "f98f6672fe346a836dcd7b839d335bd1ec729a70d0fddb05e6563dcb77bfba32": {
+                "Name": "blox.noa",
+                "EndpointID": "ae846e23819cb70c6262e5028acc1520d10d08712c218ab91cd6c5260f292706",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]

@@ -1,0 +1,556 @@
+WARNING: Package "github.com/golang/protobuf/protoc-gen-go/generator" is deprecated.
+	A future release of golang/protobuf will delete this package,
+	which has long been excluded from the compatibility promise.
+
+{"file":"cmd/client/main.go:152","level":"info","msg":"Could not determine 'jointokens' from the configuration file","time":"2024-10-16T12:37:50.971533174Z"}
+{"file":"cmd/client/main.go:152","level":"info","msg":"Could not determine 'csp.servers' from the configuration file","time":"2024-10-16T12:37:50.971744135Z"}
+{"file":"cmd/client/main.go:152","level":"info","msg":"Could not determine 'config.servers' from the configuration file","time":"2024-10-16T12:37:50.971895499Z"}
+{"file":"cmd/client/main.go:152","level":"info","msg":"Could not determine 'notification.servers' from the configuration file","time":"2024-10-16T12:37:50.97204086Z"}
+{"file":"cmd/client/bootstrapping.go:47","level":"info","msg":"Starting scheduler-v5.4.6","time":"2024-10-16T12:37:50.973201675Z"}
+{"file":"cmd/ophid/ophid.go:33","level":"warning","msg":"Error 'open /etc/onprem.d/ophid: no such file or directory' while reading ophid file /etc/onprem.d/ophid.","time":"2024-10-16T12:37:50.973452981Z"}
+{"file":"cmd/client/bootstrapping.go:112","level":"info","msg":"map[account:map[id:] activation:map[code:map[file:/etc/onprem.d/activation_code] insecure:false polling:map[interval:10m0s] server:] api:map[keyfile:/etc/onprem.d/agent.conf] appconfig:map[filename:/etc/onprem.d/app_config.json] appliance:map[discovery:map[domain:appliance-discovery.csp.infoblox.com]] b1managed:false build:map[infofile:map[path:/etc/onprem.d/build.info]] cert:map[before:map[expiry:10] path:/var/lib/infoblox/certs/] check:map[frequency:15m0s] cnios-csp-connected-file-name:/etc/onprem.d/cnioscspconnected config:map[dir:/var/cache/scheduler insecure:false server:cp.noa.infoblox.com:443] conv-to-int-keys:[port targetPort nodePort] csp:map[server:csp.infoblox.com] deployment:map[type:CNIOS] disconnect:map[cleanup:map[excludeapps:[bootstrap]]] docker:map[client:map[cert:map[dir:/etc/docker/certs.d]] login:map[disabled:false]] error:map[suppress:map[count:1]] failover:map[wait:map[duration:25s]] fatal:map[duration:5m0s] ha:map[enabled:false] haas:map[configfile:/etc/onprem.d/haas.conf] health:map[address:127.0.0.1 port:8087] healthserver:map[enable:true] heka:map[deployment:map[file:/etc/onprem.d/images/heka.yaml] image:/etc/onprem.d/images/heka.tar optin:map[check:false]] helm:map[enable:false] host:map[description: tags:map[]] hostapp:map[configfile:map[location:/etc/onprem.d/hostapp_config.json]] hwid-file-name:/etc/onprem.d/hwid ibdocker:map[cert:map[dir:/var/lib/infoblox/certs/certs.d]] jointoken: k8s:map[bundled:false enable:false install:false namespace:infoblox] kubeconfig:/etc/onprem.d/k3s.yaml log:map[format:json level:info] master:map[url:https://kubernetes.default.svc:443] metrics:map[enabled:false] migrate:false noa:map[cleanup:map[force:true] config:map[enable:true url:/etc/onprem.d/params.json]] notification:map[insecure:false server:cp.noa.infoblox.com:443] ophid:c150973ef09e586f704aa9fff04ac9a3 ophid-file-name:/etc/onprem.d/ophid platformdownfile:map[path:/etc/onprem.d/keepalived/app-upgrades/platform.down] port:443 public:map[login:map[address:52.119.40.100:53]] realm:map[discovery:map[domain:realm-discovery.csp.infoblox.com] resolver:map[domain:provision.ib-hub.na.csp.infoblox.com:443]] scout:map[deployment:map[file:/etc/onprem.d/images/scout.yaml] image:/etc/onprem.d/images/scout.tar] ssl-ca-cert-file: systemtest:false tls-proxy:map[url:http://tls-proxy-tls-proxy.infoblox.svc.cluster.local:8080] updatemonitor:map[sleep:map[duration:30s]] user-agent:scheduler-v5.4.6 uuid-file-name:/etc/onprem.d/uuid versioncache:map[filename:/etc/onprem.d/versionCache.json] vrrp:map[syncgroup:map[name:node-ha]] wait-till-running-apps:[tls-proxy admission-controller] weak:map[auth:map[apps:[blox.noa scout_scout_1] enabled:true]] weakauth:map[check:map[frequency:24h0m0s] connect:map[error:map[threshold:3]]]]","time":"2024-10-16T12:37:50.978065101Z"}
+{"file":"cmd/client/bootstrapping.go:140","level":"info","msg":"Starting SCOUT container ...","time":"2024-10-16T12:37:50.979080513Z"}
+{"file":"cmd/client/main.go:908","level":"info","msg":"successfully started scout application container","time":"2024-10-16T12:37:53.794059666Z"}
+{"file":"cmd/client/main.go:967","level":"info","msg":"Nios Role:''","time":"2024-10-16T12:37:53.797270776Z"}
+{"file":"cmd/client/main.go:1126","level":"info","msg":"checking if CNIOS host is a HA node","time":"2024-10-16T12:37:53.798176224Z"}
+{"file":"cmd/client/main.go:1136","level":"info","msg":"CNIOS host is not a HA node ..","time":"2024-10-16T12:54:54.263173463Z"}
+{"file":"cmd/client/bootstrapping.go:205","level":"info","msg":"HTTPS_PROXY set to []","time":"2024-10-16T12:54:54.263945947Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-16T12:54:54.265407042Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-16T12:54:54.265622327Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-16T12:54:54.266262486Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-16T12:54:54.266328618Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-16T12:54:54.266390281Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-16T12:54:54.266446408Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-16T12:54:54.266483298Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-16T12:54:54.2665508Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003ff020, {CONNECTING \u003cnil\u003e}","time":"2024-10-16T12:54:54.266678763Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-16T12:54:54.266818394Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-16T12:54:54.266933298Z"}
+{"file":"migrate/migrate.go:97","level":"warning","msg":"error while running docker inspect: Error: No such container: heka_heka_1","time":"2024-10-16T12:54:54.296925888Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-16T12:55:14.267221178Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:55:14.267337616Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003ff020, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-16T12:55:14.267400921Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:55:14.267722747Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-16T12:55:14.26800116Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-16T12:55:14.26810478Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-16T12:55:14.268169849Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 17.728785153s","time":"2024-10-16T12:55:14.268395907Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-16T12:55:32.016502293Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-16T12:55:32.017040775Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-16T12:55:32.018104436Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-16T12:55:32.018214748Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-16T12:55:32.018475818Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-16T12:55:32.01856666Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-16T12:55:32.018767672Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-16T12:55:32.018949368Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006e46a0, {CONNECTING \u003cnil\u003e}","time":"2024-10-16T12:55:32.019187773Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-16T12:55:32.019354754Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-16T12:55:32.01924301Z"}
+{"file":"migrate/migrate.go:97","level":"warning","msg":"error while running docker inspect: Error: No such container: heka_heka_1","time":"2024-10-16T12:55:32.046457356Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-16T12:55:52.026063147Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:55:52.026200949Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006e46a0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-16T12:55:52.026307903Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:55:52.02635105Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-16T12:55:52.026470089Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-16T12:55:52.026673094Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-16T12:55:52.026751342Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 57.06731539s","time":"2024-10-16T12:55:52.026955016Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-16T12:56:49.14992225Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-16T12:56:49.150194811Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-16T12:56:49.150631398Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-16T12:56:49.150681246Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-16T12:56:49.150725274Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-16T12:56:49.150774917Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-16T12:56:49.150810563Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-16T12:56:49.150868862Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-16T12:56:49.151045622Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003fed00, {CONNECTING \u003cnil\u003e}","time":"2024-10-16T12:56:49.150991165Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-16T12:56:49.15152704Z"}
+{"file":"migrate/migrate.go:97","level":"warning","msg":"error while running docker inspect: Error: No such container: heka_heka_1","time":"2024-10-16T12:56:49.18781279Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-16T12:57:09.15166621Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:57:09.151775058Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003fed00, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-16T12:57:09.151839737Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:57:09.151878014Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-16T12:57:09.151953306Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-16T12:57:09.152010342Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-16T12:57:09.152071881Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 2m57.956538032s","time":"2024-10-16T12:57:09.152162121Z"}
+{"file":"cmd/client/main.go:1100","level":"info","msg":"Nios role change detected. Old role:, New role:GM","time":"2024-10-16T12:58:09.153753555Z"}
+{"file":"cmd/client/main.go:967","level":"info","msg":"Nios Role:'GM'","time":"2024-10-16T12:58:09.157727314Z"}
+{"file":"cmd/client/main.go:1157","level":"info","msg":"Starting HEKA container ...","time":"2024-10-16T12:58:09.157827638Z"}
+{"file":"cmd/client/main.go:908","level":"info","msg":"successfully started heka application container","time":"2024-10-16T12:58:12.219010273Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-16T12:58:12.22200935Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-16T12:58:12.22241157Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-16T12:58:12.223366827Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-16T12:58:12.223452596Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-16T12:58:12.223520303Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-16T12:58:12.223575913Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-16T12:58:12.223626508Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-16T12:58:12.223702739Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-16T12:58:12.223839749Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000572410, {CONNECTING \u003cnil\u003e}","time":"2024-10-16T12:58:12.223835302Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-16T12:58:12.224051874Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-16T12:58:32.227175565Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:58:32.227297721Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000572410, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-16T12:58:32.227375091Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-16T12:58:32.227413851Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-16T12:58:32.22751887Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-16T12:58:32.227577728Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-16T12:58:32.227622832Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-16T12:58:32.227699056Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-17T12:58:32.265038727Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-17T12:58:32.266395842Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-17T12:58:32.2691345Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-17T12:58:32.269174302Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-17T12:58:32.269233459Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-17T12:58:32.269275464Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-17T12:58:32.269306183Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-17T12:58:32.269357618Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-17T12:58:32.271060716Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573730, {CONNECTING \u003cnil\u003e}","time":"2024-10-17T12:58:32.271195877Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-17T12:58:32.271227301Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-17T12:58:52.277165167Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T12:58:52.277304779Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573730, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-17T12:58:52.277379644Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T12:58:52.2774545Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-17T12:58:52.277547649Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-17T12:58:52.277609144Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-17T12:58:52.277669204Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 15.295200553s","time":"2024-10-17T12:58:52.277731204Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-17T12:59:07.57542233Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-17T12:59:07.575937572Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-17T12:59:07.57682466Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-17T12:59:07.576913985Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-17T12:59:07.577087101Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-17T12:59:07.577176953Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-17T12:59:07.577308599Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-17T12:59:07.577468352Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006ca2f0, {CONNECTING \u003cnil\u003e}","time":"2024-10-17T12:59:07.577653704Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-17T12:59:07.577809431Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-17T12:59:07.577734059Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-17T12:59:27.577993425Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T12:59:27.578131786Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006ca2f0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-17T12:59:27.578482391Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T12:59:27.578580475Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-17T12:59:27.578750206Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-17T12:59:27.578879742Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-17T12:59:27.578958769Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 1m11.018458927s","time":"2024-10-17T12:59:27.579026763Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-17T13:00:38.600185299Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-17T13:00:38.601540655Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-17T13:00:38.603435026Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-17T13:00:38.603521535Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-17T13:00:38.603626447Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-17T13:00:38.603689867Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-17T13:00:38.603746946Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-17T13:00:38.603834442Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000838c40, {CONNECTING \u003cnil\u003e}","time":"2024-10-17T13:00:38.605007137Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-17T13:00:38.60516786Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-17T13:00:38.605602192Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-17T13:00:58.609290274Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T13:00:58.609393823Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000838c40, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-17T13:00:58.609497078Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T13:00:58.609539579Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-17T13:00:58.609645737Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-17T13:00:58.609702579Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-17T13:00:58.609748021Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 3m54.028709493s","time":"2024-10-17T13:00:58.609813249Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-17T13:04:52.689408012Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-17T13:04:52.689793428Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-17T13:04:52.690610436Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-17T13:04:52.690684144Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-17T13:04:52.690755611Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-17T13:04:52.690808134Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-17T13:04:52.690858011Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-17T13:04:52.690933812Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573c40, {CONNECTING \u003cnil\u003e}","time":"2024-10-17T13:04:52.692769983Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-17T13:04:52.692844502Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-17T13:04:52.692894373Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-17T13:05:12.697206446Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T13:05:12.697340106Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573c40, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-17T13:05:12.697441184Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-17T13:05:12.697672653Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-17T13:05:12.697807282Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-17T13:05:12.697880746Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-17T13:05:12.698032301Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-17T13:05:12.69812589Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-18T13:05:13.11998143Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-18T13:05:13.478802487Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-18T13:05:13.648264559Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-18T13:05:13.676518083Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-18T13:05:13.683294247Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-18T13:05:13.705469286Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-18T13:05:13.705546266Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-18T13:05:13.986665716Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000662960, {CONNECTING \u003cnil\u003e}","time":"2024-10-18T13:05:13.98823943Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-18T13:05:14.014881852Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-18T13:05:13.988346253Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-18T13:05:34.00135964Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:05:34.00168206Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000662960, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-18T13:05:34.001751716Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:05:34.001781217Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-18T13:05:34.029422035Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-18T13:05:34.031993079Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-18T13:05:34.038746569Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 18.262794347s","time":"2024-10-18T13:05:34.04442609Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-18T13:05:52.31982598Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-18T13:05:52.320654818Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-18T13:05:52.321571263Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-18T13:05:52.32165234Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-18T13:05:52.321813024Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-18T13:05:52.321893462Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-18T13:05:52.321937709Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-18T13:05:52.322125102Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc00074b520, {CONNECTING \u003cnil\u003e}","time":"2024-10-18T13:05:52.322376881Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-18T13:05:52.322512027Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-18T13:05:52.322631005Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-18T13:06:12.32847416Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:06:12.328767477Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc00074b520, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-18T13:06:12.328963517Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:06:12.32910818Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-18T13:06:12.329345517Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-18T13:06:12.329481297Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-18T13:06:12.329790396Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 52.771913424s","time":"2024-10-18T13:06:12.329899912Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-18T13:07:05.129811163Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-18T13:07:05.130401636Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-18T13:07:05.131310959Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-18T13:07:05.131382405Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-18T13:07:05.131560841Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-18T13:07:05.13164594Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-18T13:07:05.131826674Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-18T13:07:05.132041231Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000856ff0, {CONNECTING \u003cnil\u003e}","time":"2024-10-18T13:07:05.132287054Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-18T13:07:05.132466191Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-18T13:07:05.132306975Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-18T13:07:25.137200349Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:07:25.137363488Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000856ff0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-18T13:07:25.137701192Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:07:25.137789945Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-18T13:07:25.13791096Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-18T13:07:25.138003832Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-18T13:07:25.138095773Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 2m53.223712353s","time":"2024-10-18T13:07:25.138202207Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-18T13:10:18.365482992Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-18T13:10:18.366115118Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-18T13:10:18.367181562Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-18T13:10:18.367334191Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-18T13:10:18.367512709Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-18T13:10:18.367679291Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-18T13:10:18.367814262Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-18T13:10:18.368000498Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000051e00, {CONNECTING \u003cnil\u003e}","time":"2024-10-18T13:10:18.368244857Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-18T13:10:18.368405879Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-18T13:10:18.368281007Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-18T13:10:38.374969085Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:10:38.375094025Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000051e00, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-18T13:10:38.37518236Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-18T13:10:38.375227578Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-18T13:10:38.375302101Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-18T13:10:38.375362397Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-18T13:10:38.37541311Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-18T13:10:38.375491556Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-19T13:10:38.381795538Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-19T13:10:38.382264033Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-19T13:10:38.382714788Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-19T13:10:38.382772272Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-19T13:10:38.382820269Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-19T13:10:38.382860672Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-19T13:10:38.382879088Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-19T13:10:38.382991359Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003790b0, {CONNECTING \u003cnil\u003e}","time":"2024-10-19T13:10:38.383207577Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-19T13:10:38.383330349Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-19T13:10:38.383483364Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-19T13:10:58.390160518Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:10:58.390279612Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003790b0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-19T13:10:58.390412941Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:10:58.39051484Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-19T13:10:58.39070141Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-19T13:10:58.390773194Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-19T13:10:58.39085643Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 14.572178561s","time":"2024-10-19T13:10:58.39102893Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-19T13:11:12.978810559Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-19T13:11:12.979274861Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-19T13:11:12.980255943Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-19T13:11:12.980334071Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-19T13:11:12.980461208Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-19T13:11:12.980547459Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-19T13:11:12.980628242Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-19T13:11:12.980747842Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000749930, {CONNECTING \u003cnil\u003e}","time":"2024-10-19T13:11:12.981004441Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-19T13:11:12.981116621Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-19T13:11:12.981059704Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-19T13:11:32.987217541Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:11:32.987406502Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000749930, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-19T13:11:32.98749779Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:11:32.987552098Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-19T13:11:32.987651799Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-19T13:11:32.98773008Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-19T13:11:32.987858533Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 43.104453205s","time":"2024-10-19T13:11:32.98796136Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-19T13:12:16.133742884Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-19T13:12:16.133883772Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-19T13:12:16.134144294Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-19T13:12:16.13419039Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-19T13:12:16.134214536Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-19T13:12:16.134237841Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-19T13:12:16.134252811Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-19T13:12:16.134282834Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000886340, {CONNECTING \u003cnil\u003e}","time":"2024-10-19T13:12:16.13436379Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-19T13:12:16.134487487Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-19T13:12:16.134514486Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-19T13:12:36.141023345Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:12:36.14110224Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000886340, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-19T13:12:36.141211639Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:12:36.141257634Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-19T13:12:36.14130235Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-19T13:12:36.141330283Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-19T13:12:36.141355473Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 2m17.32581368s","time":"2024-10-19T13:12:36.141388072Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-19T13:14:53.480338272Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-19T13:14:53.480866334Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-19T13:14:53.481926813Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-19T13:14:53.482037753Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-19T13:14:53.482239303Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-19T13:14:53.48233555Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-19T13:14:53.482506867Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-19T13:14:53.482711885Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573250, {CONNECTING \u003cnil\u003e}","time":"2024-10-19T13:14:53.482965179Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-19T13:14:53.483134509Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-19T13:14:53.483024248Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-19T13:15:13.487175071Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:15:13.487527293Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000573250, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-19T13:15:13.487718697Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-19T13:15:13.487838283Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-19T13:15:13.488008278Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-19T13:15:13.488219827Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-19T13:15:13.488440904Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-19T13:15:13.488527448Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-20T13:15:13.553775722Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-20T13:15:13.555263336Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-20T13:15:13.557141751Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-20T13:15:13.557274351Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-20T13:15:13.557562886Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-20T13:15:13.557651668Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-20T13:15:13.55775195Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-20T13:15:13.558046479Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000774550, {CONNECTING \u003cnil\u003e}","time":"2024-10-20T13:15:13.558262868Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-20T13:15:13.558541987Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-20T13:15:13.558306818Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-20T13:15:33.564431113Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:15:33.564548089Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000774550, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-20T13:15:33.564610674Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:15:33.564696293Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-20T13:15:33.564839781Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-20T13:15:33.56490725Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-20T13:15:33.564992877Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 24.188513658s","time":"2024-10-20T13:15:33.565102103Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-20T13:15:57.772042617Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-20T13:15:57.772518186Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-20T13:15:57.773525073Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-20T13:15:57.773591593Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-20T13:15:57.773655717Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-20T13:15:57.773739511Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-20T13:15:57.773811378Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-20T13:15:57.774003315Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000707de0, {CONNECTING \u003cnil\u003e}","time":"2024-10-20T13:15:57.774227812Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-20T13:15:57.77432821Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-20T13:15:57.774448146Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-20T13:16:17.781109619Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:16:17.781247005Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000707de0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-20T13:16:17.781336612Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:16:17.781381452Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-20T13:16:17.781455918Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-20T13:16:17.781509359Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-20T13:16:17.781569168Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 1m30.273340398s","time":"2024-10-20T13:16:17.781639738Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-20T13:17:48.056521932Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-20T13:17:48.056765206Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-20T13:17:48.05730742Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-20T13:17:48.057343061Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-20T13:17:48.057375993Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-20T13:17:48.057421709Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-20T13:17:48.057445067Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-20T13:17:48.05748794Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000854e30, {CONNECTING \u003cnil\u003e}","time":"2024-10-20T13:17:48.057632493Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-20T13:17:48.057765318Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-20T13:17:48.057736541Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-20T13:18:08.064271665Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:18:08.064403098Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000854e30, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-20T13:18:08.064469332Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:18:08.064517994Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-20T13:18:08.06458688Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-20T13:18:08.064642102Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-20T13:18:08.064689083Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 6m33.49402556s","time":"2024-10-20T13:18:08.064791187Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-20T13:24:41.561146762Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-20T13:24:41.561719543Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-20T13:24:41.56272697Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-20T13:24:41.562896957Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-20T13:24:41.563054616Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-20T13:24:41.563177852Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-20T13:24:41.563304843Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-20T13:24:41.56344195Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0004d9850, {CONNECTING \u003cnil\u003e}","time":"2024-10-20T13:24:41.563697769Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-20T13:24:41.563841025Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-20T13:24:41.563760884Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-20T13:25:01.567128527Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:25:01.567215065Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0004d9850, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-20T13:25:01.567262304Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-20T13:25:01.567448923Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-20T13:25:01.567548576Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-20T13:25:01.567586045Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-20T13:25:01.567647567Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-20T13:25:01.567688369Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-21T13:25:01.588598946Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-21T13:25:01.589084443Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-21T13:25:01.589512728Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-21T13:25:01.589557931Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-21T13:25:01.589618288Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-21T13:25:01.589657946Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-21T13:25:01.589681989Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-21T13:25:01.589740504Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000572e60, {CONNECTING \u003cnil\u003e}","time":"2024-10-21T13:25:01.589878812Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-21T13:25:01.590066016Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-21T13:25:01.589965715Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-21T13:25:21.590253405Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:25:21.590430292Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000572e60, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-21T13:25:21.590707697Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:25:21.590873298Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-21T13:25:21.591112484Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-21T13:25:21.591270026Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-21T13:25:21.591378131Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 19.087395192s","time":"2024-10-21T13:25:21.591518995Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-21T13:25:40.694650907Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-21T13:25:40.694941774Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-21T13:25:40.695630386Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-21T13:25:40.695688265Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-21T13:25:40.695777564Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-21T13:25:40.695830271Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-21T13:25:40.695877692Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-21T13:25:40.695944058Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-21T13:25:40.69610077Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000740070, {CONNECTING \u003cnil\u003e}","time":"2024-10-21T13:25:40.696059255Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-21T13:25:40.696724503Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-21T13:26:00.701831032Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:26:00.701941107Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000740070, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-21T13:26:00.701980013Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:26:00.702167979Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-21T13:26:00.70221605Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-21T13:26:00.702260278Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-21T13:26:00.702334425Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 55.632281508s","time":"2024-10-21T13:26:00.702393051Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-21T13:26:56.350174837Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-21T13:26:56.350796307Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-21T13:26:56.351895055Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-21T13:26:56.351987572Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-21T13:26:56.352185045Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-21T13:26:56.352289587Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-21T13:26:56.352458001Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-21T13:26:56.352554401Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000882770, {CONNECTING \u003cnil\u003e}","time":"2024-10-21T13:26:56.352740476Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-21T13:26:56.352849625Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-21T13:26:56.35280737Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-21T13:27:16.358812573Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:27:16.358950702Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000882770, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-21T13:27:16.35906421Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:27:16.359104859Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-21T13:27:16.359189067Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-21T13:27:16.359241704Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-21T13:27:16.3592972Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 3m33.87244105s","time":"2024-10-21T13:27:16.359381201Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-21T13:30:50.239529642Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-21T13:30:50.240000808Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-21T13:30:50.241035674Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-21T13:30:50.241115513Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-21T13:30:50.241293341Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-21T13:30:50.241385721Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-21T13:30:50.241531845Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-21T13:30:50.241667076Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-21T13:30:50.241973324Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003799d0, {CONNECTING \u003cnil\u003e}","time":"2024-10-21T13:30:50.241916857Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-21T13:30:50.242517937Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-21T13:31:10.247043993Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:31:10.247114889Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0003799d0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-21T13:31:10.247159544Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-21T13:31:10.247215411Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-21T13:31:10.247271823Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-21T13:31:10.24730235Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-21T13:31:10.247330725Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-21T13:31:10.247380367Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-22T13:31:10.291571613Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-22T13:31:10.292252034Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-22T13:31:10.293161241Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-22T13:31:10.293236899Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-22T13:31:10.293346091Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-22T13:31:10.293414082Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-22T13:31:10.293468979Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-22T13:31:10.293589702Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-22T13:31:10.293891722Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc00085b820, {CONNECTING \u003cnil\u003e}","time":"2024-10-22T13:31:10.295123814Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-22T13:31:10.295311825Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\". Reconnecting...","time":"2024-10-22T13:31:30.29941488Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:31:30.299505484Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc00085b820, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"}","time":"2024-10-22T13:31:30.299548926Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:31:30.299574395Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-22T13:31:30.299637146Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-22T13:31:30.299678009Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\"","time":"2024-10-22T13:31:30.299701613Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.209.116.255:443: i/o timeout\", retrying in 21.209059013s","time":"2024-10-22T13:31:30.299750087Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-22T13:31:51.524078046Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-22T13:31:51.524674202Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-22T13:31:51.52558279Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-22T13:31:51.525661428Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-22T13:31:51.525821847Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-22T13:31:51.525903232Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-22T13:31:51.525946888Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-22T13:31:51.526149488Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006e3f50, {CONNECTING \u003cnil\u003e}","time":"2024-10-22T13:31:51.526458548Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-22T13:31:51.526579972Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-22T13:31:51.526528034Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-22T13:32:11.532959779Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:32:11.533282703Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0006e3f50, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-22T13:32:11.533483569Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:32:11.533628001Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-22T13:32:11.533773589Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-22T13:32:11.533895628Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-22T13:32:11.53400452Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 1m33.735698168s","time":"2024-10-22T13:32:11.534123603Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-22T13:33:45.271945833Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-22T13:33:45.272315566Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-22T13:33:45.273123646Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-22T13:33:45.273235304Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-22T13:33:45.273392873Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-22T13:33:45.273509473Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-22T13:33:45.273611119Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-22T13:33:45.273757371Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-22T13:33:45.274040115Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000509ac0, {CONNECTING \u003cnil\u003e}","time":"2024-10-22T13:33:45.273998824Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-22T13:33:45.27440446Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\". Reconnecting...","time":"2024-10-22T13:34:05.280912927Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:34:05.28104418Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc000509ac0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"}","time":"2024-10-22T13:34:05.281415078Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:34:05.281499758Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-22T13:34:05.281826206Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-22T13:34:05.282026782Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\"","time":"2024-10-22T13:34:05.282246924Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.212.42.44:443: i/o timeout\", retrying in 5m1.569940911s","time":"2024-10-22T13:34:05.282400456Z"}
+{"file":"cmd/client/deploy.go:477","level":"info","msg":"download and apply configuration triggered...","time":"2024-10-22T13:39:06.856518233Z"}
+{"file":"cmd/client/deploy.go:478","level":"info","msg":"connecting to cp.noa.infoblox.com:443","time":"2024-10-22T13:39:06.857374357Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] parsed scheme: \"\"","time":"2024-10-22T13:39:06.85833922Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] scheme \"\" not registered, fallback to default scheme","time":"2024-10-22T13:39:06.85843052Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ccResolverWrapper: sending update to cc: {[{cp.noa.infoblox.com:443  \u003cnil\u003e 0 \u003cnil\u003e}] \u003cnil\u003e \u003cnil\u003e}","time":"2024-10-22T13:39:06.858516742Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] ClientConn switching balancer to \"pick_first\"","time":"2024-10-22T13:39:06.858595832Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel switches to new LB policy \"pick_first\"","time":"2024-10-22T13:39:06.858677764Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to CONNECTING","time":"2024-10-22T13:39:06.85880545Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0005090c0, {CONNECTING \u003cnil\u003e}","time":"2024-10-22T13:39:06.859016354Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to CONNECTING","time":"2024-10-22T13:39:06.859166286Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel picks a new address \"cp.noa.infoblox.com:443\" to connect","time":"2024-10-22T13:39:06.859298495Z"}
+{"file":"logger/logger.go:65","level":"warning","msg":"[core] grpc: addrConn.createTransport failed to connect to {cp.noa.infoblox.com:443 cp.noa.infoblox.com:443 \u003cnil\u003e 0 \u003cnil\u003e}. Err: connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\". Reconnecting...","time":"2024-10-22T13:39:26.864335098Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:39:26.864594076Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] pickfirstBalancer: UpdateSubConnState: 0xc0005090c0, {TRANSIENT_FAILURE connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"}","time":"2024-10-22T13:39:26.864767429Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to TRANSIENT_FAILURE","time":"2024-10-22T13:39:26.864904907Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Channel Connectivity change to SHUTDOWN","time":"2024-10-22T13:39:26.86503621Z"}
+{"file":"logger/logger.go:101","level":"info","msg":"[core] Subchannel Connectivity change to SHUTDOWN","time":"2024-10-22T13:39:26.865151425Z"}
+{"file":"cmd/client/deploy.go:481","level":"error","msg":"Failed to download configs: rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\"","time":"2024-10-22T13:39:26.865274293Z"}
+{"file":"cmd/client/weakauth.go:122","level":"warning","msg":"Failed to download weakly authenticated apps, error : rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing dial tcp 3.210.226.54:443: i/o timeout\", retrying in 24h0m0s","time":"2024-10-22T13:39:26.865427424Z"}

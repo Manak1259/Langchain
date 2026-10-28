@@ -1,0 +1,7 @@
+Interface:
+5: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 02:42:f9:32:9a:64 brd ff:ff:ff:ff:ff:ff
+    inet 169.254.251.1/24 brd 169.254.251.255 scope global docker0
+       valid_lft forever preferred_lft forever
+Route:
+169.254.251.0/24 proto kernel scope link src 169.254.251.1 linkdown 

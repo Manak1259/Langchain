@@ -1,0 +1,417 @@
+#!/usr/bin/python
+# Copyright (c) 2024 Infoblox Inc. All Rights Reserved.
+# This software is the confidential and proprietary information of Infoblox Inc.
+# This script is used to validate the CSP settings like Proxy, resolver, Jointoken and CGM.
+
+import os
+import argparse
+import json
+import subprocess
+import base64
+import dns.resolver
+import requests
+from distutils.util import strtobool
+
+try:
+    import infoblox.common.ilog as ilog
+except:
+    # custom ilog for unit testing
+    import logging
+    class UTLogger(logging.Logger):
+        def log(self, msg, *args, **kwargs):
+            super().log(logging.INFO, msg, *args, **kwargs)
+        def debug(self, msg, *args, **kwargs):
+            super().log(logging.DEBUG, msg, *args, **kwargs)
+    logging.setLoggerClass(UTLogger)
+    ilog = logging.getLogger(__name__)
+    ilog.setLevel(logging.INFO)
+
+try:
+    import infoblox.common.util as util
+except:
+    # custom util for unit testing
+    class UTUtil:
+        def iexec_output_status(self, *cmdlist):
+            p = subprocess.Popen(cmdlist,
+                          close_fds=True,
+                          stdin=open('/dev/null'),
+                          stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            return (p.communicate()[0], p.returncode)
+    util = UTUtil()
+
+DEFAULT_CSP_URL = "csp.infoblox.com"
+DEFAULT_NGP_CP_URL = "cp.noa.infoblox.com:443"
+PARAMS_JSON_PATH = '/storage/noa/onprem.d/params.json'
+AGENT_CONF_PATH = '/storage/noa/onprem.d/agent.conf'
+RESOLVER_TIMEOUT = 5
+API_TIMEOUT = 10
+REALM_DISCOVERY_DOMAIN = "realm-discovery.csp.infoblox.com"
+REALM_RESOLVER_URL = "https://provision.ib-hub.na.csp.infoblox.com/api/realm_resolver/v1/dns/discovery/resolve"
+
+# TODO:
+# - Install all dependencies and integrate UTs with Jenkins
+# - Add more cases
+# - Add cases for exceptions
+# - Update error messages
+# - Update logs
+# - Reduce duplicate code
+# - Update function names
+# - Format the code
+# - Remove unused code
+
+def dump_json(data):
+    print(json.dumps(data, indent=4))
+
+def test_resolver(domain,resolver,time_out):
+    try:
+        # Run the nslookup command
+        result = subprocess.run(['nslookup', '-type=NS', domain, resolver], capture_output=True, text=True,timeout=time_out)
+        if "Non-authoritative answer" in result.stdout or "Authoritative answers" in result.stdout:
+            ilog.log("Test connectivity success to: %s" %domain + " using resolver : %s" %resolver)
+            return True
+        else:
+            ilog.log("Test connectivity failed to: %s" %domain + " using resolver : %s" %resolver)
+            return False
+
+    except Exception as e:
+        ilog.log("An error occurred during nslookup: %s" %e)
+        return False
+
+def http_proxy_test_connectivity(proxy):
+
+    http_proxy = proxy
+    RETRIES = '2'
+    TIMEOUT = '2'
+    ilog.log("Trying connectivity to csp http proxy : %s" %http_proxy)
+    (output, result) = util.iexec_output_status('wget', '--timeout', TIMEOUT, '--tries', RETRIES, http_proxy)
+    if output is not None and 'connected' in output:
+        ilog.log("Test connectivity success to : %s" %http_proxy)
+        return True
+    else:
+        ilog.debug("Test connectivity result: %s" %result)
+        ilog.log("Test connectivity failed to : %s" %http_proxy)
+        return False
+
+
+def call_api(url, timeout, proxy, method='GET', data=None, headers=None):
+    try:
+        if proxy is not None:
+            proxies = {'https': proxy}
+        else:
+            proxies = None
+
+        if method.upper() == 'POST':
+            response = requests.post(url, json=data, headers=headers, timeout=timeout, proxies=proxies)
+        else:
+            response = requests.get(url, headers=headers, timeout=timeout, proxies=proxies)
+        return response, None
+    except requests.exceptions.Timeout:
+        ilog.log("api call to %s timed out" % url)
+        return None, 'request timed out'
+    except requests.exceptions.ProxyError as e:
+        ilog.log("api call to %s failed due to proxy error: %s" % (url, e))
+        return None, 'https proxy error'
+    except requests.exceptions.RequestException as e:
+        ilog.log("api call to %s failed with exception: %s" % (url, e))
+        return None, str(e)
+
+
+def get_txt_records(realmId, resolver):
+    try:
+        domain = realmId + ".realm-discovery.csp.infoblox.com"
+        command = ["dig", f"@{resolver}", "-t", "txt", "+short", domain]
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        output = result.stdout.strip().split("\n")
+        records = {}
+        for line in output:
+            if line:
+                key_value = line.strip('"').split('=', 1)
+                if len(key_value) == 2:
+                    key, value = key_value
+                    records[key] = value
+        return records
+    except Exception as e:
+        return {}
+
+def get_realmId_from_join_token(realm_based_jt: str) -> str:
+    try:
+        jt_chunks = realm_based_jt.split(".")
+        if len(jt_chunks) <= 1:
+            return False
+        realm_byte = base64.urlsafe_b64decode(jt_chunks[0] + '==')
+        return realm_byte.decode('utf-8')
+    except (ValueError, IndexError) as e:
+        return False
+    
+def fetchConnectionURL(joinToken, ProxyMode, DNS_reslover, http_proxy):
+    ilog.log("Fetching connection URL with join token and HTTP proxy.")
+    jt = joinToken.split(".")
+    realmId = get_realmId_from_join_token(joinToken)
+    if not ProxyMode:
+        # joinToken with realm ID
+        ilog.log("Fetching connection URL in non-PROXY mode")
+        if realmId:
+            ilog.log("Fetching connection URL for join token with RealmID prefix")
+            response = get_txt_records(realmId,DNS_reslover)
+            if response == {}:
+                ilog.debug("Failed to get Connection URLs, returning default prod URLs")
+                ilog.log("Default connection CSP URL: %s" %DEFAULT_CSP_URL + " and NGP CP URL is: %s" %DEFAULT_NGP_CP_URL)
+                return {"csp" : DEFAULT_CSP_URL, "ngp-cp":DEFAULT_NGP_CP_URL}
+            else:
+                ilog.debug("Fetched connection URLs Successfully")
+                return response
+        # joinToken without realm ID
+        else:
+            ilog.log("Returning default prod connection URL for join token without RealmID prefix")
+            ilog.log("Default connection CSP URL: %s" %DEFAULT_CSP_URL + " and NGP CP URL is: %s" %DEFAULT_NGP_CP_URL)
+            return {"csp" : DEFAULT_CSP_URL, "ngp-cp":DEFAULT_NGP_CP_URL}
+    else:
+        ilog.log("Fetching connection URL in PROXY mode")
+        if realmId:
+            ilog.log("Fetching connection URL for join token with RealmID prefix")
+            domain = realmId + ".realm-discovery.csp.infoblox.com"
+            return call_realm_discovery_resolver(REALM_RESOLVER_URL, domain, http_proxy)
+        else:
+            ilog.log("Returning Default prod Connection URL for join token without RealmID prefix")
+            ilog.log("Default connection CSP URL: %s" %DEFAULT_CSP_URL + " and NGP CP URL is: %s" %DEFAULT_NGP_CP_URL)
+            return {"csp" : DEFAULT_CSP_URL, "ngp-cp":DEFAULT_NGP_CP_URL}
+
+
+def call_verify_registration(conn_urls, body, http_proxy):
+    ilog.log("Host-Activation API call to validate join token")
+
+    url = "https://" + conn_urls["csp"] + "/atlas-host-activation/v1/registration/verify"
+
+    # Path to the JSON file
+    file_path = PARAMS_JSON_PATH
+    if not os.path.exists(file_path):
+        ilog.log("CSP registration check failed as the file: %s doesn't exist" %file_path)
+        return "CSP registration check failed due to platform not ready", "error"
+    else:
+        # Read the JSON file
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+        except json.JSONDecodeError:
+            ilog.log("CSP registration check failed due to invalid JSON file")
+            return "CSP registration check failed due to platform error", "error"
+        except PermissionError:
+            ilog.log("CSP registration check failed due to permission error")
+            return "CSP registration check failed due to permission error", "error"
+        except Exception as e:
+            ilog.log("CSP registration check failed due to an unexpected error in the platform: %s" %{str(e)})
+            return "CSP registration check failed due to an unexpected error in the platform", "error"
+    # Extract the value of weak.auth.token
+    weak_auth_token = data.get('weak.auth.token')
+    headers = {}
+    if weak_auth_token:
+        # Add the weak.auth.token to the headers in the registration check API call,
+        # this API call will work even if the weak auth token is not present i.e without auth header
+        token = "NIOS " + weak_auth_token
+        headers = {"Authorization": token}
+    else:
+        ilog.log("missing weak.auth.token")
+
+    response, error = call_api(url, API_TIMEOUT, http_proxy, method='POST', data=body, headers=headers)
+    if error is not None:
+        return "CSP registration check failed due to " + error, "error"
+    if response != None and response.status_code == 200:
+        return "CSP registration check Successful", None
+    else:
+        try:
+            api_response = {}
+            if 'application/json' in response.headers.get('Content-Type', ''):
+                api_response = response.json()
+
+            # Extract the first error message
+            if 'error' in api_response and len(api_response['error']) > 0:
+                error_message = api_response['error'][0]['message']
+                ilog.log("CSP registration check failed with error: %s" %error_message)
+                return error_message, "error"
+            else:
+                ilog.log("CSP registration check failed with status code: %s" %response.status_code)
+                return f"CSP registration check failed with status code {response.status_code}", "error"
+        except Exception as e:
+            # TODO handle exception messages
+            ilog.log("CSP registration check failed with exception: %s" %e)
+            return f"CSP registration check failed due to {str(e)}", "error"
+
+
+def call_realm_discovery_resolver(url, domain, http_proxy):
+    ilog.log("realm-resolver API call to Fetch connection URL in PROXY mode")
+    data = {"domain": domain}
+    response, error = call_api(url, API_TIMEOUT, http_proxy,method='POST', data=data)
+
+    if response != None:
+        respdata = response.json()
+        if response.status_code == 200:
+            return respdata["result"]
+
+    ilog.log("Returning default prod connection URL due to API realm-resolver failure : %s", url)
+    ilog.log("Default connection CSP URL: %s" %DEFAULT_CSP_URL + " and NGP CP URL is: %s" %DEFAULT_NGP_CP_URL)
+    return {"csp" : DEFAULT_CSP_URL, "ngp-cp":DEFAULT_NGP_CP_URL}
+
+
+def ngpcp_url_connectivity(conn_urls, http_proxy):
+    ngpcp_url = conn_urls["ngp-cp"]
+    url = "https://" + ngpcp_url
+
+    response, error = call_api(url, 5,http_proxy, method='GET')
+    if response is not None:
+        ilog.log("able to reach: %s" %ngpcp_url)
+        return True
+    else:
+        ilog.log("not able to reach: %s" %ngpcp_url)
+        return False
+
+def csp_urls_connectivity(conn_urls, http_proxy): 
+    for key, conn_url  in conn_urls.items():
+        url = "https://" + conn_url
+        response, error = call_api(url, 5, http_proxy, method='GET')
+        if response is not None:
+            ilog.log("Able to reach: %s" % conn_url)
+        else:
+            respMessage = "not able to reach: " + conn_url
+            data = {'overall_status': 'FAILED', 'message': respMessage}
+            ilog.log("not able to reach: %s" %conn_url)
+            return data
+    
+    return {'overall_status': 'SUCCESS', 'message': "CSP endpoints reachable"}
+
+def read_csp_urls_from_config(config_path):
+    if not os.path.exists(config_path):
+        return {
+            "ngp-cp": DEFAULT_NGP_CP_URL,
+            "csp": DEFAULT_CSP_URL 
+        }
+    urls = {}
+    try:
+        with open(config_path, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line and '=' in line:
+                    key, value = line.split('=', 1)
+                    key = key.strip()
+                    value = value.strip()
+                    if key == "ACCESS_PORTAL":
+                        urls["csp"] = value
+                    elif key == "AGENT_CONFIG_SERVER":
+                        urls["ngp-cp"] = value
+    except Exception as e:
+        ilog.log("Error reading config file: %s" % str(e))
+    if "csp" not in urls:
+         urls["csp"] = DEFAULT_CSP_URL
+    if "ngp-cp" not in urls:
+        urls["ngp-cp"] = DEFAULT_NGP_CP_URL
+    return urls
+
+def verify_csp_registration(join_token, cgm, conn_urls, http_proxy):
+    if join_token is not None:
+        body = {"join_token": join_token}
+        if cgm:
+            body["federation"] = cgm
+            ilog.log("Cloud Grid management is enabled")
+        else:
+            ilog.log("Cloud Grid management is disabled")
+
+        respMessage, err = call_verify_registration(conn_urls, body, http_proxy)
+        if err is not None:
+            data = {'overall_status': 'FAILED', 'message': respMessage}
+        else:
+            data = {'overall_status': 'SUCCESS', 'message': respMessage}
+        return data
+
+    else:
+        ilog.debug("Join token is not set")
+        data = {'overall_status': 'SUCCESS', 'message': 'Test connection success'}
+        return data
+    
+
+def test_settings_validations(join_token, http_proxy, ProxyMode, resolver, cgm):
+    conn_urls = fetchConnectionURL(join_token, ProxyMode, resolver, http_proxy)
+    data = verify_csp_registration(join_token, cgm, conn_urls, http_proxy)
+    if data["overall_status"] == 'SUCCESS':
+        if ngpcp_url_connectivity(conn_urls, http_proxy):
+            data['message'] += " and CSP endpoints reachable."
+        else:
+            data["overall_status"] = 'FAILED'
+            data['message'] += f" and CSP endpoint {conn_urls['ngp-cp']} is not reachable."
+    return data
+
+
+def str_to_bool(value):
+    return bool(strtobool(value))
+
+
+def main():
+    # Create the parser
+    parser = argparse.ArgumentParser(description="Script to validate CSP Test Settings")
+
+    # Add arguments
+    parser.add_argument('-j', '--jointoken', type=str, help='Join token')
+    parser.add_argument('-r', '--resolver', type=str, help='Resolver address')
+    parser.add_argument('-p', '--proxy', type=str, help='HTTP PROXY URL')
+    parser.add_argument('-c', '--cgm', type=str_to_bool, help='Cloud Grid management default is false', default=False)
+
+    # Parse the arguments
+    args = parser.parse_args()
+    if not args.resolver or (len(args.resolver.strip()) == 0):
+        data = {'overall_status': 'FAILED',
+                        'message': 'resolver value is required to proceed the test'}
+        dump_json(data)
+        return
+
+    proxy = None if not args.proxy or (len(args.proxy.strip()) == 0) else args.proxy
+    join_token = None if not args.jointoken or (len(args.jointoken.strip()) == 0) else args.jointoken
+
+    # Access the arguments
+    resolver = args.resolver
+    cgm = args.cgm
+    
+    if resolver != None:
+        customResolver = dns.resolver.Resolver(configure=False)
+        customResolver.nameservers = [resolver]
+        dns.resolver.override_system_resolver(customResolver)
+
+    data = {}
+    #NOTE: If HTTP Proxy is configured, then resolver validation is skipped
+    if proxy is not None:
+        ilog.debug("Proxy value : %s" %proxy)
+        if http_proxy_test_connectivity(proxy):
+            ilog.log("HTTP Proxy is reachable.")
+            if join_token == None:
+                conn_urls = read_csp_urls_from_config(AGENT_CONF_PATH)
+                data = csp_urls_connectivity(conn_urls, proxy)
+            else:
+                data = test_settings_validations(join_token,proxy,True,None,cgm)
+        else:
+            ilog.log("Proxy is not reachable.")
+            data = {'overall_status': 'FAILED',
+                    'message': 'HTTP Proxy test connection failed'}
+    elif resolver is not None:
+        ilog.debug("Resolver : %s" %resolver)
+        if test_resolver(REALM_DISCOVERY_DOMAIN,resolver,RESOLVER_TIMEOUT):
+            if join_token == None:
+                conn_urls = read_csp_urls_from_config(AGENT_CONF_PATH)
+                data = csp_urls_connectivity(conn_urls, proxy)
+            else:
+                data = test_settings_validations(join_token,None,False,resolver,cgm)
+        else:
+            data = {'overall_status': 'FAILED',
+                'message': 'Resolver validation failed'}
+
+    else:
+        data = {'overall_status': 'FAILED',
+                'message': 'Set the valid resolver or proxy value to proceed the test'}
+
+    if data == {}:
+        ilog.log("No status to display")
+        data = {'overall_status': 'FAILED',
+                'message': 'test failed due to unknown reason'}
+
+    dump_json(data)
+
+
+if __name__ == '__main__':
+    main()
+    dns.resolver.restore_system_resolver()

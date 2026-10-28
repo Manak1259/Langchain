@@ -1,0 +1,56 @@
+#!/usr/bin/python
+
+# This python script will be used to remove accesskey/jointoken from NIOS one DB
+# This script is executed when on-prem hosts gets removed from CSP portal
+# When on-orem hosts removed from CSP, activation_code file gets generated under /storage/noa/onprem.d/
+# This script should be executed only when activation_code file exists under /storage/noa/onprem.d/
+
+import infoblox.one.util as ou
+import infoblox.one.onedb as onedb
+import infoblox.common.ilog as ilog
+import json
+import os
+
+CERT = '/storage/noa/certs/ibClient.pem'
+
+def remove_data():
+    data = {}
+    if os.path.isfile(CERT):
+        data['error'] = "ibClient.pem file exists, csp accesskey/jointoken is not deleted"
+    else:
+        db = onedb.Db()
+        with db.begin(onedb.RW) as txn:
+            pnode = db.call('?one.physical_node', {'physical_oid': ou.get_my_pnode_id()}, factory=onedb.DBRecord, single=True)
+            if pnode['csp_access_key'] != None:
+                pnode['csp_access_key'] = ''
+                pnode.save()
+                data['csp_access_key'] = "Deleted csp access key from NIOS DB successfully"
+                ilog.log('Deleted csp access key from NIOS DB successfully')
+            else:
+                data['csp_access_key'] = "csp_access_key not found in NIOS DB"
+            #Remove join token only when csp_join_token configured at member level.
+            #Don't remove if join token is configured at grid level.
+            vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.DBRecord, single=True)
+            if vnode['use_csp_join_token'] and vnode['csp_join_token'] != None:
+                vnode['use_csp_join_token'] = False
+                vnode['csp_join_token'] = ''
+                vnode.save()
+                data['csp_join_token'] = "Deleted join token from NIOS DB successfully"
+                ilog.log('Deleted joint token from NIOS DB successfully')
+            else:
+                data['csp_join_token'] = "csp_join_token not found in NIOS DB"
+    return data
+
+def dump_json(data):
+    print(json.dumps(data, indent=4))
+
+if __name__ == '__main__':
+    try:
+        if os.path.isfile('/infoblox/var/clusterd_stopped'):
+            data = {'error':'ONE-DB not ready on this node'}
+        else:
+            data = remove_data()
+        dump_json(data)
+    except Exception as e:
+        ilog.log('Error occurred while removing accesskey/jointoken : %s' % e)
+        dump_json({'error': str(e)})

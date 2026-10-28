@@ -1,0 +1,148 @@
+#!/usr/bin/python
+
+#****************************** Script return code definitions chart *************************************#
+#                                                                                                         #
+# Return in JSON contains 2 fields {'status':'xxxxxxx', 'code':##}                                        #
+# The 'status' should be passed on to the Heka-Grid-Support appropriately                                 #
+#                                                                                                         #
+#--------+------------------------------------------------------------------------------------------------#
+# 'code' | Takes the following meanings ... -ve means error occurred and +ve means success, No 0 response #
+#--------|------------------------------------------------------------------------------------------------#
+#   1    | Support bundle capture was successful and the tarball is available in TMP folder               #
+#--------|------------------------------------------------------------------------------------------------#
+#  -1    | Anything wrong with the input arguments passed should be reported with a -1                    #
+#--------|------------------------------------------------------------------------------------------------#
+#  -2    | If execution of this script is not permitted on this node, report it with a -2. In this case   #
+#        | golang code should stop calling this script here, or limit it to once in 5 hours or so.        #
+#--------|------------------------------------------------------------------------------------------------#
+#  -3    | If the script is already running, or the previous call to this script has not been completed by#
+#        | the golang code, then it should be reported with a -3. This also can be used to report the     #
+#        | status to Heka Grid Support for long running tasks                                             #
+#--------|------------------------------------------------------------------------------------------------#
+#  -4    | If something else went wrong and we need to look into infoblox.log, report it with a -4        #
+#--------+------------------------------------------------------------------------------------------------#
+
+
+import os
+import sys
+import json
+import shutil
+import infoblox.one.onedb as onedb
+import infoblox.one.data_if as dif
+import infoblox.one.util as ou
+import infoblox.common.ilog as ilog
+import infoblox.common.util as cu
+from infoblox.one.clusterd import is_node_active_master
+
+TMP='/storage/noa/onprem.d/tmp'
+STATUS=TMP+'/sb.status'
+SB_FILE=TMP+'/supportBundle.tar.gz'
+
+# These are the input arguments that should be passed by the calling program. If the argument is present , it will be considered True, else False
+sb_list = {
+        'alt_partition' : 'alt_partition',
+        'log_files' : 'log_files',
+        'rotated_log_files' : 'rotated_log_files',
+        'core_files' : 'core_files',
+        'snmp_logs' : 'nm_snmp_logs',
+        'cached_zone' : 'cached_zone_data',
+        'recursive_cache_file' : 'recursive_cache_file',
+        'cdiscovery_data_files' : 'cdiscovery_data_files',
+        'subscriber_secure_data' : 'subscriber_secure_data'
+}
+def is_gm():
+    db = onedb.Db()
+    with db.begin(onedb.RO) as t:
+        # check if this node is GM-Active and HEKA is OPTED IN
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory = onedb.todict, single=True)
+        if grid['heka_opt_in'] and is_node_active_master():
+            return True
+
+    return False
+
+def dump_json(data):
+    print (json.dumps(data))
+
+def write_to_file(filename, mode, content):
+    with open(filename, mode) as fd:
+        fd.write(content)
+
+def checking(inputs):
+    if len(inputs) < 2:
+        dump_json({'status':'Insufficient arguments passed','code':-1})
+        sys.exit(0)
+    in_args = inputs
+
+    if not is_gm():
+        dump_json({'status':'Not configured to run on this node', 'code':-2})
+        sys.exit(0)
+
+    if not os.path.isdir(TMP):
+        os.mkdir(TMP)
+
+    if os.path.isfile(STATUS):
+        data = ''
+        with open(STATUS) as f:
+            data = f.readline()
+
+        dump_json({'status':data, 'code':-3})
+        sys.exit(0)
+
+    write_to_file(STATUS, 'w', 'Support bundle capture running...')
+
+    inputs.pop(0)
+    return inputs
+
+
+def handling(inputs):
+    hostname = inputs.pop(0)
+
+    sb_args = {}
+    sb_args['node_type'] = 'ACTIVE'
+    sb_args['bundle_select'] = {}
+    sb_args['bundle_select']['select_core_files'] = False
+
+    for k in sb_list:
+        item = sb_list[k]
+        if k in inputs:
+            sb_args['bundle_select'][item] = True
+        else:
+            sb_args['bundle_select'][item] = False
+
+    db = onedb.Db()
+    with db.begin(onedb.RO, entity='.admin-group') as t:
+        vnode = db.call('?one.virtual_node', {'host_name':hostname}, single=True)
+        if not vnode:
+            dump_json({'status':'submitted host name could not be found', 'code':-1})
+            cu.rm_rf(STATUS)
+            sys.exit(0)
+
+        # Initiate the support bundle
+        sb_args['vnode'] = vnode
+        data_ref = dif.get_support_files(db, sb_args)
+
+        write_to_file(STATUS, 'w', 'Moving Support bundle to tmp folder')
+
+        if 'data' in data_ref:
+            folder = os.path.dirname(os.path.abspath(data_ref['data']))
+            sb_src = folder+'/download_file'
+            shutil.copy(sb_src, SB_FILE)
+            cu.rm_rf(folder)
+            write_to_file(STATUS, 'w', 'SupportBundle file available in tmp folder')
+            dump_json({'status':'Supportbundle file available in tmp folder','code':1})
+            sys.exit(0)
+        else:
+            cu.rm_rf(STATUS)
+            dump_json({'status':'Something went wrong, pls check infoblox.log','code':-4})
+            sys.exit(0)
+                
+if __name__ == "__main__":
+    try:
+        ia = checking(sys.argv)
+        handling(ia)
+    except Exception as e:
+        ilog.log('Error occurred while handling Support bundle : %s' % e)
+        dump_json({'status': str(e), 'code':-4})
+        if os.path.isfile(STATUS) and not os.path.isfile(SB_FILE):
+            cu.rm_rf(STATUS)
+        sys.exit(0)

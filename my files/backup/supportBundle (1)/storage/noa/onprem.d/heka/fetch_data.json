@@ -1,0 +1,178 @@
+{
+    "password_policy": {
+        "min_password_age": 0, 
+        "password_min_length": 4, 
+        "parent": "0", 
+        "num_numeric_char": 0, 
+        "expire_enable": false, 
+        "chars_to_change": 0, 
+        "expire_days": 30, 
+        "num_symbol_char": 0, 
+        "enable_password_history": false, 
+        "force_reset_enable": false, 
+        "__type": ".com.infoblox.one.password_setting", 
+        "reminder_days": 15, 
+        "num_upper_char": 0, 
+        "num_lower_char": 0, 
+        "__key": "0", 
+        "num_passwords_saved": 5
+    }, 
+    "protocol": [
+        {
+            "use_allow_uploads": false, 
+            "grid_member": "0", 
+            "ftp_port": 21, 
+            "enable_tftp": false, 
+            "allow_uploads": false, 
+            "enable_ftp_passive": true, 
+            "tftp_port": 69, 
+            "__type": ".com.infoblox.one.member_tftp_properties", 
+            "ftp_banner": "Restricted Access Only", 
+            "enable_http_acl": false, 
+            "enable_ftp": false, 
+            "enable_ftp_filelist": false, 
+            "__key": "0", 
+            "enable_http": false, 
+            "_update_id": "0:0:ddbf4c2:0:80000010"
+        }
+    ], 
+    "features": [
+        {
+            "next_expiry": 1734307200, 
+            "__key": "0", 
+            "valid_licenses": "dhcp nios dns enterprise", 
+            "__type": ".com.infoblox.one.vnode_license", 
+            "parent": "0"
+        }
+    ], 
+    "admin_count": 3, 
+    "dhcp": [
+        {
+            "update_dns_on_lease_renewal": false, 
+            "grid_member": "0", 
+            "v6_update_dns_on_lease_renewal": false, 
+            "log_lease_events": false, 
+            "update_static_leases": false, 
+            "enable_service": false
+        }
+    ], 
+    "licenses": [
+        {
+            "license_string": "GwAAAKlwuCJZHy5KtW3AXA3MELuVhJFifoa7Vy+Qig==", 
+            "pnode": "0", 
+            "expiry_date": "0", 
+            "__type": ".com.infoblox.one.product_license", 
+            "license_type": "nios", 
+            "__key": "0,nios,0", 
+            "license_kind": "STATIC"
+        }, 
+        {
+            "license_string": "EwAAAKN3pC0XGWYHsSSOXg/KWKTBlpM=", 
+            "pnode": "0", 
+            "expiry_date": "0", 
+            "__type": ".com.infoblox.one.product_license", 
+            "license_type": "dns", 
+            "__key": "0,dns,0", 
+            "license_kind": "STATIC"
+        }, 
+        {
+            "license_string": "FAAAAKNxtCFZHy5KtW3AXA3MELuSkpdj", 
+            "pnode": "0", 
+            "expiry_date": "0", 
+            "__type": ".com.infoblox.one.product_license", 
+            "license_type": "dhcp", 
+            "__key": "0,dhcp,0", 
+            "license_kind": "STATIC"
+        }, 
+        {
+            "license_string": "GgAAAKJ3ozRXXWhf9z3AXAmCFfLYkpBke8+tCy+T", 
+            "pnode": "0", 
+            "expiry_date": "0", 
+            "__type": ".com.infoblox.one.product_license", 
+            "license_type": "enterprise", 
+            "__key": "0,enterprise,0", 
+            "license_kind": "STATIC"
+        }
+    ], 
+    "elected_member": "0", 
+    "nios_version": "8.6.5-51568-b30e9796da72", 
+    "saml_enabled": false, 
+    "dfp": [
+        {
+            "dfp_enable": false, 
+            "dfp_override": false, 
+            "dfp_forward_first": false, 
+            "virtual_node": "0", 
+            "__type": ".com.infoblox.one.member_dfp_properties", 
+            "__key": "0", 
+            "is_dfp_override": true
+        }
+    ], 
+    "version": 10, 
+    "total_queries": 0, 
+    "dns": [
+        {
+            "member_dns_forwarder": true, 
+            "parent": "0", 
+            "smartcache_enabled": false, 
+            "recursive_client_limit": false, 
+            "rpz_disable_nsdname_nsip": false, 
+            "enable_service": true
+        }
+    ], 
+    "upgrade_status": {
+        "upgrade_schedule_active": false, 
+        "allow_upgrade": false, 
+        "revert_version": "", 
+        "allow_upgrade_resume": false, 
+        "distribution_schedule_time": null, 
+        "allow_distribution": false, 
+        "allow_upgrade_scheduling": false, 
+        "allow_upgrade_test": false, 
+        "last_action_user_ref": null, 
+        "grid_state": "DEFAULT", 
+        "allow_upload": true, 
+        "upgrade_state": "NONE", 
+        "allow_upgrade_pause": false, 
+        "current_version": "8.6.5-51568-b30e9796da72", 
+        "group_state": "GROUP_NONE", 
+        "upgrade_schedule_time": null, 
+        "message": "", 
+        "upgrade_test_status": "NONE", 
+        "distribution_schedule_active": false, 
+        "distribution_state": "NONE"
+    }, 
+    "hidden_primary": 0, 
+    "gridmaster_ip": "10.197.56.157", 
+    "ntp": [
+        {
+            "local_ntp_stratum": 16, 
+            "ntp_kod": false, 
+            "use_ntp_kod": false, 
+            "use_ntp_servers": false, 
+            "time_zone": "(UTC) Coordinated Universal Time", 
+            "external_ntp_servers_enabled": false, 
+            "ntp_service_enabled": false, 
+            "virtual_node": "0", 
+            "use_ntp_keys": false, 
+            "enable_authentication": false, 
+            "__type": ".com.infoblox.one.vnode_time", 
+            "__key": "0", 
+            "use_ntp_acl": false, 
+            "use_time_zone": false, 
+            "grid_master_ntp_server_excluded": false, 
+            "use_local_ntp_stratum": false
+        }
+    ], 
+    "cmp_plugins": [], 
+    "dashboard_count": 3, 
+    "heka_opt_in": {
+        "status": true, 
+        "ts": "2000-01-1T00:00:00Z"
+    }, 
+    "src": "heka", 
+    "standalone": false, 
+    "grid_wide_licenses": [], 
+    "collected_at": "2024-10-22T21:36:57Z", 
+    "ngc_enabled": false
+}

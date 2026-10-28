@@ -1,0 +1,84 @@
+#!/usr/bin/python
+# This is the python script will be used by HEKA to fetch data from DB and
+# send the data to cloud endpoint.
+import json
+import os
+import infoblox.one.util as ou
+import infoblox.one.onedb as onedb
+import infoblox.common.ilog as ilog
+from datetime import datetime as dt
+import common_utils as common
+def get_version():
+    ver = 0 #Adding a default integer to avoid curation issues
+    try:
+        filename = '/storage/noa/onprem.d/scripts/heka_data_dir/env.json'
+        if os.path.isfile(filename):
+            fd = open(filename)
+            data = json.load(fd)
+            fd.close()
+            return int(data['version'])
+        else:
+            ilog.log("env file not present")
+            return ver
+    except Exception as e:
+        ilog.log('Error occurred while reading version information : %s' % e)
+        return ver
+def fetch_defaultdata():
+    data = {}
+    db = onedb.Db()
+    with db.begin(onedb.RO) as txn:
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory=onedb.todict, single=True)
+        vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+        if 'heka_opt_in' in grid and not grid['heka_opt_in'] and vnode and vnode['is_master'] and ou.node_is_active():
+            data['elected_member'] = str(ou.get_my_vnode_id())
+            #if heka is opted out default values will be sent to cloud
+            data = {
+                "nios_version" : ou.get_external_version(),
+                "features": [
+                    {
+                        "valid_licenses" : "",
+                        "parent" : ""
+                    }
+                ],
+                "grid_wide_license" : [
+                    {
+                        "license_string" : "",
+                        "license_type" : ""
+                    }
+                ],
+                "collected_at" :  dt.utcnow().strftime("%Y-%m-%dT%H:%M:%S") + 'Z',
+                "cmp_plugins" : [],
+                "grid": [
+                    {
+                        "name" : "",
+                        "uuid" : grid['uuid'],
+                        "license_uid" : grid['license_uid']
+                    }
+                ]
+            }
+            data['version'] = get_version()
+            data['pnode'] = []
+            pnode = common.get_db_data(db, '?one.physical_node')
+            for i, node in enumerate(pnode):
+                node = {}
+                if 'serial_number' not in pnode[i]:
+                    node['serial_number'] = ""
+                else :
+                    node['serial_number'] = pnode[i]['serial_number']
+                if 'hwid' not in pnode[i]:
+                    node['hwid'] = ""
+                else :
+                    node['hwid'] = pnode[i]['hwid']
+                data['pnode'].append(node)
+        else:
+            return {'info' : 'heka is opted in , no default data is send to cloud'}
+    return data
+def dump_json(data):
+    print (json.dumps(data, indent=4))
+if __name__ == '__main__':
+    try:
+        data = fetch_defaultdata()
+        dump_json(data)
+    except Exception as e:
+        ilog.log('Error occurred while handling default heka data : %s' % e)
+        dump_json({'error': str(e)})

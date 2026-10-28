@@ -1,0 +1,61 @@
+ls -l /opt/spark/
+total 16
+drwxr-xr-x 3 spark spark 4096 Oct 15 16:12 assembly
+drwxr-xr-x 2 spark spark 4096 Oct 15 16:12 bin
+drwxr-xr-x 2 spark spark 4096 Oct 15 16:12 conf
+drwxr-xr-x 2 spark spark 4096 Oct 15 16:12 sbin
+ls -l /opt/spark/bin/
+total 52
+-r-xr-xr-x 1 spark spark 1047 Sep  4  2017 beeline
+-r-xr-xr-x 1 spark spark 6592 Sep  4  2017 compute-classpath.sh
+-r--r--r-- 1 spark spark 2065 Sep  4  2017 load-spark-env.sh
+-r-xr-xr-x 1 spark spark 5049 Sep  4  2017 pyspark
+-r-xr-xr-x 1 spark spark 2309 Sep  4  2017 run-example
+-r-xr-xr-x 1 spark spark 6965 Sep  4  2017 spark-class
+-r-xr-xr-x 1 spark spark 3280 Sep  4  2017 spark-shell
+-r-xr-xr-x 1 spark spark 1854 Sep  4  2017 spark-sql
+-r-xr-xr-x 1 spark spark 2776 Sep  4  2017 spark-submit
+-r-xr-xr-x 1 spark spark 2110 Sep  4  2017 utils.sh
+ls -l /opt/spark/sbin/
+total 64
+-r-xr-xr-x 1 spark spark 2749 Sep  4  2017 slaves.sh
+-r-xr-xr-x 1 spark spark 1609 Sep  4  2017 spark-config.sh
+-r-xr-xr-x 1 spark spark 4806 Sep  4  2017 spark-daemon.sh
+-r-xr-xr-x 1 spark spark 1176 Sep  4  2017 spark-daemons.sh
+-r-xr-xr-x 1 spark spark 1267 Sep  4  2017 start-all.sh
+-r-xr-xr-x 1 spark spark 1480 Sep  4  2017 start-history-server.sh
+-r-xr-xr-x 1 spark spark 1838 Sep  4  2017 start-master.sh
+-r-xr-xr-x 1 spark spark 1043 Sep  4  2017 start-slave.sh
+-r-xr-xr-x 1 spark spark 2221 Sep  4  2017 start-slaves.sh
+-r-xr-xr-x 1 spark spark 1798 Sep  4  2017 start-thriftserver.sh
+-r-xr-xr-x 1 spark spark 1385 Sep  4  2017 stop-all.sh
+-r-xr-xr-x 1 spark spark 1002 Sep  4  2017 stop-history-server.sh
+-r-xr-xr-x 1 spark spark 1124 Sep  4  2017 stop-master.sh
+-r-xr-xr-x 1 spark spark 1378 Sep  4  2017 stop-slaves.sh
+-r-xr-xr-x 1 spark spark 1012 Sep  4  2017 stop-thriftserver.sh
+ls -l /opt/spark/conf/
+total 28
+-r--r--r-- 1 spark spark  303 Sep  4  2017 fairscheduler.xml
+-r--r--r-- 1 spark spark  620 Sep  4  2017 log4j.properties
+-r--r--r-- 1 spark spark 5310 Sep  4  2017 metrics.properties
+-r--r--r-- 1 spark spark  897 Sep  4  2017 spark-defaults.conf
+-r--r--r-- 1 spark spark 4565 Sep  4  2017 spark-env.sh
+ls -l /opt/spark/assembly/target/scala-2.10/
+total 67508
+-rwxr-xr-x 1 spark spark 69053839 Sep  4  2017 spark-assembly-1.3.1-hadoop1.0.4.jar
+ls -l /opt/spark-app/
+total 48
+drwxr-xr-x 2 root root  4096 Oct 15 16:12 20210620
+-rw-r--r-- 1 root root 41966 Nov  9  2022 whitelist-20221106-000.txt
+ls -l /storage/analytics/
+total 0
+/storage/spark-app/ directory is not present
+ls -l /storage/analytics_download/moduleset/
+total 0
+ls -l /storage/analytics_download/whitelist/
+total 0
+ls -l /storage/updates/analytics_updates/moduleset/
+total 0
+ls -l /storage/updates/analytics_updates/whitelist/
+total 0
+/infoblox/var/analytics/ directory is not present

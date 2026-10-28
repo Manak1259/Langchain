@@ -1,0 +1,13 @@
+{
+    "grid_feature_usage": {
+        "nios.bgp": false, 
+        "nios.authorization": false, 
+        "nios.network_insight": false, 
+        "nios.authentication": false, 
+        "nios.smart_folders": 9, 
+        "nios.file_distribution": false, 
+        "nios.ntp": false, 
+        "nios.ospf": false, 
+        "nios.admins": 3
+    }
+}

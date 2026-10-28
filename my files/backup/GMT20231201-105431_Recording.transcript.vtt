@@ -1,0 +1,1250 @@
+WEBVTT
+
+1
+00:00:02.410 --> 00:00:04.660
+Vindya V K: Yeah, I think it's yeah.
+
+2
+00:00:05.300 --> 00:00:29.560
+Vindya V K: Okay. So the first step in CI run is, we need to upload the Crm for aws, we need to upload the image to aws. So using that image like, which is called ami. So we generate Emi, and we give that ami to all the jobs like we put it inside a file which is read by the other cran jobs.
+
+3
+00:00:29.560 --> 00:00:43.329
+Vindya V K: And it picks up that image basically picks up that build and executes all the jobs in the queue. Okay, so this will be the first step. So every week, what we need to do is, we need to go to this path.
+
+4
+00:00:44.080 --> 00:00:59.820
+Vindya V K: this import bills. Nios, develop 90, so develop until here it is same. After this it can change like. So now we have, we are releasing 90, so it'll be under 90, so I'll just hold.
+
+5
+00:01:06.390 --> 00:01:20.109
+Vindya V K: So we have different releases, right release screen. So we have 6 and then 90, so it depends on which release we are working on. Currently, we are working 90, so we go inside 90,
+
+6
+00:01:20.310 --> 00:01:32.449
+Vindya V K: and then do Ls minus. Ltr, and you need to pick the latest build. Okay, whichever is the latest, you have to pick that bill and you click on that
+
+7
+00:01:33.280 --> 00:01:51.980
+Vindya V K: and let me just go inside that folder and do. Ls, so here you can see all the files are not listed like a a have you? Have you picked and configured bill previously on any regular? Vm, also
+
+8
+00:01:52.180 --> 00:02:02.320
+Manak Sahu: no cause last time. Yeah, whatever we are doing that is inside the official and fixed daughter. That file we use to take right?
+
+9
+00:02:02.630 --> 00:02:04.170
+Manak Sahu: Dot fixed.
+
+10
+00:02:04.190 --> 00:02:06.959
+Vindya V K: Ovfi. Okay, yeah, correct.
+
+11
+00:02:07.370 --> 00:02:09.940
+Manak Sahu: So here extensions are not there.
+
+12
+00:02:10.660 --> 00:02:12.720
+Manak Sahu: Just a different file, right?
+
+13
+00:02:13.060 --> 00:02:21.350
+Vindya V K: No, it is actually the same file. But what happens sometimes, or when they trigger it, read, I'll show you. So now I pick the last one latest one.
+
+14
+00:02:21.390 --> 00:02:41.919
+Vindya V K: But inside this all files are not listed. That is because it's still in progress, like they have triggered the bill, but it is still getting generated. So all files are not available. In this case you pick the last bit one. So 5, 1, 1, 3, 5. If I go inside this
+
+15
+00:02:41.940 --> 00:02:43.269
+Vindya V K: you can see.
+
+16
+00:02:44.690 --> 00:02:47.090
+Vindya V K: So here you can see all files are present.
+
+17
+00:02:47.270 --> 00:02:55.200
+Manak Sahu: Correct. That's directly. Only I was telling. So here ova we use to pick fixed 500 to ovm.
+
+18
+00:02:55.370 --> 00:03:24.560
+Vindya V K: Hmm. So this is for regular vm. And the other folder I opened was also same. It should contain the same content. But it is still getting generated. So maybe by tonight or tomorrow, or all the files would have come. So, since that was not there. Like Friday evening. Whatever is the latest folder in which all files are present, especially Vmdk, because we are for a place we use Vmdk file. So we need this file to be generated.
+
+19
+00:03:24.820 --> 00:03:44.999
+Manak Sahu: So if we have this, then you pick that build. So once you are here, just do. Pwd, you will get the path. Okay, one question here. So if Vmdk or file, I'll get apart from like a Vmdk. Some files are missing. Click, we can still use that file, is it?
+
+20
+00:03:45.300 --> 00:03:52.920
+Manak Sahu: Cause we'll get to know, like other files are available or like something is missed. Cause they are like multiple files are there? Right?
+
+21
+00:03:53.290 --> 00:04:12.829
+Vindya V K: Yeah. So that actually, we can use, but because it will eventually get generated. But for the best thing to do would be to pick up, pick the latest build in which all of these files are present. So like, basically, it is a completed build like it is generated properly. So it's better to pick that build.
+
+22
+00:04:12.980 --> 00:04:22.359
+Manak Sahu: So we have to first check like all these extension files should be there like we, we have to count the file or like a name
+
+23
+00:04:22.440 --> 00:04:46.810
+Vindya V K: you just see, like you will get to know right? It's not very specific. You just the thing is wha whatever file you want. So if you're configuring a regular Vm, you need the ovf. File, so you should. You should be sure that ova should be present but for aws, vmdk, so we should make sure vmdk is generated so but like just like that when you see, like we when we saw in previous build.
+
+24
+00:04:47.210 --> 00:04:51.000
+Vindya V K: We can see that like, there are some files missing.
+
+25
+00:04:51.010 --> 00:05:10.479
+Manak Sahu: Yeah. So if we see, only few are there. So we know it is not just brand when we see that Vmt is also not there. Obi is also not there. So we cannot use this bill. Okay, so here one thing is like, we have to choose the vmdk fixed to 500. G, only.
+
+26
+00:05:10.660 --> 00:05:13.040
+Vindya V K: Yeah. Oh, okay, yeah.
+
+27
+00:05:14.050 --> 00:05:35.370
+Vindya V K: So now I'll do. Now we have this fixed 500 gvmdk. So we need to pick this one. So now when you do, Pwd, you will get the path. You copy this, and you go to this, helping all these jobs for you. So you can just keep them. So you are to do rebuild.
+
+28
+00:05:40.810 --> 00:05:44.920
+Vindya V K: And you have to give this path here.
+
+29
+00:05:45.410 --> 00:05:54.250
+Vindya V K: Okay, so I will copy this, and I'll give this and add a slash and give the Vmdk file.
+
+30
+00:05:54.490 --> 00:05:55.600
+Manak Sahu: Okay.
+
+31
+00:05:56.340 --> 00:06:18.950
+Vindya V K: so when you're copying this, make sure there's no space like after this slash, then that will fail. So once you assure like, and sometimes we can miss the slash also before import. So just make sure path is correct, and once you have given the file rest, all will be same. Usually you just give the reason as Aws. Api. CI run
+
+32
+00:06:19.100 --> 00:06:20.100
+Manak Sahu: okay?
+
+33
+00:06:21.740 --> 00:06:37.550
+Vindya V K: And make sure all these boxes are checked. Don't terminate, don't stop. And Ena support. So all these should be enabled, and then click on rebuild. So reason should be like a similar III have to mention all the time. Aws, api! Cr.
+
+34
+00:06:37.730 --> 00:07:01.880
+Vindya V K: actually, it's not very specific. But it's better. We mentioned this because this job is used by multiple teams. So just in case we need to like later, go back and see some particular bill that is triggered by us. We only might not be able to differentiate which one triggered. So it's better to have a like any any reason that is suitable.
+
+35
+00:07:01.880 --> 00:07:26.590
+Vindya V K: Yeah, it can change also. But it's better. We have mentioned somewhere like Api. So it's we know it's different by Api team so restor can be the same. So product will be Ios component automation department. Qa, all these will basically not change. It is used for like adding tags in aws. So you just make sure you're checking these boxes. Don't terminate
+
+36
+00:07:26.590 --> 00:07:29.269
+and stop a DNA and click on rebuild.
+
+37
+00:07:29.270 --> 00:07:41.190
+Manak Sahu: Okay? And once because I've already figured I'm not so it will take about 20 min, or sometimes 25 min.
+
+38
+00:07:41.960 --> 00:07:50.330
+Vindya V K: So once this is completed, we will get the ami. So let's let us see if it is coming.
+
+39
+00:07:51.540 --> 00:07:53.350
+Manak Sahu: Okay.
+
+40
+00:07:53.980 --> 00:07:59.089
+Vindya V K: So so here, you can go inside this path.
+
+41
+00:07:59.650 --> 00:08:02.139
+Vindya V K: And you can just grab
+
+42
+00:08:02.340 --> 00:08:03.300
+Manak Sahu: okay.
+
+43
+00:08:05.820 --> 00:08:11.139
+Vindya V K: so you can grab anything like, for example, say
+
+44
+00:08:11.400 --> 00:08:13.040
+Vindya V K: zone art
+
+45
+00:08:13.830 --> 00:08:28.639
+Vindya V K: like for adding zone or anything specific to some, you can search for wappy objects if you are confused or stuck. If you want to see if that object is already automated, you can see test case related to that. I think you'll get a lot of them
+
+46
+00:08:28.930 --> 00:08:38.329
+Vindya V K: I don't control, see? Or is we get too much. So if you can see it's there in all of these scripts. So for it, I'll just open the first script.
+
+47
+00:08:47.570 --> 00:08:54.139
+Vindya V K: So here we can see creating all zone. So an authoritative zone is created.
+
+48
+00:08:54.770 --> 00:09:13.479
+Vindya V K: And so the object type is Zoom pod. Are you familiar with the command in this one? Yeah, yeah, like these things, I'm familiar. And this one like is like, here from where we'll get the dumb file. The data file
+
+49
+00:09:13.520 --> 00:09:15.819
+Manak Sahu: like, how well we are configuring
+
+50
+00:09:16.470 --> 00:09:20.119
+Vindya V K: which one adjacent dot dumps is there? Right?
+
+51
+00:09:22.530 --> 00:09:40.780
+Vindya V K: This one jason.com. So the output of this, like I output of. So this is a module that's written previously. So the vapi request is the function. So when we call this, we will get that output.
+
+52
+00:09:41.230 --> 00:10:01.049
+Manak Sahu: Okay, and this one is like it. Just for the reference I can use so that I can get and right side this one. I got 1 Si think I confuse you like this response that we get will be from this one. But this data that you said right? So here we are converting it into Jason.
+
+53
+00:10:01.380 --> 00:10:04.929
+Manak Sahu: So data is like, we hard coded here.
+
+54
+00:10:05.360 --> 00:10:08.890
+Vindya V K: Correct. This is the data that it is taking from previous line.
+
+55
+00:10:09.680 --> 00:10:17.279
+Manak Sahu: Okay, name will be, okay. Okay. Okay? And right side the grid. Vip, what is the
+
+56
+00:10:18.620 --> 00:10:24.920
+Vindya V K: master? Vip. Yeah. This one like this conflict or grade, Master Vip, like.
+
+57
+00:10:25.260 --> 00:10:35.679
+Manak Sahu: yeah. So this is like, in the curl command you will have to give, from which grid it has to fetch. Right? So I'll show you.
+
+58
+00:10:38.080 --> 00:10:41.410
+Vindya V K: So here you have to mention one grid typing.
+
+59
+00:10:42.120 --> 00:10:45.420
+Manak Sahu: So which will usually be the master IP.
+
+60
+00:10:46.030 --> 00:11:01.429
+Vindya V K: So that is the IP that we are giving here, but in some test cases, maybe you want to fetch it from the member you can give the member. IP, so here is like this file where it will be like this file config dot grid dot
+
+61
+00:11:01.680 --> 00:11:17.649
+Manak Sahu: config is our function like, config is our method. So yeah, config is. So if you can see here we have imported a model called Config. Yeah, here.
+
+62
+00:11:17.650 --> 00:11:42.529
+Vindya V K: So import config. So this file is actually generated every time in every job. So it's a unique file generated for each job which will have the details of that particular, that particular setup. So for example, if in a Jenkin job. I have configured one grid with a master plus member setup and have executed so that Jenkins Job will create one file
+
+63
+00:11:42.530 --> 00:11:49.850
+Vindya V K: called Conflict Py. Inside that conflict. P. By, you will have all the great details. I'll show you.
+
+64
+00:11:50.030 --> 00:11:56.160
+Manak Sahu: Yeah. So this grid, Master Vip, and that variable will contain the grid. IP,
+
+65
+00:11:56.770 --> 00:11:57.790
+Vindya V K: yeah.
+
+66
+00:11:57.860 --> 00:12:06.890
+Vindya V K: So okay, actually, it's create generated and run time. So I don't know if I can show I have an example. 1 s, maybe it's in my.
+
+67
+00:12:14.040 --> 00:12:17.319
+Vindya V K: So it'll be something like this like,
+
+68
+00:12:17.360 --> 00:12:37.809
+Vindya V K: I've modified this file so. But it's gonna be like this like it'll have all the data like grid Vip and ipv 6 data. This one will generate from Jenkins. But if I want to execute like without Jenkins, so that time like do we have to provide.
+
+69
+00:12:38.430 --> 00:13:04.820
+Vindya V K: Yeah, so that what you need to do is there is already. So this is actually the old method, old method. So now we are using optimized process. Right? So an optimized process, what you can do is again, it's all the other automation. And all the same, you don't have to worry, only the config file. So there is a MoD model of config.py, that is already provided. Okay.
+
+70
+00:13:04.880 --> 00:13:17.330
+Vindya V K: so you can use this I can maybe share the updated config.py. Well, while automating, what you can do is you just you just have a file called config.py in your path.
+
+71
+00:13:17.330 --> 00:13:40.729
+Vindya V K: Okay? And you give you give the data inside the file that I will send you later. You just give it in the same order, and you just mention the grid, IP, so you would have configured the grid. So you know the grid, Master IP give the grid vip as that IP, and if you have a member you give the member, so I will send you the file.
+
+72
+00:13:40.780 --> 00:13:52.119
+Vindya V K: because you have to mention the same exact variable. Okay? So it's like inside the Directory. Whatever I'll create, I should keep this config file
+
+73
+00:13:53.160 --> 00:14:22.530
+Vindya V K: correct. So you should keep it while you're like, when you're still automating in local, you do that when you're moving it to like. Finally, once when everything is completed, and when you move to Jenkins that's not required, you just have to. At that point you will need another file called Config dot yaml that, maybe will understand. Like, once your automation is done. You can go through that documentation of Jenkin optimization. And that, that will be clearer for you.
+
+74
+00:14:22.530 --> 00:14:23.910
+Manak Sahu: Okay, Sean.
+
+75
+00:14:24.030 --> 00:14:25.350
+Manak Sahu: and let's talk. Yeah.
+
+76
+00:14:25.630 --> 00:14:42.440
+Manak Sahu: So here, like, if I want to check the like, after executing right, we are analyzing the report part. So in local, if I'll execute it. Do we get any Stml report, or any report like to analyze like where it's getting fail?
+
+77
+00:14:43.060 --> 00:15:11.619
+Vindya V K: No fond. First of all, you can ex execute like test case by test case, and you can see like where it is feeling. But if you want the HTML report. You can just pass hyphen, hyphen, HTML, and option. Huh! And you will get like HTML file will be generated. So here is like not required to do any cloning or anything directly. We just login like I execute export, command. And after that
+
+78
+00:15:11.620 --> 00:15:14.249
+Manak Sahu: we can start writing the code.
+
+79
+00:15:14.590 --> 00:15:15.850
+Vindya V K: Yeah, correct.
+
+80
+00:15:17.070 --> 00:15:29.550
+Manak Sahu: O, okay, so in, if I'll create one folder inside folder. Only 2 files will be available. One will be our test case file and another will be config file. That's it. Right?
+
+81
+00:15:29.840 --> 00:15:31.169
+Vindya V K: A correct. Yeah.
+
+82
+00:15:31.630 --> 00:15:48.789
+Manak Sahu: Okay, okay. Got it. Can you please open any any? Rf, yeah. This one you open right? So here conflict. Py config, pyc, and what is these 4 files? Are there? Oh, no, no, no! This is like I understood that
+
+83
+00:15:49.140 --> 00:15:54.770
+Vindya V K: once again. So here you can see. So this is an older one. I'll show you the latest one.
+
+84
+00:15:57.180 --> 00:16:01.500
+Vindya V K: I don't know if they have. I think, radius. Okay, 1 s.
+
+85
+00:16:02.330 --> 00:16:04.180
+Vindya V K: This is the latest.
+
+86
+00:16:19.860 --> 00:16:44.780
+Manak Sahu: And what is that? That is old method. That's why I'm looking for so re, only very recently, we, you know, changed the process of automation. So we have made it more optimized method. So that old method run dot P. By. It was not very feasible. And it was little confusing also.
+
+87
+00:16:44.950 --> 00:16:52.149
+Vindya V K: okay, so we have like, Mo shifted to optimize method where we don't require any of those.
+
+88
+00:16:52.700 --> 00:16:57.859
+Manak Sahu: Okay, only one single file that will contain our test case methods.
+
+89
+00:16:58.130 --> 00:17:11.490
+Vindya V K: Yeah. So actually, even here. I mean, maybe this is required for this particular script. But I'm not able to find others, because I don't know what they have named it. But I'll show you so. This is the latest method that she has used.
+
+90
+00:17:11.690 --> 00:17:19.620
+Vindya V K: So here, in a typical one, you will only need a python file and a yaml file where,
+
+91
+00:17:20.401 --> 00:17:45.409
+Vindya V K: you know, you just add any additional data like, for example. So the there are 2. These 2 should be mandatory for all the jobs, like, irrespective of adding any other additional like variables or credentials, you have to add these 2. This should these 2 are like default admin username, admin password, info block should be present in any folder.
+
+92
+00:17:45.480 --> 00:17:55.670
+Manak Sahu: So this will be, for, like a local also like from our workstation we can execute, and then we can get that means config file is not required at all.
+
+93
+00:17:56.280 --> 00:18:19.649
+Vindya V K: Yeah. conf.no, this for workstation. This will not work. I mean, this is like earlier. What we would do is we would we would only give the config.py like we would add a config.py in our in our folder, and then we would pass it, and this run.py would kind of rewrite that config.py and replace the Ips.
+
+94
+00:18:19.830 --> 00:18:36.249
+Manak Sahu: Okay, okay, so here, what we are doing, we will read this file and we will generate config dot P. By in Runtime in Jenkins. Job.
+
+95
+00:18:36.550 --> 00:18:37.430
+Vindya V K: Okay.
+
+96
+00:18:38.800 --> 00:18:40.350
+Manak Sahu: yeah, you're telling something.
+
+97
+00:18:40.780 --> 00:19:05.390
+Vindya V K: Yeah. So basically, what I was telling is while automating. You just create a v config.py, and give your variables. That is just for like automation purpose. Because you can. You'll be handling it right offline, so you can do it, and when you're moving it to Jenkins you can like, add add the custom config, Dot, and you know, the whole get process. You can follow that.
+
+98
+00:19:05.390 --> 00:19:13.650
+Manak Sahu: Okay, so only 2 files are required. One is config.py, and one is our test case file name.py
+
+99
+00:19:13.850 --> 00:19:17.970
+Vindya V K: inside my direct field where I am working.
+
+100
+00:19:18.310 --> 00:19:40.920
+Manak Sahu: Oh, okay. So one is for configuration like to define all the variables that you were required variables. And another one is like just to write our create our methods, create the classes. And just and yeah, how can we call like, we are having like, I saw the sequence. We are maintaining order. Wise.
+
+101
+00:19:41.310 --> 00:19:47.999
+Manak Sahu: Okay, just open one. Can you please open one file, one PY. File.
+
+102
+00:19:48.320 --> 00:19:50.010
+Vindya V K: Okay, alright.
+
+103
+00:19:56.880 --> 00:20:00.589
+Vindya V K: I'll open SPT. Maybe this is a different automation.
+
+104
+00:20:00.720 --> 00:20:03.170
+Manak Sahu: so it won't get confused.
+
+105
+00:20:12.340 --> 00:20:15.269
+Manak Sahu: Sorry, actually, I'm asking a lot question.
+
+106
+00:20:15.520 --> 00:20:21.639
+Vindya V K: hey? No, no, that is fine. I'm so glad you're comfortable asking me. And just yeah.
+
+107
+00:20:22.280 --> 00:20:23.180
+okay.
+
+108
+00:20:26.750 --> 00:20:40.580
+Manak Sahu: said, it's like we created classes we defined. And we maintain the order and sequence. Okay, and and do we create any object to call these classes or directly? Are we in calling
+
+109
+00:20:41.780 --> 00:20:58.940
+Vindya V K: it actually depends. I mean, it is like they've not restricted like we should do like this. Only we can do it any we can automate it any way we want. But we just need all the test cases to be present. And we need the results in the form of test case with proper output.
+
+110
+00:20:59.240 --> 00:21:14.759
+Manak Sahu: Okay, okay, so mainly, we are following here, like, this pi test framework. So that is the reason we are just maintaining the order. And we are not creating any like object of any class directly we are calling
+
+111
+00:21:15.200 --> 00:21:16.160
+Vindya V K: correct.
+
+112
+00:21:16.880 --> 00:21:17.960
+Manak Sahu: Okay.
+
+113
+00:21:18.110 --> 00:21:35.160
+Vindya V K: here, actually, we are creating a class which is like test unit test. But in some, so usually this is the pattern for Spt automation. But if there is some other kind of initiative, automation or something else. We can use anything like, we can use those objects and class responses.
+
+114
+00:21:35.260 --> 00:21:51.770
+Manak Sahu: Oh, okay, okay, so pi test is mandatory, right? And to to. Yeah, pi test is the framework that we are that we use. So we need to follow that. Yeah. Cause if it's like, II can't create with any other name like, we have to follow this format
+
+115
+00:21:52.040 --> 00:21:56.719
+Manak Sahu: pi test format. So then, only it can be like executable.
+
+116
+00:21:57.250 --> 00:21:58.500
+Vindya V K: Yeah, correct.
+
+117
+00:21:59.050 --> 00:22:01.230
+Manak Sahu: Okay, understood.
+
+118
+00:22:01.640 --> 00:22:07.209
+Manak Sahu: And if I want to execute for example, any just go down literally.
+
+119
+00:22:07.710 --> 00:22:20.979
+Manak Sahu: Yeah, this one only first one test 000 create new ortho. So this function, if I want to call, II to run in like my workstation, how can we run?
+
+120
+00:22:21.590 --> 00:22:25.689
+Vindya V K: Yeah, that command. Actually.
+
+121
+00:22:26.050 --> 00:22:28.050
+Vindya V K: yeah, okay, so
+
+122
+00:22:31.720 --> 00:22:47.570
+Vindya V K: python, hyphen vss, you give the listing and hyphen. So if you execute this much, all the test cases will get executed. If you execute one by one you would give hyphen K test 0 0 0. Whatever is the name
+
+123
+00:22:47.850 --> 00:22:54.619
+Manak Sahu: understood? Okay. So here, not required to provide any conflict, file, or anything.
+
+124
+00:22:55.580 --> 00:23:02.070
+Vindya V K: No, for this also, like in the same path, the see here, if you can see there's a config dot V.
+
+125
+00:23:03.080 --> 00:23:07.840
+Vindya V K: So this should the this should. This is the format. So it should be there.
+
+126
+00:23:07.980 --> 00:23:21.740
+Manak Sahu: Yeah, cause inside that already, like we created by test. And there we imported this model so separately, not needed to provide cause. All the variables. Anyhow, we are using inside our like class or method.
+
+127
+00:23:22.760 --> 00:23:52.100
+Vindya V K: Yeah, so yeah, basically, you just have to have this config.py in the path, and here you are importing it. Config. So whatever file content is there in this file is read from this script. So wherever we are using config dot something it will be reading it from this file. Only. Okay. Understood?
+
+128
+00:23:52.330 --> 00:23:56.239
+Manak Sahu: Oh, he should have asked me earlier on me.
+
+129
+00:23:56.330 --> 00:23:59.469
+Manak Sahu: Yeah, okay, thank you so much.
+
+130
+00:23:59.810 --> 00:24:01.259
+Vindya V K: No problem.
+
+131
+00:24:01.410 --> 00:24:11.540
+Vindya V K: So automation is clear. Right? Will, this one is. okay. So yeah, okay, we have the build ready.
+
+132
+00:24:19.510 --> 00:24:23.050
+Vindya V K: So now we are here and go back.
+
+133
+00:24:23.760 --> 00:24:30.799
+Vindya V K: So we had. We did rebuild and we triggered. We got the build. Okay. so I will click on this
+
+134
+00:24:42.680 --> 00:24:44.810
+Vindya V K: and just search for am I
+
+135
+00:24:45.130 --> 00:24:45.990
+Manak Sahu: okay?
+
+136
+00:24:46.370 --> 00:24:59.219
+Vindya V K: And just click. In the end you will get so you will get creation successful, am ID am I? You will get this like, you will get this statement right? So this is RAMI, okay.
+
+137
+00:24:59.680 --> 00:25:17.019
+Vindya V K: so now, what we need to do is actually, currently we are using Shivakrishnas workstation to execute Crn which shortly move it to a dedicated client. But as of now we're making all these things on Shivakrishna's workstation.
+
+138
+00:25:17.210 --> 00:25:20.240
+Vindya V K: though I will first log into his workstation.
+
+139
+00:25:27.530 --> 00:25:36.200
+Vindya V K: So there there is a here. He has a folder called Cicd. So go and set Cicd scripts.
+
+140
+00:25:36.660 --> 00:25:49.120
+Vindya V K: And inside this you just do. Ls, minus LTR. You will find a file called, Build details aws bill details. Aws txt.
+
+141
+00:25:49.390 --> 00:26:04.580
+Vindya V K: So this is the file inside which we will give our ami details, ami details. So using this file only all the Jenkins jobs will execute the other jobs. So we have these 3 phase, one
+
+142
+00:26:05.270 --> 00:26:11.910
+Vindya V K: phase, 2 phase, 3 jobs. So these 3 jobs will read this build start txt file
+
+143
+00:26:12.030 --> 00:26:25.270
+Manak Sahu: and see in like which bill we should pick up, and it will pass it to the other drops in the queue. So adding, this data is very important. So this part is what we we will be automating in the future.
+
+144
+00:26:26.540 --> 00:26:36.109
+Vindya V K: So here we you can see, Ami, is there, Bill, is there, it should be in the same order. So first should be ami, second should be Bill.
+
+145
+00:26:36.590 --> 00:26:41.460
+Manak Sahu: So it's like a a different line, both like values will be
+
+146
+00:26:41.700 --> 00:26:46.360
+Vindya V K: yeah in different line, only it should be so. I'll copy this, am I?
+
+147
+00:26:46.410 --> 00:26:49.250
+Vindya V K: And I will paste it here.
+
+148
+00:26:51.970 --> 00:26:59.180
+Vindya V K: And this bill I will, you can pick it from here only. So if you can see in in the beginning
+
+149
+00:26:59.300 --> 00:27:04.090
+Vindya V K: it is niosh 90451355.
+
+150
+00:27:08.810 --> 00:27:15.150
+Manak Sahu: Okay, if from console. If we could have read and create this file, then that's it.
+
+151
+00:27:15.770 --> 00:27:31.109
+Vindya V K: Yeah, that's it. Then we can. We can automate every. I mean, everything will be automated. And so main part now is triggering this job and from like, where for triggering this job, we need to automate the picking the latest bill from that path.
+
+152
+00:27:31.160 --> 00:27:41.469
+Vindya V K: so our automation should start from there. So now we should find the but there's already script return for on Prem, so we can write similar script. That part will be easy.
+
+153
+00:27:41.560 --> 00:27:57.749
+Vindya V K: So we should pick the latest build and figure this job. And once this is completed, we need to pick this ami and place it in this in that build txt that is done that our full a aws will be automated.
+
+154
+00:27:58.210 --> 00:28:02.319
+Vindya V K: So once we place it here, just save this file
+
+155
+00:28:03.670 --> 00:28:14.859
+Vindya V K: and go back and check once that it is updated. So now we have placed our details in bills, details. Aws.
+
+156
+00:28:15.120 --> 00:28:19.889
+Vindya V K: so once this is done. That's it. So we go to phase one job.
+
+157
+00:28:20.260 --> 00:28:24.460
+Vindya V K: So we have created 3 jobs. We have flipped up the jobs
+
+158
+00:28:24.580 --> 00:28:43.049
+Vindya V K: bit depending on the number of hours it will take to get executed. Usually face one jobs will get completed in less than like, say, 2 h, less than one and a half, 2 h, or faceman like each facement job, will take less than one and a half to 2 h to get completed.
+
+159
+00:28:43.360 --> 00:28:49.729
+Vindya V K: All these zoom will have common this image file.
+
+160
+00:28:51.530 --> 00:29:14.790
+Vindya V K: Yeah. All all these 3 offs, whatever we generate it now, right? It will have this it will pick the same bill. So image file is nothing. The build. So this week I just to Santosh. Both of them asked us to execute on 904, Bill, right? So we pick the latest 904 Bill, and we have generated, and like suitable image for aws.
+
+161
+00:29:14.840 --> 00:29:34.250
+Vindya V K: that which is called AI. And it is picking that up. Okay, so it's like whatever jobs we have. First, we have to get that image properly. Update the text file, then whichever job they want it there we can provide the path, and we can execute.
+
+162
+00:29:35.180 --> 00:29:55.729
+Manak Sahu: I didn't get you. Can you come again? So there we updated. Am I? Id? And other details? Right? So that one will take from that file. And now, if we'll trigger this job, so it will up execute with the updated like latest image file
+
+163
+00:29:56.280 --> 00:29:58.170
+Vindya V K: correct. Okay.
+
+164
+00:29:58.850 --> 00:30:08.940
+Vindya V K: so first, I will show you how we should schedule this. Then I'll show you how it will pick like inside. Okay, so that that is the bill.
+
+165
+00:30:09.340 --> 00:30:18.920
+Vindya V K: And then what we should do. We need to come here and click on so phase one since it is not scheduled, we will click on rebuild.
+
+166
+00:30:19.050 --> 00:30:19.940
+Manak Sahu: Okay?
+
+167
+00:30:22.790 --> 00:30:36.370
+Vindya V K: And also and make sure, like, there are 5 instances. This is instance, Countess, how many instances we want to deploy. So usually have 5 instances for Facebook and phase 2 and phase 3. I think we'll have 3. So this is 5.
+
+168
+00:30:36.860 --> 00:30:53.509
+Vindya V K: And usually you don't have to change any of this data, this amid you can get confused. Maybe you you can feel like we just gave an Emi. What is this? Emi? So this ami is the client ami.
+
+169
+00:30:54.330 --> 00:31:05.839
+Vindya V K: So whatever we gave here, right it is the build. Ami. This is the client ami. So this this ami will generate the client. So, for example.
+
+170
+00:31:06.140 --> 00:31:34.319
+Vindya V K: I mean what happens in this? Aws, it will first generate aws client, and then it will start deploying aws grid on niosh. So there are 2 things that that are happening. So for building the nyos grid, it will pick the ami from this bill. I mean this text file to build the client like, for example, in on Prem. You have seen Api clients right? If you
+
+171
+00:31:34.560 --> 00:31:37.430
+Vindya V K: you you got to know what I'm referring to.
+
+172
+00:31:38.400 --> 00:31:40.240
+Vindya V K: If you want, I can show you
+
+173
+00:31:41.290 --> 00:31:46.060
+Vindya V K: in Qa. 2. When you trigger you have those jobs.
+
+174
+00:31:46.560 --> 00:32:15.910
+Vindya V K: I mean. So you have those clients like, say, 1036, 1, one dot, 9 dot 10. So these lines, these are on premise. Similarly, we need for aws, right? So for aws, we what we do, since it is going to cost us, we deploy only when we want. And now, once our work is done, we terminate. Okay.
+
+175
+00:32:15.980 --> 00:32:27.929
+Vindya V K: okay, so to deploy that we need an image like a copy. So if say, for example, I don't have some module, let's say I don't have
+
+176
+00:32:27.930 --> 00:32:57.770
+Vindya V K: jason module or px module in my client. Currently, let's say workstation. And I have taken an image of that. And every time I deploy that that that library or that module is not there. So to update it, I will install that module and again, take a screenshot, basically kind of. I take an image of that. So the latest image the second time. What image I've taken in that we have the updated modules
+
+177
+00:32:58.010 --> 00:33:19.820
+Vindya V K: in the old one we don't have. So basically, this is like the updated version with all these issues that we had faced earlier, we have fixed it. And this is the current ami. So in the future, if we face any issue related to aws clients, some audio issue or some other changes that we have to make. Maybe we can. We'll have to regenerate this.
+
+178
+00:33:20.490 --> 00:33:35.279
+Manak Sahu: Okay, so it's like, this is like, image. Also, like this is also image, but it will have all the modules which is fixed like, which is fix still now all the box like whichever they have worked.
+
+179
+00:33:35.590 --> 00:34:05.049
+Vindya V K: No, no, not bugs. So this is not like bugs. It is like client client base, like, for example, python 2. We were. We were talking about python, 2, about python 3. Right? So we need to have specific versions for some to work. So in that case we have. We already have made a setup. So we have made a setup and taken image of that. So we are just copying it. Now.
+
+180
+00:34:05.610 --> 00:34:22.809
+Vindya V K: Yeah. So this is like a template. You can see this is a template. So using this template, we will deploy clients. So whatever data is there inside, this Ami client will get deployed in all the clients that will be deploying.
+
+181
+00:34:23.610 --> 00:34:41.139
+Manak Sahu: So this will not change. For most part we have kind of optimized this so that this will not keep changing. Everything will work as it is, but in the in case we need it, we might have to change it in the future, but as of now it will be same you don't have to worry about this.
+
+182
+00:34:41.159 --> 00:34:54.279
+Vindya V K: Okay, so we'll just do rebuild. And we make sure like we all the instance count. Everything is correct. And we'll be using on demand clients for aws. So this on demand will be yes.
+
+183
+00:34:54.510 --> 00:35:01.490
+Vindya V K: and the zone. Currently, we are executing on North Virginia, which is us East 1 8.
+
+184
+00:35:01.490 --> 00:35:24.589
+Vindya V K: So all of these values will not change every week, just in case if there is some change like we have to execute on a different zone. We don't have some subnet available or some escalation happens that time we might have to change this. But I can like I, we can do that together if that happens so as of now, all of these values will be same.
+
+185
+00:35:24.590 --> 00:35:26.110
+and you just give rebuild.
+
+186
+00:35:26.320 --> 00:35:27.190
+Manak Sahu: Okay.
+
+187
+00:35:30.790 --> 00:35:36.329
+Vindya V K: am I explaining too much? Maybe I'm confusing you. I'm sorry. No, no, no, it's it's it's fine.
+
+188
+00:35:36.380 --> 00:35:42.200
+Manak Sahu: Actually, I can understand. Like, if I couldn't understand, I'm asking questions. And I hit
+
+189
+00:35:42.380 --> 00:36:07.210
+Vindya V K: okay, fine. I mean, I don't know, because those like maybe what we should not think about now, right? Whatever is working fine. I'm explaining about that also. So I thought, maybe it's confusing. No, actually, that is a better way. You are explaining and better way, cause if tomorrow, if some like Mit teams or anything. So II would get confused. But now, like, okay, this is what
+
+190
+00:36:07.210 --> 00:36:19.239
+Manak Sahu: it might change, but probably it won't change. So those things like both way you explain. So it it will be like if any changes will be there, I won't get surprised. I will be like.
+
+191
+00:36:19.240 --> 00:36:22.290
+Manak Sahu: yeah. So that is actually proper way.
+
+192
+00:36:22.880 --> 00:36:29.209
+Vindya V K: Okay, I'm glad you're not getting sent you. So now we did rebuild for phase one.
+
+193
+00:36:29.210 --> 00:36:53.419
+Vindya V K: So now every week after we ex execute trigger phase one, we have to schedule phase 2 and phase 3, as of now we will not like scheduled it just like that, because phase one is only not scheduled. If we schedule it immediately without scheduling this it sometimes. Maybe I've not triggered phase one because of some build delay or something, so they will say you
+
+194
+00:36:53.420 --> 00:37:07.809
+Vindya V K: won't trigger it on Friday. Trigger it on Saturday, and if I've already like if I've already scheduled phase 2 and phase 3, then phase 2 might start off with old build. I've not updated the file, and also that will be complicated. It will cost
+
+195
+00:37:07.810 --> 00:37:13.109
+Vindya V K: so every week after the execution we have to edit this
+
+196
+00:37:13.350 --> 00:37:15.289
+Manak Sahu: so phase one
+
+197
+00:37:22.160 --> 00:37:38.649
+Vindya V K: and search for period. So bill periodically. So here we, you have usually after this execution, if they say, don't execute this week you have to come, and so you have to come and disable this.
+
+198
+00:37:38.700 --> 00:37:56.419
+Vindya V K: So if this is enabled, then it will. It's like it is getting scheduled, it will get record. So you have to click, build periodically. And this is the Chron expression that we use. So this last digit is the date.
+
+199
+00:37:56.590 --> 00:38:08.539
+Vindya V K: and this is the time these 2 are time. You don't have to touch the other ones only these 2. And this last digit. So 6 is Saturday, 7 is Sunday.
+
+200
+00:38:08.630 --> 00:38:10.060
+Manak Sahu: Okay? Okay?
+
+201
+00:38:10.180 --> 00:38:18.399
+Vindya V K: So if you can see it says, like, last ran on 20 fifth November, Saturday at 11 am.
+
+202
+00:38:18.440 --> 00:38:24.449
+Vindya V K: and next it will get triggered on December second, December 11 am.
+
+203
+00:38:24.520 --> 00:38:27.430
+Manak Sahu: Okay, okay? Means every Saturday. It will.
+
+204
+00:38:28.140 --> 00:38:49.500
+Vindya V K: Yeah. So this this means every Saturday. So there are different front expressions, for like we can schedule it for alternate Saturday and all but we, since we trigger every week we use this expression. So this we can change. So this anyway, today's Friday, we have triggered at 50'clock. So 5 to 6 t(078) 910-1112
+
+205
+00:38:49.560 --> 00:39:04.979
+Vindya V K: one. So actually, 8 to 9 h is enough for phase one but I've observed. Sometimes there is like Hudson error and you know. Like 2 2 jobs like Facebook and phase 2 jobs are kind of overlapping
+
+206
+00:39:05.020 --> 00:39:24.739
+Vindya V K: like phase. One is not completed. And already phase 2, starting so that can cause Hudson error. So to avoid that. We can give enough time because we have the whole weekend. So since we have triggered phase one. Now we can schedule this at 11, only 1010 am. Or 11 am.
+
+207
+00:39:25.500 --> 00:39:29.529
+Vindya V K: So this is Saturday 11 Am. We can see the date.
+
+208
+00:39:29.630 --> 00:39:40.070
+Manak Sahu: It will get triggered tomorrow. Saturday second December at 11 am. So it's having dependency right? Like it should be in sequence.
+
+209
+00:39:40.120 --> 00:39:46.270
+Manak Sahu: so I can't execute like I can't trigger the phase 2 first, and will trigger the phase one.
+
+210
+00:39:46.360 --> 00:39:49.760
+Manak Sahu: So it's it's it's sequence we have to maintain, is it?
+
+211
+00:39:50.000 --> 00:40:06.569
+Vindya V K: No, no, actually, you can do that. It's not dependent on each other. But why I said that it will get overlapped is because in this job we have we have a script that will clear out the old clients and deploy new clients.
+
+212
+00:40:06.570 --> 00:40:23.230
+Vindya V K: So if Facebook jobs are still getting executed, that means the clients are there. And if this script clears those clients. Then all the exec jobs that were in progress will gets you know, stopped. It'll get it will get terminate.
+
+213
+00:40:23.260 --> 00:40:50.729
+Vindya V K: and we can't get results like even the ami, I mean sorry the instances will be charged, and it's like a waste of money also. So that's better. We give enough time. If we have time, it's better to maintain some time. So that's why we have. Otherwise we can check on triggers. Update you also. As long as that bills.is updated we can trigger separately any job. It's fine.
+
+214
+00:40:51.290 --> 00:40:54.440
+Vindya V K: so I'll just do apply.
+
+215
+00:40:55.520 --> 00:40:57.269
+Vindya V K: and I will do save.
+
+216
+00:40:59.590 --> 00:41:04.649
+Vindya V K: So now, phase 2 is scheduled for tomorrow, 11 Am.
+
+217
+00:41:05.960 --> 00:41:11.980
+Vindya V K: And phase 2 jobs. Let take 3 to 4 h to get complete.
+
+218
+00:41:14.110 --> 00:41:18.810
+Vindya V K: And this is like 4 plus hours, I think. Phase 3 jobs.
+
+219
+00:41:21.240 --> 00:41:25.580
+Manak Sahu: Sonya, remembering all that time like how much it will take.
+
+220
+00:41:26.170 --> 00:41:51.159
+Vindya V K: No like we have segregated based upon that fei. 3 faces are there, right? So earlier, we only had one job where all job, all jobs irrespective of the time were triggered together that time we were having other issues. So later we separated, based upon time. So phase one job we like which will take less less number
+
+221
+00:41:51.160 --> 00:42:10.789
+number of hours to get executed. We'll keep it as phase one phase 2 would take like 2 or 2 to 3 h, or something like that, and which will take like more time for us, or 3 and half hours, and plus we'll have it in phase 3. So we basically in phase 3. What? What is the difference is we are deploying?
+
+222
+00:42:10.940 --> 00:42:14.859
+Vindya V K: h higher, expensive hardware.
+
+223
+00:42:14.880 --> 00:42:22.400
+Manak Sahu: Okay? So for faster execution. So th the there should not be any slowness in that. Okay.
+
+224
+00:42:23.500 --> 00:42:35.550
+Vindya V K: so here this one, we can schedule it. So 7 is Sunday. So I'm scheduled for 70'clock at la. Sorry 7 day. That is Sunday, third, December 11. Am.
+
+225
+00:42:35.730 --> 00:42:36.620
+Manak Sahu: Okay.
+
+226
+00:42:37.470 --> 00:42:43.559
+Vindya V K: You can like you can just make sure. Once this displays the message right? You can see this.
+
+227
+00:42:43.720 --> 00:42:49.560
+Vindya V K: and just check that. It is fine and click on apply.
+
+228
+00:42:50.750 --> 00:42:55.479
+Manak Sahu: So here is like no change. Only we have to check this build
+
+229
+00:42:55.530 --> 00:43:00.600
+Manak Sahu: periodically. This values, it should be okay.
+
+230
+00:43:01.430 --> 00:43:09.700
+Vindya V K: You should. That should be proper, and you should make sure you schedule these 2 jobs appropriately. So this is once this is done.
+
+231
+00:43:10.130 --> 00:43:19.129
+Vindya V K: I'll show you how it will pick the build. So it is similar for all the other jobs. You can refer it later. Maybe I will show you.
+
+232
+00:43:22.140 --> 00:43:27.209
+Vindya V K: You go. You got the aws permission like for cancelled.
+
+233
+00:43:27.570 --> 00:43:30.450
+Manak Sahu: No, I didn't get actually.
+
+234
+00:43:31.090 --> 00:43:33.690
+Manak Sahu: I think, need to check.
+
+235
+00:43:34.400 --> 00:43:36.819
+Manak Sahu: because that day I raised the ticket.
+
+236
+00:43:38.110 --> 00:43:46.560
+Vindya V K: Okay, no problem. You. Maybe by next week you can get into speak. I'll only monitor it, anyway. So you you can see my screen right?
+
+237
+00:43:47.280 --> 00:43:48.150
+Manak Sahu: Yeah.
+
+238
+00:43:48.930 --> 00:44:07.680
+Vindya V K: So here it, it uses Shiva Krishna's workstation like I said, so it will go inside this path. And we are already in this part. If you can see home, Shiva, Cicd scripts. So we are inside this path inside this path they're executing this. Python script.
+
+239
+00:44:07.820 --> 00:44:11.840
+Manak Sahu: Aws, call phase one 2.py.
+
+240
+00:44:11.870 --> 00:44:22.969
+Vindya V K: And as a argument, they're passing this, aws, jobs. Get Facebook. Txt. So first, I'll show you, what is this file? This is nothing but the list of jobs.
+
+241
+00:44:25.380 --> 00:44:38.520
+Vindya V K: See? It has all the job names, Facebook names. Okay? So there are 58 jobs. Similarly for phase 2 and phase 3. Also, they are passing different txt file.
+
+242
+00:44:38.960 --> 00:44:47.170
+Vindya V K: Okay? And so coming to this script that they're calling. So basically, we are using this script to
+
+243
+00:44:47.990 --> 00:44:57.129
+Manak Sahu: to send it. Send it in queue like, send all these jobs we are putting them in queue. Okay? Okay, sequence. For sequence.
+
+244
+00:44:57.330 --> 00:45:17.340
+Vindya V K: Putting in queue means like we are manually right? So it's triggering all these jobs in the list, basically the script. So what is inside the script means. So if you open.
+
+245
+00:45:17.910 --> 00:45:29.930
+Vindya V K: it is going inside this path. So remember the bills dot txt that we updated where we updated the Emi. So it is reading that file inside the script now.
+
+246
+00:45:30.510 --> 00:45:33.420
+Vindya V K: so it will take the ami from here
+
+247
+00:45:34.200 --> 00:45:40.590
+Vindya V K: and then this is the same. So we're using curl command to put the jobs in queue.
+
+248
+00:45:41.300 --> 00:45:42.010
+Okay?
+
+249
+00:45:43.080 --> 00:45:47.650
+Vindya V K: So this is the same call command. Only thing like we are changing the branch.
+
+250
+00:45:48.060 --> 00:46:01.000
+Vindya V K: So if it is a Nios. 8 bill, then we use the Nios 8, 6 to aws branch. If it is Nios. 9 dot bill. Then it will use the Aws branch.
+
+251
+00:46:01.300 --> 00:46:02.090
+Manak Sahu: Okay.
+
+252
+00:46:03.160 --> 00:46:09.009
+Vindya V K: okay, so restall is the same. So it will use this call, command and trigger the jobs.
+
+253
+00:46:09.200 --> 00:46:11.670
+Manak Sahu: So this is the purpose of this script
+
+254
+00:46:11.750 --> 00:46:15.550
+Vindya V K: and the rest is now rest is team
+
+255
+00:46:16.380 --> 00:46:20.179
+Vindya V K: like we are just deploying the clients.
+
+256
+00:46:20.540 --> 00:46:28.469
+Vindya V K: So here, there's something called create on demand instance. So this will deploy the clients.
+
+257
+00:46:28.840 --> 00:46:34.759
+Manak Sahu: Okay, so this file will be on in that same location. It will be.
+
+258
+00:46:35.140 --> 00:46:41.410
+Vindya V K: Yeah, it is in the same location what it like. Can you please open this one?
+
+259
+00:46:41.870 --> 00:47:01.870
+Vindya V K: This is a more complicated, the cloud side script. So it is completely like they're using. Go like for this is for aws, right? So they're using only aws, credentials and everything. And they're deploying. Gov. However, you do manually. They're using the they're doing the same thing using script.
+
+260
+00:47:02.440 --> 00:47:13.099
+Vindya V K: You can refer to it like if you want. So it's a long script. So for us, it's like, and I think to touch it like this file will be always like as it is.
+
+261
+00:47:13.360 --> 00:47:28.170
+Vindya V K: Yeah, yeah, we don't have to do anything. It's anywhere returned by. I think maybe by cloud detect team people are not. So we don't have to touch this, but we don't have to modify or do anything with this.
+
+262
+00:47:30.050 --> 00:47:40.120
+Vindya V K: Yeah, so we just have to see these 3 jobs are, Ping, DC, so this is how like all these 3 jobs will get executed, so I will. Ping
+
+263
+00:47:42.720 --> 00:47:54.740
+Manak Sahu: last time I was not having access. So then I checked with Shiva, and then she was saying, like, you are using like a old link like old URL,
+
+264
+00:47:55.900 --> 00:47:59.320
+Vindya V K: old Yuaral. Same URL was working for me right
+
+265
+00:47:59.340 --> 00:48:05.549
+Manak Sahu: yeah, 1 min. Let me check for me like not found mensa. I don't have access.
+
+266
+00:48:06.320 --> 00:48:12.420
+Vindya V K: Yeah, I mean, it's just some permission issue. Only I just ping 4 links. Can you see if we can access any of those?
+
+267
+00:48:12.540 --> 00:48:16.589
+Manak Sahu: Yeah, I'm opening. It's coming like 4.4
+
+268
+00:48:16.850 --> 00:48:17.720
+Manak Sahu: edit.
+
+269
+00:48:18.530 --> 00:48:27.650
+Vindya V K: No, that should not happen. Oh, okay, we'll do one thing, then maybe Monday or Tuesday and come to office on Tuesday. Right?
+
+270
+00:48:27.790 --> 00:48:41.059
+Vindya V K: Okay? Then we can show it to Shiva Rajit. And check that. Because, yeah, cause that time. Then Shiva shared like some different link. And it was working 1 min. Let me check it.
+
+271
+00:48:41.550 --> 00:48:45.730
+Manak Sahu: Give me some different Jenkin links.
+
+272
+00:48:46.680 --> 00:48:47.590
+Okay.
+
+273
+00:48:55.450 --> 00:49:00.680
+Manak Sahu: Qa, 2. Right. Whatever you pay. No, not Kuwait. 2. No, no, not QA. 2,
+
+274
+00:49:01.140 --> 00:49:03.580
+Manak Sahu: I think. Okay.
+
+275
+00:49:03.750 --> 00:49:09.649
+Manak Sahu: 1 min. Q. Way to. He has banged. and apart from that.
+
+276
+00:49:10.420 --> 00:49:15.729
+Manak Sahu: no. Qa, b lr, 1 min. Let me check if I have any.
+
+277
+00:49:16.400 --> 00:49:17.880
+Vindya V K: Okay.
+
+278
+00:49:20.090 --> 00:49:21.770
+Manak Sahu: 10 pounds.
+
+279
+00:49:39.100 --> 00:49:45.550
+Manak Sahu: One link I have that is like qa, INBA lot.
+
+280
+00:49:46.590 --> 00:49:49.519
+Manak Sahu: So let me ping you.
+
+281
+00:49:50.040 --> 00:49:53.940
+Vindya V K: Okay, yeah, it should be. Qa, dot. Imbr, only.
+
+282
+00:49:54.070 --> 00:49:57.040
+Manak Sahu: yeah. This one. This one is working fun.
+
+283
+00:49:58.490 --> 00:50:04.739
+Vindya V K: What is the difference? It's the same, right same. But instead of jobs
+
+284
+00:50:05.270 --> 00:50:09.879
+Manak Sahu: after going to this path, I can
+
+285
+00:50:10.040 --> 00:50:11.690
+Manak Sahu: start like
+
+286
+00:50:12.380 --> 00:50:19.790
+Manak Sahu: you're able to search for these same jobs 1 min. Let me share my screen.
+
+287
+00:50:20.120 --> 00:50:21.020
+Vindya V K: Yeah.
+
+288
+00:50:22.630 --> 00:50:29.219
+Manak Sahu: yeah. So this is my Jenkins, and which you have paying. For example.
+
+289
+00:50:29.340 --> 00:50:34.510
+Manak Sahu: let me search for this one. Let me copy it.
+
+290
+00:50:46.760 --> 00:50:48.840
+Manak Sahu: Save my equal. P,
+
+291
+00:50:49.010 --> 00:50:50.460
+Manak Sahu: we're just doing okay.
+
+292
+00:50:53.440 --> 00:50:55.370
+Vindya V K: You need to log in, I think.
+
+293
+00:50:55.560 --> 00:50:57.690
+Manak Sahu: Okay?
+
+294
+00:50:58.340 --> 00:50:59.330
+Manak Sahu: Oh, one right
+
+295
+00:51:01.560 --> 00:51:05.220
+Manak Sahu: logged in, I think, somewhere else. I open.
+
+296
+00:51:09.380 --> 00:51:12.180
+Manak Sahu: Okay, that page. Only let me log in first.
+
+297
+00:51:29.290 --> 00:51:43.760
+Manak Sahu: No, I think I think for this. These jobs, only you don't have permission, some permission issue, but it should not happen. So I think it's better. We show it to him in person, and he can check
+
+298
+00:51:43.850 --> 00:51:57.620
+Manak Sahu: next week today.
+
+299
+00:51:58.200 --> 00:52:12.640
+Vindya V K: Oh, okay, then May. Maybe we can tell him it is urgent, because, like, you're working you will be working on it to the week next weekend right to trigger. So you will need it at least to even if you don't trigger like, at least to monitor, you might need it.
+
+300
+00:52:12.810 --> 00:52:16.090
+Vindya V K: So. Oh, yeah, maybe. Next
+
+301
+00:52:17.340 --> 00:52:20.670
+Vindya V K: he mentioned.
+
+302
+00:52:20.850 --> 00:52:23.609
+Vindya V K: oh, this is for aws account. Okay.
+
+303
+00:52:23.930 --> 00:52:28.490
+Vindya V K: if it's not urgent, let's wait for next week.
+
+304
+00:52:29.840 --> 00:52:41.549
+Vindya V K: integration with aws account. Okay, I think for 8 aws account. It is fine. But it's not. There might be.
+
+305
+00:52:41.900 --> 00:52:48.010
+Manak Sahu: Yeah, this Jenkin, we need it. We can ask Shiva for that.
+
+306
+00:52:48.370 --> 00:52:50.450
+Vindya V K: Yeah, we can check with them.
+
+307
+00:52:50.800 --> 00:52:51.600
+Manak Sahu: Okay.
+
+308
+00:52:52.690 --> 00:52:55.739
+Manak Sahu: so that that much. Only we have to do right?
+
+309
+00:52:56.000 --> 00:53:01.829
+Vindya V K: Yeah, that's it. So you just shed your trigger phase one and schedule phase 2 and phase 3, and that's it.
+
+310
+00:53:02.370 --> 00:53:32.240
+Vindya V K: Like sometime in the weekend. If you have time, or once you come back on Monday. You just have to check like, you don't have to spend time, or the weekend and all. You just have to. See if it's getting executed properly, or if it has failed, due to some reason. So you just have to monitor that. So after triggering phase, one just a monitor phase, one job for around half an hour to 1 h.
+
+311
+00:53:32.240 --> 00:53:49.620
+Vindya V K: Okay, so just making sure that jobs are you know, the clients are getting deployed and jobs are getting executed. Once that is done, you just you can just come like login on Monday and see if all jobs are executed. And you know, clients are terminated. We just have to make sure of that.
+
+312
+00:53:49.680 --> 00:53:51.130
+Manak Sahu: Okay, Sean.
+

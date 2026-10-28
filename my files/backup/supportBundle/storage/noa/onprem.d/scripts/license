@@ -1,0 +1,92 @@
+#!/usr/bin/python
+
+import sys
+import infoblox.one.onedb as onedb
+import infoblox.one.data_if as dif
+import infoblox.common.ilog as ilog
+import json
+import infoblox.one.util as ou
+from infoblox.one.clusterd import is_node_active_master
+
+"""
+SCRIPT INPUT OPTIONS:
+
+  1. STATIC LICENSE:  
+       serail_number,serial_number,license_type,expiry_date,license_string
+       Ex: 564d028cfd497f0e6479b8d235ccc446,564d028cfd497f0e6479b8d235ccc446,dhcp,2021-02-14,EwAAAAbakK/S8dqWnN9RHCMPMTf2KO4=
+
+  2. GRID_WIDE LICENSE:
+      GRID_WIDE,license_uid,license_type,expiry_date,license_string
+      Ex: GRID_WIDE,994c317bf15140258bcb2f3f83100459,threat_anl,2021-02-14,IQAAAAO6dW08WlHhj5YkyulrOhiDU74aIIr3FWMYb3NEC3DkWA==
+
+  3. DYNAMIC LICENSE:
+      LICENSE_POOL,license_uid,license_type,expiry_date,license_string
+      SIGNATURE,license_uid,date,signature
+      Ex: LICENSE_POOL,994c317bf15140258bcb2f3f83100459,dhcp,,GQAAABO6ZHghAz/8zMsk1aQmPUCBR7kPeI3mQ3Q=
+          LICENSE_POOL,994c317bf15140258bcb2f3f83100459,dns,,GAAAABO8dHRwH3Kt0IZ1yelpKlSVVqgPaN3gEg==
+          SIGNATURE,994c317bf15140258bcb2f3f83100459,1608537036,EAAAAK17qh5xioqzCF2HMJIfwm8=
+
+"""
+status = { 'success'     :1,
+           'failure'     :-1,
+           'not_gm'      :-2, 
+           'arg_missing' :-3,
+           'exception'   :-4 }
+
+def is_gm():
+    db = onedb.Db()
+    with db.begin(onedb.RO) as t:
+        # check if this node is GM-Active and HEKA is OPTED IN
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory = onedb.todict, single=True)
+        if grid['heka_opt_in'] and is_node_active_master():
+            return True
+
+    return False
+
+def dump_json(data):
+    print (json.dumps(data))
+
+def create_license_args(db, lic_entry, save_unknown=False):
+    data_ref = dif._data_inline(db, 'UTF8', lic_entry)
+    args = {'data_ref': data_ref,
+            'save_unknown': save_unknown}
+    return args
+
+def handle_license_update(lic_arg):
+    if len(lic_arg) < 1:
+        ilog.log('License data argument is empty')
+        dump_json({'status': 'License data argument is empty', 'code':status['arg_missing']})
+        sys.exit(0)
+    
+    if not is_gm():
+        dump_json({'status':'Not configured to run on this node', 'code':status['not_gm']})
+        sys.exit(0)
+   
+    lic_entry = ""
+    args = lic_arg[1:]
+    lic_entry = "\n".join(args)
+    
+    db = onedb.Db()
+    with db.begin(onedb.RW) as txn:
+        args = create_license_args(db, lic_entry)
+        ret = dif.import_pool_status(db, args)
+        if (("Static licenses imported") in ret) or \
+                (("Grid-wide licenses imported") in ret) or \
+                    (("License pool status updated") in ret):
+            ilog.log('License successfully installed')
+            dump_json({'status':str(ret), 'code':status['success']})
+            txn.commit()
+            sys.exit(0)
+        else:
+            ilog.log('License installation failed : %s' % str(ret))
+            dump_json({'status':str(ret), 'code':status['failure']})
+            txn.abort()
+            sys.exit(0)
+
+if __name__ == "__main__":
+    try:
+        handle_license_update(sys.argv)
+    except Exception as e:
+        ilog.log('Exception occurred while license updation : %s' % e)
+        dump_json({'status': str(e), 'code':status['exception']})
+        sys.exit(0)

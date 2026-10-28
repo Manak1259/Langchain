@@ -1,0 +1,590 @@
+Table: filter
+
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8765
+5826K 1278M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+ 168K   15M SW_ATP_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match ! 0x1
+ 168K   15M DNS_RATE_LIMIT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 168K   15M DNS_filter_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 167K   15M DNS_QUERY  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 167K   15M DOT_filter_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 167K   15M DOH_filter_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x3F/0x17
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x03/0x03
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp flags:0x06/0x06
+ 167K   15M DNS        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  736 61824 LOGACCEPT  icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 8
+   39  4857 LOGACCEPT  icmp --  *      *       0.0.0.0/0            0.0.0.0/0            icmptype 3
+    0     0 ACCEPT     2    --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     89   --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 158K   14M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+ 9018  469K DHCP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9018  469K ha         all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9018  469K dfa        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9018  469K omapi      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 clusterd   udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp spt:2114 dpt:2114
+ 9018  469K WINS_filter_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOGACCEPT  udp  --  tun+   *       169.254.0.0/16       169.254.0.0/16       multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194 state NEW
+    0     0 LOGACCEPT  tcp  --  tun+   *       169.254.0.0/16       169.254.0.0/16       multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194 state NEW
+ 9018  469K SSH_RATE_LIMIT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9018  469K SSH        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9007  468K IPSEC      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9007  468K HTTPS      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 HTTPS_LOGDROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 FTP        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 TFTP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 HTTP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 HTTP_LOGDROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 NTP        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 CAPTIVE_PORTAL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 GOG_LISTEN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 SNMP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 SYSLOG     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 BGP        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 BFD        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 IMC        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 IMC_DATA_REPO  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 DOT        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 DOH        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 openvpn    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_HTTP_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_SH_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_CLUSTER_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_IDX_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 REPORTING_APP_FILTER  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 AWS        all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 AWS_LOGDROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 DTC_CACHE_ZMQ  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 NETMRI_SCAN_IN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 CCT_filter_INPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 AUTO_PROV  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 SPARK_MASTER_WEBUI  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 CLOUD_DNS_REDIS  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       tcp  --  !lo    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:9000
+    0     0 DROP       tcp  --  !lo    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:9999
+    0     0 DROP       112  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:802
+   10   520 WTH_IN_LOG_DROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   10   520 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0            all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-rules-below-here */
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+    0     0 WINS_filter_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOGACCEPT  udp  --  tun+   *       169.254.0.0/16       169.254.0.0/16       multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194
+    0     0 LOGACCEPT  tcp  --  tun+   *       169.254.0.0/16       169.254.0.0/16       multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194
+    0     0 PROXY_NAT_FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 BT_HTTPS   all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 BT_FTP     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 BT_SFTP    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 WTH_FWD_LOG_DROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0            all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-rules-below-here */
+
+Chain OUTPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5826K 1278M ACCEPT     all  --  *      lo      0.0.0.0/0            0.0.0.0/0           
+ 160K  285M SW_ATP_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 160K  285M DNS_filter_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 159K  285M DOT_filter_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 159K  285M DOH_filter_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 159K  285M VPN_COMM_BLOCK  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 159K  285M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+  268 16312 LOGACCEPT  all  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW
+    8   642 WINS_filter_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    8   642 IMC_ACK    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    8   642 DISCOVERY_filter_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    8   642 NETMRI_SCAN_OUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    8   642 WTH_OUT_LOG_DROP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    8   642 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0            all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-rules-below-here */
+
+Chain AUTO_PROV (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain AWS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8787
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8787
+
+Chain AWS_LOGDROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8787
+    0     0 ULOGDROP   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8787
+
+Chain BFD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !3784,3785,4784
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 3784,3785,4784
+
+Chain BGP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !179
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !179
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 179
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 179
+
+Chain BT_FTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !21,62001:62026
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 21,62001:62026
+
+Chain BT_HTTPS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !443
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 443
+
+Chain BT_SFTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !22
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 22
+
+Chain CAPTIVE_PORTAL (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !80,4433,53
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !53
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 80,4433,53
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 53
+
+Chain CCT_filter_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x42
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            mark match 0x43
+
+Chain CLOUD_DNS_REDIS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DHCP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9018  469K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !67,547
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 67,547
+
+Chain DISCOVERY_filter_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   642 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner GID match 207
+
+Chain DNS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  669 85731            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 140K   12M RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !53
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !53
+   18   909 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-connection-tracking */ multiport dports 53
+   64  5220 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-connection-tracking */ multiport dports 53
+
+Chain DNS_QUERY (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  669 85731 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53 dpt:65535
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:53 dpt:65535
+
+Chain DNS_RATE_LIMIT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 168K   15M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 rate-limit  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53
+
+Chain DNS_filter_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  669 85731            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  128 40090 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53 dpts:1024:65535
+    0     0 DROP       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:53 dpts:1024:65535 flags:0x17/0x02
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:53 dpts:1024:65535
+
+Chain DNS_filter_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+  559  488K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   54  5344 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53
+ 1563 88998 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+   15   837 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:53
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:53
+
+Chain DOCKER (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-1 (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-ISOLATION-STAGE-2 (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOCKER-USER (0 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain DOH (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !443
+    3   240 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8443
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 443
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8443
+
+Chain DOH_filter_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 167K   15M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     tcp  --  veth_dnss *       0.0.0.0/0            169.254.252.10       tcp dpt:8443
+
+Chain DOH_filter_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 159K  285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:8443
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:443
+    0     0 ACCEPT     tcp  --  *      veth_dnss  169.254.252.10       0.0.0.0/0            tcp spt:8443
+
+Chain DOT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !853
+    3   240 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8853
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 853
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8853
+
+Chain DOT_filter_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 167K   15M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:8853
+    0     0 ACCEPT     tcp  --  veth_dnss *       0.0.0.0/0            169.254.252.10       tcp dpt:8853
+
+Chain DOT_filter_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 159K  285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:8853
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:853
+    0     0 ACCEPT     tcp  --  *      veth_dnss  169.254.252.10       0.0.0.0/0            tcp spt:8853
+
+Chain DTC_CACHE_ZMQ (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOGACCEPT  tcp  --  eth2+  *       0.0.0.0/0            0.0.0.0/0            tcp spt:25551
+    0     0 LOGACCEPT  tcp  --  eth2+  *       0.0.0.0/0            0.0.0.0/0            tcp dpt:25551
+
+Chain FTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !21
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 21
+
+Chain GOG_LISTEN (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !21195
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 21195
+
+Chain HTTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !80
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            #conn src/32 <= 20 state NEW multiport dports 80
+
+Chain HTTPS (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9007  468K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !443
+ 8997  468K LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            #conn src/32 <= 20 state NEW multiport dports 443
+
+Chain HTTPS_LOGDROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !443
+    0     0 ULOGDROP   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 443
+
+Chain HTTP_LOGDROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !80
+    0     0 ULOGDROP   tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 80
+
+Chain IMC (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !1813
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* no-connection-tracking */ multiport dports 1813
+
+Chain IMC_ACK (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   642 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain IMC_DATA_REPO (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:666
+    0     0 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:666
+
+Chain IPSEC (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9007  468K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:500
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4500
+    0     0 ACCEPT     esp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain LOGACCEPT (38 references)
+ pkts bytes target     prot opt in     out     source               destination         
+10133  558K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain LOGDROP (3 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain NETMRI_SCAN_IN (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain NETMRI_SCAN_OUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   642 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain NTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !123
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 123
+
+Chain PROXY_NAT_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain REPORTING_APP_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !7059
+    0     0 reporting_app_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 7059
+
+Chain REPORTING_CLUSTER_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !7089
+    0     0 reporting_clu_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 7089
+
+Chain REPORTING_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !9997
+    0     0 reporting_data_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 9997
+
+Chain REPORTING_HTTP_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8000
+    0     0 reporting_http_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8000
+
+Chain REPORTING_IDX_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !7887
+    0     0 reporting_idx_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 7887
+
+Chain REPORTING_SH_FILTER (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    7   280 RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !8089
+    0     0 reporting_sh_filter_list  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 8089
+
+Chain SNMP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !161
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 161
+
+Chain SPARK_MASTER_WEBUI (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain SSH (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9018  469K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 9004  468K RETURN     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !22
+   11   572 LOGACCEPT  tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 22
+
+Chain SSH_RATE_LIMIT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9018  469K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   11   572            tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22 state NEW recent: SET name: DEFAULT side: source mask: 255.255.255.255
+    0     0 LOGDROP    tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22 state NEW recent: UPDATE seconds: 60 hit_count: 10 name: DEFAULT side: source mask: 255.255.255.255
+
+Chain SW_ATP_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 168K   15M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  eth0   *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  tun+   *       169.254.0.0/16       169.254.0.0/16      
+    0     0 SW_ATP_VRRP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain SW_ATP_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 160K  285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     all  --  *      eth0    0.0.0.0/0            0.0.0.0/0           
+
+Chain SW_ATP_VRRP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain SYSLOG (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain TFTP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 RETURN     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports  !69
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 69
+
+Chain ULOGDROP (3 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            LOG flags 0 level 4 prefix "DROP:"
+    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain VPN_COMM_BLOCK (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 159K  285M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194 reject-with icmp-port-unreachable
+    0     0 REJECT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            multiport dports 82,123,873,2012,2022,2023,2113,2114,3374,5672,8089,9996,7089,1194 reject-with icmp-port-unreachable
+
+Chain WINS_filter_FORWARD (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:137
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:137
+
+Chain WINS_filter_INPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 9018  469K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:137
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:137
+
+Chain WINS_filter_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   642 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:137
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:137
+
+Chain WTH_FWD_LOG_DROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            LOG flags 0 level 4 prefix "WTH-FW-V4 DROP: "
+
+Chain WTH_IN_LOG_DROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            LOG flags 0 level 4 prefix "WTH-IN-V4 DROP: "
+
+Chain WTH_OUT_LOG_DROP (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    8   642 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            LOG flags 0 level 4 prefix "WTH-OUT-V4 DROP: "
+
+Chain clusterd (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOGDROP    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain dfa (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain ha (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain omapi (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain openvpn (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+   10   520            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 openvpnblock  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 1194,1023
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 1194,1023
+    0     0 openvpnblock  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 1019,1020,1021
+    0     0 LOGACCEPT  udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW multiport dports 1019,1020,1021
+
+Chain openvpnblock (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 LOGDROP    all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain rate-limit (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_app_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_clu_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_data_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_http_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_idx_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain reporting_sh_filter_list (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+---
+Table: raw
+
+Chain PREROUTING (policy ACCEPT 2441 packets, 722K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5993K 1293M DNS_raw_PREROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5993K 1293M IMC_raw_PREROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain OUTPUT (policy ACCEPT 2331 packets, 1124K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+5986K 1563M DNS_raw_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5986K 1563M IMC_raw_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+5986K 1563M DISCOVERY_raw_OUTPUT  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+
+Chain DISCOVERY_raw_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+5986K 1563M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 CT         tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            owner GID match 207 CT notrack
+
+Chain DNS_raw_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 2331 1124K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+   75  7718 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:53 CT notrack
+ 1611 93041 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 CT notrack
+   15   837 CT         tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:53 CT notrack
+    0     0 CT         tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:53 CT notrack
+
+Chain DNS_raw_PREROUTING (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+ 2441  722K            all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  112  9263 CT         udp  --  !virbr1 *       0.0.0.0/0            0.0.0.0/0            udp dpt:53 CT notrack
+  149 42464 CT         udp  --  !virbr1 *       0.0.0.0/0            0.0.0.0/0            udp spt:53 dpts:!62026:62282 CT notrack
+   18   909 CT         tcp  --  !virbr1 *       0.0.0.0/0            0.0.0.0/0            tcp dpt:53 CT notrack
+    0     0 CT         tcp  --  !virbr1 *       0.0.0.0/0            0.0.0.0/0            tcp spt:53 dpts:!62026:62282 CT notrack
+
+Chain IMC_raw_OUTPUT (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+5986K 1563M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:1813 CT notrack
+    0     0 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:1813 CT notrack
+
+Chain IMC_raw_PREROUTING (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+5993K 1293M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:1813 CT notrack
+    0     0 CT         udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:1813 CT notrack
+---
+Table: mangle
+
+Chain PREROUTING (policy ACCEPT 5996K packets, 1293M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain INPUT (policy ACCEPT 5996K packets, 1293M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 5989K packets, 1563M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain POSTROUTING (policy ACCEPT 5989K packets, 1563M bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+---

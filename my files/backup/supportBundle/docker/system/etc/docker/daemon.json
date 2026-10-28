@@ -1,0 +1,5 @@
+{
+    "storage-driver": "overlay2", 
+    "data-root": "/rw/host/docker", 
+    "bip": "169.254.251.1/24"
+}

@@ -1,0 +1,1187 @@
+IDENT 8.6.5-51568-b30e9796da72 VMware-56 4d 7c 4c 4e d5 3d e0-d4 6f 59 67 de ae 8f 44
+TIME 604937.7 1729687167 2024-10-23 12:39:28
+TOP 26441 26708 1.6% 9575.3 (6008.9 3566.4) 2 (process_manager)
+TOP 26708 29703 1.0% 6522.2 (3731.4 2790.8) 3 (monitor)
+TOP 26441 26707 0.6% 3883.3 (3874.0 9.3) 3 (db_sentinel)
+TOP     1  8484 0.3% 1757.4 (627.2 1130.2) 2 (ptop)
+TOP     1  2495 0.2% 1332.2 (545.3 787.0) 2 (ptop)
+TOP 26708 29705 0.2% 1270.2 (180.4 1089.8) 3 (monitor)
+TOP     1  2545 0.1% 416.5 (265.4 151.1) 3 (vmtoolsd)
+TOP 26708 29634 0.1% 418.3 (284.3 133.9) 0 (VM Periodic Tas)
+TOP     1 26670 0.0% 295.8 (137.5 158.2) 2 (clusterd)
+TOP     1 17357 0.0% 31.2 (23.6 7.5) 2 (restart_ctrld)
+TOP     1 26743 0.0% 32.5 (26.2 6.4) 2 (restart_execd)
+TOP     1  2855 0.0% 0.5 (0.3 0.2) 0 (isc-worker0000)
+TOP     1  2856 0.0% 0.5 (0.4 0.1) 1 (isc-worker0001)
+TOP     1  2857 0.0% 0.5 (0.3 0.2) 2 (isc-worker0002)
+TOP     1  2858 0.0% 0.5 (0.3 0.2) 1 (isc-worker0003)
+TOP     1  2860 0.0% 0.4 (0.1 0.3) 2 (isc-socket)
+TOP 29234  4605 0.0% 0.1 (0.1 0.0) 2 (httpd)
+TOP 29234  4720 0.0% 0.1 (0.1 0.0) 0 (httpd)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 3 (ib_sensor)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP     1 28361 0.0% 29.7 (9.4 20.3) 2 (ntpd)
+TOP 26708 29230 0.0% 76.8 (10.0 66.8) 0 (fastpath_monito)
+TOP 26708 29617 0.0% 114.5 (100.5 14.0) 0 (VM Thread)
+TOP 26708 29649 0.0% 57.6 (50.6 7.0) 0 (qtp1371223098-3)
+TOP 26708 29651 0.0% 51.4 (46.0 5.4) 0 (qtp1371223098-3)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 2 (init)
+TOP     1  1299 0.0% 0.7 (0.2 0.5) 2 (sshd)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 3 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  2854 0.0% 0.0 (0.0 0.0) 0 (named)
+TOP     1  2859 0.0% 0.1 (0.0 0.0) 0 (isc-timer)
+TOP     1  2861 0.0% 0.0 (0.0 0.0) 2 (isc-worker0000)
+TOP     1  2863 0.0% 0.0 (0.0 0.0) 0 (isc-worker0000)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 1 (watchdog)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 2 (check_clustd)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP 29234  4603 0.0% 0.2 (0.1 0.0) 3 (httpd)
+TOP 29234  4606 0.0% 0.2 (0.1 0.0) 1 (httpd)
+TOP 29234  4711 0.0% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234  4721 0.0% 0.1 (0.1 0.0) 2 (httpd)
+TOP 29234  4757 0.0% 0.1 (0.1 0.0) 3 (httpd)
+TOP 29234  4774 0.0% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234  4804 0.0% 0.0 (0.0 0.0) 2 (httpd)
+TOP 29193 22224 0.0% 15.6 (11.2 4.4) 1 (httpd)
+TOP 29193 22263 0.0% 7.5 (6.6 0.8) 0 (httpd)
+TOP 29193 22364 0.0% 6.6 (5.8 0.8) 1 (httpd)
+TOP 29193 22580 0.0% 13.2 (10.0 3.2) 0 (httpd)
+TOP 29193 22582 0.0% 11.7 (9.7 2.0) 0 (httpd)
+TOP 29193 22583 0.0% 15.4 (11.1 4.3) 1 (httpd)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 1 (clusterd)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.3 (8.6 19.7) 1 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 26997 0.0% 46.8 (35.1 11.6) 3 (journal_gc)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 1 (ib_err_log)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 1 (httpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 1 (httpd)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29612 0.0% 8.0 (6.8 1.1) 3 (java)
+TOP 26708 29613 0.0% 6.8 (6.2 0.6) 2 (java)
+TOP 26708 29614 0.0% 5.9 (5.5 0.4) 1 (java)
+TOP 26708 29615 0.0% 6.5 (6.2 0.3) 2 (java)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 0 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 2 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 2 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29630 0.0% 50.3 (48.2 2.1) 0 (C2 CompilerThre)
+TOP 26708 29631 0.0% 46.8 (44.9 2.0) 3 (C2 CompilerThre)
+TOP 26708 29632 0.0% 19.6 (17.9 1.7) 2 (C1 CompilerThre)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 0 (HashSessionScav)
+TOP 26708 29644 0.0% 96.5 (54.9 41.6) 0 (qtp1371223098-2)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 3 (qtp1371223098-2)
+TOP 26708 29646 0.0% 47.1 (43.0 4.1) 0 (qtp1371223098-2)
+TOP 26708 29647 0.0% 61.1 (52.8 8.2) 0 (qtp1371223098-3)
+TOP 26708 29648 0.0% 58.2 (52.1 6.1) 0 (qtp1371223098-3)
+TOP 26708 29650 0.0% 52.9 (47.5 5.3) 0 (qtp1371223098-3)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29799 0.0% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708 29802 0.0% 31.0 (18.6 12.4) 2 (Wicket-PageSavi)
+TOP 26708  1687 0.0% 0.8 (0.7 0.1) 2 (pool-1-thread-1)
+TOP 26708 21030 0.0% 0.3 (0.3 0.1) 3 (pool-1-thread-2)
+TOP 26708 22185 0.0% 0.3 (0.1 0.2) 0 (pool-1-thread-3)
+TOP 26708 25235 0.0% 0.1 (0.1 0.0) 2 (pool-1-thread-4)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+TOP 29234 31132 0.0% 0.2 (0.2 0.0) 1 (httpd)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21836 4 p 11320 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 2854 s/r/r-/sw 13509432 12815340 52204 0 s 26464 4 p 25188 19288 sh 552 552 h 12763136  c /usr/sbin/named -E  -4 -c /infoblox/var/named_conf/named.conf -u nobody 
+SMAPS 22583 s/r/r-/sw 13446356 12994640 231504 0 s 73120 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13444628 12991900 228764 0 s 72704 5800 p 155580 155580 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444328 12992368 229232 0 s 73012 5804 p 155740 155740 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12961172 198036 0 s 42244 5804 p 155312 155312 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13441732 12989412 226276 0 s 72384 5808 p 153412 153412 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13428932 12978564 215428 0 s 72264 5808 p 142684 142684 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832404 69268 0 s 60724 4 p 8024 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 26732 4 p 7180 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20224 4 p 6428 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18484 4 p 6220 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36692 4 p 10816 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 724656 724656 0 s 2020 0 p 722636 702036 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11724 0 p 4996 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4603 s/r/r-/sw 73072 6672 6672 0 s 6152 1472 p 504 504 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4605 s/r/r-/sw 73072 6672 6672 0 s 6144 1464 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4606 s/r/r-/sw 73072 6664 6664 0 s 6148 1468 p 500 500 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4711 s/r/r-/sw 73072 6668 6668 0 s 6152 1472 p 500 500 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4720 s/r/r-/sw 73072 6660 6660 0 s 6156 1476 p 488 488 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4721 s/r/r-/sw 73072 6660 6660 0 s 6156 1476 p 488 488 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4757 s/r/r-/sw 73072 6664 6664 0 s 6148 1468 p 500 500 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4774 s/r/r-/sw 73072 6660 6660 0 s 6152 1472 p 492 492 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4804 s/r/r-/sw 73072 6644 6644 0 s 6160 1480 p 468 468 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 31132 s/r/r-/sw 73072 6672 6672 0 s 6140 1460 p 520 520 sh 12 12 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7248 1480 p 408 368 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 5621 s/r/r-/sw 4120 1232 1232 0 s 1128 0 p 104 80 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 10.0 1.8 tk 10.0 1.8 rd 0.0 td 0.0
+NET ifstat    lo 5863647 1275914424 5863647 1275914424 0 0 
+NET  eth1 rk 3.2 0.2 tk 0.3 0.1 rd 0.0 td 0.0
+NET ifstat  eth1 2084542 132545711 174323 283028257 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 7.7 b 2.2 c 39.2 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 69.5 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 4.8 69.464 14.564 0.070 sqb 0.1 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 4.8 69.464 14.564 0.070 sqb 0.1 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572483 uniq 386 single 333 mvcc 53 frozen 0 dirty 7 total 439 mutex total 17753057 used 1573554 free 16179503 max 1573598 
+DBWR 16 11 0.000056199 17 20 0.000098828 18 46 0.000174790 19 31 0.000350840 20 7 0.000604107 
+DBWA 6 2 0.000000055 7 22 0.000000092 8 46 0.000000179 9 27 0.000000366 10 18 0.000000698 
+DBRD 13 4 0.000005702 14 11 0.000012390 15 38 0.000023976 16 73 0.000046411 17 79 0.000097902 18 222 0.000196845 19 198 0.000355381 20 136 0.000767027 21 151 0.001446361 22 91 0.002879176 23 81 0.005826345 24 28 0.009865524 25 18 0.023674705 26 1 0.034035427 
+DBMPOOL sz 10534.000 MiB  pg 439 cl 432 dr 7 cr 0 i 0 o 0 a 0 h 71283 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u  3.9 id/io 96.1  0.0 u/s/n  0.5  1.6  1.8 irq h/s  0.0  0.0
+CPU cpu0 u  5.0 id/io 95.0  0.0 u/s/n  0.6  2.1  2.3 irq h/s  0.0  0.1
+CPU cpu1 u  2.3 id/io 97.7  0.0 u/s/n  0.4  1.0  0.8 irq h/s  0.0  0.0
+CPU cpu2 u  4.6 id/io 95.4  0.0 u/s/n  0.5  1.8  2.3 irq h/s  0.0  0.0
+CPU cpu3 u  3.7 id/io 96.3  0.0 u/s/n  0.5  1.4  1.8 irq h/s  0.0  0.0
+
+TIME 604997.9 1729687227 2024-10-23 12:40:28
+TOP 26441 26708 1.6% 9576.2 (6009.5 3566.8) 1 (process_manager)
+TOP 26708 29703 1.1% 6522.9 (3731.8 2791.1) 3 (monitor)
+TOP 26441 26707 0.6% 3883.6 (3874.3 9.3) 0 (db_sentinel)
+TOP 29193 22582 0.3% 11.9 (9.8 2.1) 1 (httpd)
+TOP 29193 22224 0.3% 15.8 (11.4 4.4) 3 (httpd)
+TOP 29193 22364 0.3% 6.8 (5.9 0.8) 2 (httpd)
+TOP 29193 22583 0.3% 15.6 (11.2 4.4) 0 (httpd)
+TOP     1  8484 0.3% 1757.5 (627.2 1130.3) 2 (ptop)
+TOP 29193 22580 0.3% 13.4 (10.2 3.2) 1 (httpd)
+TOP 26708 29648 0.3% 58.4 (52.3 6.1) 3 (qtp1371223098-3)
+TOP 26708 29647 0.2% 61.2 (53.0 8.2) 1 (qtp1371223098-3)
+TOP 26708 29649 0.2% 57.7 (50.8 7.0) 1 (qtp1371223098-3)
+TOP     1  2495 0.2% 1332.4 (545.3 787.0) 2 (ptop)
+TOP 29193 22263 0.2% 7.6 (6.7 0.8) 0 (httpd)
+TOP 26708 29705 0.2% 1270.3 (180.5 1089.9) 1 (monitor)
+TOP 26708 29632 0.1% 19.7 (18.0 1.7) 0 (C1 CompilerThre)
+TOP 29234  4774 0.1% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234  4603 0.1% 0.2 (0.2 0.0) 0 (httpd)
+TOP 29234  4804 0.1% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234 31132 0.1% 0.2 (0.2 0.0) 1 (httpd)
+TOP 29234  4605 0.1% 0.2 (0.2 0.0) 2 (httpd)
+TOP 29234  4711 0.1% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234  4721 0.1% 0.2 (0.2 0.0) 3 (httpd)
+TOP 29234  4757 0.1% 0.1 (0.1 0.0) 2 (httpd)
+TOP 26708 29651 0.1% 51.5 (46.1 5.4) 3 (qtp1371223098-3)
+TOP     1  2545 0.1% 416.5 (265.4 151.1) 1 (vmtoolsd)
+TOP 29234  4606 0.1% 0.2 (0.2 0.0) 1 (httpd)
+TOP 29234  4720 0.1% 0.2 (0.1 0.0) 1 (httpd)
+TOP 26708 29634 0.1% 418.3 (284.4 133.9) 3 (VM Periodic Tas)
+TOP     1 26670 0.0% 295.8 (137.5 158.3) 3 (clusterd)
+TOP 26708 29646 0.0% 47.2 (43.0 4.1) 0 (qtp1371223098-2)
+TOP 26708 29650 0.0% 52.9 (47.6 5.3) 3 (qtp1371223098-3)
+TOP     1 17357 0.0% 31.2 (23.6 7.5) 2 (restart_ctrld)
+TOP     1 26743 0.0% 32.5 (26.2 6.4) 2 (restart_execd)
+TOP 26708 29630 0.0% 50.3 (48.2 2.1) 0 (C2 CompilerThre)
+TOP 26708 29631 0.0% 46.9 (44.9 2.0) 1 (C2 CompilerThre)
+TOP 26708 29644 0.0% 96.6 (55.0 41.6) 3 (qtp1371223098-2)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 2 (clusterd)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP 26708 26997 0.0% 46.8 (35.1 11.6) 3 (journal_gc)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29612 0.0% 8.0 (6.8 1.1) 3 (java)
+TOP 26708 29613 0.0% 6.8 (6.2 0.6) 2 (java)
+TOP 26708 29614 0.0% 5.9 (5.5 0.4) 1 (java)
+TOP 26708 29615 0.0% 6.5 (6.2 0.3) 2 (java)
+TOP 26708 29617 0.0% 114.5 (100.5 14.0) 1 (VM Thread)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 0 (HashSessionScav)
+TOP 26708 29802 0.0% 31.0 (18.6 12.4) 3 (Wicket-PageSavi)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 2 (init)
+TOP     1  1299 0.0% 0.7 (0.2 0.5) 2 (sshd)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 3 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  2854 0.0% 0.0 (0.0 0.0) 0 (named)
+TOP     1  2855 0.0% 0.5 (0.3 0.2) 3 (isc-worker0000)
+TOP     1  2856 0.0% 0.5 (0.4 0.1) 0 (isc-worker0001)
+TOP     1  2857 0.0% 0.5 (0.3 0.2) 0 (isc-worker0002)
+TOP     1  2858 0.0% 0.5 (0.3 0.2) 1 (isc-worker0003)
+TOP     1  2859 0.0% 0.1 (0.0 0.0) 3 (isc-timer)
+TOP     1  2860 0.0% 0.4 (0.1 0.3) 0 (isc-socket)
+TOP     1  2861 0.0% 0.0 (0.0 0.0) 2 (isc-worker0000)
+TOP     1  2863 0.0% 0.0 (0.0 0.0) 0 (isc-worker0000)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 1 (watchdog)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 0 (check_clustd)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.3 (8.6 19.7) 1 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 3 (ib_sensor)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 1 (ib_err_log)
+TOP     1 28361 0.0% 29.7 (9.4 20.3) 2 (ntpd)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 3 (httpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29230 0.0% 76.8 (10.0 66.8) 0 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 1 (httpd)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 0 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 2 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 0 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 1 (qtp1371223098-2)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29799 0.0% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708  1687 0.0% 0.8 (0.7 0.1) 2 (pool-1-thread-1)
+TOP 26708 21030 0.0% 0.3 (0.3 0.1) 3 (pool-1-thread-2)
+TOP 26708 22185 0.0% 0.3 (0.1 0.2) 0 (pool-1-thread-3)
+TOP 26708 25235 0.0% 0.1 (0.1 0.0) 2 (pool-1-thread-4)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21836 4 p 11320 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 2854 s/r/r-/sw 13509432 12815340 52204 0 s 26464 4 p 25188 19288 sh 552 552 h 12763136  c /usr/sbin/named -E  -4 -c /infoblox/var/named_conf/named.conf -u nobody 
+SMAPS 22583 s/r/r-/sw 13446356 12960208 197072 0 s 38688 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13445204 12992452 229316 0 s 72716 5800 p 156120 156120 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444328 12992488 229352 0 s 73076 5804 p 155796 155796 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12992040 228904 0 s 73092 5804 p 155332 155332 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13441732 12989416 226280 0 s 72332 5808 p 153468 153468 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13428932 12978564 215428 0 s 72264 5808 p 142684 142684 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832404 69268 0 s 60724 4 p 8024 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 26732 4 p 7180 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20224 4 p 6428 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18484 4 p 6220 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36692 4 p 10816 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 724688 724688 0 s 2020 0 p 722668 702068 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11724 0 p 4996 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4603 s/r/r-/sw 73072 6676 6676 0 s 6140 1460 p 520 520 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4605 s/r/r-/sw 73072 6676 6676 0 s 6144 1464 p 516 516 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4606 s/r/r-/sw 73072 6668 6668 0 s 6144 1464 p 508 508 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4711 s/r/r-/sw 73072 6672 6672 0 s 6152 1472 p 504 504 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4720 s/r/r-/sw 73072 6668 6668 0 s 6144 1464 p 508 508 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4721 s/r/r-/sw 73072 6676 6676 0 s 6148 1468 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4757 s/r/r-/sw 73072 6676 6676 0 s 6144 1464 p 516 516 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4774 s/r/r-/sw 73072 6668 6668 0 s 6148 1468 p 504 504 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4804 s/r/r-/sw 73072 6664 6664 0 s 6152 1472 p 496 496 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 31132 s/r/r-/sw 73072 6676 6676 0 s 6136 1456 p 528 528 sh 12 12 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7240 1472 p 416 376 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 6394 s/r/r-/sw 4120 1256 1256 0 s 1156 0 p 100 76 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 27.3 14.5 tk 27.3 14.5 rd 0.0 td 0.0
+NET ifstat    lo 5865291 1276807654 5865291 1276807654 0 0 
+NET  eth1 rk 21.1 2.9 tk 14.5 11.7 rd 0.0 td 0.0
+NET ifstat  eth1 2085814 132721564 175197 283749875 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 7.8 b 2.2 c 39.2 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 73.8 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 4.4 73.770 16.692 0.075 sqb 0.1 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 4.4 73.770 16.692 0.075 sqb 0.1 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572483 uniq 386 single 333 mvcc 53 frozen 0 dirty 7 total 439 mutex total 17753057 used 1573554 free 16179503 max 1573598 
+DBWR 16 7 0.000052455 17 23 0.000107371 18 41 0.000193289 19 37 0.000339671 20 7 0.000621273 
+DBWA 6 2 0.000000051 7 18 0.000000101 8 42 0.000000191 9 36 0.000000380 10 15 0.000000686 11 2 0.000001084 
+DBRD 13 3 0.000006548 14 14 0.000011603 15 31 0.000025304 16 86 0.000047586 17 116 0.000103325 18 488 0.000187946 19 304 0.000363947 20 199 0.000742012 21 202 0.001471517 22 97 0.002836235 23 100 0.006246770 24 26 0.010488440 25 25 0.025026519 26 3 0.038022888 
+DBMPOOL sz 10534.000 MiB  pg 439 cl 432 dr 7 cr 0 i 0 o 0 a 0 h 84948 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u  6.9 id/io 93.1  0.0 u/s/n  1.1  1.9  3.8 irq h/s  0.0  0.1
+CPU cpu0 u  5.1 id/io 94.9  0.0 u/s/n  0.6  1.9  2.4 irq h/s  0.0  0.2
+CPU cpu1 u  6.4 id/io 93.6  0.0 u/s/n  0.7  2.1  3.5 irq h/s  0.0  0.1
+CPU cpu2 u  5.6 id/io 94.4  0.0 u/s/n  2.0  1.6  1.9 irq h/s  0.0  0.0
+CPU cpu3 u 10.5 id/io 89.5  0.0 u/s/n  1.0  2.0  7.4 irq h/s  0.0  0.1
+
+TIME 605058.1 1729687288 2024-10-23 12:41:29
+TOP 26441 26708 1.5% 9577.1 (6010.1 3567.0) 1 (process_manager)
+TOP 26708 29703 1.0% 6523.5 (3732.2 2791.3) 3 (monitor)
+TOP 26441 26707 0.7% 3884.0 (3874.8 9.3) 0 (db_sentinel)
+TOP 29193 22580 0.3% 13.6 (10.4 3.2) 2 (httpd)
+TOP 26708 29646 0.3% 47.4 (43.2 4.1) 0 (qtp1371223098-2)
+TOP     1  8484 0.3% 1757.7 (627.3 1130.4) 3 (ptop)
+TOP 29193 22582 0.2% 12.0 (9.9 2.1) 1 (httpd)
+TOP     1  2495 0.2% 1332.5 (545.4 787.1) 2 (ptop)
+TOP 29193 22263 0.2% 7.7 (6.8 0.9) 0 (httpd)
+TOP 29193 22583 0.2% 15.7 (11.3 4.4) 0 (httpd)
+TOP 29193 22364 0.2% 6.9 (6.0 0.8) 2 (httpd)
+TOP 29193 22224 0.1% 15.9 (11.5 4.4) 1 (httpd)
+TOP 26708 29651 0.1% 51.5 (46.1 5.4) 3 (qtp1371223098-3)
+TOP 26708 29705 0.1% 1270.4 (180.5 1089.9) 3 (monitor)
+TOP     1  2545 0.1% 416.6 (265.5 151.1) 3 (vmtoolsd)
+TOP 29234  4603 0.1% 0.3 (0.2 0.0) 3 (httpd)
+TOP 29234  4606 0.1% 0.2 (0.2 0.0) 3 (httpd)
+TOP 29234  4757 0.1% 0.2 (0.2 0.0) 2 (httpd)
+TOP 26708 29634 0.1% 418.3 (284.4 133.9) 0 (VM Periodic Tas)
+TOP 26708 29648 0.1% 58.4 (52.3 6.1) 2 (qtp1371223098-3)
+TOP 29234  4605 0.0% 0.2 (0.2 0.0) 0 (httpd)
+TOP 29234  4711 0.0% 0.2 (0.1 0.0) 0 (httpd)
+TOP 29234  4720 0.0% 0.2 (0.2 0.0) 3 (httpd)
+TOP 29234  4721 0.0% 0.2 (0.2 0.0) 1 (httpd)
+TOP 29234  4774 0.0% 0.1 (0.1 0.0) 0 (httpd)
+TOP 29234  4804 0.0% 0.1 (0.1 0.0) 1 (httpd)
+TOP     1 26670 0.0% 295.8 (137.5 158.3) 0 (clusterd)
+TOP     1 17357 0.0% 31.2 (23.6 7.6) 2 (restart_ctrld)
+TOP     1 26743 0.0% 32.6 (26.2 6.4) 2 (restart_execd)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 3 (ib_sensor)
+TOP 26708 29647 0.0% 61.2 (53.0 8.2) 1 (qtp1371223098-3)
+TOP 26708 29649 0.0% 57.8 (50.8 7.0) 1 (qtp1371223098-3)
+TOP 26708 29650 0.0% 52.9 (47.6 5.3) 3 (qtp1371223098-3)
+TOP 26708 22185 0.0% 0.3 (0.2 0.2) 0 (pool-1-thread-3)
+TOP 29234 31132 0.0% 0.2 (0.2 0.0) 3 (httpd)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 2 (init)
+TOP     1  1299 0.0% 0.8 (0.2 0.5) 2 (sshd)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP 26708 29230 0.0% 76.8 (10.0 66.8) 3 (fastpath_monito)
+TOP 26708 29612 0.0% 8.0 (6.9 1.1) 0 (java)
+TOP 26708 29613 0.0% 6.8 (6.2 0.6) 2 (java)
+TOP 26708 29614 0.0% 5.9 (5.5 0.4) 1 (java)
+TOP 26708 29615 0.0% 6.5 (6.2 0.3) 2 (java)
+TOP 26708 29617 0.0% 114.6 (100.5 14.0) 2 (VM Thread)
+TOP 26708 29630 0.0% 50.3 (48.2 2.1) 0 (C2 CompilerThre)
+TOP 26708 29631 0.0% 46.9 (44.9 2.0) 0 (C2 CompilerThre)
+TOP 26708 29632 0.0% 19.7 (18.0 1.7) 3 (C1 CompilerThre)
+TOP 26708 29644 0.0% 96.6 (55.0 41.6) 1 (qtp1371223098-2)
+TOP 26708 29802 0.0% 31.1 (18.6 12.5) 1 (Wicket-PageSavi)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 3 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 2 (watchdog)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 2 (check_clustd)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 2 (clusterd)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.3 (8.6 19.7) 2 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP 26708 26997 0.0% 46.8 (35.1 11.6) 3 (journal_gc)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 1 (ib_err_log)
+TOP     1 28361 0.0% 29.7 (9.4 20.3) 2 (ntpd)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 1 (httpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 1 (httpd)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 0 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 2 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 2 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 0 (HashSessionScav)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 1 (qtp1371223098-2)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29799 0.0% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708  1687 0.0% 0.8 (0.7 0.1) 2 (pool-1-thread-1)
+TOP 26708 21030 0.0% 0.3 (0.3 0.1) 3 (pool-1-thread-2)
+TOP 26708 25235 0.0% 0.1 (0.1 0.0) 2 (pool-1-thread-4)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21828 4 p 11328 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 22583 s/r/r-/sw 13446356 12994512 231376 0 s 72992 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13445452 12994024 230888 0 s 73920 5800 p 156488 156232 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444480 12992404 229268 0 s 72896 5804 p 155892 155892 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12991796 228660 0 s 72848 5804 p 155332 155332 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13441916 12989740 226604 0 s 72512 5808 p 153612 153612 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13428932 12978744 215608 0 s 72444 5808 p 142684 142684 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832404 69268 0 s 60788 4 p 7960 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 26728 4 p 7184 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20220 4 p 6432 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18480 4 p 6224 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36460 4 p 11048 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 724700 724700 0 s 2020 0 p 722680 702072 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11716 0 p 5004 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4603 s/r/r-/sw 73072 6744 6744 0 s 6196 1452 p 532 532 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4605 s/r/r-/sw 73072 6708 6708 0 s 6164 1456 p 528 528 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4606 s/r/r-/sw 73072 6744 6744 0 s 6196 1452 p 532 532 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4711 s/r/r-/sw 73072 6676 6676 0 s 6148 1468 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4720 s/r/r-/sw 73072 6672 6672 0 s 6144 1464 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4721 s/r/r-/sw 73072 6676 6676 0 s 6144 1464 p 516 516 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4757 s/r/r-/sw 73072 6748 6748 0 s 6196 1452 p 536 536 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4774 s/r/r-/sw 73072 6680 6680 0 s 6136 1456 p 528 528 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4804 s/r/r-/sw 73072 6708 6708 0 s 6168 1460 p 524 524 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 31132 s/r/r-/sw 73072 6676 6676 0 s 6136 1456 p 528 528 sh 12 12 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7236 1468 p 420 380 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 7200 s/r/r-/sw 4120 1324 1324 0 s 1228 0 p 96 72 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 13.7 5.3 tk 13.7 5.3 rd 0.0 td 0.0
+NET ifstat    lo 5866116 1277132481 5866116 1277132481 0 0 
+NET  eth1 rk 13.7 1.9 tk 9.9 5.4 rd 0.0 td 0.0
+NET ifstat  eth1 2086639 132840019 175795 284080775 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 8.0 b 2.2 c 39.1 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 105.3 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 5.7 105.331 18.592 0.000 sqb 0.0 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 5.7 105.331 18.592 0.000 sqb 0.0 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572482 uniq 387 single 334 mvcc 53 frozen 0 dirty 23 total 440 mutex total 17753057 used 1573528 free 16179529 max 1573598 
+DBWR 16 3 0.000052717 17 20 0.000107984 18 48 0.000188055 19 38 0.000366814 20 7 0.000622483 22 1 0.003007762 27 1 0.107360950 
+DBWA 7 13 0.000000104 8 53 0.000000189 9 33 0.000000377 10 17 0.000000756 11 2 0.000001059 
+DBRD 12 1 0.000003789 13 3 0.000006904 14 13 0.000012328 15 26 0.000023893 16 81 0.000046341 17 109 0.000101677 18 394 0.000189401 19 223 0.000363477 20 186 0.000754669 21 210 0.001457131 22 110 0.002963190 23 66 0.005980897 24 20 0.010660196 25 23 0.024273289 26 1 0.063442605 31 1 1.825640371 
+DBMPOOL sz 10534.000 MiB  pg 440 cl 417 dr 23 cr 1 i 0 o 0 a 0 h 83557 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u  6.4 id/io 93.6  0.0 u/s/n  0.2  1.7  4.4 irq h/s  0.0  0.1
+CPU cpu0 u  4.4 id/io 95.6  0.0 u/s/n  0.2  1.2  2.8 irq h/s  0.0  0.2
+CPU cpu1 u  5.0 id/io 94.9  0.0 u/s/n  0.2  1.8  3.0 irq h/s  0.0  0.1
+CPU cpu2 u  6.7 id/io 93.3  0.0 u/s/n  0.3  1.4  5.0 irq h/s  0.0  0.0
+CPU cpu3 u  9.5 id/io 90.5  0.0 u/s/n  0.3  2.5  6.7 irq h/s  0.0  0.0
+
+TIME 605118.3 1729687348 2024-10-23 12:42:29
+TOP 26441 26708 1.4% 9578.0 (6010.6 3567.3) 3 (process_manager)
+TOP 26708 29651 1.1% 52.2 (46.8 5.4) 1 (qtp1371223098-3)
+TOP 26708 29703 0.9% 6524.1 (3732.5 2791.6) 1 (monitor)
+TOP 29193 22583 0.8% 16.2 (11.8 4.4) 3 (httpd)
+TOP 29193 22364 0.7% 7.3 (6.4 0.9) 0 (httpd)
+TOP 29193 22582 0.7% 12.5 (10.3 2.2) 1 (httpd)
+TOP 29193 22263 0.7% 8.1 (7.2 0.9) 2 (httpd)
+TOP 26708 29649 0.7% 58.2 (51.2 7.0) 2 (qtp1371223098-3)
+TOP 29193 22224 0.6% 16.3 (11.8 4.5) 1 (httpd)
+TOP 29193 22580 0.6% 14.0 (10.7 3.3) 1 (httpd)
+TOP 26441 26707 0.6% 3884.4 (3875.1 9.3) 2 (db_sentinel)
+TOP 26708 29648 0.4% 58.6 (52.6 6.1) 2 (qtp1371223098-3)
+TOP     1  8484 0.3% 1757.9 (627.4 1130.5) 1 (ptop)
+TOP 26708 29646 0.3% 47.5 (43.4 4.1) 3 (qtp1371223098-2)
+TOP     1  2495 0.2% 1332.7 (545.5 787.2) 2 (ptop)
+TOP 26708 29650 0.2% 53.0 (47.7 5.3) 2 (qtp1371223098-3)
+TOP 26708 29647 0.2% 61.4 (53.1 8.2) 1 (qtp1371223098-3)
+TOP 29234  4605 0.1% 0.3 (0.3 0.0) 2 (httpd)
+TOP 29234  4720 0.1% 0.3 (0.2 0.0) 2 (httpd)
+TOP 26708 29632 0.1% 19.8 (18.1 1.7) 3 (C1 CompilerThre)
+TOP 29234 31132 0.1% 0.3 (0.3 0.0) 2 (httpd)
+TOP 29234  4606 0.1% 0.3 (0.3 0.0) 3 (httpd)
+TOP 29234  4711 0.1% 0.3 (0.2 0.0) 1 (httpd)
+TOP 29234  4721 0.1% 0.3 (0.3 0.0) 0 (httpd)
+TOP 29234  4757 0.1% 0.2 (0.2 0.0) 0 (httpd)
+TOP 29234  4804 0.1% 0.2 (0.2 0.0) 2 (httpd)
+TOP 29234  4603 0.1% 0.3 (0.3 0.0) 1 (httpd)
+TOP 29234  4774 0.1% 0.2 (0.2 0.0) 2 (httpd)
+TOP 26708 29631 0.1% 46.9 (44.9 2.0) 3 (C2 CompilerThre)
+TOP 26708 29630 0.1% 50.4 (48.2 2.1) 3 (C2 CompilerThre)
+TOP     1  2545 0.1% 416.6 (265.5 151.1) 2 (vmtoolsd)
+TOP 26708 29634 0.1% 418.4 (284.4 133.9) 3 (VM Periodic Tas)
+TOP 26708 29705 0.1% 1270.4 (180.5 1090.0) 3 (monitor)
+TOP     1 26670 0.0% 295.8 (137.6 158.3) 1 (clusterd)
+TOP 26708 29612 0.0% 8.0 (6.9 1.1) 0 (java)
+TOP     1 17357 0.0% 31.2 (23.7 7.6) 2 (restart_ctrld)
+TOP     1 26743 0.0% 32.6 (26.2 6.4) 2 (restart_execd)
+TOP 26708 29613 0.0% 6.8 (6.2 0.6) 1 (java)
+TOP 26708 29644 0.0% 96.6 (55.0 41.6) 1 (qtp1371223098-2)
+TOP 26708 29802 0.0% 31.1 (18.6 12.5) 3 (Wicket-PageSavi)
+TOP 26708 21030 0.0% 0.4 (0.3 0.1) 3 (pool-1-thread-2)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 0 (syslog-ng)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.4 (8.6 19.7) 2 (clusterd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 1 (httpd)
+TOP 26708 29230 0.0% 76.9 (10.0 66.8) 2 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 1 (httpd)
+TOP 26708 29614 0.0% 5.9 (5.5 0.4) 0 (java)
+TOP 26708 29615 0.0% 6.5 (6.2 0.3) 2 (java)
+TOP 26708 29617 0.0% 114.6 (100.5 14.0) 1 (VM Thread)
+TOP 26708 25235 0.0% 0.2 (0.2 0.0) 2 (pool-1-thread-4)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 3 (init)
+TOP     1  1299 0.0% 0.8 (0.2 0.5) 2 (sshd)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 3 (watchdog)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 0 (check_clustd)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 2 (clusterd)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 3 (ib_sensor)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26997 0.0% 46.8 (35.1 11.6) 3 (journal_gc)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 1 (ib_err_log)
+TOP     1 28361 0.0% 29.7 (9.4 20.3) 2 (ntpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 0 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 2 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 2 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 2 (HashSessionScav)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 1 (qtp1371223098-2)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29799 0.0% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708  1687 0.0% 0.8 (0.7 0.1) 2 (pool-1-thread-1)
+TOP 26708 22185 0.0% 0.3 (0.2 0.2) 0 (pool-1-thread-3)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21828 4 p 11328 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 22583 s/r/r-/sw 13446356 12994820 231684 0 s 73300 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13445452 12992904 229768 0 s 72832 5800 p 156456 156456 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444480 12960340 197204 0 s 40832 5804 p 155892 155892 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13444132 12991796 228660 0 s 72396 5808 p 155784 155784 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12991988 228852 0 s 73040 5804 p 155332 155332 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13429772 12979444 216308 0 s 72444 5808 p 143384 143384 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832160 69024 0 s 60544 4 p 7960 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 25768 4 p 8144 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20220 4 p 6432 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18480 4 p 6224 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36460 4 p 11048 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 724876 724876 0 s 2020 0 p 722856 702256 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11716 0 p 5004 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4603 s/r/r-/sw 73072 6776 6776 0 s 6216 1444 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4605 s/r/r-/sw 73072 6708 6708 0 s 6164 1456 p 528 528 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4606 s/r/r-/sw 73072 6780 6780 0 s 6220 1448 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4711 s/r/r-/sw 73072 6680 6680 0 s 6144 1464 p 520 520 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4720 s/r/r-/sw 73072 6676 6676 0 s 6140 1460 p 520 520 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4721 s/r/r-/sw 73072 6708 6708 0 s 6164 1456 p 528 528 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4757 s/r/r-/sw 73072 6748 6748 0 s 6196 1452 p 536 536 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4774 s/r/r-/sw 73072 6712 6712 0 s 6160 1452 p 536 536 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4804 s/r/r-/sw 73072 6708 6708 0 s 6168 1460 p 524 524 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 31132 s/r/r-/sw 73072 6684 6684 0 s 6132 1452 p 540 540 sh 12 12 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7236 1468 p 420 380 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 8244 s/r/r-/sw 4120 1232 1232 0 s 1132 0 p 100 76 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 41.2 21.8 tk 41.2 21.8 rd 0.0 td 0.0
+NET ifstat    lo 5868598 1278473000 5868598 1278473000 0 0 
+NET  eth1 rk 30.6 4.2 tk 22.3 18.1 rd 0.0 td 0.0
+NET ifstat  eth1 2088478 133097159 177138 285193907 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 7.9 b 2.2 c 39.1 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 131.7 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 6.0 131.656 21.950 0.055 sqb 0.1 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 6.0 131.656 21.950 0.055 sqb 0.1 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572481 uniq 388 single 335 mvcc 53 frozen 0 dirty 24 total 441 mutex total 17753057 used 1573529 free 16179528 max 1573598 
+DBWR 16 16 0.000053283 17 16 0.000108466 18 44 0.000180869 19 40 0.000367876 20 5 0.000747149 23 1 0.007604170 24 1 0.008874564 27 2 0.100805661 
+DBWA 6 10 0.000000055 7 14 0.000000087 8 48 0.000000188 9 32 0.000000374 10 16 0.000000760 11 5 0.000001339 
+DBRD 12 1 0.000003802 13 1 0.000006331 14 15 0.000010786 15 36 0.000024401 16 82 0.000047187 17 121 0.000098822 18 960 0.000178644 19 326 0.000354398 20 306 0.000749519 21 311 0.001456228 22 115 0.002832931 23 89 0.005986232 24 34 0.011305604 25 25 0.024543551 26 1 0.039293327 31 4 1.726263236 
+DBMPOOL sz 10534.000 MiB  pg 441 cl 417 dr 24 cr 1 i 0 o 0 a 0 h 106093 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u 13.0 id/io 87.0  0.0 u/s/n  0.9  2.5  9.4 irq h/s  0.0  0.2
+CPU cpu0 u 12.7 id/io 87.3  0.0 u/s/n  0.3  2.5  9.6 irq h/s  0.0  0.3
+CPU cpu1 u 12.0 id/io 88.0  0.0 u/s/n  1.1  2.8  7.9 irq h/s  0.0  0.3
+CPU cpu2 u 13.2 id/io 86.8  0.0 u/s/n  1.7  2.2  9.1 irq h/s  0.0  0.2
+CPU cpu3 u 14.0 id/io 86.0  0.0 u/s/n  0.4  2.5 11.0 irq h/s  0.0  0.2
+
+TIME 605178.4 1729687408 2024-10-23 12:43:29
+TOP 26441 26708 1.5% 9578.9 (6011.2 3567.6) 2 (process_manager)
+TOP 29193 22580 1.2% 14.7 (11.4 3.4) 3 (httpd)
+TOP 26708 29651 1.1% 52.9 (47.5 5.4) 0 (qtp1371223098-3)
+TOP 29193 22583 1.0% 16.8 (12.3 4.5) 2 (httpd)
+TOP 26708 29648 1.0% 59.2 (53.2 6.1) 2 (qtp1371223098-3)
+TOP 26708 29631 0.9% 47.5 (45.5 2.0) 0 (C2 CompilerThre)
+TOP 26708 29649 0.9% 58.7 (51.8 7.0) 2 (qtp1371223098-3)
+TOP 29193 22364 0.9% 7.8 (6.9 0.9) 2 (httpd)
+TOP 26708 29703 0.9% 6524.6 (3732.8 2791.8) 3 (monitor)
+TOP 29193 22263 0.8% 8.6 (7.6 1.0) 1 (httpd)
+TOP 29193 22582 0.8% 13.0 (10.7 2.3) 3 (httpd)
+TOP 29193 22224 0.8% 16.8 (12.2 4.6) 0 (httpd)
+TOP 26708 29650 0.8% 53.5 (48.2 5.3) 1 (qtp1371223098-3)
+TOP 26441 26707 0.6% 3884.8 (3875.5 9.3) 1 (db_sentinel)
+TOP 26708 29630 0.3% 50.5 (48.4 2.1) 0 (C2 CompilerThre)
+TOP 26708 29646 0.3% 47.7 (43.6 4.1) 3 (qtp1371223098-2)
+TOP 29234  4757 0.3% 0.4 (0.4 0.0) 0 (httpd)
+TOP 29234  4774 0.3% 0.4 (0.3 0.0) 3 (httpd)
+TOP 26708 29632 0.3% 20.0 (18.3 1.7) 0 (C1 CompilerThre)
+TOP 29234  4605 0.2% 0.5 (0.4 0.0) 3 (httpd)
+TOP 29234  4720 0.2% 0.4 (0.4 0.0) 2 (httpd)
+TOP 29234  4804 0.2% 0.3 (0.3 0.0) 1 (httpd)
+TOP     1  2495 0.2% 1332.8 (545.5 787.3) 2 (ptop)
+TOP 29234  4721 0.2% 0.4 (0.4 0.0) 2 (httpd)
+TOP     1  8484 0.2% 1758.0 (627.4 1130.6) 2 (ptop)
+TOP 26708 29647 0.2% 61.5 (53.2 8.2) 1 (qtp1371223098-3)
+TOP 26708 29705 0.1% 1270.5 (180.5 1090.0) 3 (monitor)
+TOP 26708 29613 0.1% 6.9 (6.3 0.6) 2 (java)
+TOP 26708 29615 0.1% 6.5 (6.2 0.3) 1 (java)
+TOP 26708 29634 0.1% 418.4 (284.5 133.9) 3 (VM Periodic Tas)
+TOP 26708 29799 0.1% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP     1  2545 0.0% 416.6 (265.5 151.1) 0 (vmtoolsd)
+TOP     1 26670 0.0% 295.9 (137.6 158.3) 1 (clusterd)
+TOP     1 17357 0.0% 31.2 (23.7 7.6) 2 (restart_ctrld)
+TOP 26708 29612 0.0% 8.1 (6.9 1.1) 1 (java)
+TOP 26708 29614 0.0% 5.9 (5.5 0.4) 0 (java)
+TOP 26708 29644 0.0% 96.6 (55.0 41.6) 2 (qtp1371223098-2)
+TOP 26708 29802 0.0% 31.1 (18.6 12.5) 3 (Wicket-PageSavi)
+TOP 26708  1687 0.0% 0.8 (0.8 0.1) 2 (pool-1-thread-1)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 0 (check_clustd)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP     1 26743 0.0% 32.6 (26.2 6.4) 2 (restart_execd)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 0 (ib_sensor)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP 26708 26997 0.0% 46.8 (35.2 11.6) 2 (journal_gc)
+TOP     1 28361 0.0% 29.8 (9.4 20.3) 2 (ntpd)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 2 (java)
+TOP 26708 29617 0.0% 114.6 (100.5 14.0) 2 (VM Thread)
+TOP 26708 22185 0.0% 0.3 (0.2 0.2) 3 (pool-1-thread-3)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 1 (init)
+TOP     1  1299 0.0% 0.8 (0.2 0.5) 2 (sshd)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 0 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 0 (watchdog)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 2 (clusterd)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.4 (8.6 19.7) 2 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 2 (ib_err_log)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 2 (httpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29230 0.0% 76.9 (10.0 66.8) 2 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 1 (httpd)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 2 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 2 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 2 (HashSessionScav)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 1 (qtp1371223098-2)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708 21030 0.0% 0.4 (0.3 0.1) 3 (pool-1-thread-2)
+TOP 26708 25235 0.0% 0.2 (0.2 0.0) 2 (pool-1-thread-4)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21828 4 p 11328 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 22583 s/r/r-/sw 13446356 12994820 231684 0 s 73300 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13446104 12994816 231680 0 s 73920 5800 p 157280 157024 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444480 12992596 229460 0 s 73088 5804 p 155892 155892 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13444364 12991916 228780 0 s 72396 5808 p 155904 155904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12959476 196340 0 s 40528 5804 p 155332 155332 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13429940 12979628 216492 0 s 72444 5808 p 143568 143568 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832404 69268 0 s 60788 4 p 7960 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 26728 4 p 7184 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20220 4 p 6432 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18480 4 p 6224 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36460 4 p 11048 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 725704 725704 0 s 2020 0 p 723684 703084 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11716 0 p 5004 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4605 s/r/r-/sw 73072 6716 6716 0 s 6156 1448 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4720 s/r/r-/sw 73072 6716 6716 0 s 6156 1448 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4721 s/r/r-/sw 73072 6716 6716 0 s 6156 1448 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4757 s/r/r-/sw 73072 6756 6756 0 s 6188 1444 p 552 552 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4774 s/r/r-/sw 73072 6716 6716 0 s 6156 1448 p 544 544 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 4804 s/r/r-/sw 73072 6716 6716 0 s 6160 1452 p 540 540 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 8729 s/r/r-/sw 73072 6700 6700 0 s 6172 1464 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7236 1468 p 420 380 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 9360 s/r/r-/sw 4120 1224 1224 0 s 1120 0 p 104 80 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 61.1 33.5 tk 61.1 33.5 rd 0.0 td 0.0
+NET ifstat    lo 5872276 1280539935 5872276 1280539935 0 0 
+NET  eth1 rk 53.2 7.6 tk 41.0 30.7 rd 0.0 td 0.0
+NET ifstat  eth1 2091682 133566785 179608 287084265 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 8.0 b 2.2 c 39.1 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 150.1 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 7.2 150.086 20.956 0.046 sqb 0.0 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 7.2 150.086 20.956 0.046 sqb 0.0 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572478 uniq 391 single 337 mvcc 54 frozen 0 dirty 20 total 445 mutex total 17753057 used 1573534 free 16179523 max 1573599 
+DBWR 16 13 0.000051525 17 17 0.000097935 18 50 0.000178491 19 35 0.000363321 20 5 0.000645489 21 2 0.001526281 25 1 0.017474919 27 3 0.092415548 
+DBWA 6 10 0.000000051 7 15 0.000000095 8 49 0.000000186 9 37 0.000000380 10 13 0.000000719 11 2 0.000001191 
+DBRD 13 6 0.000006657 14 10 0.000012366 15 34 0.000024468 16 80 0.000046211 17 97 0.000099534 18 1274 0.000178661 19 335 0.000350495 20 378 0.000731667 21 322 0.001433376 22 128 0.002867326 23 88 0.005832026 24 59 0.010648674 25 27 0.023348986 26 3 0.035693181 31 4 1.807717352 
+DBMPOOL sz 10534.000 MiB  pg 444 cl 444 dr 0 cr 2 i 0 o 31 a 0 h 126362 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u 13.6 id/io 86.4  0.0 u/s/n  0.4  2.4 10.6 irq h/s  0.0  0.3
+CPU cpu0 u 11.2 id/io 88.7  0.0 u/s/n  0.4  2.0  8.4 irq h/s  0.0  0.5
+CPU cpu1 u 14.8 id/io 85.2  0.0 u/s/n  0.4  2.4 11.7 irq h/s  0.0  0.3
+CPU cpu2 u 15.4 id/io 84.6  0.0 u/s/n  0.3  2.9 12.0 irq h/s  0.0  0.1
+CPU cpu3 u 13.1 id/io 86.9  0.0 u/s/n  0.3  2.5 10.2 irq h/s  0.0  0.1
+
+TIME 605238.6 1729687468 2024-10-23 12:44:29
+TOP 26441 26708 1.4% 9579.7 (6011.7 3568.0) 2 (process_manager)
+TOP 26708 29703 1.0% 6525.2 (3733.2 2792.1) 0 (monitor)
+TOP 26708 29651 0.7% 53.3 (48.0 5.4) 0 (qtp1371223098-3)
+TOP 26441 26707 0.6% 3885.2 (3875.9 9.3) 1 (db_sentinel)
+TOP 29193 22582 0.4% 13.2 (10.9 2.3) 3 (httpd)
+TOP 29193 22263 0.4% 8.9 (7.8 1.0) 1 (httpd)
+TOP 29193 22580 0.4% 15.0 (11.6 3.4) 0 (httpd)
+TOP 26708 29649 0.4% 58.9 (52.0 7.0) 1 (qtp1371223098-3)
+TOP 29193 22224 0.4% 17.0 (12.4 4.6) 1 (httpd)
+TOP 29193 22364 0.4% 8.0 (7.1 1.0) 2 (httpd)
+TOP 29193 22583 0.4% 17.0 (12.5 4.5) 1 (httpd)
+TOP 26708 29646 0.4% 47.9 (43.8 4.1) 1 (qtp1371223098-2)
+TOP 26708 29647 0.3% 61.7 (53.4 8.2) 1 (qtp1371223098-3)
+TOP     1  8484 0.3% 1758.2 (627.5 1130.8) 0 (ptop)
+TOP     1  2495 0.2% 1332.9 (545.6 787.4) 2 (ptop)
+TOP 26708 29705 0.2% 1270.6 (180.5 1090.1) 2 (monitor)
+TOP 26708 29648 0.1% 59.3 (53.3 6.1) 1 (qtp1371223098-3)
+TOP 26708 29650 0.1% 53.6 (48.3 5.3) 2 (qtp1371223098-3)
+TOP 29234  4804 0.1% 0.4 (0.4 0.0) 3 (httpd)
+TOP 29234  8729 0.1% 0.2 (0.2 0.0) 2 (httpd)
+TOP 26708 29632 0.1% 20.0 (18.3 1.7) 3 (C1 CompilerThre)
+TOP     1  2545 0.1% 416.7 (265.5 151.1) 1 (vmtoolsd)
+TOP 26708 29634 0.1% 418.5 (284.5 134.0) 1 (VM Periodic Tas)
+TOP     1 26670 0.0% 295.9 (137.6 158.3) 1 (clusterd)
+TOP 26708 29612 0.0% 8.1 (6.9 1.1) 2 (java)
+TOP 26708 29614 0.0% 6.0 (5.6 0.4) 0 (java)
+TOP     1 17357 0.0% 31.3 (23.7 7.6) 2 (restart_ctrld)
+TOP     1 26743 0.0% 32.6 (26.2 6.4) 2 (restart_execd)
+TOP 26708 29613 0.0% 6.9 (6.3 0.6) 1 (java)
+TOP 26708 29644 0.0% 96.6 (55.0 41.6) 0 (qtp1371223098-2)
+TOP     1  3259 0.0% 8.7 (1.8 6.9) 1 (watchdog)
+TOP     1 26673 0.0% 73.7 (56.9 16.8) 3 (clusterd)
+TOP 26708 26903 0.0% 95.2 (32.2 63.0) 0 (ib_sensor)
+TOP 26708 29230 0.0% 76.9 (10.0 66.8) 3 (fastpath_monito)
+TOP 26708 29615 0.0% 6.5 (6.2 0.3) 1 (java)
+TOP 26708 29617 0.0% 114.6 (100.5 14.0) 3 (VM Thread)
+TOP 26708 29630 0.0% 50.5 (48.4 2.1) 3 (C2 CompilerThre)
+TOP 26708 29631 0.0% 47.5 (45.5 2.0) 3 (C2 CompilerThre)
+TOP 26708 29802 0.0% 31.1 (18.6 12.5) 1 (Wicket-PageSavi)
+TOP     0     1 0.0% 5.0 (1.0 4.0) 1 (init)
+TOP     1  1299 0.0% 0.8 (0.2 0.5) 2 (sshd)
+TOP     1  1304 0.0% 0.0 (0.0 0.0) 0 (syslog-ng)
+TOP  1304  1305 0.0% 1.6 (0.8 0.8) 0 (syslog-ng)
+TOP     1  1598 0.0% 0.0 (0.0 0.0) 0 (acpid)
+TOP     1  2557 0.0% 0.0 (0.0 0.0) 3 (vmtoolsd)
+TOP     1  3261 0.0% 3.9 (1.1 2.8) 1 (smart_check_io)
+TOP     1  3262 0.0% 24.4 (3.6 20.8) 2 (check_clustd)
+TOP     1  3823 0.0% 3.6 (1.0 2.6) 2 (epmd)
+TOP  1299  4195 0.0% 0.0 (0.0 0.0) 0 (sshd)
+TOP  4195  4202 0.0% 0.0 (0.0 0.0) 0 (bash)
+TOP     1 23186 0.0% 0.0 (0.0 0.0) 0 (cored)
+TOP     1 23189 0.0% 0.9 (0.5 0.5) 0 (cored)
+TOP     1 26441 0.0% 28.1 (8.7 19.4) 2 (clusterd)
+TOP     1 26671 0.0% 0.0 (0.0 0.0) 2 (clusterd)
+TOP     1 26672 0.0% 2.4 (0.8 1.6) 3 (clusterd)
+TOP     1 26688 0.0% 5.9 (2.2 3.7) 3 (clusterd)
+TOP     1 26709 0.0% 28.4 (8.6 19.7) 2 (clusterd)
+TOP 26441 26711 0.0% 0.6 (0.5 0.0) 1 (db_sentinel)
+TOP 26441 26712 0.0% 0.2 (0.1 0.1) 0 (db_sentinel)
+TOP 26441 26713 0.0% 0.0 (0.0 0.0) 0 (db_sentinel)
+TOP 26708 26995 0.0% 28.6 (6.1 22.5) 2 (duplicate_ipd)
+TOP 26708 26996 0.0% 30.3 (10.1 20.2) 3 (db_checkpoint)
+TOP 26708 26997 0.0% 46.8 (35.2 11.6) 2 (journal_gc)
+TOP 26708 27044 0.0% 0.0 (0.0 0.0) 2 (serial_console)
+TOP 26708 27045 0.0% 0.1 (0.1 0.1) 0 (serial_console)
+TOP 26708 27155 0.0% 2.9 (0.7 2.2) 1 (disable_ipv6d)
+TOP 26708 27657 0.0% 0.1 (0.0 0.1) 3 (controld)
+TOP     1 27786 0.0% 6.8 (1.0 5.8) 2 (ib_err_log)
+TOP     1 28361 0.0% 29.8 (9.4 20.3) 2 (ntpd)
+TOP 26708 29193 0.0% 17.6 (6.3 11.2) 0 (httpd)
+TOP 29193 29203 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29226 0.0% 4.4 (1.4 3.0) 0 (fastpath_monito)
+TOP 26708 29229 0.0% 1.1 (0.1 0.9) 3 (fastpath_monito)
+TOP 26708 29231 0.0% 1.2 (0.4 0.8) 3 (fastpath_monito)
+TOP 26708 29234 0.0% 18.8 (7.5 11.3) 2 (httpd)
+TOP 29234 29245 0.0% 0.0 (0.0 0.0) 1 (rotatelog)
+TOP 26708 29564 0.0% 0.1 (0.0 0.0) 2 (java)
+TOP 26708 29611 0.0% 0.6 (0.6 0.1) 1 (java)
+TOP 26708 29616 0.0% 13.5 (9.1 4.4) 1 (java)
+TOP 26708 29618 0.0% 0.1 (0.1 0.0) 1 (Reference Handl)
+TOP 26708 29619 0.0% 0.1 (0.1 0.0) 1 (Finalizer)
+TOP 26708 29620 0.0% 0.0 (0.0 0.0) 2 (Surrogate Locke)
+TOP 26708 29621 0.0% 0.0 (0.0 0.0) 2 (Signal Dispatch)
+TOP 26708 29622 0.0% 3.1 (1.9 1.1) 2 (RMI TCP Accept-)
+TOP 26708 29623 0.0% 0.0 (0.0 0.0) 1 (RMI Reaper)
+TOP 26708 29624 0.0% 0.1 (0.1 0.0) 2 (GC Daemon)
+TOP 26708 29626 0.0% 1.1 (0.6 0.5) 3 (RMI Scheduler(0)
+TOP 26708 29628 0.0% 5.9 (4.5 1.4) 0 (RMI RenewClean-)
+TOP 26708 29633 0.0% 0.0 (0.0 0.0) 2 (Service Thread)
+TOP 26708 29635 0.0% 3.4 (3.0 0.4) 0 (Active Thread: )
+TOP 26708 29636 0.0% 0.0 (0.0 0.0) 0 (Framework Event)
+TOP 26708 29637 0.0% 0.3 (0.3 0.0) 3 (Start Level: Eq)
+TOP 26708 29639 0.0% 0.2 (0.2 0.0) 0 (Refresh Thread:)
+TOP 26708 29643 0.0% 14.2 (8.5 5.7) 2 (HashSessionScav)
+TOP 26708 29645 0.0% 1.6 (1.2 0.5) 3 (qtp1371223098-2)
+TOP 26708 29652 0.0% 0.0 (0.0 0.0) 3 (Timer-0)
+TOP 26708 29653 0.0% 0.0 (0.0 0.0) 1 (Timer-1)
+TOP 26708 29702 0.0% 0.0 (0.0 0.0) 0 (Java2D Disposer)
+TOP 26708 29799 0.0% 0.0 (0.0 0.0) 1 (Thread-14)
+TOP 26708 29801 0.0% 0.0 (0.0 0.0) 1 (com.infoblox.we)
+TOP 26708  1687 0.0% 0.8 (0.8 0.1) 2 (pool-1-thread-1)
+TOP 26708 21030 0.0% 0.4 (0.3 0.1) 3 (pool-1-thread-2)
+TOP 26708 22185 0.0% 0.3 (0.2 0.2) 3 (pool-1-thread-3)
+TOP 26708 25235 0.0% 0.2 (0.2 0.0) 2 (pool-1-thread-4)
+TOP 26708  1561 0.0% 0.1 (0.1 0.0) 1 (pool-1-thread-5)
+TOP     1 29610 0.0% 0.0 (0.0 0.0) 3 (ib_log)
+TOP 26708 29766 0.0% 0.1 (0.1 0.0) 3 (mail_daemon)
+SMAPS 26441 s/r/r-/sw 15307984 12796864 33728 0 s 21832 4 p 11324 10692 sh 572 572 h 12763136  c /infoblox/one/bin/clusterd 
+SMAPS 9568 s/r/r-/sw 13509428 12815528 52392 0 s 26588 4 p 25268 19296 sh 536 536 h 12763136  c /usr/sbin/named -E  -4 -c /infoblox/var/named_conf/named.conf -u nobody 
+SMAPS 22583 s/r/r-/sw 13446356 12994640 231504 0 s 73120 5800 p 157904 157904 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22580 s/r/r-/sw 13446104 12993296 230160 0 s 72652 5800 p 157028 157028 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22582 s/r/r-/sw 13444480 12992648 229512 0 s 73140 5804 p 155892 155892 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22263 s/r/r-/sw 13444364 12992004 228868 0 s 72332 5808 p 156056 156056 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22224 s/r/r-/sw 13443676 12992040 228904 0 s 73092 5804 p 155332 155332 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 22364 s/r/r-/sw 13429940 12979628 216492 0 s 72444 5808 p 143568 143568 sh 480 480 h 12763136  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 26707 s/r/r-/sw 13201024 12791636 28500 0 s 17784 4 p 10232 10200 sh 484 484 h 12763136  c /infoblox/one/bin/db_sentinel 
+SMAPS 29703 s/r/r-/sw 13170456 12832404 69268 0 s 60724 4 p 8024 7284 sh 520 520 h 12763136  c /infoblox/one/bin/monitor 
+SMAPS 27045 s/r/r-/sw 13091848 12797516 34380 0 s 26728 4 p 7184 6484 sh 468 468 h 12763136  c /infoblox/one/bin/serial_console console_2nd 
+SMAPS 26995 s/r/r-/sw 13090448 12791368 28232 0 s 21336 4 p 6420 6388 sh 476 476 h 12763136  c /infoblox/one/bin/duplicate_ipd 
+SMAPS 26996 s/r/r-/sw 13090080 12791476 28340 0 s 21804 4 p 6060 6048 sh 476 476 h 12763136  c /infoblox/one/bin/db_checkpoint 
+SMAPS 26997 s/r/r-/sw 13089992 12790708 27572 0 s 21044 4 p 6048 6008 sh 480 480 h 12763136  c /infoblox/one/bin/journal_gc 
+SMAPS 26743 s/r/r-/sw 13086248 12790268 27132 0 s 20224 4 p 6428 6372 sh 480 480 h 12763136  c /infoblox/one/bin/restart_execd 
+SMAPS 17357 s/r/r-/sw 13086008 12788320 25184 0 s 18480 4 p 6224 6156 sh 480 480 h 12763136  c /infoblox/one/bin/restart_ctrld 
+SMAPS 26708 s/r/r-/sw 13081764 12811120 47984 0 s 36628 4 p 10880 10520 sh 476 476 h 12763136  c /infoblox/one/bin/process_manager 
+SMAPS 29564 s/r/r-/sw 3987956 725812 725812 0 s 2020 0 p 723792 703192 sh 0 0 h 0  c /usr/local/jre/bin/java -Xms512m -Xmx512m -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=260M -XX:InitialCodeCacheSize=20M -XX:ReservedCodeCacheSize=128m -XX:Surv
+SMAPS 29226 s/r/r-/sw 413072 16724 16724 0 s 11624 0 p 5100 5060 sh 0 0 h 0  c /infoblox/one/bin/fastpath_monitor 
+SMAPS 27044 s/r/r-/sw 292644 21356 21356 0 s 15844 0 p 5512 5468 sh 0 0 h 0  c /infoblox/one/bin/serial_console console 
+SMAPS 29193 s/r/r-/sw 274240 23420 23420 0 s 21480 5804 p 1936 1868 sh 4 4 h 0  c /usr/bin/httpd -DNO_DETACH -f /tmpfs/admin-httpd.conf 
+SMAPS 23186 s/r/r-/sw 254872 9212 9212 0 s 3852 0 p 5360 5344 sh 0 0 h 0  c /infoblox/one/bin/cored 
+SMAPS 27155 s/r/r-/sw 246672 19672 19672 0 s 14304 0 p 5368 5360 sh 0 0 h 0  c /infoblox/one/bin/disable_ipv6d 
+SMAPS 3262 s/r/r-/sw 246668 9392 9392 0 s 4048 0 p 5344 5336 sh 0 0 h 0  c /infoblox/one/bin/check_clustd 
+SMAPS 29766 s/r/r-/sw 234056 16992 16992 0 s 11976 0 p 5016 4988 sh 0 0 h 0  c /infoblox/one/bin/mail_daemon 
+SMAPS 27657 s/r/r-/sw 225740 17788 17788 0 s 12684 0 p 5104 5044 sh 0 0 h 0  c /infoblox/one/bin/controld 
+SMAPS 4195 s/r/r-/sw 213476 19100 19100 0 s 13728 0 p 5372 5176 sh 0 0 h 0  c sshd: root@pts/0  
+SMAPS 29610 s/r/r-/sw 193868 8520 8520 0 s 3524 0 p 4996 4984 sh 0 0 h 0  c /infoblox/one/bin/ib_log -n webui-java -e (29564)
+SMAPS 27786 s/r/r-/sw 193860 16720 16720 0 s 11724 0 p 4996 4976 sh 0 0 h 0  c /infoblox/one/bin/ib_err_log 
+SMAPS 29203 s/r/r-/sw 108196 12400 12400 0 s 7752 0 p 4648 4648 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/admin-httpd.err -s 10 -r 3 
+SMAPS 29245 s/r/r-/sw 108196 12412 12412 0 s 7772 0 p 4640 4640 sh 0 0 h 0  c /infoblox/common/bin/rotatelog -f /var/log/one-httpd.err -s 10 -r 3 
+SMAPS 3261 s/r/r-/sw 106036 8044 8044 0 s 3380 0 p 4664 4648 sh 0 0 h 0  c /infoblox/one/bin/smart_check_io 
+SMAPS 4804 s/r/r-/sw 73072 6720 6720 0 s 6156 1448 p 548 548 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 8729 s/r/r-/sw 73072 6700 6700 0 s 6172 1464 p 512 512 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 9465 s/r/r-/sw 73072 6668 6668 0 s 6152 1472 p 504 504 sh 12 12 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 9652 s/r/r-/sw 73072 6668 6668 0 s 6152 1472 p 500 500 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 9734 s/r/r-/sw 73072 6656 6656 0 s 6152 1472 p 488 488 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 9735 s/r/r-/sw 73072 6672 6672 0 s 6180 1472 p 476 476 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 9906 s/r/r-/sw 73072 6648 6648 0 s 6156 1476 p 476 476 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 10167 s/r/r-/sw 73072 6632 6632 0 s 6156 1476 p 460 460 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 29234 s/r/r-/sw 72924 7672 7672 0 s 7248 1480 p 408 368 sh 16 16 h 0  c /usr/bin/httpd -DNO_DETACH -DSSL -f /tmpfs/one-httpd.conf 
+SMAPS 2545 s/r/r-/sw 59092 4520 4520 0 s 2600 0 p 1920 572 sh 0 0 h 0  c /usr/bin/vmtoolsd 
+SMAPS 1305 s/r/r-/sw 56716 5940 5940 0 s 4656 68 p 1284 752 sh 0 0 h 0  c syslog-ng 
+SMAPS 2495 s/r/r-/sw 53976 2132 2124 0 s 1536 8 p 588 588 sh 8 0 h 0  c /usr/bin/ptop -C -Ms -Nn -T -D -B -d60 -b -W 14 -V -l/var/log 
+SMAPS 8484 s/r/r-/sw 53848 2016 2008 0 s 1528 0 p 480 480 sh 8 0 h 0  c /usr/bin/ptop -C -T10 -b -d2 -l/var/log/ptoplogs/ -r/storage/var/run/custom_ptop.pid   
+SMAPS 1299 s/r/r-/sw 33024 4492 4492 0 s 4004 0 p 488 448 sh 0 0 h 0  c /usr/sbin/sshd 
+SMAPS 28361 s/r/r-/sw 30368 4804 4804 0 s 3212 0 p 1592 756 sh 0 0 h 0  c /usr/bin/ntpd -x -a -c /tmpfs/ntp.conf -f /storage/etc/ntp.drift 
+SMAPS 1304 s/r/r-/sw 24284 1836 1836 0 s 1720 68 p 116 116 sh 0 0 h 0  c supervising syslog-ng
+SMAPS 4202 s/r/r-/sw 11484 2700 2700 0 s 2304 0 p 396 332 sh 0 0 h 0  c -bash 
+SMAPS 26903 s/r/r-/sw 11484 2552 2552 0 s 2208 0 p 344 328 sh 0 0 h 0  c /bin/bash /infoblox/one/bin/ib_sensor start 
+SMAPS 3823 s/r/r-/sw 11384 1328 1328 0 s 1104 0 p 224 172 sh 0 0 h 0  c /usr/lib64/erlang/erts-12.0/bin/epmd -daemon 
+SMAPS 3259 s/r/r-/sw 8436 2280 2280 0 s 1676 0 p 604 432 sh 0 0 h 0  c /infoblox/one/bin/watchdog 
+SMAPS 1598 s/r/r-/sw 4148 1344 1344 0 s 1156 0 p 188 144 sh 0 0 h 0  c /usr/sbin/acpid -l 
+SMAPS 1 s/r/r-/sw 4128 1404 1404 0 s 1276 0 p 128 96 sh 0 0 h 0  c init [3]   
+SMAPS 10436 s/r/r-/sw 4120 1268 1268 0 s 1168 0 p 100 76 sh 0 0 h 0  c sleep 3 
+NET ifstat  eth2 0 0 0 0 3 0 
+NET ifstatip6tnl0 0 0 0 0 0 0 
+NET ifstat  sit0 0 0 0 0 0 0 
+NET ifstat  eth0 0 0 0 0 9 0 
+NET ifstat tunl0 0 0 0 0 0 0 
+NET ifstatdocker0 0 0 0 0 0 0 
+NET    lo rk 32.6 15.7 tk 32.6 15.7 rd 0.0 td 0.0
+NET ifstat    lo 5874238 1281504661 5874238 1281504661 0 0 
+NET  eth1 rk 22.9 3.0 tk 16.7 13.2 rd 0.0 td 0.0
+NET ifstat  eth1 2093062 133754645 180611 287895914 3917 0 
+NET ifstat  eth3 0 0 0 0 0 0 
+MEM t 33472991232 f 7.9 b 2.2 c 39.1 s 2.0 a 5.8 sh 44.7 sw 0.0 25769799680 h 7124 0 pio 0.0 97.7 sio 0.0 0.0
+DISK 24  sda rkxt 0.0 0.000 0.000 0.000 wkxt 5.2 97.694 18.667 0.063 sqb 0.1 0.0 0.0
+DISK 29 sda5 rkxt 0.0 0.000 0.000 0.000 wkxt 5.2 97.694 18.667 0.063 sqb 0.1 0.0 0.0
+DB cache 10534.4 MiB 2696798 pages cache#0 buckets 1572869 empty 1572478 uniq 391 single 337 mvcc 54 frozen 0 dirty 20 total 445 mutex total 17753057 used 1573562 free 16179495 max 1573616 
+DBWR 16 14 0.000054576 17 21 0.000107794 18 47 0.000179219 19 29 0.000372140 20 6 0.000622594 21 1 0.001795657 25 1 0.029702404 26 1 0.035088364 
+DBWA 6 7 0.000000049 7 23 0.000000095 8 38 0.000000195 9 35 0.000000369 10 15 0.000000793 11 2 0.000001229 
+DBRD 13 6 0.000006856 14 9 0.000012112 15 37 0.000023614 16 80 0.000047304 17 97 0.000102620 18 660 0.000182843 19 276 0.000350917 20 233 0.000723367 21 232 0.001460188 22 105 0.002823170 23 91 0.005872836 24 43 0.010494478 25 26 0.025788673 26 1 0.035004094 31 3 1.634872292 
+DBMPOOL sz 10534.000 MiB  pg 445 cl 425 dr 20 cr 1 i 0 o 0 a 0 h 97679 m 0 ro 0 rw 0 fr 0 th 0
+CPU  cpu u 10.7 id/io 89.3  0.0 u/s/n  0.8  2.3  7.5 irq h/s  0.0  0.1
+CPU cpu0 u  9.4 id/io 90.6  0.0 u/s/n  0.2  2.4  6.5 irq h/s  0.0  0.3
+CPU cpu1 u 12.4 id/io 87.6  0.0 u/s/n  0.3  2.0 10.0 irq h/s  0.0  0.1
+CPU cpu2 u 11.4 id/io 88.6  0.0 u/s/n  2.2  2.8  6.3 irq h/s  0.0  0.0
+CPU cpu3 u  9.5 id/io 90.4  0.0 u/s/n  0.4  1.9  7.2 irq h/s  0.0  0.1
+

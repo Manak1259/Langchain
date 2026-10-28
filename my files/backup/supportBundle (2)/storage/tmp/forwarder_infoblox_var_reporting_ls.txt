@@ -1,0 +1,4 @@
+total 12
+drwxrwxrwx  3 root root 4096 Oct 16 12:38 .
+drwxrwxrwx 29 root root 4096 Oct 23 12:44 ..
+drwxrwxr--  2 root root 4096 Oct 16 12:38 certs

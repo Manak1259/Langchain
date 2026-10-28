@@ -1,0 +1,66 @@
+#!/usr/bin/python
+
+# This python script is used to get the system details. Based on
+# the output we will invoke heka_data, metrics_data and other resources.
+
+
+import infoblox.one.onedb as onedb
+import infoblox.one.util as ou
+import infoblox.common.ilog as ilog
+from infoblox.one.clusterd import is_node_active_master
+import json
+
+def boolToStr(f):
+    if f:
+        return '1'
+    else:
+        return '0'
+
+def get_system_details():
+    data = {}
+    db = onedb.Db()
+    with db.begin(onedb.RO) as t:
+        data['active_master'] = is_node_active_master()
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory = onedb.todict, single=True)
+        vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+        if grid:
+            data['heka_opt_in'] = grid['heka_opt_in'] if 'heka_opt_in' in grid else False
+            if 'heka_collection_member' in grid:
+                data['heka_collection_member'] = grid['heka_collection_member']
+            data['grid_uuid'] = grid['uuid']
+            data['license_uid'] = grid['license_uid']
+
+        if vnode:
+            data['master'] = vnode['is_master'] if vnode else False
+
+        data['vnode_id'] = str(ou.get_my_vnode_id())
+        data['active'] = ou.node_is_active()
+
+        gm_vnode = db.call('?one.virtual_node', {'is_master': True}, factory = onedb.todict, single=True)
+        if gm_vnode['ha_enabled']:
+            pnodes = db.call('?one.physical_node', {'virtual_node': gm_vnode['virtual_oid']}, factory = onedb.todict)
+            for p in pnodes:
+                if 'serial_number' in p:
+                    serial_number = p['serial_number']
+                else :
+                    serial_number = p['hwid']
+                if boolToStr(p['position']) == gm_vnode['active_position']:
+                    data['active_serial'] = serial_number
+                else:
+                    data['passive_serial'] = serial_number
+        else:
+            p = db.call('?one.physical_node', {'virtual_node': gm_vnode['virtual_oid']}, factory = onedb.todict, single = True)
+            data['active_serial'] = p['serial_number']
+
+    return data
+
+def dump_json(data):
+    print (json.dumps(data))
+
+if __name__ == '__main__':
+    try:
+        data = get_system_details()
+        dump_json(data)
+    except Exception as e:
+        ilog.log('Error occurred while handling system_status : %s' % e)
+        dump_json({'error':str(e)})

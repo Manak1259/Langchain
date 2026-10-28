@@ -1,0 +1,78 @@
+10GB 294MB 379KB	Total cache size
+1	Number of caches
+1	Maximum number of caches
+10GB 294MB 376KB	Pool individual cache size
+0	Maximum memory-mapped file size
+0	Maximum open file descriptors
+0	Maximum sequential buffer writes
+0	Sleep after writing maximum sequential buffers
+0	Requested pages mapped into the process' address space
+731M	Requested pages found in the cache (99%)
+185	Requested pages not found in the cache
+202	Pages created in the cache
+185	Pages read into the cache
+1430	Pages written from the cache to the backing file
+0	Clean pages forced from the cache
+0	Dirty pages forced from the cache
+0	Dirty pages written by trickle-sync thread
+438	Current total page count
+438	Current clean page count
+0	Current dirty page count
+1572869	Number of hash buckets used for page location
+4096	Assumed page size used
+731M	Total number of times hash chains searched for a page (731417793)
+1	The longest hash chain searched for a page
+731M	Total number of hash chain entries checked for page (731417243)
+0	The number of hash bucket locks that required waiting (0%)
+0	The maximum number of times any hash bucket lock was waited for (0%)
+33	The number of region locks that required waiting (0%)
+0	The number of buffers frozen
+0	The number of buffers thawed
+0	The number of frozen buffers freed
+489	The number of page allocations
+0	The number of hash buckets examined during allocations
+0	The maximum number of hash buckets examined for an allocation
+0	The number of pages examined during allocations
+0	The max number of pages examined for an allocation
+0	Threads waited on page I/O
+0	The number of times a sync is interrupted
+Pool File: one_data_index
+4096	Page size
+0	Requested pages mapped into the process' address space
+416M	Requested pages found in the cache (99%)
+71	Requested pages not found in the cache
+3	Pages created in the cache
+71	Pages read into the cache
+146	Pages written from the cache to the backing file
+Pool File: one_data_heap
+4096	Page size
+0	Requested pages mapped into the process' address space
+268M	Requested pages found in the cache (99%)
+107	Requested pages not found in the cache
+6	Pages created in the cache
+107	Pages read into the cache
+421	Pages written from the cache to the backing file
+Pool File: ./__dbq.journal_queue.0
+4096	Page size
+0	Requested pages mapped into the process' address space
+2706	Requested pages found in the cache (99%)
+2	Requested pages not found in the cache
+193	Pages created in the cache
+2	Pages read into the cache
+350	Pages written from the cache to the backing file
+Pool File: journal_queue
+4096	Page size
+0	Requested pages mapped into the process' address space
+392721	Requested pages found in the cache (99%)
+1	Requested pages not found in the cache
+0	Pages created in the cache
+1	Pages read into the cache
+171	Pages written from the cache to the backing file
+Pool File: one_data_clust_index
+4096	Page size
+0	Requested pages mapped into the process' address space
+47M	Requested pages found in the cache (99%)
+4	Requested pages not found in the cache
+0	Pages created in the cache
+4	Pages read into the cache
+342	Pages written from the cache to the backing file

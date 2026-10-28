@@ -1,0 +1,125 @@
++++ Statistics Dump +++ (1729681897)
+success 0
+referral 0
+nxrrset 0
+nxdomain 0
+recursion 0
+failure 0
+success 0 0.0.127.in-addr.arpa
+referral 0 0.0.127.in-addr.arpa
+nxrrset 0 0.0.127.in-addr.arpa
+nxdomain 0 0.0.127.in-addr.arpa
+recursion 0 0.0.127.in-addr.arpa
+failure 0 0.0.127.in-addr.arpa
+success 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+referral 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+nxrrset 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+nxdomain 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+recursion 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+failure 0 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
+success 0 test.com
+referral 0 test.com
+nxrrset 0 test.com
+nxdomain 0 test.com
+recursion 0 test.com
+failure 0 test.com
+success 0 version.bind _bind
+referral 0 version.bind _bind
+nxrrset 0 version.bind _bind
+nxdomain 0 version.bind _bind
+recursion 0 version.bind _bind
+failure 0 version.bind _bind
+success 0 hostname.bind _bind
+referral 0 hostname.bind _bind
+nxrrset 0 hostname.bind _bind
+nxdomain 0 hostname.bind _bind
+recursion 0 hostname.bind _bind
+failure 0 hostname.bind _bind
+success 0 authors.bind _bind
+referral 0 authors.bind _bind
+nxrrset 0 authors.bind _bind
+nxdomain 0 authors.bind _bind
+recursion 0 authors.bind _bind
+failure 0 authors.bind _bind
+success 0 id.server _bind
+referral 0 id.server _bind
+nxrrset 0 id.server _bind
+nxdomain 0 id.server _bind
+recursion 0 id.server _bind
+failure 0 id.server _bind
+++ Incoming Requests ++
+++ Incoming Queries ++
+++ Outgoing Rcodes ++
+++ Outgoing Queries ++
+[View: default]
+[View: _bind]
+++ Name Server Statistics ++
+++ Zone Maintenance Statistics ++
+++ Resolver Statistics ++
+[Common]
+[View: default]
+                  31 bucket size
+[View: _bind]
+                  31 bucket size
+++ Cache Statistics ++
+[View: default]
+                   0 cache hits
+                   0 cache misses
+                   0 cache hits (from query)
+                   0 cache misses (from query)
+                   0 cache records deleted due to memory exhaustion
+                   0 cache records deleted due to TTL expiration
+                   0 cache database nodes
+                  64 cache database hash buckets
+              288792 cache tree memory total
+               30448 cache tree memory in use
+               30448 cache tree highest memory in use
+              262144 cache heap memory total
+                1024 cache heap memory in use
+                1024 cache heap highest memory in use
+[View: _bind (Cache: _bind)]
+                   0 cache hits
+                   0 cache misses
+                   0 cache hits (from query)
+                   0 cache misses (from query)
+                   0 cache records deleted due to memory exhaustion
+                   0 cache records deleted due to TTL expiration
+                   0 cache database nodes
+                  64 cache database hash buckets
+              288792 cache tree memory total
+               30440 cache tree memory in use
+               30440 cache tree highest memory in use
+              262144 cache heap memory total
+                1024 cache heap memory in use
+                1024 cache heap highest memory in use
+++ Cache DB RRsets ++
+[View: default]
+[View: _bind (Cache: _bind)]
+++ ADB stats ++
+[View: default]
+                1021 Address hash table size
+                1021 Name hash table size
+[View: _bind]
+                1021 Address hash table size
+                1021 Name hash table size
+++ Rate limit stats ++
+[View: _bind; rate-limit _bind/rrl-0]
+++ Socket I/O Statistics ++
+                  40 UDP/IPv4 sockets opened
+                   3 TCP/IPv4 sockets opened
+                   1 Raw sockets opened
+                  32 UDP/IPv4 sockets closed
+                  39 TCP/IPv4 sockets closed
+                  40 TCP/IPv4 connections accepted
+                   8 UDP/IPv4 sockets active
+                   4 TCP/IPv4 sockets active
+                   1 Raw sockets active
+++ Per Zone Query Statistics ++
+[0.0.127.in-addr.arpa]
+[1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa]
+[test.com]
+[version.bind (view: _bind)]
+[hostname.bind (view: _bind)]
+[authors.bind (view: _bind)]
+[id.server (view: _bind)]
+--- Statistics Dump --- (1729681897)

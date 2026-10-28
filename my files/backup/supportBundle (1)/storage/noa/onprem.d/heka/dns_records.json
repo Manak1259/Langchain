@@ -1,0 +1,15 @@
+{
+    "grid_feature_usage": {
+        "dns.bind_cname": 0, 
+        "dns.bind_aaaa": 0, 
+        "dns.zone": 9, 
+        "dns.bind_txt": 0, 
+        "dhcp.lease": 0, 
+        "dns.bind_a": 0, 
+        "dns.bind_ptr": 2, 
+        "dns.bind_srv": 0, 
+        "dns.bind_mx": 0, 
+        "dns.bind_ns": 3, 
+        "dns.bind_soa": 3
+    }
+}

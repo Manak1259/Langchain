@@ -1,0 +1,18 @@
+Time:1729178234 (2024-10-17 15:17:14.702)
+Connection:::1:45628 #0
+
+<Request Input 29206-127> POST /wapi/v2.12.5/grid/b25lLmNsdXN0ZXIkMA:cn.prd?_function=query_fqdn_on_member
+
+<Header Input 29206-127> Accept:*/*
+<Begin Input 29206-127>
+{"fqdn": "b.fake.zone","member": "infoblox.localdomain","record_type": "A","name_serve": "10.197.80.10"}
+<End Input>
+
+
+<Begin Output 29206-127>
+{ "Error": "AdmConProtoError: Unknown argument/field: 'name_serve'", 
+  "code": "Client.Ibap.Proto", 
+  "text": "Unknown argument/field: 'name_serve'"
+}
+<End Output>
+

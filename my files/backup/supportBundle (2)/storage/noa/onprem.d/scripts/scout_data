@@ -1,0 +1,74 @@
+#!/usr/bin/python
+
+# This is the python file used by scout to fetch data from DB and dump it into
+# /storage/noa/onprem.d/scout_nios_data.json. This script will be invoked by
+# scout container.
+
+
+import infoblox.one.util as ou
+import infoblox.one.onedb as onedb
+import infoblox.common.ilog as ilog
+import infoblox.one.license as lic
+import json
+import os
+
+def fetch_data():
+    data = {}
+    db = onedb.Db()
+    with db.begin(onedb.RO) as txn:
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory=onedb.todict, single=True)
+        if grid:
+            data['grid'] = grid
+        else:
+            data['grid'] = {}
+
+        vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+        if vnode:
+            data['vnode'] = vnode
+        else:
+            data['vnode'] = {}
+
+        pnode = db.call('?one.physical_node', {'physical_oid': ou.get_my_pnode_id()}, factory=onedb.todict, single=True)
+        if pnode:
+            data['pnode'] = pnode
+        else:
+            data['pnode'] = {}
+
+        licenses = db.call('?one.product_license',{'pnode': ou.get_my_pnode_id()}, factory=onedb.todict)
+        data['licenses'] = licenses
+
+        grid_wide = db.call('?one.license_grid_wide', {'cluster': ou.get_my_cluster_id()}, factory=onedb.todict)
+        data['grid_wide_licenses'] = grid_wide
+
+        data['nios_version'] = ou.get_external_version()
+
+        data['cpu'] = os.uname()[4]
+
+        data['standalone'] = lic.has_standalone_license(db)
+
+        data['ha_status'] = ou.get_ha_status()
+
+        gm = db.call('?one.virtual_node', {'is_master':True}, factory=onedb.todict, single=True)
+        if gm and 'config_addr_type' in gm:
+            if gm['config_addr_type'] != 'IPV6':
+                data['gridmaster_ip'] = gm['virtual_ip']
+            else:
+                data['gridmaster_ip'] = gm['v6_virtual_ip']
+        else:
+            data['gridmaster_ip'] = ""
+
+    return data
+
+def dump_json(data):
+    print(json.dumps(data, indent=4))
+
+if __name__ == '__main__':
+    try:
+        if os.path.isfile('/infoblox/var/clusterd_stopped'):
+            data = {'error':'ONE-DB not ready on this node'}
+        else:
+            data = fetch_data()
+        dump_json(data)
+    except Exception as e:
+        ilog.log('Error occurred while handling Scout data : %s' % e)
+        dump_json({'error': str(e)})

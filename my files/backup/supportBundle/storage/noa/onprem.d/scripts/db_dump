@@ -1,0 +1,127 @@
+#!/usr/bin/python
+
+#****************************** Script return code definitions chart *************************************#
+#                                                                                                         #
+# Return in JSON contains 2 fields {'status':'xxxxxxx', 'code':##}                                        #
+# The 'status' should be passed on to the Heka-Grid-Support appropriately                                 #
+#                                                                                                         #
+#--------+------------------------------------------------------------------------------------------------#
+# 'code' | Takes the following meanings ... -ve means error occurred and +ve means success, No 0 response #
+#--------|------------------------------------------------------------------------------------------------#
+#   1    | DB dump capture was successful and the tarball is available in TMP folder                      #
+#--------|------------------------------------------------------------------------------------------------#
+#  -1    | Anything wrong with the input arguments passed should be reported with a -1                    #
+#--------|------------------------------------------------------------------------------------------------#
+#  -2    | If execution of this script is not permitted on this node, report it with a -2. In this case   #
+#        | golang code should stop calling this script here, or limit it to once in 5 hours or so.        #
+#--------|------------------------------------------------------------------------------------------------#
+#  -3    | If the script is already running, or the previous call to this script has not been completed by#
+#        | the golang code, then it should be reported with a -3. This also can be used to report the     #
+#        | status to Heka Grid Support for long running tasks                                             #
+#--------|------------------------------------------------------------------------------------------------#
+#  -4    | If something else went wrong and we need to look into infoblox.log, report it with a -4        #
+#--------+------------------------------------------------------------------------------------------------#
+
+
+import os
+import sys
+import json
+import infoblox.one.onedb as onedb
+import infoblox.common.ilog as ilog
+import infoblox.common.util as cu
+import infoblox.one.util as ou
+from infoblox.one.clusterd import is_node_active_master
+
+TMP='/storage/noa/onprem.d/tmp'
+STATUS=TMP+'/db.status'
+DB_DUMP=TMP+'/onedb.xml'
+DB_DUMP_GZ=DB_DUMP+'.gz'
+
+# These are the input arguments that can be passed by the calling program. If the argument is present , it will be considered True, else False
+db_dump_dict = {
+             'hidden':'h',
+             'gzip':'z',
+             'indent':'i',
+             'tombstone':'t',
+             'derived':'l',
+             'lastrec':'r',
+             'lsmap':'Lv',
+             'shared':'s'
+           }
+
+def is_gm():
+    db = onedb.Db()
+    with db.begin(onedb.RO) as t:
+        # check if this node is GM-Active and HEKA is OPTED IN
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory = onedb.todict, single=True)
+        if grid['heka_opt_in'] and is_node_active_master():
+            return True
+
+    return False
+
+def dump_json(data):
+    print (json.dumps(data))
+
+def write_to_file(filename, mode, content):
+    with open(filename, mode) as fd:
+        fd.write(content)
+
+def checking(inputs):
+    if len(inputs) < 1:
+        dump_json({'status':'Insufficient arguments passed','code':-1})
+        sys.exit(0)
+
+    if not is_gm():
+        dump_json({'status':'Not configured to run on this node', 'code':-2})
+        sys.exit(0)
+
+    if not os.path.isdir(TMP):
+        os.mkdir(TMP)
+
+    if os.path.isfile(STATUS):
+        data = ''
+        with open(STATUS) as f:
+            data = f.readline()
+
+        dump_json({'status':data, 'code':-3})
+        sys.exit(0)
+
+    write_to_file(STATUS, 'w', 'DB dump capture running...')
+
+    inputs.pop(0)
+    return inputs
+
+
+def handling(inputs):
+
+    db_args = ''
+    for k in inputs:
+        if k in db_dump_dict:
+            db_args = db_args+db_dump_dict[k]
+        else:
+            dump_json({'status':'Supplied argument : '+k+' is not supported', 'code':-1})
+            cu.rm_rf(STATUS)
+            sys.exit(0)
+
+    db_args = '-'+db_args
+    out,rc = cu.iexec_output_status(['/infoblox/one/bin/db_dump', db_args, '-d', TMP])
+    if rc == 0 :
+        write_to_file(STATUS, 'w', 'DB dump available in tmp folder')
+        dump_json({'status':'DB dump available in tmp folder','code':1})
+        sys.exit(0)
+    else:
+        write_to_file(STATUS, 'w', out)
+        dump_json({'status': out, 'code': -4})
+        sys.exit(0)
+
+               
+if __name__ == "__main__":
+    try:
+        ia = checking(sys.argv)
+        handling(ia)
+    except Exception as e:
+        ilog.log('Error occurred while handling DB dump : %s' % e)
+        dump_json({'status': str(e), 'code':-4})
+        if os.path.isfile(STATUS) and not (os.path.isfile(DB_DUMP) or os.path.isfile(DB_DUMP_GZ)):
+            cu.rm_rf(STATUS)
+        sys.exit(0)

@@ -1,0 +1,16 @@
+Disk /dev/sda: 524288000 sectors, 250.0 GiB
+Logical sector size: 512 bytes
+Disk identifier (GUID): E1494BE5-09D1-4984-9EED-ED3611A42A5E
+Partition table holds up to 128 entries
+First usable sector is 34, last usable sector is 524287966
+Partitions will be aligned on 2048-sector boundaries
+Total free space is 4029 sectors (2.0 MiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1       220200960       236978175   8.0 GiB     0700  root1
+   2       505411584       522188799   8.0 GiB     0700  root2
+   3            2048         2099199   1024.0 MiB  EF02  boot
+   4       522188800       524285951   1024.0 MiB  0700  config
+   5         2099200       220200959   104.0 GiB   0700  storage1
+   6       287309824       505411583   104.0 GiB   0700  storage2
+   7       236978176       287309823   24.0 GiB    8200  swap

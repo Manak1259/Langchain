@@ -1,0 +1,15 @@
+34/2228977	File/offset for last checkpoint LSN
+Wed Oct 23 10:47:12 2024	Checkpoint timestamp
+0x80d72d92	Last transaction ID allocated
+2696798	Maximum number of active transactions configured
+0	Active transactions
+6	Maximum active transactions
+14M	Number of transactions begun (14101906)
+7147899	Number of transactions aborted
+6954007	Number of transactions committed
+40	Snapshot transactions
+41	Maximum snapshot transactions
+0	Number of transactions restored
+977MB 328KB	Transaction region size
+541	The number of region locks that required waiting (0%)
+Active transactions:

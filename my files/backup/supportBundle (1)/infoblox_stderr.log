@@ -1,0 +1,255 @@
+[2024/10/16 12:42:44.334]: net.ipv4.conf.all.accept_local = 1
+
+[2024/10/16 12:42:44.335]: net.ipv4.conf.default.accept_local = 1
+
+[2024/10/16 12:42:44.336]: net.ipv4.conf.eth1.accept_local = 1
+
+[2024/10/16 12:42:44.338]: net.ipv4.conf.eth2.accept_local = 1
+
+[2024/10/16 12:42:55.663]: /dev/sda7                              	partition	25165820	0	-1
+
+[2024/10/16 12:52:50.680]: net.ipv4.conf.all.accept_local = 1
+
+[2024/10/16 12:52:50.681]: net.ipv4.conf.default.accept_local = 1
+
+[2024/10/16 12:52:50.682]: net.ipv4.conf.eth1.accept_local = 1
+
+[2024/10/16 12:52:50.683]: net.ipv4.conf.eth2.accept_local = 1
+
+[2024/10/16 12:53:01.967]: /dev/sda7                              	partition	25165820	0	-1
+
+[2024/10/16 13:45:28.189]: 4,5d3
+< acl all_dns_views_updater_keys {  key DHCP_UPDATER_default; };
+< 
+11c9,10
+< 	recursion yes;
+---
+> 	recursion no;
+> 	additional-from-cache no;
+68,97d66
+< # default
+< view "_default" {  # default
+<     match-clients { key DHCP_UPDATER_default; !all_dns_views_updater_keys; any; };
+<     match-destinations { any; };
+<     lame-ttl 600;
+<     max-cache-ttl 604800;
+<     max-ncache-ttl 10800;
+<     max-udp-size 1220;
+<     edns-udp-size 1220;
+<     dnssec-enable yes;
+<     dnssec-validation yes;
+<     dnssec-accept-expired no;
+<     filter-aaaa-on-v4 no;
+<     zone "." in {
+<         type hint;
+<         file "named.cache._default";
+<     };
+<     zone "0.0.127.in-addr.arpa" in {
+< 	type master;
+< 	database infoblox_zdb;
+< 	masterfile-format raw;
+< 	file "azd/db.0.0.127.in-addr.arpa._default";
+<     };
+<     zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa" in {
+< 	type master;
+< 	database infoblox_zdb;
+< 	masterfile-format raw;
+< 	file "azd/db.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa._default";
+<     };
+< };
+
+[2024/10/16 13:45:28.190]: 5,8d4
+< key DHCP_UPDATER_default {
+< 	algorithm HMAC-SHA256;
+< 	secret "Jf5XTjCqkqieCmpXpgvO5w==";
+< };
+
+[2024/10/16 13:45:28.194]: /usr/bin/diff: 
+[2024/10/16 13:45:28.194]: /infoblox/var/named_conf/named.cache._default
+[2024/10/16 13:45:28.194]: : No such file or directory
+[2024/10/16 13:45:28.194]: 
+
+[2024/10/16 13:45:30.808]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 13:45:30.808]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 13:45:30.917]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 13:45:30.917]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 13:45:36.280]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 13:45:36.281]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 13:45:36.501]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/16 16:10:30.562]: 36,37d35
+< 	forward only;
+< 	forwarders { 10.39.16.160; };
+
+[2024/10/16 16:10:34.545]: 36,37d35
+< 	forward only;
+< 	forwarders { 10.39.16.160; };
+
+[2024/10/16 16:10:37.199]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 16:10:37.199]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 16:10:37.310]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 16:10:37.310]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 16:10:42.626]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/16 16:10:42.627]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/16 16:10:42.839]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/17 07:39:16.306]: 35a36,37
+> 	forward only;
+> 	forwarders { 10.39.16.160; };
+
+[2024/10/17 07:39:22.909]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:39:22.910]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:39:22.966]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:39:22.967]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:39:28.316]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:39:28.317]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:39:30.177]: making named.conf
+
+[2024/10/17 07:39:30.208]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/17 07:45:25.673]: 36,37d35
+< 	forward only;
+< 	forwarders { 8.8.8.8; };
+
+[2024/10/17 07:45:28.298]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:45:28.299]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:45:28.417]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:45:28.418]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:45:33.760]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:45:33.761]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:45:33.969]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/17 07:49:05.848]: 35a36
+> 	forward only;
+
+[2024/10/17 07:49:13.712]: 35a36
+> 	forward only;
+
+[2024/10/17 07:49:16.329]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:49:16.330]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:49:16.434]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:49:16.435]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:49:21.864]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/17 07:49:21.865]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/17 07:49:22.077]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/18 10:46:33.931]: 98,104d97
+<     zone "test.com" in { # test.com
+< 	type master;
+< 	database infoblox_zdb;
+< 	masterfile-format raw;
+< 	file "azd/db.test.com._default";
+< 	notify yes;
+<     };
+106,107d98
+< 
+< # Zone OID composite: 4301
+
+[2024/10/18 10:46:39.975]: 98,104d97
+<     zone "test.com" in { # test.com
+< 	type master;
+< 	database infoblox_zdb;
+< 	masterfile-format raw;
+< 	file "azd/db.test.com._default";
+< 	notify yes;
+<     };
+106,107d98
+< 
+< # Zone OID composite: 4301
+
+[2024/10/18 10:46:42.449]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:46:42.450]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:46:42.580]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:46:42.580]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:46:49.096]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:46:49.097]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:46:49.327]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/18 10:47:16.140]: 97a98,104
+>     zone "test.com" in { # test.com
+> 	type master;
+> 	database infoblox_zdb;
+> 	masterfile-format raw;
+> 	file "azd/db.test.com._default";
+> 	notify yes;
+>     };
+98a106,107
+> 
+> # Zone OID composite: 4301
+
+[2024/10/18 10:47:18.734]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:47:18.735]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:47:18.838]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:47:18.839]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:47:24.437]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:47:24.438]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:47:24.647]: validating /infoblox/var/named_conf/named.conf
+
+[2024/10/18 10:57:57.889]: 98,104d97
+<     zone "test.com" in { # test.com
+< 	type master;
+< 	database infoblox_zdb;
+< 	masterfile-format raw;
+< 	file "azd/db.test.com._default";
+< 	notify yes;
+<     };
+106,107d98
+< 
+< # Zone OID composite: 4301
+
+[2024/10/18 10:58:00.455]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:58:00.456]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:58:00.580]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:58:00.581]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:58:06.447]: /infoblox/dns/bin/named_control: line 281: /*firewall: No such file or directory
+
+[2024/10/18 10:58:06.447]: /infoblox/dns/bin/named_control: line 289: /*firewall: No such file or directory
+
+[2024/10/18 10:58:06.685]: validating /infoblox/var/named_conf/named.conf
+

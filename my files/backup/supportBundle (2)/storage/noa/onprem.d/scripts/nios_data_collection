@@ -1,0 +1,424 @@
+#!/usr/bin/python
+#Copyright (c) 2020 Infoblox Inc. All Rights Reserved.
+##############################################################################
+# NIOS DATA COLLECTION SCRIPT, currently this script is written for collecting
+# member version history by reading the upgrade.log file it collects the
+# upgrade history and dumps the data in json format, log file name will be
+# heka_stat_%pnode follwed by the member pnode, for HA-passive node the log
+# file is named heka_stat_passive.
+##############################################################################
+
+import os
+import re
+import json
+import infoblox.one.util as ou
+import infoblox.common.util as cu
+import infoblox.common.ilog as ilog
+import infoblox.one.onedb as onedb
+import infoblox.one.clusterd as clusterd
+from datetime import datetime
+import time
+
+MY_MASTER_VPN_ADDR_FILE = '/infoblox/var/vpn_addrs/my_master_vpn_addr'
+PASSIVE_VPN_FILE = '/infoblox/var/vpn_addrs/passive_vpn_addr'
+FILE_NOT_PRESENT = 'No such file or directory'
+
+# returns version of NIOS in format like '905'
+def nios_version():
+    nios_version = ou.get_external_version() # nios version format 8.6.3-51135-1241097029df
+    matches = re.findall(r'\d+', nios_version) #matches format ['8', '6', '3', '51135', '1241097029']
+    nios_version_str = '0'
+    if len(matches) > 3:
+        first_three_ints = matches[:3] #first_three_ints format ['8', '6', '3']
+        nios_version_str = ''.join(first_three_ints)
+    return nios_version_str
+
+if int(nios_version()) >= 905:
+    HEKA_DIR = '/storage/noa/onprem.d/heka/'
+else:
+    HEKA_DIR = '/storage/heka/'
+public_ip_file = '/infoblox/var/flags/public_ip'
+
+def collect_running_status():
+    data = []
+    if not clusterd.is_node_active_master():
+        return data
+
+    db = onedb.Db()
+    with db.begin(onedb.RO) as txn:
+        pnodes = db.call('?one.physical_node', factory=onedb.todict)
+        for p in pnodes:
+            element = {
+                         'id':p['physical_oid'],
+                         'status':ou.get_pnode_status(p['physical_oid'])
+            }
+            data.append(element)
+
+    return data
+
+def member_version_history():
+    data = {}
+    upgrade_history = None
+    curr_ver = None
+    db = onedb.Db()
+    param_file = '/storage/noa/onprem.d/params.json'
+    path_infoblox = '/infoblox/var/hekaupdatetime.txt'
+    path_storage = HEKA_DIR + 'hekaupdatetime.txt'
+
+    master_vip = get_master_vip()
+    pnode_id = ou.get_my_pnode_id()
+    if os.path.isfile(param_file):
+        with open(param_file) as f:
+        # returns JSON object as a dictionary
+            data_load = json.load(f)
+            data_extract = data_load["labels"]
+
+    if os.path.isfile(path_infoblox):
+        if data_extract['nios_role'] == "GMC":
+            dump_file = path_infoblox
+            dest = master_vip + "::heka_data_collection_dir/"
+            ret = rsync_files(dump_file, dest)
+            if ret != 0:
+                ilog.log("Error in member rsync member_pnode : %s", pnode_id)
+            else:
+                ilog.log("rsync success for member : %s", pnode_id)
+                command = "rm " + path_infoblox
+                os.system(command)
+
+
+    #Collect the current version from config.
+    if os.path.exists('/infoblox/config'):
+        curr_ver = get_current_version('/infoblox/config')
+
+    #Collect upgrade history if upgrade log exists
+    if os.path.exists('/infoblox/var/upgrade.log'):
+        upgrade_history = collect_upgrade_log('/infoblox/var/upgrade.log')
+
+    #Check for defaultNiosBaseSharedPath directory, logs are captured in grid.py
+    hdir = os.path.isdir(HEKA_DIR)
+    if not hdir:
+        os.mkdir(HEKA_DIR)
+    if upgrade_history:
+        data['upgrade_history'] = upgrade_history
+    if curr_ver:
+        data['current_version'] = curr_ver.strip("\n")
+    else:
+        ilog.log("Error collecting current version for the member")
+
+    if data_extract['nios_role'] == "GM" or data_extract['nios_role'] == "standalone":
+        # compare the timestamp of both the files and get the heka status from recent updated file
+        # if only one path has the file,read it from the path and update the heka timestamp an heka_optin flag
+        if os.path.exists(path_infoblox) and  os.path.exists(path_storage):
+        # Get the time of last modification of the specified path since the epoch
+            try:
+                modification_infoblox_time = os.path.getmtime(path_infoblox)
+
+                modification_storage_time = os.path.getmtime(path_storage)
+            except Exception as e:
+                ilog.log("Path does not exists or is inaccessible")
+            if modification_infoblox_time > modification_storage_time:
+                data['heka'] = collect_heka_status(path_infoblox)
+            else:
+                data['heka'] = collect_heka_status(path_storage)
+        elif os.path.exists(path_infoblox):
+            data['heka'] = collect_heka_status(path_infoblox)
+        elif os.path.exists(path_storage):
+            data['heka'] = collect_heka_status(path_storage)
+        else:
+            ilog.log("failed to update stat file hekaupdatetime.txt file doesnot exists in both the path due to GMC promotion ")
+            # if file doesnot exists in both the path, configuring default values to make sure poseidon curation doesn't break
+            data_default = {}
+            data_default['status'] = data_extract['heka_optin']
+            data_default['ts'] = "2000-01-1T00:00:00Z"
+            data['heka'] = data_default
+
+    data['running_status'] = collect_running_status()
+    data['active_master'] = clusterd.is_node_active_master()
+    with db.begin(onedb.RO):
+        data['object_count'] = ou.onedb_object_count_get()
+    if os.path.isfile(public_ip_file):
+        data['public_ip_enabled'] = True
+    else:
+        data['public_ip_enabled'] = False
+    dump_file = HEKA_DIR+"heka_stat_%s"% pnode_id
+    dump_json(data, dump_file)
+    #Only GM, just copy the file to /storage/collected_data/
+    if master_vip is None: #File will be already in place
+        ilog.log("Master upgrade log successfully copied.")
+    else:
+        dest  = master_vip + "::heka_data_collection_dir/"
+        ret = rsync_files(dump_file, dest)
+        if ret != 0:
+            ilog.log("Error in member rsync member_pnode : %s", pnode_id)
+        else:
+            ilog.log("rsync success for member : %s", pnode_id)
+
+    if os.path.isfile(PASSIVE_VPN_FILE):
+        with open(PASSIVE_VPN_FILE) as fp:
+            upgrade_file_present = True
+            passive_vpn = fp.read().strip()
+            if passive_vpn:
+                #Rsync's upgrade.log
+                src = passive_vpn + "::infoblox_var_dir/upgrade.log"
+                passive_upgrade_log = HEKA_DIR + "upgrade_passive.log"
+                status, ret = rsync_files_with_errors(src, passive_upgrade_log)
+                if ret != 0:
+                    _, error = status
+                    if FILE_NOT_PRESENT in error:
+                        upgrade_file_present = False
+                        ilog.debug("upgrade.log file not present in passive node.")
+                    else:
+                        ilog.log("rsync failed to get passive upgrade log.")
+                else:
+                    ilog.debug("rsync success for HA-passive upgrade log")
+                #rsync infoblox/config file of HA-passive for current_version.
+                src = passive_vpn + "::base_dir/infoblox/config"
+                passive_config_file = HEKA_DIR + "config_passive"
+                ret = rsync_files(src, passive_config_file)
+                if ret != 0:
+                    ilog.log("rsync failed to get passive node config file.")
+                else:
+                    ilog.debug("rsync success for HA-passive config")
+
+                collect_passive_data(passive_upgrade_log, master_vip, passive_config_file, pnode_id, upgrade_file_present)
+
+
+def collect_passive_data(passive_upgrade_log, mvip, passive_config_file, pnode_id, upgrade_file_present):
+    param_file = '/storage/noa/onprem.d/params.json'
+    data = {}
+    upgrade_history = None
+    cur_ver = None
+    db = onedb.Db()
+
+    if os.path.exists(passive_config_file):
+        cur_ver = get_current_version(passive_config_file)
+
+    if upgrade_file_present:
+        if os.path.exists(passive_upgrade_log):
+            upgrade_history = collect_upgrade_log(passive_upgrade_log)
+
+        if upgrade_history:
+            data['upgrade_history'] = upgrade_history
+        else:
+            ilog.log("Error collecting the upgrade_history in passive")
+
+    if cur_ver:
+        data['current_version'] = cur_ver.strip("\n")
+    else:
+        ilog.log("Error collecting current version in passive")
+
+    with db.begin(onedb.RO):
+        data['object_count'] = ou.onedb_object_count_get()
+    passive_pnode = populate_passive_pnode(pnode_id)
+    dump_file =HEKA_DIR+"heka_stat_%s"%passive_pnode
+    dump_json(data, dump_file)
+
+    if mvip is None:
+        if os.path.isfile(param_file):
+            with open(param_file) as f:
+            # returns JSON object as a dictionary
+                data_load = json.load(f)
+                data_extract = data_load["labels"]
+            if data_extract['nios_role'] == "GM":
+                ilog.log("Grid Master. Not required to sync data")
+                return
+        ilog.log("Couldn't rsync Passive node files, because Master VIP is None")
+        return
+
+    dest  = mvip + "::heka_data_collection_dir/"
+    ret = rsync_files(dump_file, dest)
+    if ret != 0:
+        ilog.log("Failed to rsync passive upgrade log to master.")
+    else:
+        ilog.debug("Passive upgrade log rsync success.")
+
+def get_current_version(config_file):
+    curr_ver = None
+    with open(config_file) as fd:
+        lines = fd.readlines()
+        for line in lines:
+            if 'EXTERNAL_VERSION' in line:
+                curr_ver = line.partition('=')[2]
+                break
+    return curr_ver
+
+def collect_upgrade_log(upgrade_log):
+    upgrade_history = []
+    with open(upgrade_log) as fd:
+        lines = fd.readlines()
+        #For logging member upgrade details
+        for line in lines:
+            line_data = collect_versiondetails(line)
+            if line_data:
+                upgrade_history.append(line_data)
+    return upgrade_history
+
+def get_master_vip():
+    is_gm_active_node = clusterd.is_node_active_master()
+    ilog.debug("GM active node : %s", is_gm_active_node)
+    if os.path.isfile(MY_MASTER_VPN_ADDR_FILE):
+        with open(MY_MASTER_VPN_ADDR_FILE) as fp:
+            master_vip = fp.read().strip()
+            ilog.debug("Master vpn file opened sucessfully, vpn is %s", master_vip)
+            return master_vip
+    else:
+        ilog.debug("Master vpn file doesn't exist")
+        return None
+
+def rsync_files_with_errors(src, dest):
+    status, ret = cu.iexec_output_error_status(['/usr/bin/rsync', '--copy-links', '--timeout=30', src, dest])
+    return status, ret
+
+def rsync_files(src, dest):
+    ret = cu.iexec(['/usr/bin/rsync', '--copy-links', '--timeout=30', src, dest])
+    return ret
+
+def collect_versiondetails(buf):
+    try:
+        tdict ={}
+        db = onedb.Db()
+        buf = buf.split()
+        date = buf[0]
+        time = buf[1]
+        datesp = date.split('/')
+        y = datesp[0]
+        year = int(y[1:])
+        mon = int(datesp[1])
+        day = int(datesp[2])
+        timesp = time.split(':')
+        s = timesp[2]
+        hr = int(timesp[0])
+        minute = int(timesp[1])
+        sec = int(s[0:2])
+        zone = get_time_zone(db)
+        if zone != '': #not UST
+        # since we are unable to get zone information from /infoblox/var/upgrade.log ,currently  will not append zone                            information to the timestamp
+            ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}".format(year, mon, day, hr, minute, sec)
+        else:
+            ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}Z".format(year, mon, day, hr, minute, sec)
+
+        version = ''
+        #[2020/11/16 21:19:48] Hotfix 8.3.8-396619.bin applied successfully
+        if 'Hotfix' in buf:
+            pos = buf.index('Hotfix')
+            version = buf[pos+1]
+
+        #[2020/11/16 21:19:48] Support package 8.3.8-396619.bin applied successfully
+        if 'Support' in buf:
+            pos = buf.index('Support')
+            version = buf[pos+2]
+
+        #[2018/04/24 05:45:42 UTC] Downgraded to: 8.2.4-366880
+        if 'Downgraded' in buf:
+            pos = buf.index('Downgraded')
+            version = buf[pos+2]
+
+        #[2019/01/22 19:35:29] Upgraded to: 8.3.2-376768
+        if 'Upgraded' in buf:
+            pos = buf.index('Upgraded')
+            version = buf[pos+2]
+
+        #[2019/01/29 16:56:34] Reverted to: 8.2.6-371069
+        if 'Reverted' in buf:
+            pos = buf.index('Reverted')
+            version = buf[pos+2]
+
+        if version == '':
+            version = 'Unknown'
+            ilog.log("Version details not parsed for : %s", buf)
+
+        tdict['version'] = version
+        tdict['timestamp'] = ts
+
+        return tdict
+    except IndexError:
+        ilog.log("Error occurred while parsing upgrade.log")
+        return None
+
+def populate_passive_pnode(active_pnode):
+   passive_pnode = None
+   db = onedb.Db()
+   with db.begin(onedb.RO) as t:
+       ha_pairs = db.call('?one.physical_node', {'virtual_node':ou.get_my_vnode_id()}, factory = onedb.todict )
+       for node in ha_pairs:
+           if node['physical_oid'] != str(active_pnode):
+               passive_pnode = node['physical_oid']
+               break
+   return passive_pnode
+
+def get_time_zone(db):
+    zone = ''
+    result = None
+
+    with db.begin(onedb.RO) as txn:
+        vnode= db.call('?one.vnode_time', {'virtual_node':ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+
+        #if override_timezone is True .. only then the value in the vnode_time will be taken .. else it will be cluster time
+        if vnode['override_timezone'] == True:
+            if vnode and 'time_zone' in vnode:
+                result = re.search('\((.*)\)(.*)', vnode['time_zone'])
+            else:
+                result = None
+
+        else:
+            grid= db.call('?one.cluster_time', factory=onedb.todict, single=True)
+            if grid and 'time_zone' in grid:
+                result = re.search('\((.*)\)(.*)', grid['time_zone'])
+            else:
+                result = None
+
+        if result:
+            timeZone = result.group(1).split()
+        else:
+            timeZone = []
+
+        if len(timeZone) > 1:
+            sign = timeZone[1]
+            hh, mm = timeZone[2].split(':')
+            mm = mm.rstrip(')')
+            zone = "{0}{1:02d}:{2:02d}".format(sign, int(hh), int(mm))
+    return zone
+
+def collect_heka_status(file):
+    data = {}
+    db = onedb.Db()
+    param_file = '/storage/noa/onprem.d/params.json'
+
+    if os.path.isfile(param_file):
+        with open(param_file) as f:
+        # returns JSON object as a dictionary
+            data_load = json.load(f)
+            data_extract = data_load["labels"]
+            heka_st = True if data_extract['heka_optin'] == True else False
+
+    with open(file) as f:
+        last = f.readlines()[-1]
+        line = last.split()
+        st = line[2].rstrip(',')
+        year = int(line[5].lstrip('(').rstrip(','))
+        mon  = int(line[6].rstrip(','))
+        day = int(line[7].rstrip(','))
+        h = int(line[8].rstrip(','))
+        m = int(line[9].rstrip(','))
+        s = int(line[10].rstrip(')'))
+        #Zone part of ISO-8601 formart.
+        zone = get_time_zone(db)
+        if zone != '': #not UST
+        # since we are unable to get zone information in hekaupdatetime.txt ,currently  will not append zone                            information to the timestamp
+            heka_ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}".format(year, mon, day, h, m, s)
+        else:
+            heka_ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}Z".format(year, mon, day, h, m, s)
+        data['status'] = heka_st
+        data['ts'] = heka_ts
+
+    return data
+
+def dump_json(buff, dump_file):
+    try:
+        with open(dump_file, "w") as f:
+            json.dump(buff, f, indent = 4)
+    except Exception as e:
+        ilog.log("Error occurred while writing to: %s: Error:%s" %(f,e))
+
+if __name__ == '__main__':
+    member_version_history()

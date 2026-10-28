@@ -1,0 +1,16 @@
+{
+    "grid_feature_usage": {
+        "networks.deny_bootp": 0, 
+        "dns.network.cidr_31_32_128": 0, 
+        "dhcp.shared_networks": 0, 
+        "dhcp.network_views": 1, 
+        "dhcp.dhcp_failover": 0, 
+        "dhcp.templates": 0, 
+        "networks.override_next_server": 0, 
+        "networks.override_boot_server": 0, 
+        "networks.override_boot_file": 0, 
+        "dhcp.captive_portal": false, 
+        "networks.pxe_lease_time_enabled": 0, 
+        "dhcp.authenticated_dhcp": false
+    }
+}

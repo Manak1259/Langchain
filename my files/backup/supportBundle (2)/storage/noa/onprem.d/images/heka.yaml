@@ -1,0 +1,60 @@
+version: "3.2"
+services:
+  heka:
+    image: infobloxcto/heka:v3.0.1-3-ge74f44c
+    labels:
+      com.infoblox.maintainer: "infoblox"
+      com.infoblox.app.version: "v1.6.2"
+    restart: always
+    command: [
+      "--poll.interval",
+      "24h",    
+      "--first.interval",
+      "8h",     
+      "--dataout.address",
+      "0.0.0.0",
+      "--dataout.port",
+      "9346",
+      "--log.level",
+      "info",
+      "--data.type",
+      "heka_data",
+      "--dump.setting",
+      "cloudonprem",
+      "--grpc.address",
+      "cp.noa.infoblox.com",
+      "--grpc.port",
+      "443",
+      "--secure",
+      "true",
+      "--sampling.interval",
+      "30s",
+      "--upload.interval",
+      "1h",     
+      "--check.interval",
+      "15m",
+      "--file.copy.service.host",
+      "grpc.csp.infoblox.com",
+      "--file.copy.service.port",
+      "443",
+      "--hekaapi.address",
+      "csp.infoblox.com",
+    ]
+    logging:
+      driver: json-file
+      options:
+        max-file: "2"
+        max-size: 1m
+    network_mode: "host"
+    volumes:
+      - ${BIND_VOL_ACCESS_KEY:-/etc/onprem.d}:/etc/onprem.d
+      - ${BIND_VOL_CERTS:-/etc/certs}:/etc/certs
+    environment:
+      - NS_API_KEY=${API_KEY}
+      - NS_OPH_ID=${OPHID}
+      - HTTPS_PROXY
+    healthcheck:
+      test: ["CMD", "health", "http://127.0.0.1:26749/healthz"]
+      interval: 10s
+      timeout: 12s
+      retries: 1

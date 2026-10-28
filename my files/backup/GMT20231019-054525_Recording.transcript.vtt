@@ -1,0 +1,1938 @@
+WEBVTT
+
+1
+00:00:15.350 --> 00:00:18.969
+Siva Krishna: But today I will explain about on these topics. Okay.
+
+2
+00:00:20.860 --> 00:00:26.630
+Siva Krishna: so I will deploy. I will explain about how to deploy Aj on the S. Server. Okay?
+
+3
+00:00:28.520 --> 00:00:45.040
+Siva Krishna: So first, I mean, we have a send us server, I mean one sx, a. For 4 people. Okay, so and also we are, send Ips. So these are the net Ips network, this which we are sending each and every person. So every person is assigned. You don't need to send with 20 Ips. Okay.
+
+4
+00:00:46.090 --> 00:00:48.080
+Siva Krishna: so let me take my and look.
+
+5
+00:00:50.370 --> 00:00:53.970
+Siva Krishna: So before creating any sending in the apentus
+
+6
+00:00:53.980 --> 00:00:59.489
+Siva Krishna: first, you have to ping the, and you have to check. Okay, first, you need to deploy the Vm.
+
+7
+00:01:01.660 --> 00:01:11.249
+Siva Krishna: this is a you don't need to download any of the bill. So to upload the bill, you have to go to the Vnc server, and from here you can upload. Okay. Now, if you see
+
+8
+00:01:11.990 --> 00:01:14.260
+Siva Krishna: doing this. thank you.
+
+9
+00:01:24.120 --> 00:01:34.049
+Siva Krishna: So when you are creating any Vm in this server. Okay, you have to create with your Id. You can't just give some random saw that you had to do. Okay.
+
+10
+00:01:34.910 --> 00:01:47.420
+Siva Krishna: then. Only if someone who. Maybe if someone is doing anything so they can, they will not touch that we have. They want to power up how they want to delete. They'll contact you. If not just directly, they will go and delete if there is space issue. Okay.
+
+11
+00:01:52.100 --> 00:01:55.890
+Siva Krishna: here is 5 0 music. So
+
+12
+00:01:58.270 --> 00:01:59.919
+Siva Krishna: take the same motion.
+
+13
+00:02:05.440 --> 00:02:12.659
+Siva Krishna: So I want to go to import bills path. I'm going taking the release bill. Okay. For example, if you come here. But initially, how to go like this
+
+14
+00:02:13.160 --> 00:02:14.650
+Siva Krishna: other location
+
+15
+00:02:14.850 --> 00:02:19.050
+Siva Krishna: computer from here. Import.
+
+16
+00:02:19.250 --> 00:02:30.959
+Siva Krishna: Yeah, if the bill spot is not there, for example, if you you know here, if you see empty, so then you need to check this. Who is the one of the same server? Every everybody in the server. Just go to your workstation.
+
+17
+00:02:31.590 --> 00:02:32.989
+Siva Krishna: Go to the path.
+
+18
+00:02:39.890 --> 00:02:46.499
+Siva Krishna: Okay, this isn't okay. For example, now import the simple query is not the rear. So if I will go from time
+
+19
+00:02:48.310 --> 00:02:49.260
+Siva Krishna: here, we
+
+20
+00:02:50.520 --> 00:03:00.799
+Siva Krishna: if you say security is there now so like that. So you had to go to that path from your workstation. You know, whoever it is you are using. So from their workstation, you have to go to that. Okay?
+
+21
+00:03:02.120 --> 00:03:14.179
+Siva Krishna: Then. Only you can now get to that. Yeah, from your location. If you go, then it will show in the URL. So, okay, you don't need to download any of the bill. Okay.
+
+22
+00:03:18.930 --> 00:03:25.899
+Siva Krishna: take the latest one. I have used 1, 6, 4 in the last training, so I'll take the latest in most. Okay.
+
+23
+00:03:27.890 --> 00:03:31.540
+Siva Krishna: mammal, where it is found at Jetadovia. Hmm.
+
+24
+00:03:46.770 --> 00:03:51.069
+Siva Krishna: Here, network, we need to use 56, current and 58 for Mgm. Tech.
+
+25
+00:03:53.440 --> 00:03:57.649
+Siva Krishna: You can use any of the licensed thing 1, 4, 1, 5,
+
+26
+00:04:03.950 --> 00:04:16.760
+Siva Krishna: not lab. It's LAN land network and Mgm management, different types of networks which can be connected up. So if you configure Mgm, T. On any grid, so you will be able to launch with Mgmt.
+
+27
+00:04:16.860 --> 00:04:27.559
+Siva Krishna: Okay, but services can be executed running on the both the service, both the networks. But you can. When you want to launch the ui you can launch with the in Zoomtown
+
+28
+00:04:40.400 --> 00:04:43.740
+Siva Krishna: now and applaud one vm. Open the down one.
+
+29
+00:04:44.970 --> 00:04:47.859
+Siva Krishna: So hr equal 2 nodes.
+
+30
+00:05:04.190 --> 00:05:11.070
+Siva Krishna: If we get to the 5 world only once we can use, and I mean once
+
+31
+00:05:24.860 --> 00:05:30.040
+Siva Krishna: creating mentioned. So games
+
+32
+00:05:32.510 --> 00:05:34.300
+Siva Krishna: create a new virtual machine
+
+33
+00:05:34.680 --> 00:05:38.839
+Siva Krishna: for what are using for any specific programming. If it is required, you can use it.
+
+34
+00:05:38.900 --> 00:05:40.500
+Siva Krishna: for the requirement
+
+35
+00:06:40.360 --> 00:06:43.900
+Siva Krishna: might take some time. Umhm.
+
+36
+00:06:45.130 --> 00:06:49.610
+Siva Krishna: some option you have chosen like just before
+
+37
+00:06:50.030 --> 00:06:52.760
+Siva Krishna: what some like
+
+38
+00:06:53.640 --> 00:07:12.369
+Siva Krishna: license license type.
+
+39
+00:07:12.660 --> 00:07:16.469
+Siva Krishna: and moving forward early our thing. Then it will come
+
+40
+00:07:19.110 --> 00:07:32.370
+Siva Krishna: that a particular license it won't deploy properly. Again, you have to delete the license, and you have to. It's almost like you're installing from the pressure again.
+
+41
+00:07:32.860 --> 00:07:33.889
+Siva Krishna: not a second.
+
+42
+00:07:34.590 --> 00:07:48.179
+Siva Krishna: We have different types of license like temporal licenses, your permanent licenses there, so temporary license means. If you install, then you can't delete it to be a problem. So again, you have to replace with that permanent license means you can delete from the Ui or Cnn. Okay.
+
+43
+00:07:51.200 --> 00:07:54.720
+Siva Krishna: so it's it will take some time. Come in while you go to some other topic.
+
+44
+00:07:56.050 --> 00:07:56.840
+Hmm, hmm!
+
+45
+00:07:58.420 --> 00:08:01.420
+Siva Krishna: So I think you people have gone to the Jenkins for fun.
+
+46
+00:08:01.970 --> 00:08:05.200
+Siva Krishna: I shared the recording. Yeah.
+
+47
+00:08:06.120 --> 00:08:07.499
+Siva Krishna: but for me.
+
+48
+00:08:09.360 --> 00:08:10.949
+Siva Krishna: and that means.
+
+49
+00:08:14.710 --> 00:08:17.510
+Siva Krishna: may I pick comment, solution? Hmm.
+
+50
+00:08:20.920 --> 00:08:22.080
+Siva Krishna: and and
+
+51
+00:08:27.050 --> 00:08:32.899
+Siva Krishna: to talk on to them, and that I explained about how the Jenkins will work, how Jenkins will be executed on the flight
+
+52
+00:08:33.390 --> 00:08:43.090
+Siva Krishna: I'm starting. That automation will also yeah, the home can use.
+
+53
+00:08:43.100 --> 00:08:46.509
+Siva Krishna: and that I have explained. So go through that recording. Okay.
+
+54
+00:08:46.940 --> 00:08:52.550
+Siva Krishna: so let me explain. Brief. Okay. this is the Jenkins jump. Okay. it's like a
+
+55
+00:08:52.710 --> 00:09:03.660
+Siva Krishna: when you get money you'll get on feature. Rf, for testing purpose. Okay, you had to write that test plan. Okay? And in order to test that manually, also, you need to automate it.
+
+56
+00:09:03.860 --> 00:09:13.970
+Siva Krishna: So once, I'm testing manually. And after some 50% of testing, you need to start automation. So parallelly. Okay? So that automation will be E executed every time every week.
+
+57
+00:09:14.310 --> 00:09:34.380
+Siva Krishna: Okay, every week. I mean, just to make sure. No regression issues. For example, this. Rf, is 8, 6, 3 rf, 8, 6, 2 rf, hmm, so now it's 6, 3, because of any other new Rfs. Which was introduced in 8, 6, 3, this 8, 6, 2 function should not get break. That is the reason we will be executing this regression suite every week.
+
+58
+00:09:34.380 --> 00:10:02.840
+Siva Krishna: and any new build, new, hard fix, anything. Okay? All the other jobs will be all the jobs, I mean, if it is most of them all the all the jobs will be executed. No, if it is a specific heart fix or something will execute only the jobs which are letter to the top fix. If it is something like a Dts hot, fix a secure heart fix only that those little jobs will be executed if it is the hard fix related. Dns only Dns.
+
+59
+00:10:03.030 --> 00:10:03.890
+Siva Krishna: okay.
+
+60
+00:10:05.130 --> 00:10:11.290
+Siva Krishna: this will be doing every week. Okay. so this is a Jenkin job that we are using. Jenkins. Okay?
+
+61
+00:10:11.550 --> 00:10:22.479
+Siva Krishna: So in we have some parameters. This is the nightly build path. Okay, the the the bill which you are passing right just now, as I import bills that this is the build path you'll be passing here. Okay.
+
+62
+00:10:22.490 --> 00:10:23.899
+Siva Krishna: one of the melody.
+
+63
+00:10:24.210 --> 00:10:32.309
+Siva Krishna: Hmm, yeah, this configuration configurate means you will. This Jenkins job itself will create a grid, will create a setup.
+
+64
+00:10:32.340 --> 00:10:41.920
+Siva Krishna: It will be depends. So if you need grid. You can use the assumption. It will be clear the grid if you already have the grid, and if you want to use the same grid for this, then you can give no option.
+
+65
+00:10:45.560 --> 00:10:51.680
+Siva Krishna: So if you know that. But then, at the time that grid should be present available for that, I will that we need will come.
+
+66
+00:10:51.750 --> 00:11:01.060
+Siva Krishna: Okay, automation branch. So we have more dollar code to get our code. Is there in git? Okay? So that is, this is the branch.
+
+67
+00:11:01.330 --> 00:11:03.599
+Siva Krishna: Let me share. Kit. Okay.
+
+68
+00:11:23.470 --> 00:11:25.689
+Siva Krishna: these are the branches which we hope.
+
+69
+00:11:26.950 --> 00:11:30.269
+Siva Krishna: Okay. we have many branches, some 90 year old.
+
+70
+00:11:30.520 --> 00:11:38.550
+Siva Krishna: 8, 6, 3. Okay. You have my head branches. So branch. Okay?
+
+71
+00:11:43.220 --> 00:11:45.379
+Siva Krishna: And we'll see.
+
+72
+00:11:45.900 --> 00:11:51.750
+Siva Krishna: thing is like you need to remember. Build pathways up to here. Okay.
+
+73
+00:11:53.290 --> 00:12:02.399
+Siva Krishna: will. The Cl. Will be taken from here. This is the bill. Cl, okay, this is, the path is different. Cl is different. Both are different. So we can't comment. Okay.
+
+74
+00:12:03.100 --> 00:12:05.700
+Siva Krishna: we need to pass. Build. Cl. Here again.
+
+75
+00:12:06.140 --> 00:12:13.340
+Siva Krishna: Hard fix. I mean, this is like a new parameter. So if we are executing these jobs and not fix, then we will be passing our fix here. Okay.
+
+76
+00:12:14.660 --> 00:12:15.650
+Siva Krishna: is up.
+
+77
+00:12:17.250 --> 00:12:22.089
+Siva Krishna: Is it our letter to git git branch? Okay, you are a credentials.
+
+78
+00:12:23.670 --> 00:12:38.329
+Siva Krishna: So here it will become our job execution. Hmm, so first, this job, what it will do is this job will create a workspace. Whenever we execute any job, it will create a workspace in a client. So to execute this job, we need a client. Okay.
+
+79
+00:12:38.390 --> 00:12:40.680
+Siva Krishna: all our clients are there in this label.
+
+80
+00:12:44.280 --> 00:12:53.919
+Siva Krishna: These are all the clients. Okay in this client, the jobs will be execution will start. So remember, we have 2 things. One is client, one is grid.
+
+81
+00:12:53.940 --> 00:12:59.299
+Siva Krishna: both are different. Okay? And don't get confused with that. Okay, for starting, Jenkins job, you need a client
+
+82
+00:12:59.330 --> 00:13:06.060
+Siva Krishna: to execute your automation script. You need a greet. Okay, both are different. Don't get confused there. Okay?
+
+83
+00:13:08.630 --> 00:13:12.000
+Siva Krishna: So if you'll create a workspace, let me show you move it.
+
+84
+00:13:26.100 --> 00:13:27.440
+Siva Krishna: So this is my job
+
+85
+00:13:28.140 --> 00:13:33.989
+Siva Krishna: in this workspace.
+
+86
+00:13:34.490 --> 00:13:47.649
+Siva Krishna: So your pre client. Okay, this is one client. Every client will have 5 users. Test one test 2, 3, 4, 5, so that 5 users will be like, 5 jobs can be exhibited on one planet. Okay?
+
+87
+00:13:47.950 --> 00:13:59.120
+Siva Krishna: So every user test, one will have separate workspace. Every user will a separate workspace. And in that workspace it will create one folder with the Jobnam. So from the inlet, Jobnam, you will find the other files.
+
+88
+00:14:04.250 --> 00:14:04.910
+Siva Krishna: Oh.
+
+89
+00:14:06.360 --> 00:14:07.460
+I mean.
+
+90
+00:14:35.410 --> 00:14:37.820
+Siva Krishna: but these are all the Rfs
+
+91
+00:14:38.290 --> 00:14:40.869
+Siva Krishna: scripts. Okay, automation suits.
+
+92
+00:14:40.990 --> 00:14:41.930
+Siva Krishna: And this.
+
+93
+00:14:47.420 --> 00:14:48.650
+Siva Krishna: this is my suit.
+
+94
+00:14:49.830 --> 00:14:50.650
+Siva Krishna: that
+
+95
+00:15:06.350 --> 00:15:08.039
+Siva Krishna: this is our suit. Okay.
+
+96
+00:15:08.580 --> 00:15:15.170
+Siva Krishna: so we will be executing this. Okay, every time we list. Pi test automation. Okay.
+
+97
+00:15:15.350 --> 00:15:27.469
+Siva Krishna: so you need to match this class name, everything should be enabled. So for the test case there is, there will be an order so based on the order. The test case will work. Okay.
+
+98
+00:15:32.090 --> 00:15:36.290
+Siva Krishna: but it will create a workspace. Okay. after them.
+
+99
+00:15:36.660 --> 00:15:40.700
+Siva Krishna: It will just do whatever the bill you are passing there. It will evaluate the page.
+
+100
+00:16:02.350 --> 00:16:07.009
+Siva Krishna: First it is swing, get, get checked. All it is doing. It looks like it is copying to the workspace.
+
+101
+00:16:07.180 --> 00:16:10.750
+Siva Krishna: Hmm! After then it is valid in the bills. If you see
+
+102
+00:16:11.410 --> 00:16:16.499
+Siva Krishna: it is valid. whether given bills are there in the path or not.
+
+103
+00:16:16.830 --> 00:16:20.220
+Siva Krishna: After that it will start the configurator. Okay?
+
+104
+00:16:20.460 --> 00:16:25.239
+Siva Krishna: And here, this is a config grid. Okay. here's the config grid command.
+
+105
+00:16:25.830 --> 00:16:31.370
+Siva Krishna: Yeah, it is creating setup. Okay? As per the my requirement. Okay?
+
+106
+00:16:33.540 --> 00:16:50.900
+Siva Krishna: Then, installing the licenses. What if I record any action by default? Complicated command will install Dns, Dhcp. And use licenses? I mean, what other licenses if you pass, if you pass on 4, 1, 5 to launch on 4 on 4, 8, one for something. What are the pass you need to install? Okay?
+
+107
+00:16:50.940 --> 00:17:01.819
+Siva Krishna: And if you want any extra licenses, you can use the script. Okay, using the script, you can install the record license for me. This traffic control license. Okay?
+
+108
+00:17:02.620 --> 00:17:11.950
+Siva Krishna: Then here it is generated under Uefi to generate one configuration file, so that configuration file will have the whole lot. Information of that setup
+
+109
+00:17:12.010 --> 00:17:17.170
+Siva Krishna: like master, what is a master? IP, okay? You see.
+
+110
+00:17:17.430 --> 00:17:23.190
+Siva Krishna: IP, master, IP, HA. Ips, okay, everything will be stored in that file
+
+111
+00:17:23.950 --> 00:17:25.660
+Siva Krishna: in regional.
+
+112
+00:17:26.230 --> 00:17:36.169
+Siva Krishna: Every job. It should be there. Okay, I can't execute my job on us. Setup. My, this job is having separate setup.
+
+113
+00:17:36.320 --> 00:17:48.439
+Siva Krishna: So these setup iters need to be in the configuration file. That configuration file will be used in my script, my automatic script. Okay, if you see this is the script using London, we are generated in the config.
+
+114
+00:17:48.500 --> 00:17:52.160
+Siva Krishna: So Master IP, okay, hyphen. Ms members.
+
+115
+00:17:52.270 --> 00:17:56.909
+Siva Krishna: Okay. Master IP, members. Okay, version, this is vapi version.
+
+116
+00:17:57.680 --> 00:18:01.380
+Siva Krishna: So web pay means C, we have 2 things. One is ul, and one is
+
+117
+00:18:01.520 --> 00:18:30.140
+Siva Krishna: backend vapi. Okay? Ua means you can configure anything from the Ua. You can add a member from the Ua. You can delete a member. You can add a zoom network, anything from the ui, the same. The same thing you can do from the vapi also back end cls, so we have that commands happy commands. So we are testing function testing automa testing here, our team is functional testing. So we will be using in our automation suits. Web. Okay?
+
+118
+00:18:30.790 --> 00:18:36.780
+Siva Krishna: I mean, while doing a lot of manual testing. That doesn't mean we need to test you way on those back and forth. But
+
+119
+00:18:36.980 --> 00:18:42.399
+Siva Krishna: automation will be using is important for us, any for any feature.
+
+120
+00:18:43.720 --> 00:18:46.240
+Siva Krishna: So you need to pass the application. Okay.
+
+121
+00:18:48.180 --> 00:19:04.709
+Siva Krishna: So if you want any extra parameters need to be added in that computer open, you can pass like this. I want the active. IPI have H in this setup. Okay, active node. IP. Passen node, IPIP. V. 6. Or if I want any Dtc servers, anything, any other data, any data I can pass in this way.
+
+122
+00:19:05.090 --> 00:19:11.940
+Siva Krishna: So here we have which data
+
+123
+00:19:39.880 --> 00:19:51.310
+Siva Krishna: will generate the converted. Pf, it means, like, it is pushing the data into conflict. But our script, the whatever data we have created in converted way. That will be used in our script. Okay, it is.
+
+124
+00:19:53.280 --> 00:20:06.429
+Siva Krishna: The year will be executing the automation suit. Okay, after executing the suit. I mean, the results will be stored in the report portal. So we have a report button from there. You can start analyzing. You can analyze the Japs. Okay.
+
+125
+00:20:08.890 --> 00:20:26.820
+Siva Krishna: so this is how this Jenkins job will work. Okay, here we recently heard one more new option, like validating the port files. Okay, there are chances for creating the poor files, and when we are doing some mobile corporations, the core files and bulk are not only, but given for small operations, so so there are chances for generating the core files. Poor files should not get generated.
+
+126
+00:20:27.040 --> 00:20:33.179
+Siva Krishna: Okay, there is a path like storage course in that part. You can
+
+127
+00:20:35.910 --> 00:20:40.290
+Siva Krishna: any syntax mismatch matches it, I mean, if any
+
+128
+00:20:51.320 --> 00:20:54.649
+Siva Krishna: I mean due to whatever service you are doing, if some other service are affecting
+
+129
+00:20:54.660 --> 00:21:01.930
+Siva Krishna: something, something is wrong in the built. Okay.
+
+130
+00:21:04.840 --> 00:21:07.530
+Siva Krishna: I'll show you that where to value the score files.
+
+131
+00:21:33.800 --> 00:21:35.079
+Siva Krishna: these are the course.
+
+132
+00:21:35.130 --> 00:21:43.010
+Siva Krishna: This is the path. This is the path. This is not a port. Okay? I have taken that support bundle due to that. It got generated is expected. Okay.
+
+133
+00:21:51.090 --> 00:21:52.600
+Siva Krishna: this inspector, okay.
+
+134
+00:21:54.170 --> 00:21:58.110
+Siva Krishna: standard is in the collaboration script, we are taking the support bundle.
+
+135
+00:21:58.220 --> 00:22:03.199
+Siva Krishna: we'll count the support Monday with each and every member and then we'll be using it. Okay.
+
+136
+00:22:07.870 --> 00:22:08.710
+Siva Krishna: man.
+
+137
+00:22:10.560 --> 00:22:15.219
+Siva Krishna:  we're gonna hmm.
+
+138
+00:22:17.290 --> 00:22:21.209
+Siva Krishna: Sometimes we know something. Part of this
+
+139
+00:22:33.130 --> 00:22:47.829
+Siva Krishna: thing is like, say, if they creating any folder when you're logging within to any client using test one user and create any folder. Only test, one user will have access to delete that folder.
+
+140
+00:22:47.880 --> 00:22:56.600
+Siva Krishna: Other users will not update. So at that time, if you want to do it. That kind of policy. And you log in with the route. You can delete any folder.
+
+141
+00:22:56.760 --> 00:23:02.579
+Siva Krishna: Okay, okay, that is the reason because this configurate command what it will do. Right? Okay.
+
+142
+00:23:04.410 --> 00:23:14.229
+Siva Krishna: it will create a setup. Okay? But for that, you need to pass some parameters like Pull Directory. So pull directory means it will have data like,
+
+143
+00:23:15.040 --> 00:23:27.589
+Siva Krishna: no, it is taking Gridu memory. It is calling grid with number. Okay, it will. That will create Xml file that Xml file will have that master and member details. Okay, let me show you that one.
+
+144
+00:23:29.650 --> 00:23:42.770
+Siva Krishna: This will be created by default. Our in our Jenkins we are using Tim Foll in the Temp folder we are using. We are passing our folder. Name. This in this name will create a follower. And in that folder you will see that Xml files. Okay.
+
+145
+00:23:48.840 --> 00:23:51.449
+Siva Krishna: yeah, let me know.
+
+146
+00:23:54.190 --> 00:23:55.630
+Siva Krishna: is the Xml 5.
+
+147
+00:23:59.540 --> 00:24:02.160
+Siva Krishna: This external design, the data
+
+148
+00:24:03.470 --> 00:24:06.809
+Siva Krishna: okay. like this, the data will be stored in this. Okay.
+
+149
+00:24:15.020 --> 00:24:20.900
+Siva Krishna: yeah. please, Eddie. this is a master grid. Hmm.
+
+150
+00:24:21.590 --> 00:24:38.510
+Siva Krishna: so what are the ipv. 4 ipv, 6 addresses? Mgm, IP to the id. See, you need to id see everything. Everything will be stored in this Xml file. Yeah. And our job. If it is required, we'll take from that. This acceptance. Xml, we can take the action.
+
+151
+00:24:39.100 --> 00:24:41.759
+Siva Krishna: Any values occur. Information. Okay.
+
+152
+00:24:42.860 --> 00:24:58.540
+Siva Krishna: team is, we are generated giving that tag name. Okay, whatever the tag number we are giving here with the tag name that Xml file will be created. So in the job he might be passing the tag name as this one. This is the one tag which he, you know, he might be passing. So if this Xml file got generated with this
+
+153
+00:24:59.420 --> 00:25:02.739
+Siva Krishna: name, okay? And hyphen F means build path.
+
+154
+00:25:03.070 --> 00:25:07.050
+Siva Krishna: We had to give wheel path. So build.
+
+155
+00:25:07.170 --> 00:25:22.400
+Siva Krishna: whatever the bill we are passing there, it will take a minute for the vms. It will take
+
+156
+00:25:22.870 --> 00:25:31.700
+Siva Krishna: these values like, build a path. Indeed. So this is variable, right? Build path. We are build path. We are passing from here, if you see.
+
+157
+00:25:32.540 --> 00:25:34.560
+Siva Krishna: build here from here we are passing.
+
+158
+00:25:35.340 --> 00:25:37.919
+Siva Krishna: Will. The path will be taken from here?
+
+159
+00:25:47.280 --> 00:25:54.320
+Siva Krishna: 8, 6, 3 is a different thing, and the 9 0 is a different version.
+
+160
+00:25:55.000 --> 00:26:12.339
+Siva Krishna: Voice, different voice, change of the voice. So I mean, recently, maybe due to some requirements. Before we had different different types of bills like discord. We have separate bills for each and everything. But now we have a single bill. Even discordi also is available in the final.
+
+161
+00:26:12.470 --> 00:26:18.569
+Siva Krishna: All the license are integrated in the phone bill.
+
+162
+00:26:19.270 --> 00:26:21.599
+Siva Krishna: Okay, so this is the buildup of the day.
+
+163
+00:26:21.940 --> 00:26:23.679
+Siva Krishna: From here. It is technique.
+
+164
+00:26:23.870 --> 00:26:37.810
+Siva Krishna: Bilpa, delay Bili, Padkin. If you pass bilipa delay. It means this is for the young. This is for auditors. Okay. no variable is there where it's getting the value
+
+165
+00:26:38.540 --> 00:26:44.330
+Siva Krishna: values
+
+166
+00:26:44.690 --> 00:26:48.210
+Siva Krishna: which I mean. This is the one from here it is getting. See.
+
+167
+00:26:49.020 --> 00:26:58.080
+Siva Krishna: this is available, which is in the configuration. Okay. But this value you are getting from the parameters which you are passing. I showed you right.
+
+168
+00:27:05.510 --> 00:27:06.930
+Siva Krishna: See, this is the part.
+
+169
+00:27:07.070 --> 00:27:20.600
+Siva Krishna: This is the part. So this path and Bill Cl will be added to this bill for delay. Variable. Okay, and this variable will be using the configurate command. Okay.
+
+170
+00:27:21.480 --> 00:27:23.819
+Siva Krishna: this is how it will work. Okay.
+
+171
+00:27:23.950 --> 00:27:27.999
+Siva Krishna: this is about the second job. Okay, let me see.
+
+172
+00:27:30.080 --> 00:27:36.299
+Siva Krishna: So it generated the config, and my requirement is greeted with he. And I'm a member. Okay?
+
+173
+00:27:40.560 --> 00:27:56.360
+Siva Krishna: And I'm taking the values from the Xml file, which is that configured as and it has the pool. Xml file. Right? So from that I'm taking the values, Master IP, Master Id. Add to IP password, IP. Everything I will be taking. I will be installing the licenses at all I need here.
+
+174
+00:27:57.000 --> 00:28:05.799
+Siva Krishna: then, generating that on that Ufo I mean convict that to a file. So this will gender, and this will push the all the values to the configuration
+
+175
+00:28:06.640 --> 00:28:15.739
+Siva Krishna: you'll be using my automation script. Okay. is all about Jenkins. Execution, flow, job, execution flow. Okay.
+
+176
+00:28:16.300 --> 00:28:21.339
+Siva Krishna: I'll check this feature. I'm just taking comments up there.
+
+177
+00:28:31.590 --> 00:28:32.320
+Siva Krishna: Hmm!
+
+178
+00:28:37.910 --> 00:28:41.820
+Siva Krishna: So we held around with some 10 plus clients way home.
+
+179
+00:28:42.910 --> 00:28:46.289
+Siva Krishna: So every client will have 5 users.
+
+180
+00:28:47.250 --> 00:28:48.880
+Siva Krishna: Test one book test face.
+
+181
+00:28:54.170 --> 00:28:57.840
+Siva Krishna: You can see our trends in this label. This is our label.
+
+182
+00:28:58.130 --> 00:28:58.810
+See.
+
+183
+00:28:59.070 --> 00:29:01.889
+Siva Krishna: these are our clients and the labels. Okay.
+
+184
+00:29:02.150 --> 00:29:02.890
+once
+
+185
+00:29:14.230 --> 00:29:22.400
+Siva Krishna: I'll explain about the Jenkins. Okay.
+
+186
+00:29:22.520 --> 00:29:41.890
+Siva Krishna: So recently, we have made that Crn into 2 parts like week, 1, 3 and week 2, 4 in a month. So we are big. 4 terms. But week 1, 3. We are going to execute all the jobs. Okay, but week 2, 4 will take unstable jobs. And, for example, in week one, we'll execute all the jobs. Okay.
+
+187
+00:29:42.110 --> 00:29:51.519
+Siva Krishna: week to what we'll do. We will take all, only the unstable and fail jobs from that week on jobs which are executed successfully like if you take this sheet.
+
+188
+00:29:55.790 --> 00:30:00.100
+Siva Krishna: But this job is adding success jobs, unstable jobs and fail jobs all out there
+
+189
+00:30:06.200 --> 00:30:16.570
+Siva Krishna: will not execute in the second week only the unstable and failure jobs will be taken that we have skipped out to take the third data.
+
+190
+00:30:17.390 --> 00:30:20.190
+Siva Krishna: So these are the jobs. Okay? Week, 1, 3,
+
+191
+00:30:21.120 --> 00:30:40.160
+Siva Krishna: yeah. And we we are exhibiting Mike, we, our CIA will basically 2 days like Friday will start at 4, 34, 4, 30 on Saturday again, it will start, I mean, like whatever the jobs which are filled in Friday's execution. That will be executed on the same bill on Saturday
+
+192
+00:30:41.570 --> 00:30:44.760
+Siva Krishna: report. But I forgot to show you
+
+193
+00:30:45.780 --> 00:30:48.010
+Siva Krishna: this is the department of Leak.
+
+194
+00:30:48.280 --> 00:30:52.519
+Siva Krishna: Send them to Sebastian
+
+195
+00:30:52.770 --> 00:30:56.440
+Siva Krishna: Sebastian
+
+196
+00:31:16.360 --> 00:31:18.520
+Siva Krishna: again, what else is it?
+
+197
+00:31:29.840 --> 00:31:31.260
+Siva Krishna: Association at the same?
+
+198
+00:31:31.340 --> 00:31:34.159
+Siva Krishna: No, the report bottle is on separate.
+
+199
+00:31:34.370 --> 00:31:36.880
+Siva Krishna: Can you see this other? You are and okay.
+
+200
+00:31:36.910 --> 00:31:37.930
+And then.
+
+201
+00:31:41.000 --> 00:31:45.729
+Siva Krishna: okay, when you log into the table, you will find like this, okay, you have to.
+
+202
+00:31:46.010 --> 00:31:51.200
+Siva Krishna: You need to get access for this one regression. Neas Api. Okay.
+
+203
+00:31:51.760 --> 00:31:55.219
+Siva Krishna: tell them that we are from Api team. So you need access to this. Okay?
+
+204
+00:31:55.350 --> 00:31:58.759
+Siva Krishna: Only you'll be going to Antonio requirement
+
+205
+00:31:59.620 --> 00:32:02.930
+Siva Krishna: search with their job.
+
+206
+00:32:05.130 --> 00:32:11.199
+Siva Krishna: So this is my job. So this many couple cases 4 don't. 36. This many cases are paid. Now.
+
+207
+00:32:11.480 --> 00:32:13.080
+Siva Krishna: So go there.
+
+208
+00:32:13.140 --> 00:32:18.169
+Siva Krishna: click on this. And you analyze the job failed. Cases? Okay, what is the reason for
+
+209
+00:32:18.480 --> 00:32:19.190
+Siva Krishna: no
+
+210
+00:32:20.580 --> 00:32:34.460
+Siva Krishna: update reason every week.
+
+211
+00:32:34.500 --> 00:32:36.690
+Siva Krishna: By, where does that smoke?
+
+212
+00:32:36.720 --> 00:32:42.210
+Siva Krishna: That's that's mandatory. Okay? Reason for failing failed cases. Okay.
+
+213
+00:32:44.770 --> 00:32:45.930
+Siva Krishna: just 1 s
+
+214
+00:32:48.550 --> 00:32:52.120
+Siva Krishna: regarding this. Mr.
+
+215
+00:32:52.140 --> 00:32:55.180
+Siva Krishna: No, I started. I think we didn't have
+
+216
+00:33:04.960 --> 00:33:06.790
+Siva Krishna: significant change.
+
+217
+00:33:08.040 --> 00:33:11.529
+Siva Krishna: If you know, you change that. Who's that. Okay?
+
+218
+00:33:15.470 --> 00:33:19.699
+Siva Krishna: So we have 3 jobs here. Okay for 4 jobs for every week. Okay.
+
+219
+00:33:20.750 --> 00:33:24.110
+Siva Krishna: this will be executed on Friday week, 1, 3, okay.
+
+220
+00:33:24.160 --> 00:33:27.290
+Siva Krishna: first week next on Saturday and night it will start.
+
+221
+00:33:28.040 --> 00:33:48.410
+Siva Krishna: Okay, this. This will start only when we have long weekend. Okay, at that time, only because, see, both the Apa and you waiting both both weekend Friday and Saturday will be taking from Sunday morning. They will be so. We, when there is a long weekend at that time. Only we need to use this run 3. If not, we should not go. Okay.
+
+222
+00:33:48.480 --> 00:33:57.680
+Siva Krishna: And this is the report. Okay, it will gender the report. The job will generate the report, and it will send a mail to us. Okay. that will show you
+
+223
+00:34:01.140 --> 00:34:02.590
+Siva Krishna: this is the job.
+
+224
+00:34:02.770 --> 00:34:05.339
+Siva Krishna: You have to keep this build path properly.
+
+225
+00:34:05.570 --> 00:34:15.870
+Siva Krishna: If you're executing on 9 dot 0, use 9 for executing on some other path, you had to change the path. Make sure this is mandatory. Whenever it's recorded we had to change it. Okay.
+
+226
+00:34:16.679 --> 00:34:28.150
+Siva Krishna: we'll see. I'll detect the letters bills here in order to change anything. So yeah, for me, melodies are there. So you and Suniva militants will be included here. Okay.
+
+227
+00:34:31.110 --> 00:34:32.250
+Siva Krishna: this branch
+
+228
+00:34:32.630 --> 00:34:41.810
+Siva Krishna: on whatever the branch you are exhibiting. I mean, what are the branches you need to get 60 branch, not just 9 0. We can't exist.
+
+229
+00:34:41.969 --> 00:34:44.820
+Siva Krishna: Hard fix. Okay. all these things are there.
+
+230
+00:34:44.980 --> 00:34:49.419
+Siva Krishna: When are passing our executing outfits. Then you have to pass this outfix. Okay?
+
+231
+00:34:53.480 --> 00:35:00.880
+Siva Krishna: So from here our execution will start first. What it will do. It will create same like that. It will create a workspace in another thought client.
+
+232
+00:35:01.170 --> 00:35:06.059
+Siva Krishna: Okay, the client is. we have separate trend for 8 days here and provision.
+
+233
+00:35:22.570 --> 00:35:24.390
+Siva Krishna: Okay.
+
+234
+00:35:34.080 --> 00:35:35.260
+Siva Krishna: this is the
+
+235
+00:35:35.600 --> 00:35:38.879
+Siva Krishna: Cr and scripts. Okay, what we are using.
+
+236
+00:35:39.050 --> 00:35:45.629
+Siva Krishna: So first, what it will, it will do the below endless. Okay, what this job will do, this script will do means.
+
+237
+00:35:47.530 --> 00:35:51.869
+Siva Krishna: what about the build path we are passing in the airport. It will take the build path. Yeah.
+
+238
+00:35:51.990 --> 00:35:56.920
+Siva Krishna: and it will check for the latest year whether all the bills are available or not.
+
+239
+00:36:03.620 --> 00:36:07.649
+Siva Krishna: If you see here. this is the. These are the inputs for these 2
+
+240
+00:36:08.110 --> 00:36:11.080
+Siva Krishna: nightlab, this one, and let us to build a cup.
+
+241
+00:36:11.230 --> 00:36:18.120
+Siva Krishna: Okay, remember this, too. Okay.
+
+242
+00:36:18.140 --> 00:36:31.719
+Siva Krishna: in in this cl. The bill should be there. For example, it will generate the follower sometimes. Okay, in this path there will be follower, but there will. There are chances that the bills might not get generated immediately. It will take some time.
+
+243
+00:36:31.860 --> 00:36:57.990
+Siva Krishna: See, this poly will be there, but in this. There are chances in that. The files that these files might generate late after sometime. Okay, so. But we can't take this year at that time. If there are no bills, even if you take us, it will fail, because the that's the reason. So we are validating. We are making sure that these files are there are not in that build path.
+
+244
+00:36:58.420 --> 00:37:12.660
+Siva Krishna: and then we'll copy those all the sales into all these versions. Bill sales into one txt file. Okay, from there we'll filter and validate in the latest file, which is there or not. If you see in this one.
+
+245
+00:37:12.950 --> 00:37:15.669
+Siva Krishna: it's not there. So it went to some other next.
+
+246
+00:37:20.630 --> 00:37:28.760
+Siva Krishna: So this is the latest one last week, when we are executing this is the latest one. But when you see in that final G dot ob is not there. So it went to
+
+247
+00:37:30.230 --> 00:37:33.050
+Siva Krishna: 5 0 1, 4, 8, next one
+
+248
+00:37:33.200 --> 00:37:46.190
+Siva Krishna: in the next one to validate, and it's available right once. If the script finds that all the bills are available in this path, it will push those values into txt like this. If you see this.
+
+249
+00:38:06.690 --> 00:38:14.240
+Siva Krishna: this is the taste effect which will be pushing into this build path. Build a cl, okay version branch
+
+250
+00:38:14.940 --> 00:38:16.060
+Siva Krishna: bench. Okay.
+
+251
+00:38:17.250 --> 00:38:21.499
+Siva Krishna: these are the important parameters this year. Okay.
+
+252
+00:38:22.250 --> 00:38:32.939
+Siva Krishna: so once, after executing the billiard session, okay, you bring them whenever there is a client screen of script is here. Okay, it will clean all the clients initially.
+
+253
+00:38:35.700 --> 00:38:39.620
+Siva Krishna: this script will flip all the clients. These are our clients.
+
+254
+00:38:39.700 --> 00:38:44.729
+Siva Krishna: It will just log into this end, and it will create delete and all one wanted for us every week.
+
+255
+00:38:45.420 --> 00:38:50.290
+Siva Krishna: Okay, delete the other team. Follow. Everything should be, it will be deleted. Okay.
+
+256
+00:38:53.500 --> 00:38:55.590
+Siva Krishna: then it will release appliances.
+
+257
+00:38:56.390 --> 00:39:23.140
+Siva Krishna: So we have some pull. I mentioned right? So from that pool it will release all the appliances releasing means. So, for example, if I trigger my job, the appliances will come to my name, but I can't keep those appliances forever. Once after completing my should release. Okay, but some people may. There may be fixing something cold so they will be keeping. So on Friday every appliances will be released, no matter who is using. That
+
+258
+00:39:23.140 --> 00:39:30.489
+Siva Krishna: doesn't matter. So we should not use only for fixing the jobs. We have to use it. Okay?
+
+259
+00:39:31.050 --> 00:39:35.700
+Siva Krishna: And once, after completing, you have to, these appliances will be leased and shape.
+
+260
+00:39:37.060 --> 00:39:42.360
+Siva Krishna: So here it is starting the appliance release. Okay. to release everything, all appliances.
+
+261
+00:39:46.090 --> 00:39:56.350
+Siva Krishna: So it will. This is the clients. Cleanup stuff. Okay, here it is cleaning up. We have proteins will be that descriptive way executing in the background. And this will be executing. Okay.
+
+262
+00:39:56.450 --> 00:40:05.809
+Siva Krishna: both the clips will be existing parallel. This will be in the that. This mentioned someone's name. So on that lens it's
+
+263
+00:40:26.960 --> 00:40:33.259
+Siva Krishna: assigned to someone's name. So all very bad today. the top number.
+
+264
+00:40:35.870 --> 00:40:40.889
+Siva Krishna: And again, we have to reserve with our and views
+
+265
+00:40:41.040 --> 00:40:45.640
+Siva Krishna: correct? No. Apart from simple offices, we can't re reserve anything
+
+266
+00:40:45.830 --> 00:40:57.899
+Siva Krishna: we should not reserve. Only the functional Qa is different. Say, don't confuse functional Qa for automation to pull separate pool somewhere. Functional Qa is for manual testing purpose. Okay.
+
+267
+00:40:57.900 --> 00:41:19.329
+Siva Krishna: find that function. Give you a pool. We have to send some vms for each person those 4. You can use it. Okay, if you need any extra you can use this server, even if there's some only vms, miss, then you can check with some others. I mean the same sheet. You can find some vms you can check with the one on Java. That one on you can ask them if they are not using, you can use it. Okay.
+
+268
+00:41:21.620 --> 00:41:23.969
+Siva Krishna: the resilience of the market public.
+
+269
+00:41:24.540 --> 00:41:31.970
+Siva Krishna: Yeah. But you had to pass that. Iphone. G,
+
+270
+00:41:32.510 --> 00:41:35.490
+Siva Krishna: so remember, this path is very, very important.
+
+271
+00:41:35.730 --> 00:41:39.710
+Siva Krishna: Okay, this. Whenever you log into any client you have to execute this
+
+272
+00:41:40.050 --> 00:41:47.110
+Siva Krishna: command source command. Why? Because this path will have all the nap tools. Okay, when you don't import, for example.
+
+273
+00:41:48.230 --> 00:41:51.530
+Siva Krishna: No, I'm not importing. Okay. I will look at that. And
+
+274
+00:41:53.200 --> 00:41:54.230
+Siva Krishna: everyone
+
+275
+00:41:58.950 --> 00:42:01.900
+Siva Krishna: I want to know that. Just have one here. Let me think.
+
+276
+00:42:02.340 --> 00:42:03.389
+Siva Krishna: And Indian
+
+277
+00:42:06.940 --> 00:42:08.180
+Siva Krishna: command not for me.
+
+278
+00:42:08.320 --> 00:42:11.929
+Siva Krishna: I can do anything. Okay. Now I will execute this command.
+
+279
+00:42:14.920 --> 00:42:17.059
+Siva Krishna: This is not so, the lab
+
+280
+00:42:17.160 --> 00:42:21.899
+Siva Krishna: scripts will be imported from this source command. This is very important.
+
+281
+00:42:22.030 --> 00:42:26.530
+Siva Krishna: Whenever you log into any client we'll make sure it's good. This. If you don't text this comment.
+
+282
+00:42:26.730 --> 00:42:31.260
+Siva Krishna: then you can't execute any lab commands, upgrade the system. Nothing will work
+
+283
+00:42:32.350 --> 00:42:33.980
+Siva Krishna: that is very important.
+
+284
+00:42:35.670 --> 00:42:37.560
+Siva Krishna: so it will release appliances.
+
+285
+00:42:44.300 --> 00:42:47.440
+Siva Krishna: then from the builder, THT. File, it will take that
+
+286
+00:42:47.510 --> 00:42:52.770
+Siva Krishna: details. Okay, this details. But this details will be taken in this Jenkins job.
+
+287
+00:43:01.270 --> 00:43:12.360
+Siva Krishna: Yeah, it will take the bill from this builder takes to fill. It will take all the details, and it will start executing the job. Okay, this is the call command. We are using this we are executing from the C. Understand? So
+
+288
+00:43:14.840 --> 00:43:18.520
+Siva Krishna: here it is going to pass in that job name. Okay.
+
+289
+00:43:18.670 --> 00:43:26.299
+Siva Krishna: we are taking 2 files. Okay, one is builder, the ability job names. We have job names in this file.
+
+290
+00:43:37.610 --> 00:43:39.230
+Siva Krishna: These are the jobs we help.
+
+291
+00:43:40.310 --> 00:43:43.200
+Siva Krishna: Okay, these jobs will be.
+
+292
+00:43:44.560 --> 00:43:48.340
+Siva Krishna: These 2 files will be used in this script. and
+
+293
+00:43:48.450 --> 00:43:57.939
+Siva Krishna: it will be starting a executing the jobs. Okay, here you are passing the job name here. I miss Job. Name. Okay, build a path, and I will build a path.
+
+294
+00:43:58.150 --> 00:44:02.190
+Siva Krishna: Bill is here. Russian. Get branch.
+
+295
+00:44:02.660 --> 00:44:09.329
+Siva Krishna: Okay, release green 7. Like we are optional list reception that is different. Heart fix. If you are hard fix, we are passing heart fix as well.
+
+296
+00:44:12.540 --> 00:44:14.900
+Siva Krishna: Say everything we need to pass here. Okay.
+
+297
+00:44:28.030 --> 00:44:38.620
+Siva Krishna: so once after executing all the jobs. So if anything happens in between, it will fail, this job will fail. Then we have to check. We need to debug this issue. Wait. Okay, no.
+
+298
+00:44:40.050 --> 00:45:09.649
+Siva Krishna: Using the clients. Clean up script. If any of the client is not running it not reachable. We said, I have to all clients. Okay, if any of the client is not working fine, it will give. This one client is not responding, is not responding. Then you have to check. So once, after executing it, John gets access. You need to check the console of food. All the clients are working fine or not. If anything is wrong, like, okay, it's this client is not responding. This client is just not responding. It will give. This kind of
+
+299
+00:45:11.550 --> 00:45:12.669
+Siva Krishna: this is what the
+
+300
+00:45:12.890 --> 00:45:14.900
+Siva Krishna: big 1, 3 will do. Okay
+
+301
+00:45:14.910 --> 00:45:18.950
+Siva Krishna: next week to 4. I mean, sorry. Turn 2,
+
+302
+00:45:19.030 --> 00:45:21.580
+Siva Krishna: but is run one. And this is run 2. Okay.
+
+303
+00:45:31.760 --> 00:45:35.150
+Siva Krishna: none too. You don't need to change everything. Okay, it will be same. Okay.
+
+304
+00:45:35.180 --> 00:45:41.630
+Siva Krishna: the same field. Everything will be the same first, it will come here year year. Also it will clean the clients. Okay.
+
+305
+00:45:41.850 --> 00:45:49.749
+Siva Krishna: in run 2. Also, it will do clean up. Okay. But only difference between run one and run to clean up is like, run. One will clean everything
+
+306
+00:45:50.880 --> 00:45:53.299
+Siva Krishna: like it will delete the.
+
+307
+00:45:53.320 --> 00:46:14.619
+Siva Krishna: It will clean up the tim folder, it will clean up the workspace, it will clean up the reports till the reports which are attended last week everything will be cleaned up and run one, but run 2 will not delete the reports, only reports, not data remaining all the same, only the reports, because the reports are generated on right, so it will not need only the last week generated reports will be deleted every time.
+
+308
+00:46:15.910 --> 00:46:30.940
+Siva Krishna: so that reports will not be generated. So this is the script. It will do. Clean up this flattening, that previous script. What it will do means. Okay. I mentioned that. So whatever the on Friday, what was here? And we are executing, okay.
+
+309
+00:46:31.340 --> 00:46:40.740
+Siva Krishna: executing some 100 jobs are executing. Okay, in that there are chances to get paid some 10 to 15 jobs at 100 jobs. Okay, that failed jobs it will fetch.
+
+310
+00:46:41.020 --> 00:47:02.459
+Siva Krishna: It will fetch, and it will start executing again on Saturday night. This will automatically but run one only. We need to remember one thing again. The building should change only the field.
+
+311
+00:47:02.600 --> 00:47:14.560
+Siva Krishna: only the build part we should change on the branch. Give branch. It's depends upon our recommends. Then you have to pass that if there is no hot fix, then then nothing to
+
+312
+00:47:14.700 --> 00:47:22.229
+Siva Krishna: okay. Automatic. Automatically, it will take the all the it will exhibit automatically. So
+
+313
+00:47:22.420 --> 00:47:25.540
+Siva Krishna: again, yeah, the appliances will be released. Hmm.
+
+314
+00:47:26.870 --> 00:47:32.920
+Siva Krishna: and then it will start that to the executive field shops. This is our time to
+
+315
+00:47:33.700 --> 00:47:37.750
+Siva Krishna: okay. RAM 3. Also, we don't need to change anything. Okay.
+
+316
+00:47:37.890 --> 00:47:46.219
+Siva Krishna: same as it is, but it will not release appliances. That's it. Run 3 will not release appliances, and in the report portal I'll show you reports about it with you.
+
+317
+00:48:02.500 --> 00:48:09.479
+Siva Krishna: But this is a report portal, a report jobs. Okay, is a report job. What it will do is it will collect all the reports
+
+318
+00:48:09.500 --> 00:48:15.510
+Siva Krishna: and all the status of the job. Okay, and it will send a mail. I'll show you that mail. It will be.
+
+319
+00:48:27.430 --> 00:48:29.160
+Siva Krishna: This is the mail it will send.
+
+320
+00:48:29.630 --> 00:48:33.119
+Siva Krishna: Okay, we'll send for now, it will send only this to these people
+
+321
+00:48:34.180 --> 00:48:36.160
+Siva Krishna: need to remove this velocity.
+
+322
+00:48:36.460 --> 00:48:43.560
+Siva Krishna: Okay, this is the total. How many jobs one of the job one on name set us off the job.
+
+323
+00:48:44.250 --> 00:48:45.539
+Siva Krishna: And this one.
+
+324
+00:48:46.440 --> 00:48:50.770
+Siva Krishna: how many cases are
+
+325
+00:48:51.310 --> 00:48:52.220
+Siva Krishna: okay.
+
+326
+00:48:59.950 --> 00:49:02.150
+Siva Krishna: This is all about the reporting
+
+327
+00:49:05.480 --> 00:49:08.350
+Siva Krishna: next week to 4. I'm sorry
+
+328
+00:49:08.720 --> 00:49:20.809
+Siva Krishna: we need to be very careful. The build Path
+
+329
+00:49:20.850 --> 00:49:23.969
+Siva Krishna: branch. Give branch under the
+
+330
+00:49:24.590 --> 00:49:29.289
+Siva Krishna: Heartfix. If you're passing out, fix you need to make sure it should be there. Okay, yeah.
+
+331
+00:49:30.910 --> 00:49:32.690
+Siva Krishna: and run to what it will do.
+
+332
+00:49:32.760 --> 00:49:51.809
+Siva Krishna: So, as I mentioned, I mean, like, sorry. Big 2 4. As I mentioned it, will collect with the failures from previous week. Okay, so this script is there. The script will collect all the unstable, and from the last week, okay? And then it will keep you on TV.
+
+333
+00:49:52.600 --> 00:50:01.410
+Siva Krishna: Okay? And from the txt. And again, it will start remaining on the same cleaning up plants. releasing appliances.
+
+334
+00:50:02.460 --> 00:50:10.970
+Siva Krishna: using the script, it will take the latest
+
+335
+00:50:11.000 --> 00:50:12.899
+Siva Krishna: and then start execution
+
+336
+00:50:14.480 --> 00:50:17.640
+Siva Krishna: remaining all the same. Okay?
+
+337
+00:50:18.860 --> 00:50:41.509
+Siva Krishna: Should pass.
+
+338
+00:50:41.620 --> 00:50:47.310
+Siva Krishna: Okay. If there is a one case failed also, it will come to unstable. Okay.
+
+339
+00:50:47.760 --> 00:50:49.860
+Siva Krishna: everything. And I'm okay.
+
+340
+00:51:11.040 --> 00:51:12.930
+Siva Krishna: You see, this is success.
+
+341
+00:51:13.210 --> 00:51:16.019
+Siva Krishna: because all cases are passed through. Okay.
+
+342
+00:51:16.430 --> 00:51:17.820
+Siva Krishna: this is unstable.
+
+343
+00:51:17.990 --> 00:51:26.470
+Siva Krishna: Let's see if you see if you click on this console, you see, this 54 case are failed. Yeah, if you go with success.
+
+344
+00:51:30.870 --> 00:51:38.420
+Siva Krishna: failure means there might be any reason like
+
+345
+00:51:38.770 --> 00:51:40.410
+Siva Krishna: configured failure.
+
+346
+00:51:40.430 --> 00:51:53.190
+Siva Krishna: The configuration might get failed, or some other reason, like any of the file, is missing. Okay? Or you need something between network networking consistency network issues due to any reason the job might fail.
+
+347
+00:51:53.450 --> 00:51:57.829
+Siva Krishna: So all the field and answer will just, we'll be collecting here. Okay.
+
+348
+00:52:00.770 --> 00:52:12.429
+Siva Krishna: it will not check for any how many cases are failed, or what is the reason for failing this job? Nothing. It will not check. It will just take fail if it is filled. And until, miss, you will just take the data. Okay.
+
+349
+00:52:13.210 --> 00:52:20.050
+Siva Krishna: how it will take this I will show. So we have a call command. Okay, from that it will just execute this.
+
+350
+00:52:23.290 --> 00:52:27.340
+Siva Krishna: you see, it will get this output. Okay.
+
+351
+00:52:27.530 --> 00:52:32.199
+Siva Krishna: we have call command in this. You can check for the status. Okay.
+
+352
+00:52:34.180 --> 00:52:35.149
+Siva Krishna: it is out
+
+353
+00:52:35.510 --> 00:52:39.820
+Siva Krishna: success. If the result is unstable, miss, it will just take it. No.
+
+354
+00:52:40.270 --> 00:52:43.669
+Siva Krishna: yeah, yeah. Yeah.
+
+355
+00:52:43.920 --> 00:52:48.299
+Siva Krishna: Skewered. Ok, we have the cases. Ok, how many cases are the total count
+
+356
+00:52:49.030 --> 00:52:57.619
+Siva Krishna: 18. Okay, I said. The report job is set which will exit on Monday, so that report Job will execute on Monday every first day of the week. Okay?
+
+357
+00:52:58.480 --> 00:53:15.049
+Siva Krishna: I mean, sometimes we may change a minute due to long weekend, mostly on Monday. If it is long we can miss, we will share will trigger multiple times. Okay, so fail. Account 0 test case control account to this meaning. Okay, all the account will be finished from the scripts. Okay.
+
+358
+00:53:15.430 --> 00:53:17.110
+Siva Krishna: we have scripts for everything.
+
+359
+00:53:17.180 --> 00:53:26.660
+Siva Krishna: We just need to make sure that schedule should be done properly. And here also, we don't need to trigger this job man. Only. Okay, we have a scheduled option. Let me show you.
+
+360
+00:53:27.400 --> 00:53:29.400
+Siva Krishna: and is on Victor
+
+361
+00:53:30.260 --> 00:53:38.260
+Siva Krishna: to build periodical options there. Okay, you have to schedule this as expected on the content. Okay, here 5 min. It's
+
+362
+00:53:38.360 --> 00:53:42.319
+Siva Krishna: minutes. It's a Koran Jobanja
+
+363
+00:53:42.510 --> 00:53:45.020
+Siva Krishna: in some again. Okay, minutes.
+
+364
+00:53:45.240 --> 00:53:47.430
+Siva Krishna: hours. Dates.
+
+365
+00:53:47.820 --> 00:53:53.099
+Siva Krishna: Okay? So every second and fourth Friday.
+
+366
+00:53:53.460 --> 00:54:00.299
+Siva Krishna: Okay, it will be get executed sometimes. So we may need to change. Sometimes, I mean, like,
+
+367
+00:54:00.610 --> 00:54:09.290
+Siva Krishna: there are minimal chances like 30 first might be of September might become Friday, and the first of
+
+368
+00:54:09.680 --> 00:54:13.170
+Siva Krishna: October might become Saturday. At these times we need to be careful.
+
+369
+00:54:14.170 --> 00:54:20.010
+Siva Krishna: Okay. There are chances to get okay. We need to be careful at these times. Okay.
+
+370
+00:54:20.930 --> 00:54:36.230
+Siva Krishna: we initially, automatically, we don't need to log in on Saturday or any. Nothing is required. We are just scheduling it on Friday. We need to make sure everything is working Friday evening. We'll just validate whether it started proper. Okay, then remaining. I'll do it will take care automatically. Okay.
+
+371
+00:54:38.110 --> 00:54:41.429
+Siva Krishna: it will. Start sending. Start executing the jobs.
+
+372
+00:54:41.790 --> 00:54:53.160
+Siva Krishna: That's it. I mean, this is a Friday on Saturday. Same thing. You will fetch the failed jobs which are there in the last Friday's job. On that it will trigger the field jobs Monday. It will start the report.
+
+373
+00:54:53.770 --> 00:54:54.630
+Siva Krishna: Okay.
+
+374
+00:54:58.450 --> 00:55:01.490
+Siva Krishna: this is all the sir, and execution anymore. Okay?
+
+375
+00:55:06.240 --> 00:55:09.290
+Siva Krishna: And at least know it's controlled or not. But
+
+376
+00:55:25.500 --> 00:55:39.550
+Siva Krishna: so when you you know, after after installing the build. Okay, it will do automatical power after then it will be like it like this. and here the networks are already configured, but by default. Networks will not be there. Nothing will be there. Okay.
+
+377
+00:55:40.820 --> 00:55:41.760
+Siva Krishna: Lolly.
+
+378
+00:55:45.750 --> 00:55:47.250
+Siva Krishna: to use it. Network.
+
+379
+00:55:47.910 --> 00:55:56.860
+Siva Krishna: same as from here. Everything is the same as normal Vm, giving the set network. Okay, config in the IP address.
+
+380
+00:55:57.080 --> 00:56:06.909
+Siva Krishna: installing the licenses. You, if you enable remote, consult, then from then onwards you don't need to come to. You can directly go to your workstation, you can directly. Login as admin
+
+381
+00:56:06.930 --> 00:56:12.690
+Siva Krishna: remote comes on and support access. Okay? Then you need to enable them. Okay.
+
+382
+00:56:14.410 --> 00:56:19.300
+Siva Krishna: okay.
+
+383
+00:56:19.830 --> 00:56:20.760
+Siva Krishna: that's it.
+
+384
+00:56:22.050 --> 00:56:26.310
+Siva Krishna: Okay, I will show you how to configure. And the Ui that IP addresses. Okay.
+
+385
+00:56:47.140 --> 00:56:52.109
+Siva Krishna: But this is my. okay, which used for upgrade testing.
+
+386
+00:56:53.920 --> 00:56:57.529
+Siva Krishna: it is on customer debate. So you have. You will see many appliances.
+
+387
+00:57:00.680 --> 00:57:06.829
+Siva Krishna: So this is the hip here. So you can see, HP is like this, okay, Acton or personal.
+
+388
+00:57:08.060 --> 00:57:16.250
+Siva Krishna: Initially, when you configure this Hg, you will find 2 separate modes. I mean again. 2 separate grids. So you need to join them.
+
+389
+00:57:16.620 --> 00:57:22.900
+Siva Krishna: Okay, you can log into active node. I mean, you can log into anyone after note, and then you had to go to the network.
+
+390
+00:57:23.040 --> 00:57:27.470
+Siva Krishna: The member properties here we had to set up the HA.
+
+391
+00:57:27.690 --> 00:57:30.780
+Siva Krishna: Okay, you need to reserve this route. Ready
+
+392
+00:57:31.270 --> 00:57:34.260
+Siva Krishna: should be the same. It should be unique, unique.
+
+393
+00:57:34.300 --> 00:57:48.469
+Siva Krishna: unique, meaning your network. There should be only one hj, with this route ready. Okay, then no. Anything you can give. But I'll show you. Okay. You need to reserve like this.
+
+394
+00:57:59.670 --> 00:58:00.820
+Siva Krishna: where does it come in?
+
+395
+00:58:05.730 --> 00:58:06.750
+Siva Krishna: Pick them up?
+
+396
+00:58:07.210 --> 00:58:08.220
+1.8.
+
+397
+00:58:08.700 --> 00:58:17.959
+Siva Krishna: It is all are using by someone else. It will not come. If not, you got this whenever you reserve anything. Okay? First thing you have to do is extend the list.
+
+398
+00:58:20.390 --> 00:58:21.280
+Siva Krishna: Okay.
+
+399
+00:58:22.700 --> 00:58:32.830
+Siva Krishna: if you are passing lease, Id means you have to give option. Okay, name for this or Friday's maximum. You can list for Friday, Sunday. Okay?
+
+400
+00:58:35.430 --> 00:58:39.290
+Siva Krishna: So you need to give the Ips. Okay, this is my network.
+
+401
+00:58:39.610 --> 00:58:42.900
+Siva Krishna: I guess this one's okay. On 50
+
+402
+00:58:43.800 --> 00:58:51.060
+Siva Krishna: 57, dot 11 to 57, 30. I have 20 ips. Okay, I used 1516, 17,
+
+403
+00:58:51.770 --> 00:59:01.889
+Siva Krishna: 1340, 1314, 1516, 17. Okay, see, we are using. Okay. Vip vip will be used for both the modes.
+
+404
+00:59:02.040 --> 00:59:13.200
+Siva Krishna: Okay, this node, one H is active, one node to H is passive one. LAN. One is LAN. One is to communicate from the outside these hips, which are used. Well, let's see.
+
+405
+00:59:13.280 --> 00:59:15.230
+Siva Krishna: It says I mean, like a backup
+
+406
+00:59:15.630 --> 00:59:32.059
+Siva Krishna: act passive is backup of active, but this password will not work, will not come into picture only when active goes down, this passive will come into picture, but the password will have all the data which is having active. How it means it's this H. This h
+
+407
+00:59:32.330 --> 01:00:01.089
+Siva Krishna: pass from Node.
+
+408
+01:00:01.320 --> 01:00:10.970
+Siva Krishna: this active node will consider that my passenger will consider us active, is dead, and it will send another question. This Active is dead. I will not want to become that too. Only this way our password will become active
+
+409
+01:00:11.060 --> 01:00:19.880
+Siva Krishna: automatically, automatically, whatever. I bet this is being provided. So that is based on same rate. Whatever you have. Yeah.
+
+410
+01:00:19.980 --> 01:00:45.159
+Siva Krishna: this Ipo should be in the same network. You can't configure 10 dot network connect to node total so that should not be there. So I mean, if you want the high flexibility, then you should well configure the same network. Okay, it should be on the same network, this vip. So this vip, our services will be running on this vip. Okay, for active and passive the vap will be the same. So let me show you. Then we log into this node.
+
+411
+01:00:57.090 --> 01:01:00.239
+Siva Krishna: We see that 15. This is vap.
+
+412
+01:01:01.460 --> 01:01:02.980
+Siva Krishna: She goes to the
+
+413
+01:01:11.320 --> 01:01:13.070
+Siva Krishna: Hmm.
+
+414
+01:01:14.770 --> 01:01:15.450
+Siva Krishna: And
+
+415
+01:01:20.350 --> 01:01:21.350
+Siva Krishna: the
+
+416
+01:01:21.930 --> 01:01:34.740
+Siva Krishna: this will be same for the both the nodes, so the data will be in like the both the nodes will be using this vip. Yeah, you can check which one is that one which one does like this social status command.
+
+417
+01:01:35.040 --> 01:01:48.619
+Siva Krishna: Okay, when you see any issue, like when you are doing set membership, it fail. You check the status. What year it will display the reason for failure. Whether the username is around or the licenses or anything it will show here.
+
+418
+01:01:48.780 --> 01:01:49.750
+Siva Krishna: Okay.
+
+419
+01:01:50.140 --> 01:02:03.170
+Siva Krishna: this will be used by both the nodes and these nodes will be this IP address will be different. Okay, this will be used for the communication between as you act on passenos, Hnos and Lans can be access to outsideups. Okay.
+
+420
+01:02:03.450 --> 01:02:12.940
+Siva Krishna: this is all about HA. And Jennigan's execution. See you? And next question any thoughts, do you have stinks? Let's see.
+
+421
+01:02:18.970 --> 01:02:21.589
+Siva Krishna: whenever you are configuring an IP address.
+
+422
+01:02:21.860 --> 01:02:25.540
+Siva Krishna: Make sure. First, you should ping it
+
+423
+01:02:26.050 --> 01:02:26.990
+Siva Krishna: okay
+
+424
+01:02:27.260 --> 01:02:33.910
+Siva Krishna: without pinging, without checking that status. You don't compare the name because, egle, if you take one Vm.
+
+425
+01:02:34.020 --> 01:02:41.969
+Siva Krishna: If one IP address, if I am already using the IP address, even if you, if you use, then the IP will be duplicate confirms will be wrong.
+
+426
+01:02:42.160 --> 01:02:45.449
+Siva Krishna: But today you are already given
+
+427
+01:02:48.910 --> 01:02:53.269
+Siva Krishna: from that. First.
+
+428
+01:02:53.660 --> 01:03:08.109
+Siva Krishna: because Ma might be someone might be using. You might have given to someone else when they ask. Okay? So they they might have not deleted that network. So there at that time it might be difficult. So do you have any on grid? No
+
+429
+01:03:08.850 --> 01:03:12.450
+Siva Krishna: integrate. No, I will configure Mgm type, and I'll show you. Okay
+
+430
+01:03:13.860 --> 01:03:15.240
+Siva Krishna: and
+
+431
+01:03:18.300 --> 01:03:21.320
+Siva Krishna: thank you, Mr. Any anything.
+
+432
+01:03:26.620 --> 01:03:29.669
+Siva Krishna: he said. Mom, I'm gonna be mamma in the room.
+
+433
+01:03:29.920 --> 01:03:32.690
+Siva Krishna: Anything is. Thank you.
+
+434
+01:03:36.630 --> 01:03:44.170
+Siva Krishna: Vietnamese in the phone will be IP in anything. IP give me that Vm. Name. Thank you.
+
+435
+01:03:46.970 --> 01:03:49.980
+Siva Krishna: So now, with the installation completed, H. Node one.
+
+436
+01:03:50.140 --> 01:03:52.359
+Siva Krishna: but it's still power.
+
+437
+01:03:53.500 --> 01:04:00.500
+Siva Krishna: Warren is not done.
+
+438
+01:04:12.220 --> 01:04:17.420
+Siva Krishna: So this LAN. IP, Mgm kp, everything will be here only okay.
+
+439
+01:05:01.710 --> 01:05:03.890
+Siva Krishna: Disable to save my
+
+440
+01:05:20.920 --> 01:05:34.829
+Siva Krishna: he configured everything. But IP address is not pinging. So you can't launch this. Ip, okay, if you want to launch this. So we have to do is like don't need to comment. Sometimes they might be seeing some issues. Okay.
+
+441
+01:05:34.890 --> 01:05:42.169
+Siva Krishna: even though it is connected with the 1036. It is connected. Hit one candidate
+
+442
+01:05:45.610 --> 01:05:46.950
+Siva Krishna: material system
+
+443
+01:05:58.550 --> 01:05:59.580
+Siva Krishna: image.
+
+444
+01:06:02.290 --> 01:06:12.380
+Siva Krishna: How can we use some others? Vm, okay. Now, this Vm is owned by Guru. So if I want to use it, just type and see option.
+
+445
+01:06:12.910 --> 01:06:29.439
+Siva Krishna: But it's not allowed. Actually, I mean, like, since he is here, I'm using okay. We're not allowed into summer. Use some other streams if you want to use. You, move it to your name, use that external reason, change the ownership to your name, and then you use it. Okay.
+
+446
+01:06:29.910 --> 01:06:37.910
+Siva Krishna: only for you to permission me, if want to use the with the same auto name is, then use IP option. Okay?
+
+447
+01:06:44.420 --> 01:06:48.149
+Siva Krishna: You want to know. While you're working, you'll come to all these things.
+
+448
+01:06:50.790 --> 01:06:52.510
+Siva Krishna: Yeah, now, it's Ivy's thinking.
+
+449
+01:08:00.690 --> 01:08:12.299
+Siva Krishna: So whenever you log into this is the default. Okay? So here depends upon your requirement. When, like the the grid grid with number
+
+450
+01:08:12.690 --> 01:08:16.860
+Siva Krishna: licenses. You don't have to say any licenses.
+
+451
+01:08:17.420 --> 01:08:20.180
+Siva Krishna: This is interesting. Nothing is there
+
+452
+01:08:21.270 --> 01:08:30.590
+Siva Krishna: permanent? Okay.
+
+453
+01:08:30.790 --> 01:08:32.410
+Siva Krishna: phenomenon dns
+
+454
+01:08:35.550 --> 01:08:36.930
+Siva Krishna: anything else lessons
+
+455
+01:08:41.000 --> 01:08:46.300
+Siva Krishna: here. If you see nd, as I say, indie, these are discouring. India means discouring fee.
+
+456
+01:08:46.600 --> 01:08:47.490
+Siva Krishna: Yeah.
+
+457
+01:08:51.430 --> 01:09:00.939
+Siva Krishna: CPU's cloud document license. Okay? So in this 9 0, we have our and declared all the license to do on buildings
+
+458
+01:09:02.160 --> 01:09:04.139
+Siva Krishna: before we are separate.
+
+459
+01:09:04.720 --> 01:09:09.660
+Siva Krishna: build up a discovery. No, we have even the
+
+460
+01:12:03.430 --> 01:12:12.410
+Siva Krishna: you can see all the services here. So what are the service you refer? You can start the service. Okay. Dns, Dspt. Dns and Dhcp will be another data management.
+
+461
+01:12:12.580 --> 01:12:23.910
+Siva Krishna: Http, tftp, everything will be coming on to you. Okay? So if you want to Dhcp, then you can start the Dsps even from here, so you can start the service this. Okay from this network.
+
+462
+01:12:25.310 --> 01:12:29.359
+Siva Krishna: So you can find the if you want to upgrade grid to next version.
+
+463
+01:12:29.380 --> 01:12:33.770
+Siva Krishna: This is 9 0. If you want to upgrade to 9 0 3. To come here.
+
+464
+01:12:33.980 --> 01:12:40.259
+Siva Krishna: But you had upload the build, distribute, test and upgrade for uploading the bill. You only download
+
+465
+01:12:43.840 --> 01:13:00.449
+Siva Krishna: from there. You're in the same like, you can upload here also. Okay, next licenses. You can see the licenses here. Member license. Okay, full license gridware license.
+
+466
+01:13:00.810 --> 01:13:08.590
+Siva Krishna: If you have numbers. Also, you can see licenses here numbers greater than everything can be seen here. Okay.
+
+467
+01:13:09.810 --> 01:13:15.030
+Siva Krishna: this is but Geo. Web, okay. And now, I'm kind of, I want to control. Mgm, T.
+
+468
+01:13:15.640 --> 01:13:21.139
+Siva Krishna: And Jim, do, you can calculate that into this? From Cli also. Okay.
+
+469
+01:13:22.630 --> 01:13:30.699
+Siva Krishna: you want to change in network level changes. You have to enable this also you have enable here
+
+470
+01:13:31.040 --> 01:13:36.040
+Siva Krishna: for Hms. Yourself to this. But normal. This is enough. Okay.
+
+471
+01:13:38.150 --> 01:13:41.340
+Siva Krishna: my name, Jim Gaby. configur.
+
+472
+01:13:41.790 --> 01:13:47.819
+Siva Krishna: say, for Mj. Will be okay.
+
+473
+01:13:50.320 --> 01:13:52.200
+Siva Krishna: 96, one
+
+474
+01:14:00.140 --> 01:14:02.970
+Siva Krishna: support mask is same, and so the gateway
+
+475
+01:14:03.130 --> 01:14:05.120
+Siva Krishna: is, I mean, like 1036.
+
+476
+01:14:46.600 --> 01:14:48.299
+Siva Krishna: So then you have discounted. And
+
+477
+01:14:49.820 --> 01:14:53.819
+Siva Krishna: okay, here from here also you can configure and jump it.
+
+478
+01:14:55.170 --> 01:14:58.030
+Siva Krishna: and that would be Api and us
+
+479
+01:15:01.580 --> 01:15:02.490
+and musk.
+
+480
+01:15:02.660 --> 01:15:03.880
+Siva Krishna: Gertrude.
+
+481
+01:15:08.670 --> 01:15:11.530
+Siva Krishna: but where you can come away from Cnn. Even both this.
+
+482
+01:15:15.880 --> 01:15:28.050
+Siva Krishna: So once, after comparing Mgm. T. You need to launch your grid default using Mgmt. okay, you can't plan to familiar you land a bit. This is what Mgmt and land due in audition.
+
+483
+01:15:28.750 --> 01:15:32.500
+Siva Krishna: Any questions. Let me know and go through this recording.
+
+484
+01:15:32.810 --> 01:15:33.630
+Siva Krishna: Okay.
+

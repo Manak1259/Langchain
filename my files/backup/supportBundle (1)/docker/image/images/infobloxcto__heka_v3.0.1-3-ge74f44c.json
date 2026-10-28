@@ -1,0 +1,128 @@
+[
+    {
+        "Id": "sha256:a2f5123812486b0c95757657188e41601d7cdf9d1ad5b96da2cd3c8735368c2f",
+        "RepoTags": [
+            "infobloxcto/heka:v3.0.1-3-ge74f44c"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2024-10-01T10:41:21.414869908Z",
+        "Container": "8be0e882610bb91c217f412af6b6d5880fee2dd5946428bba003a1f89499497e",
+        "ContainerConfig": {
+            "Hostname": "8be0e882610b",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "HEKA_VER=v3.0.1-3-ge74f44c"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "HEALTHCHECK &{[\"CMD-SHELL\" \"health http://127.0.0.1:26749/healthz\"] \"10s\" \"12s\" \"12s\" '\\x01'}"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "health http://127.0.0.1:26749/healthz"
+                ],
+                "Interval": 10000000000,
+                "Timeout": 12000000000,
+                "StartPeriod": 12000000000,
+                "Retries": 1
+            },
+            "Image": "sha256:9846a5c9c5454458437acf2b76ae4fa10e970bf5cfb8ff5d54ccf5cd1608a832",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "server"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "DockerVersion": "20.10.7",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "HEKA_VER=v3.0.1-3-ge74f44c"
+            ],
+            "Cmd": null,
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "health http://127.0.0.1:26749/healthz"
+                ],
+                "Interval": 10000000000,
+                "Timeout": 12000000000,
+                "StartPeriod": 12000000000,
+                "Retries": 1
+            },
+            "Image": "sha256:9846a5c9c5454458437acf2b76ae4fa10e970bf5cfb8ff5d54ccf5cd1608a832",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "server"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 31968292,
+        "VirtualSize": 31968292,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/rw/host/docker/overlay2/45a051c1c7dadcc3b8d5436676c3da1ce4849c3ed74c3252d1bd7a401c728c8b/diff:/rw/host/docker/overlay2/f41c7754471b6eb724e5d18aefb6529a2b4a566bab3fab2b5f294bbfd60ff317/diff:/rw/host/docker/overlay2/f598c4acf0cc2a5000fbf2c76e7722174a6d53c0a4c5192b4c3b99647a17b16b/diff:/rw/host/docker/overlay2/8d2a7c9f8da14a53d2a9ca2e2c56d322c035b85109ddde763bd73b75da029dba/diff:/rw/host/docker/overlay2/b21b5072693a7dc50a8a6285bb53dea121ab60cfb4c8c023b613b9230d53a148/diff:/rw/host/docker/overlay2/8812b2c6f8881a930077b10f9862de37ea65654e360255a135e3c26f92215593/diff:/rw/host/docker/overlay2/4705250c9b073f42f791ff5e3a4dfe6f6a7ea2e8cb544fcfbb8b023aead983b0/diff:/rw/host/docker/overlay2/9d4ac43dda21c76cdde78b674ef292d1a3a16b40b6cacb5e16d400b669210310/diff:/rw/host/docker/overlay2/a817f16e1958696208f87f57210cd5e4d3a6feb545994d76d01601a87c158bca/diff:/rw/host/docker/overlay2/0fe19f601a5f2bf86b48974609f2911639cef66a3986c0624fe9df796e12d8f2/diff:/rw/host/docker/overlay2/251de95dd0420e5e95d0e0bb5d2d4db833143d1613c17b706e4affaf8e2f4792/diff:/rw/host/docker/overlay2/5003fb625189d36b1a01d0e06286fabb8618427b3842871f07fa65af0d70b9ad/diff:/rw/host/docker/overlay2/26d9033e9b369722eef11561f7e5aad21d10d96783ed74e150810dc395a7423e/diff:/rw/host/docker/overlay2/b5d6bfdc3632325fbc2ab2c61d80bd7085519bd9ed419093c2cd33cb6a91bf0c/diff",
+                "MergedDir": "/rw/host/docker/overlay2/96c707a79d76cbc855220ff18ca3d7baa6d1fedac18cee45d8c6d80f3d6cc469/merged",
+                "UpperDir": "/rw/host/docker/overlay2/96c707a79d76cbc855220ff18ca3d7baa6d1fedac18cee45d8c6d80f3d6cc469/diff",
+                "WorkDir": "/rw/host/docker/overlay2/96c707a79d76cbc855220ff18ca3d7baa6d1fedac18cee45d8c6d80f3d6cc469/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:78a822fe2a2d2c84f3de4a403188c45f623017d6a4521d23047c9fbb0801794c",
+                "sha256:e74a98c2f5e3e16f54e1398806e825a44b585cad3feff0aac49848c8ec77fb02",
+                "sha256:3caf20981c789b54630712b73b0b5cc4d82098075c7402f80c3e3d4784a923db",
+                "sha256:bd77bc23af8a4d05803341f5c265d1c70db3bddcc2f01ddf748836781e7e3232",
+                "sha256:59e8d79501b1b418e3c9d303ac0cbd887013ad714676e0d8a92ebd0a5faec162",
+                "sha256:0b1b9e65dba7b06571b1ad14d7aaf97c3ea3377d5ee1f446179383111c2e3946",
+                "sha256:dee76f00ece40ff684fd1b063520b8a934da773e1c21694c0c41a03679810b82",
+                "sha256:2a566f046bbbdaea3e63c4281db315c483360f7a1a0359c14083d7a1546399de",
+                "sha256:818b4cccc2c911d763163a83d2cdb358ca1db30d5dd75c76aa50a24285c2aeb8",
+                "sha256:da09ecdf4bf5b85b7d209347e34f286c48052da1afce769108f2fa210f84c785",
+                "sha256:e7c04479cd9c556e58b864d9ce3020ddac7699c11a507dc031f5d848994f34e3",
+                "sha256:95697fa79301a5538e3ba54923ad05e6b7e8cfb02ade16c298c3e18b25b2fd18",
+                "sha256:23a884f4e44a122cce08e7a892e707956602ba4a10cbe9848038aac67f90ef38",
+                "sha256:cda48ae600b4017aa6d834ea836f8e7957c4ff11afb5a3ae5b4cf6614669ae86",
+                "sha256:f20d8c69c980ca29835b9ede3024e824351bcb0a16da2867b4a7dd36d91d3c63"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "Id": "sha256:5fd1824a84a784c53fa96621d63ec684fc472a9ab2c61653ac3d73678dedee61",
+        "RepoTags": [
+            "infobloxcto/atlas.onprem.scout:v1.4.1"
+        ],
+        "RepoDigests": [],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2024-08-14T04:47:40.164433182Z",
+        "Container": "8b866a6859742a71f18b827e8ce9340e0e5dcec29d2a891f745a03a1646f3758",
+        "ContainerConfig": {
+            "Hostname": "8b866a685974",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "ENTRYPOINT [\"server\"]"
+            ],
+            "Image": "sha256:f06eb273fc7e388ecc88e475915d32423ded9c1e997887045af4886701ce5c47",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "server"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "DockerVersion": "20.10.7",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": null,
+            "Image": "sha256:f06eb273fc7e388ecc88e475915d32423ded9c1e997887045af4886701ce5c47",
+            "Volumes": null,
+            "WorkingDir": "/bin",
+            "Entrypoint": [
+                "server"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "com.infoblox.maintainer": "infoblox"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 60719624,
+        "VirtualSize": 60719624,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/rw/host/docker/overlay2/b25c52a04de1ae64961ff44eb4711dd6dd456e600863c1e97883f39b1b3e8248/diff:/rw/host/docker/overlay2/e8c0b463a97f2ccecaefe9fa0364bf1e4948c3e46d6606c85052bca86baad66d/diff:/rw/host/docker/overlay2/8a9289f20c7fb62a66a070ec5c3a761707b31d1f69f1667d84d14a91c4aec7d2/diff:/rw/host/docker/overlay2/5fa98bfa5884ef92ca9d327cd75eec211cda7fdf941ba2eb80ce9e2484449a83/diff:/rw/host/docker/overlay2/3b58f8edff1ddbf3bfc62f30beca21333bd40efdd313fb71f9cad62fba263e19/diff:/rw/host/docker/overlay2/b5d6bfdc3632325fbc2ab2c61d80bd7085519bd9ed419093c2cd33cb6a91bf0c/diff",
+                "MergedDir": "/rw/host/docker/overlay2/565c56c5170bdc8b6167e33d857238d4d100e2299b93bd49ae67d9a964a00f8a/merged",
+                "UpperDir": "/rw/host/docker/overlay2/565c56c5170bdc8b6167e33d857238d4d100e2299b93bd49ae67d9a964a00f8a/diff",
+                "WorkDir": "/rw/host/docker/overlay2/565c56c5170bdc8b6167e33d857238d4d100e2299b93bd49ae67d9a964a00f8a/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:78a822fe2a2d2c84f3de4a403188c45f623017d6a4521d23047c9fbb0801794c",
+                "sha256:127438e31781ace538a37c182fcdda884d2b8d5a71327a0bbf3084f3a5fd5674",
+                "sha256:7511738dffcebd4058258df7cc7d26abf83dfc0463ed8aafa0bfb6d3cc416623",
+                "sha256:9e5dc4940f554061224c030cc7e60f56c2469bcc80c7420e2a49dc4df654928c",
+                "sha256:6ebc76fd7591e2fdf1b322b5a4036838ef53f23986a7b37fe26b7cc5f56464fe",
+                "sha256:94c0505256aadd3e1406e6741cdc43e9db4e6dfe33e5e849103e59bae1aeba4c",
+                "sha256:26b62e495f97ed4b20f646a74dcb637db223b6100b55e57dc2fce3da24766105"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]

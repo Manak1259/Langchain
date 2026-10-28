@@ -1,0 +1,1 @@
+BOOT_IMAGE=/boot/bzImage root=LABEL=root1 console=ttyS0,9600n8 crashkernel=512M-2G:76M,2G-:256M loglevel=1 panic=60 selinux=0 hung_task_panic=1 nvme_core.io_timeout=255

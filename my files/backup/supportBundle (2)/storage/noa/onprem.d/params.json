@@ -1,0 +1,26 @@
+{
+ 	"csp.https.proxy": "",
+ 	"ha.enabled": false,
+ 	"labels": {
+ 		"cpu": "x86_64",
+ 		"federation": false,
+ 		"grid_name": "Infoblox",
+ 		"gridmaster_ip": "10.197.56.157",
+ 		"ha_pair": false,
+ 		"ha_status": "Not Configured",
+ 		"hardware_id": "564D7C4C4ED53DE0D46F5967DEAE8F44",
+ 		"heka_optin": true,
+ 		"host_name": "infoblox.localdomain",
+ 		"hw": "VMWARE",
+ 		"license_uid": "82a89ee306104d7398e88169f6e3c70c",
+ 		"model_no": "IB-V1415",
+ 		"nios_role": "GM",
+ 		"nios_version": "8.6.5-51568-b30e9796da72",
+ 		"physical_oid": "0",
+ 		"virtual_oid": "0",
+ 		"virtualnode_ip": "10.197.56.157"
+ 	},
+ 	"nios.serial.number": "564D7C4C4ED53DE0D46F5967DEAE8F44",
+ 	"public.ip": "10.197.56.157",
+ 	"weak.auth.token": "eyJoYXJkd2FyZV9pZCI6IjU2NEQ3QzRDNEVENTNERTBENDZGNTk2N0RFQUU4RjQ0IiwibGljZW5zZXMiOlt7ImxpY2Vuc2Vfc3RyaW5nIjoiR3dBQUFLbHd1Q0paSHk1S3RXM0FYQTNNRUx1VmhKRmlmb2E3VnkrUWlnPT0iLCJsaWNlbnNlX3R5cGUiOiJuaW9zIn0seyJsaWNlbnNlX3N0cmluZyI6IkV3QUFBS04zcEMwWEdXWUhzU1NPWGcvS1dLVEJscE09IiwibGljZW5zZV90eXBlIjoiZG5zIn0seyJsaWNlbnNlX3N0cmluZyI6IkZBQUFBS054dENGWkh5NUt0VzNBWEEzTUVMdVNrcGRqIiwibGljZW5zZV90eXBlIjoiZGhjcCJ9LHsibGljZW5zZV9zdHJpbmciOiJHZ0FBQUtKM296UlhYV2hmOXozQVhBbUNGZkxZa3BCa2U4K3RDeStUIiwibGljZW5zZV90eXBlIjoiZW50ZXJwcmlzZSJ9XSwibGljZW5zZV91aWQiOiI4MmE4OWVlMzA2MTA0ZDczOThlODgxNjlmNmUzYzcwYyJ9"
+ }

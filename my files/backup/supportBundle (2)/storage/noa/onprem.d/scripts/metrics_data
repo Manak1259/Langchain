@@ -1,0 +1,201 @@
+#!/usr/bin/python
+
+# This python script is executed by heka metrics framework and it
+# captures CPU, Memory, Disk, QPS, LPS and IPAM data from the GM
+# and sends it to heka container for further processing.
+
+import infoblox.one.onedb as onedb
+import infoblox.one.util as ou
+import infoblox.common.ilog as ilog
+import infoblox.one._util as u
+import infoblox.common.util as cu
+from infoblox.one.idl.monitor_constants import *
+from infoblox.one.clusterd import is_node_active_master
+import heka_data_dir.common_utils as common
+import time
+import json
+import os
+import glob
+import re
+import argparse
+
+version = '0.1'
+
+# -------  Metrics Data Collection ----------------
+# This is the metrics collection data set. If we need more data to be
+# collected, then please update this dataset.
+met_set = [('disk', 'e_monitor_type_disk_usage'),
+           ('memory', 'e_monitor_type_memory'),
+           ('cpu', 'e_monitor_type_cpu_usage')]
+met_col = 'raw_status'
+met_k = 'metrics'
+
+# -------- Simplified Packagin Data Collection ----
+# This is the Simplified Packaging data set. If more data comes-in in a
+# later version, then please update this dataset.
+sp_set = ['grid_usage', 'member_usage']
+sp_ds = ['lps','qps','ipam','leases','queries','ipam_day']
+
+if int(common.nios_version()) >= 905:
+    SIMPACK = '/storage/noa/onprem.d/simpack/'
+else:
+    SIMPACK = '/storage/simpack/'
+SIMPACK_FILE = SIMPACK + 'simpack_data.json.*'
+def fetch_monitor_data(db, data):
+    # Collect the monitor data from the framework
+    data[met_k] = []
+    pnodes = db.call('?one.physical_node', factory=onedb.todict)
+    for p in pnodes:
+        ps = str(p['physical_oid'])
+        mdata = u.fetch_monitor_data(ps)
+        if not mdata: continue
+           
+        temp = {}
+        temp['pnode_id'] = ps
+        temp['hwid'] = p['hwid']
+        if "public_ip_address" in p:
+            temp['host_ip'] = p['public_ip_address']
+        else:
+            temp['host_ip'] = p['v6_public_ip_address']
+        temp['vnode_id'] = p['virtual_node']
+        for (k, v) in met_set:
+            i = str( ib_monitor_type_t[ v])
+            temp[k] = mdata[i][met_col] if i in mdata and met_col in mdata[i] else 0
+
+        data[met_k].append(temp)
+
+    return data
+
+def fetch_simpack_data(data):
+    sp_files = glob.glob(SIMPACK_FILE)
+    for spf in sp_files:
+        if not os.access(spf, os.R_OK):
+            continue
+
+        # capture the data from simpack files and rm it.
+        sp = {}
+        with open(spf) as f:
+            sp = json.load(f)
+        cu.rm_rf(spf)
+
+        if not isinstance(sp, dict):
+            continue
+
+        for k in sp_set:
+            # copy the data from sp if it is first file
+            if k in sp and k not in data:
+                data[k] = sp[k]
+            elif k in sp and k in data:
+                # if we already have data, then we have extend the captured list
+                if k == 'grid_usage':
+                    for ds in sp_ds:
+                        if ds in data[k] and ds in sp[k]:
+                            data[k][ds].extend(sp[k][ds])
+                        elif ds not in data[k] and ds in sp[k]:
+                            data[k][ds] = sp[k][ds]
+                elif k == 'member_usage':
+                    for i,n in enumerate(data[k]):
+                        for j,m in enumerate(sp[k]):
+                            if n['pnode_id'] == m['pnode_id']:
+                                for ds in sp_ds:
+                                    if ds in data[k][i] and ds in sp[k][j]:
+                                        data[k][i][ds].extend(sp[k][j][ds])
+                                    elif ds not in data[k][i] and ds in sp[k][j]:
+                                        data[k][i][ds] = sp[k][j][ds]
+                                # remove the item from the list, so that remaining data can be appended
+                                sp[k].pop(j)
+                    data[k].extend(sp[k])
+
+    return data
+
+def update_grid_data(db, data):
+    gm = db.call('?one.virtual_node', {'is_master':True}, factory=onedb.todict, single=True)
+    if gm and 'config_addr_type' in gm:
+        if gm['config_addr_type'] != 'IPV6':
+            data['grid_usage']['gm_ip'] = gm['virtual_ip']
+        else:
+            data['grid_usage']['gm_ip'] = gm['v6_virtual_ip']
+    else:
+        data['grid_usage']['gm_ip'] = ""
+
+    return data
+
+def update_member_data(db, data):
+    for i,n in enumerate(data['member_usage']):
+        pnode = db.call('?one.physical_node', {'physical_oid': n['pnode_id']}, factory= onedb.todict, single=True)
+        if pnode:
+            data['member_usage'][i]['hwid'] = pnode['hwid']
+            if "public_ip_address" in pnode:
+                data['member_usage'][i]['host_ip'] = pnode['public_ip_address']
+            else:
+                data['member_usage'][i]['host_ip'] = pnode['v6_public_ip_address']
+            data['member_usage'][i]['vnode_id'] = pnode['virtual_node']
+
+    return data
+
+def fetch_processed_data():
+    data = {}
+    data['version'] = version
+    data['ts'] = int(time.time())
+
+    db = onedb.Db()
+    try:
+        with db.begin(onedb.RO):
+            # check if this node is GM-Active and HEKA is OPTED IN
+            grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory=onedb.todict, single=True)
+            if not grid['heka_opt_in'] or not is_node_active_master():
+                rm_simpack_files()
+                return {'version':version, 'info':'metrics data collection is not permitted here'}
+
+            if grid['uuid']:
+                data['uuid'] = grid['uuid']
+
+            # Collect the Monitor Data from the framework
+            data = fetch_monitor_data(db, data)
+
+        # Collect the Simplified Packaging Data from the associated files.
+        data = fetch_simpack_data(data)
+
+        with db.begin(onedb.RO):
+            if 'grid_usage' in data:
+                data = update_grid_data(db, data)
+
+            if 'member_usage' in data:
+                data = update_member_data(db, data)
+
+            return data
+
+    except onedb.DBStateError as e:
+        ilog.log("DB is not ready for the heka metrics data", e)
+        return {'version': version, 'info': 'DB is not ready for the task'}
+    except Exception as e:
+        ilog.log("Error occurred while fetching heka metrics data", e)
+        return {'version': version, 'info': str(e)}
+
+def dump_json(data):
+    print (json.dumps(data))
+
+#Removes all files inside SIMPACK directory
+def rm_simpack_files():
+    files = glob.glob(SIMPACK + "*")
+    for f in files:
+        cu.rm_rf(f)
+
+if __name__ == '__main__':
+    try:
+        my_parser = argparse.ArgumentParser()
+        my_parser.add_argument('strings', nargs=1, help='Collect metrics data')
+        collect_metrics = my_parser.parse_args().strings[0] 
+
+        if collect_metrics == "true":
+            data = fetch_processed_data()
+            dump_json(data)
+        elif collect_metrics == "false":
+            rm_simpack_files()
+            dump_json({'version': version, 'info': 'Deleted all SIMPACK files'})
+        else:
+            ilog.log("Invalid argument argument passed for metrics data collection")
+            dump_json({'version': version, 'error': 'Invalid argument passed'})
+    except Exception as e:
+        ilog.log('Error orrcurred while handling metrics data : %s' % e)
+        dump_json({'version': version, 'error': str(e)})

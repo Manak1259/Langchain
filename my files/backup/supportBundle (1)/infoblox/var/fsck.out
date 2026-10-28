@@ -1,0 +1,3 @@
+>>> fsck -y -v /dev/sda4 (config):fsck from util-linux 2.32
+config: clean, 11/65536 files, 12644/262144 blocks
+ok

@@ -1,0 +1,352 @@
+#!/usr/bin/python
+
+# This is the python script will be used by HEKA to fetch data from DB and
+# send the data to cloud endpoint.
+
+import json
+import os
+import re
+import sys
+import time
+import argparse
+from datetime import datetime as dt
+import infoblox.one.util as ou
+import infoblox.one.onedb as onedb
+import infoblox.common.ilog as ilog
+import infoblox.one.license as lic
+import infoblox.common.util as cu
+import infoblox.one.license_util as lu
+import infoblox.one.grid_upgrade as gu
+import heka_objects as heka_obj
+from infoblox.common.ibtime import IBDateTime
+import common_utils as common
+from grid_feature_usage import grid_feature_usage
+from member_feature_usage import member_feature_usage
+
+VERIFY_UPGRADE_FILE_CMD = '/infoblox/one/bin/verify_upgrade_file'
+NIOS_VERSION = int(common.nios_version())
+
+def get_version():
+    ver = 0 #Adding a default integer to avoid curation issues
+    try:
+        filename = '/storage/noa/onprem.d/scripts/heka_data_dir/env.json'
+        if os.path.isfile(filename):
+            fd = open(filename)
+            data = json.load(fd)
+            fd.close()
+            return int(data['version'])
+        else:
+            ilog.log("env file not present")
+            return ver
+    except Exception as e:
+        ilog.log('Error occurred while reading version information : %s' % e)
+        return ver
+
+def get_ngc_running():
+    status_flag = False
+    ORPHEUS_STATUS_FILE = '/var/run/orpheus.json'
+    if os.path.exists(ORPHEUS_STATUS_FILE):
+        with open(ORPHEUS_STATUS_FILE) as f:
+            data = json.load(f)
+            status = data.get('status','deactivated')
+            f.close()
+        if status == 'activated':
+            status_flag = True
+    return status_flag
+
+def is_license_on_pnode(db, pnode_oid, license_type):
+    pnode = ou.get_pnode_from_oid(db, pnode_oid)
+    vnode = pnode['virtual_node'].fetch()
+
+    ret_dict = lu.check_member_for_license_type_expired(db,
+                license_type, pnode['virtual_node'])
+    if ret_dict is not None:
+        if vnode['ha_enabled']:
+            #check if given pnode_oid is that of active or passive
+            if vnode['active_position'] == pnode['position']:
+                if ret_dict['valid_on_active'] and \
+                   not (ret_dict['expired'] and ret_dict['is_temp_license']):
+                    return True
+            else:
+                if ret_dict['valid_on_passive'] and \
+                   not (ret_dict['expired'] and ret_dict['is_temp_license']):
+                    return True
+        else:
+            if ret_dict['valid_on_active'] and \
+                not (ret_dict['expired'] and ret_dict['is_temp_license']):
+                return True
+    return False
+
+def fetch_data():
+    data = {}
+    # if file doesnot exists in both the path, configuring default values to make sure poseidon curation doesnt break
+    heka_st = True
+    heka_ts = "2000-01-1T00:00:00Z"
+    infoblox_path = '/infoblox/var/hekaupdatetime.txt'
+    if NIOS_VERSION >= 905:
+        storage_path = '/storage/noa/onprem.d/heka/hekaupdatetime.txt'
+    else:
+        storage_path = '/storage/heka/hekaupdatetime.txt'
+    db = onedb.Db()
+
+    with db.begin(onedb.RO) as txn:
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory=onedb.todict, single=True)
+        vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+
+        if 'heka_opt_in' in grid and vnode and vnode['is_master'] and ou.node_is_active():
+            data['version'] = 1
+            data['elected_member'] = str(ou.get_my_vnode_id())
+
+            # compare the timestamp of both the files and get the heka status from recent updated file
+            # if only one path has the file,read it from the path and update the heka timestamp an heka_optin flag
+            if os.path.isfile(infoblox_path) and  os.path.exists(storage_path):
+            #Get the time of last modification of the specified path since the epoch
+                try:
+                    modification_infoblox_time = os.path.getmtime(infoblox_path)
+
+                    modification_storage_time = os.path.getmtime(storage_path)
+                except Exception as e:
+                    ilog.log("Path does not exists or is inaccessible")
+                if modification_infoblox_time > modification_storage_time:
+                    heka_st,heka_ts = get_heka_timestamp(infoblox_path,db)
+                else:
+                    heka_st,heka_ts = get_heka_timestamp(storage_path,db)
+            elif os.path.isfile(infoblox_path):
+                heka_st,heka_ts = get_heka_timestamp(infoblox_path,db)
+            elif os.path.isfile(storage_path):
+                heka_st,heka_ts = get_heka_timestamp(storage_path,db)
+            else:
+                ilog.log("hekaupdatetime.txt file doesnot exists in both the path due to GMC promotion")
+            data['heka_opt_in'] = {'status':heka_st, 'ts': heka_ts}
+        else:
+            return {'info':'Not configured to run in this node'}
+
+        data['src'] = 'heka'
+        data['ngc_enabled'] = get_ngc_running()
+        data['nios_version'] = ou.get_external_version() # nios version format 8.6.3-51135-1241097029df
+        data['collected_at'] = dt.utcnow().strftime("%Y-%m-%dT%H:%M:%S") + 'Z'
+
+        if 'config_addr_type' in vnode:
+            if vnode['config_addr_type'] == 'IPV6':
+                data['gridmaster_ip'] = vnode['v6_virtual_ip']
+            else:
+                data['gridmaster_ip'] = vnode['virtual_ip']
+        else:
+            data['gridmaster_ip'] = ''
+  
+        data['password_policy'] =  ou.get_my_password_setting(db)
+        upgrade_status = gu.get_grid_upgrade_status(db)
+        data['upgrade_status']=upgrade_status['upgrade_status_summary']
+        if data['upgrade_status']['last_action_user_ref'] != None :
+            data['upgrade_status']['last_action_user_ref'] = data['upgrade_status']['last_action_user_ref'].key
+        if data['upgrade_status']['status_time'] != None :
+            data['upgrade_status']['status_time'] = time.mktime(upgrade_status['upgrade_status_summary']['status_time'])
+            data['upgrade_status']['status_time'] = IBDateTime(data['upgrade_status']['status_time']).isostr(sep='T')
+        if data['upgrade_status']['upgrade_schedule_time'] != None :
+            data['upgrade_status']['upgrade_schedule_time'] = time.mktime(upgrade_status['upgrade_status_summary']['upgrade_schedule_time'])
+            data['upgrade_status']['upgrade_schedule_time'] = IBDateTime(data['upgrade_status']['upgrade_schedule_time']).isostr(sep='T')
+        if data['upgrade_status']['distribution_schedule_time'] != None :
+            data['upgrade_status']['distribution_schedule_time'] = time.mktime(upgrade_status['upgrade_status_summary']['distribution_schedule_time'])
+            data['upgrade_status']['distribution_schedule_time'] = IBDateTime(data['upgrade_status']['distribution_schedule_time']).isostr(sep='T')
+        if data['upgrade_status']['upgrade_schedule_active'] == None :
+            data['upgrade_status']['upgrade_schedule_active'] = False
+        if data['upgrade_status']['distribution_schedule_active'] == None :
+            data['upgrade_status']['distribution_schedule_active'] = False
+        grid_primary_count = common.get_db_count(db,'?dns.zone_grid_primary',{'stealth':True})
+        ns_group_count = common.get_db_count(db,'?dns.ns_group_grid_primary',{'stealth':True})
+        data["hidden_primary"] = grid_primary_count + ns_group_count
+        saml_file = "/infoblox/var/saml.pid"
+        if os.path.exists(saml_file):
+            data["saml_enabled"] = True
+        else :
+            data["saml_enabled"] = False
+
+        data['standalone'] = lic.has_standalone_license(db)
+
+        data['licenses'] = []
+        licenses = db.call('?one.product_license', factory=onedb.todict)
+        for license in licenses:
+            result = is_license_on_pnode(db,license['pnode'],license['license_type'])
+            if result is True:
+                data['licenses'].append(license)
+
+
+        
+        data = common.fill_up(db, d=data, k='features', q='?one.vnode_license', dv=[])
+        data = common.fill_up(db, d=data, k='grid_wide_licenses', q='?one.license_grid_wide', dv=[])
+        data = common.fill_up_count(db, d=data, k='admin_count', q='?one.admin', dv=0)
+        data = common.fill_up_count(db, d=data, k='dashboard_count', q='?one.webui_dashboard_configuration', dv=0)
+        #data = common.fill_up(db, d=data, k='dhcp', q='?dns.member_dhcp_properties', dv=[])
+        obj = grid_feature_usage(db)
+        if obj.cluster_dhcp_object is None:
+            ilog.log('Error occurred while fetch cluster DNS object')
+        if obj.cluster_dns_object is None:
+             ilog.log('Error occurred while fetch cluster DHCP object')
+
+        data['dhcp'] = []
+        dhcp_items = db.call('?dns.member_dhcp_properties', factory=onedb.todict)
+        for i, item in enumerate(dhcp_items):
+            dhcp = {}
+            dhcp['enable_service'] = dhcp_items[i]['enable_service']
+            dhcp['grid_member'] = dhcp_items[i]['grid_member']
+            dhcp['update_dns_on_lease_renewal'] = dhcp_items[i]['update_dns_on_lease_renewal'] if dhcp_items[i]['use_update_dns_on_lease_renewal'] \
+                else (bool(obj.cluster_dhcp_object['update_dns_on_lease_renewal']) if obj.cluster_dhcp_object is not None else False)
+            dhcp['v6_update_dns_on_lease_renewal'] = dhcp_items[i]['v6_update_dns_on_lease_renewal'] if dhcp_items[i]['use_v6_update_dns_on_lease_renewal'] \
+                else (bool(obj.cluster_dhcp_object['v6_update_dns_on_lease_renewal']) if obj.cluster_dhcp_object is not None else False)
+            dhcp['update_static_leases'] = dhcp_items[i]['update_static_leases'] if dhcp_items[i]['use_update_static_leases'] \
+                else (bool(obj.cluster_dhcp_object['update_static_leases']) if obj.cluster_dhcp_object is not None else False)
+            dhcp['log_lease_events'] = dhcp_items[i]['log_lease_events'] if dhcp_items[i]['use_log_lease_events'] \
+                else (bool(obj.cluster_dhcp_object['log_lease_events']) if obj.cluster_dhcp_object is not None else False)
+            data['dhcp'].append(dhcp)
+
+        #data = common.fill_up(db, d=data, k='dns', q='?dns.member_dns_properties', dv=[])
+        data['dns'] = []
+        dns_items = db.call('?dns.member_dns_properties', factory=onedb.todict)
+        for i, _ in enumerate(dns_items):
+            dns = {}
+            dns['enable_service'] = dns_items[i]['enable_service']
+            dns['parent'] = dns_items[i]['parent']
+            dns['recursive_client_limit'] = dns_items[i]['limit_concurrent_recursive_clients']
+            dns['smartcache_enabled'] = dns_items[i]['enable_smartcache'] if dns_items[i]['use_smartcache'] \
+                else (bool(obj.cluster_dns_object['enable_smartcache']) if obj.cluster_dns_object is not None else False)
+            dns['rpz_disable_nsdname_nsip'] = dns_items[i]['rpz_disable_nsdname_nsip'] if dns_items[i]['use_rpz_disable_nsdname_nsip'] \
+                else (bool(obj.cluster_dns_object['rpz_disable_nsdname_nsip']) if obj.cluster_dns_object is not None else False)
+            if dns_items[i]['use_forwarder_setting']:
+                member_dns_forwarders = common.get_db_count(db, '?dns.member_forwarder')
+                if member_dns_forwarders :
+                    dns['member_dns_forwarder'] = True
+                else :
+                    dns['member_dns_forwarder'] = False
+            else :
+                dns['member_dns_forwarder'] = bool(common.get_db_count(obj.db, '?dns.cluster_forwarder'))
+            data['dns'].append(dns)
+
+        data = common.fill_up(db, d=data, k='ntp', q='?one.vnode_time', dv=[])
+        data = common.fill_up(db, d=data, k='protocol', q='?one.member_tftp_properties', dv=[])
+        data = common.fill_up(db, d=data, k='dfp', q='?one.member_dfp_properties', dv=[])
+        data['version'] = get_version()
+
+        data['cmp_plugins'] = db.call('?one.extensible_attributes_value',{'tag': '.CMP Type'},factory=onedb.todict)
+        data['total_queries'] = 0
+        if NIOS_VERSION >= 905:
+            aggr_file = '/storage/noa/onprem.d/simpack/aggregate_day'
+        else:
+            aggr_file = '/storage/simpack/aggregate_day'
+        if os.access(aggr_file, os.R_OK):
+        # Read total queries from aggregate day file
+            fd = open(aggr_file)
+            data_aggr = json.load(fd)
+            data['total_queries'] = data_aggr['queries']
+    return data
+
+def get_heka_timestamp(file,db):
+    param_file = '/storage/noa/onprem.d/params.json'
+    if os.path.isfile(param_file):
+        with open(param_file) as f:
+        # returns JSON object as a dictionary
+            data_load = json.load(f)
+            data_extract = data_load["labels"]
+        # getting heka_optin value from params file
+            heka_st = True if  data_extract['heka_optin'] == True else False
+
+    with open(file) as f:
+        last = f.readlines()[-1]
+        line = last.split()
+        st = line[2].rstrip(',')
+        year = int(line[5].lstrip('(').rstrip(','))
+        mon  = int(line[6].rstrip(','))
+        day = int(line[7].rstrip(','))
+        h = int(line[8].rstrip(','))
+        m = int(line[9].rstrip(','))
+        s = int(line[10].rstrip(')'))
+        zone = common.get_time_zone(db)
+        if  zone != '': #not UST
+        # since we are unable to get zone information in hekaupdatetime.txt, currently will not append zone information to the timestamp
+            heka_ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}".format(year, mon, day, h, m, s)
+        else:
+            heka_ts = "{0:04d}-{1:02d}-{2:02d}T{3:02d}:{4:02d}:{5:02d}Z".format(year, mon, day, h, m, s)
+    return heka_st, heka_ts
+
+def dump_json(file_path,data):
+    with open(file_path, 'w') as json_file:
+        json_data = (json.dumps(data, indent=4))
+        json_file.write(json_data)
+        print (json.dumps({'status': 'success'}, indent=4))
+
+def heka_check():
+    db = onedb.Db()
+    with db.begin(onedb.RO) as txn:
+        grid = db.call('?one.cluster', {'cluster_oid': ou.get_my_cluster_id()}, factory=onedb.todict, single=True)
+        vnode = db.call('?one.virtual_node', {'virtual_oid': ou.get_my_vnode_id()}, factory=onedb.todict, single=True)
+        if 'heka_opt_in' in grid and vnode and vnode['is_master'] and ou.node_is_active():
+            return True
+        else:
+            return False
+
+if __name__ == '__main__':
+    try:
+        my_parser = argparse.ArgumentParser()
+        my_parser.add_argument('strings', nargs=3, help='Output file path and file name')
+
+        args = my_parser.parse_args()
+        filepath = args.strings[0]
+        filename = args.strings[1]
+        object_name = args.strings[2]
+        full_path = os.path.join(filepath, filename)
+
+        flag_file = "/tmpfs/heka_data_collection_in_progress"
+        if os.path.exists(flag_file):
+            ilog.log('Another instance of the heka collection is running. Exiting.')
+            print (json.dumps({'error': 'Another instance of the heka collection is running'}, indent=4))
+        else:
+            invalid_arg = False  # Initialize the flag to check if the argument passed is invalid
+            open(flag_file, 'a').close()
+            ilog.log('Heka data collection started for %s' % object_name)
+            if heka_check():
+                if object_name == 'pnode':
+                    data = heka_obj.fetch_pnode()
+                elif object_name == 'grid':
+                    data = heka_obj.fetch_grid()
+                elif object_name == 'vnode':
+                    data = heka_obj.fetch_vnode()
+                elif object_name == 'federation':
+                    data = heka_obj.fetch_federation()
+                elif object_name == "fetch_data":
+                    data = fetch_data()
+                elif object_name == 'vdiscovery':
+                    data = heka_obj.fetch_vdiscovery()
+                elif object_name == 'multi_cloud':
+                    data = heka_obj.fetch_multicloud()
+                elif object_name in ['grid_feature', 'dns_data', 'network_data', 'nios_data', 'dns_records', 'zone_data', 'grid_feature_debug', 'ipv4_ipv6_data']:
+                    data = heka_obj.fetch_grid_feature_usage(object_name)
+                elif object_name == 'ssl_cert':
+                    data = heka_obj.fetch_ssl_cert()
+                elif object_name == 'reporting_data':
+                    data = heka_obj.fetch_reporting_data()
+                elif object_name == "debug":
+                    data = heka_obj.fetch_pnode()
+                    data.update(heka_obj.fetch_grid())
+                    data.update(heka_obj.fetch_vnode())
+                    data.update(heka_obj.fetch_federation())
+                    data.update(fetch_data())
+                    data.update(heka_obj.fetch_vdiscovery())
+                    data.update(heka_obj.fetch_multicloud())
+                    data.update(heka_obj.fetch_grid_feature_usage('grid_feature_debug'))
+                    data.update(heka_obj.fetch_reporting_data())
+                else :
+                    ilog.log("Invalid argument argument passed for heka data collection")
+                    print (json.dumps({'error': 'Invalid argument passed'}, indent=4))
+                    invalid_arg = True
+            else:
+                data = {'info':'Not configured to run in this node'}
+
+            if not invalid_arg:
+                dump_json(full_path,data)
+            if os.path.exists(flag_file):
+                os.remove(flag_file)
+            ilog.log('Heka data collection completed for %s' % object_name)
+    except Exception as e:
+        ilog.log('Error occurred while handling heka data : %s' % e)
+        print (json.dumps({'error': str(e)}, indent=4))
+        if os.path.exists(flag_file):
+            os.remove(flag_file)

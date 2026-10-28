@@ -1,0 +1,902 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.690
+Ajith Kumar Shetty: Current team behaviour. And what is the new behavior?
+
+2
+00:00:22.940 --> 00:00:26.769
+Ajith Kumar Shetty: Any questions I think Manaki can ask. Yeah, I can record this session.
+
+3
+00:00:26.840 --> 00:00:28.910
+Siva Krishna: Yeah, I'm recording with it. I'm recording.
+
+4
+00:00:31.050 --> 00:00:35.130
+Ajith Kumar Shetty: and let me know how to test it. At least test one or 2 cases executed.
+
+5
+00:00:35.190 --> 00:00:36.970
+Siva Krishna: And
+
+6
+00:00:56.810 --> 00:00:57.810
+Siva Krishna: Hello, Monarch.
+
+7
+00:00:58.500 --> 00:01:12.560
+Siva Krishna: yeah, see? Actually, this is the function. So, okay, this is the, this is the other existing function. This is not a new feature. Okay, so what is this member? What it will do means, okay.
+
+8
+00:01:12.600 --> 00:01:21.170
+Siva Krishna: Using this function, we will be querying to the source address. Okay, this is the name server. We will be sending you query to this IP address, okay.
+
+9
+00:01:21.350 --> 00:01:22.040
+Siva Krishna: hmm.
+
+10
+00:01:22.890 --> 00:01:35.060
+Siva Krishna: so here, what happening with by default before, whenever you pass this member, okay, by default, the land IP of this member, it is taking as source address. So so that's how it will be. There means, for example, I will show you.
+
+11
+00:01:35.380 --> 00:01:36.130
+Siva Krishna: D
+
+12
+00:01:37.320 --> 00:01:39.910
+Siva Krishna: help you create a record mandarin
+
+13
+00:01:47.290 --> 00:01:55.660
+Ajith Kumar Shetty: operation. Monet, dig. Girl, okay, normally.
+
+14
+00:01:56.080 --> 00:02:03.239
+Ajith Kumar Shetty: yeah, big corporations. There are many methods. But you can. Yeah, you can. When dig operation, you can perform using dig tool.
+
+15
+00:02:03.500 --> 00:02:08.520
+Ajith Kumar Shetty: and even through mapping call, and even in the dashboard, that 3 options.
+
+16
+00:02:08.840 --> 00:02:11.109
+Ajith Kumar Shetty: But here the ask is for whappy.
+
+17
+00:02:12.640 --> 00:02:14.270
+Ajith Kumar Shetty: I think. Yeah, sure will expect.
+
+18
+00:02:20.410 --> 00:02:29.630
+Siva Krishna: So now I have performed the big query, Okay. so I have one big query from my workstation. Now, this is called the Source Address.
+
+19
+00:02:30.050 --> 00:02:36.010
+Siva Krishna: So similarly, the customers. What they want is they want to decide this source address.
+
+20
+00:02:36.360 --> 00:03:03.039
+Siva Krishna: I am, I am passing this member host. Name. Okay by default. This taking the land IP of this member. Okay, but what they want this they want to. They want to decide the source address. Either it may be an Ap. Or Mgm. T. Ap. Or land to IP any any Ap. They can give from that it should go. That is what's the requirement before they don't have that option before. Only option is they have. They can give the member hostname by default to take the land IP of this hostname.
+
+21
+00:03:03.040 --> 00:03:07.889
+Siva Krishna: you see, without passing with this old functionality. This is the host name
+
+22
+00:03:08.180 --> 00:03:10.929
+Siva Krishna: by default. Just taking this as a source address.
+
+23
+00:03:11.210 --> 00:03:13.789
+Siva Krishna: Okay, I will execute this query, and he will.
+
+24
+00:03:18.480 --> 00:03:20.580
+Siva Krishna: is in the locks in the locks. If you see.
+
+25
+00:03:21.780 --> 00:03:22.550
+Hmm.
+
+26
+00:03:27.670 --> 00:03:28.410
+Siva Krishna: hmm.
+
+27
+00:03:28.900 --> 00:03:29.590
+Okay.
+
+28
+00:03:51.630 --> 00:03:54.180
+Siva Krishna: Morning, I'll give and decide. And
+
+29
+00:03:54.250 --> 00:03:55.370
+to get this.
+
+30
+00:04:04.490 --> 00:04:17.769
+Siva Krishna: this is our grid. IP, only right?
+
+31
+00:04:18.459 --> 00:04:20.600
+Siva Krishna: So now I'm executing the query
+
+32
+00:04:21.690 --> 00:04:24.390
+Siva Krishna: source addresses. Once, I see.
+
+33
+00:04:26.790 --> 00:04:33.410
+Siva Krishna: this is a bug. Okay, this existing baboka actually from us. 1035 171 dot 11,
+
+34
+00:04:33.530 --> 00:04:50.789
+Siva Krishna: it should come. Okay. Now we will. We need to decide the customers. They want to decide whether it will be LAN, IP. Or Mgm. Or anything they have to decide. So we should not. I mean some brand. It should not go through the particular land. Api. We are implementing a new field
+
+35
+00:04:51.030 --> 00:05:05.790
+Siva Krishna: in this Rfp. If you see this is the only new field which is adding in here remaining, all fields are existing only. Okay. Now the this source IP new field is added as part of this feature. RFID,
+
+36
+00:05:05.980 --> 00:05:06.930
+Manak Sahu: okay.
+
+37
+00:05:07.280 --> 00:05:15.569
+Siva Krishna: So when you give the source, IP, if you give the LAN IP, it will go with the Lano LAN, okay, to Mgm. Dep. It will go with the Mgm. T. Ap.
+
+38
+00:05:16.170 --> 00:05:20.059
+Manak Sahu: so what source? IP we should give like for testing purpose.
+
+39
+00:05:20.140 --> 00:05:26.339
+Siva Krishna: You can do any whatever the configuration your grid. So now I have configured LAN IP migrate.
+
+40
+00:05:26.600 --> 00:05:27.600
+Manak Sahu: Okay.
+
+41
+00:05:31.210 --> 00:05:36.689
+Siva Krishna: so make sure we need to configure all the networks on this land. LAN, to Mgmt.
+
+42
+00:05:36.770 --> 00:05:44.820
+Siva Krishna: Ipv. 4, I mean, you need to test with Ipv. 4, configurable 3. Okay. I can't address Mgmt. Address Lando.
+
+43
+00:05:45.210 --> 00:05:52.389
+Siva Krishna: Okay, so now, by default. It is going through land it now I will pass. Mgm. Api in this.
+
+44
+00:05:56.200 --> 00:06:01.519
+Siva Krishna: See? Now, this sort of does become to mgm, d. Okay. now, if you go and see here
+
+45
+00:06:02.580 --> 00:06:04.579
+Siva Krishna: the client app is mgm, T.
+
+46
+00:06:04.920 --> 00:06:05.830
+Okay.
+
+47
+00:06:07.830 --> 00:06:18.809
+Siva Krishna: what year it is doing this function, what it will do means. Okay, I'll show you this quite equidistant function. What it will do means. Okay, first, it will log into this IP source. IP address
+
+48
+00:06:19.350 --> 00:06:25.960
+Siva Krishna: from there. It will execute the query like this. if you can see
+
+49
+00:06:28.190 --> 00:06:31.170
+Siva Krishna: from here, it will perform the de Query.
+
+50
+00:06:31.390 --> 00:06:32.250
+Manak Sahu: okay.
+
+51
+00:06:32.490 --> 00:06:33.440
+Siva Krishna: yeah.
+
+52
+00:06:38.050 --> 00:06:40.210
+Manak Sahu: And what is this? A name server?
+
+53
+00:06:42.190 --> 00:06:43.800
+Siva Krishna: Who this IP is? Querying
+
+54
+00:06:46.030 --> 00:06:50.370
+Ajith Kumar Shetty: name server is the server, which is that they?
+
+55
+00:06:50.580 --> 00:06:56.409
+Siva Krishna: Yeah, Karata. Jin. we are putting the zone here right test.com
+
+56
+00:06:56.520 --> 00:07:10.579
+Ajith Kumar Shetty: desk.com is assigned to the server. It could be any member master whatever that name service, and there is optional one. If you don't use that, I think I think there are some test places, but that there's a name service are basically assigned to zones.
+
+57
+00:07:10.790 --> 00:07:11.650
+Manak Sahu: Okay.
+
+58
+00:07:12.230 --> 00:07:21.300
+Siva Krishna: okay, here names are all means, whatever the server for V, whatever we are querying. That is called name server.
+
+59
+00:07:22.090 --> 00:07:25.729
+Siva Krishna: I'm querying for this server from this address.
+
+60
+00:07:26.460 --> 00:07:27.400
+Manak Sahu: Okay.
+
+61
+00:07:27.790 --> 00:07:34.469
+Siva Krishna: this is what to the zone, right? Otherwise it won't query, yeah.
+
+62
+00:07:37.030 --> 00:07:40.370
+Manak Sahu: So from where we'll check that name, sir, what I pay
+
+63
+00:07:40.610 --> 00:07:44.570
+Siva Krishna: name sarwar. ABC, names are okay.
+
+64
+00:07:53.050 --> 00:08:01.140
+Siva Krishna: You need to create a zone. Okay? And here you need us in the name service like this. These are the name service
+
+65
+00:08:01.480 --> 00:08:06.960
+Siva Krishna: you need to create a zone, and you to assign the name service, and in that one. You need to create the records.
+
+66
+00:08:07.340 --> 00:08:08.350
+Manak Sahu: No cow.
+
+67
+00:08:08.500 --> 00:08:10.609
+Siva Krishna: So, and you need to query for that record.
+
+68
+00:08:10.900 --> 00:08:21.330
+Siva Krishna: I have created a record created Zoom, and I have send. Say, names are, says both master and members
+
+69
+00:08:21.950 --> 00:08:25.009
+Siva Krishna: to these other names. I was, see, okay.
+
+70
+00:08:25.700 --> 00:08:30.080
+Siva Krishna: master and members are there. Okay, I am querying for this number.
+
+71
+00:08:30.240 --> 00:08:32.070
+Manak Sahu: Okay, okay.
+
+72
+00:08:34.450 --> 00:08:39.860
+Siva Krishna: whatever the thing I have done now, these manual steps will be taken care by
+
+73
+00:08:40.039 --> 00:08:43.980
+Siva Krishna: this function. This function is the same process.
+
+74
+00:08:44.260 --> 00:09:00.679
+Siva Krishna: this function. It will log into this. First, it will log into this client address. Okay? Source address. Yeah. It will query to this name server using this Fcudian.
+
+75
+00:09:00.790 --> 00:09:03.659
+Siva Krishna: a.is.com. It will query for the ta record.
+
+76
+00:09:04.680 --> 00:09:15.510
+Manak Sahu: okay, so name server. We can give as a master and source. IP, also we can give like a similar. We can give both. Okay.
+
+77
+00:09:16.830 --> 00:09:18.929
+Siva Krishna: nawiguegies.com.
+
+78
+00:09:19.140 --> 00:09:20.020
+Okay.
+
+79
+00:09:20.190 --> 00:09:29.970
+Siva Krishna: no. I got this IP the same. Whatever the response I'm getting here, I'm getting response. Here, make sure you check this option. Okay? After iphone B,
+
+80
+00:09:30.240 --> 00:09:31.440
+Siva Krishna: whatever
+
+81
+00:09:31.590 --> 00:09:36.849
+Siva Krishna: IP address. IP, it should be the same here.
+
+82
+00:09:37.350 --> 00:09:38.140
+Manak Sahu: Okay.
+
+83
+00:09:38.320 --> 00:09:42.699
+Siva Krishna: make sure you valid the locks us in the locks, it should give the same client address.
+
+84
+00:09:42.980 --> 00:09:43.680
+Okay?
+
+85
+00:09:43.860 --> 00:09:44.600
+Siva Krishna: Hmm.
+
+86
+00:09:48.220 --> 00:09:48.960
+hmm.
+
+87
+00:09:49.080 --> 00:09:51.489
+Siva Krishna: I did. Can I raise bug for this one? Ajit?
+
+88
+00:09:51.910 --> 00:09:59.129
+Siva Krishna: I mean, last time I mentioned you. Right? I mean, if I don't you like. I'm sure you okay.
+
+89
+00:10:05.440 --> 00:10:07.219
+Siva Krishna: I didn't get source address. Okay.
+
+90
+00:10:07.510 --> 00:10:08.210
+Ajith Kumar Shetty: okay.
+
+91
+00:10:09.810 --> 00:10:11.669
+Siva Krishna: here it is, giving LAN address.
+
+92
+00:10:12.380 --> 00:10:13.220
+Ajith Kumar Shetty: Okay.
+
+93
+00:10:13.510 --> 00:10:16.960
+Siva Krishna: but if you go to locks it will go to land to IP by default.
+
+94
+00:10:19.130 --> 00:10:20.370
+Ajith Kumar Shetty: Should we?
+
+95
+00:10:20.520 --> 00:10:21.580
+Siva Krishna: Larabee?
+
+96
+00:10:21.720 --> 00:10:27.060
+Siva Krishna: Yeah, land is there? This is LAN, 2,
+
+97
+00:10:27.160 --> 00:10:28.690
+Siva Krishna: 52 is random.
+
+98
+00:10:29.070 --> 00:10:38.640
+Ajith Kumar Shetty: Yeah, yeah, this is the case. If you can log about saying that you can mention that it existing worldwear also. But with this. Rfp.
+
+99
+00:10:38.650 --> 00:10:43.689
+Siva Krishna: Hmm. Whatever you specify, that's by default, it should be land right?
+
+100
+00:11:01.730 --> 00:11:17.590
+Siva Krishna: No, let's ignore this out of you know the fresh grade. Not with this out of in the world, Bill. If we execute this, it will giving, I mean, if you execute this call command, it will be giving the source land us right
+
+101
+00:11:17.630 --> 00:11:31.449
+Ajith Kumar Shetty: in the Ua. I mean, here it is giving us land. IP, but they want to move. Let them move it. But
+
+102
+00:11:31.500 --> 00:11:33.480
+Ajith Kumar Shetty: log a bug in this. Rf.
+
+103
+00:11:33.520 --> 00:11:36.269
+Siva Krishna: okay, what about this? I mean, like,
+
+104
+00:11:36.450 --> 00:11:40.150
+Siva Krishna: tag, you can use 1 0, 2, 4, 2.
+
+105
+00:11:40.250 --> 00:11:45.799
+Siva Krishna: The tag is there. You can create one, if not 1, 0 2, 4, 2. If it is not there, you can create one.
+
+106
+00:11:52.240 --> 00:11:57.290
+Ajith Kumar Shetty: in case if there are any bugs on this. Rf, Admin, you should have. Rfp hash has 1, 0, 2, 4,
+
+107
+00:11:58.960 --> 00:12:01.140
+Ajith Kumar Shetty: and just show where to update.
+
+108
+00:12:02.780 --> 00:12:07.849
+Ajith Kumar Shetty: So you log above right in case is there any bugs? That's what
+
+109
+00:12:07.990 --> 00:12:15.300
+Siva Krishna: prt, crat, everything you can update. Okay, components components, you can give
+
+110
+00:12:23.260 --> 00:12:25.889
+Siva Krishna: 9 dot, 4 dot, 4 dot 4
+
+111
+00:12:44.880 --> 00:12:46.180
+Ajith Kumar Shetty: living. The
+
+112
+00:12:47.840 --> 00:12:49.899
+Siva Krishna: mondo, yeah.
+
+113
+00:12:50.210 --> 00:12:56.230
+Ajith Kumar Shetty: and issue was just you can add Qa. Maybe Shiva myself
+
+114
+00:12:56.290 --> 00:13:01.180
+Ajith Kumar Shetty: and I would quit members of anybody. You can add a whole team, not an issue, because let them aware of it right.
+
+115
+00:13:01.650 --> 00:13:06.910
+Ajith Kumar Shetty: since it's an issue, so it will help all queue. I mean our team.
+
+116
+00:13:20.050 --> 00:13:23.329
+Siva Krishna: because once we have all this code to
+
+117
+00:13:23.510 --> 00:13:25.330
+Ajith Kumar Shetty: main branch, right
+
+118
+00:13:25.560 --> 00:13:30.870
+Manak Sahu: as part of integration testing back end in case if they're aware of this issue, they might we might test it right.
+
+119
+00:13:31.010 --> 00:13:40.140
+Ajith Kumar Shetty: Nobody, I mean, nobody will look into it, but you can have Shiai and me as mandatory, and they are optional. But yeah, you can have it. Have that
+
+120
+00:13:40.350 --> 00:13:45.379
+Siva Krishna: description gives you a steps under on which bill you have file above. Okay.
+
+121
+00:13:46.340 --> 00:13:55.580
+Siva Krishna: so make sure. I mean, if it is a log, since you need to copy the locks, or if it is a call command, miss. Then you need to in call. Come on and output complete should be pasted in the
+
+122
+00:13:57.500 --> 00:14:04.260
+Siva Krishna: next regression. No, like. It's not regulation, no reporting source. Internal. Qa. It means we are the Qa. Testing
+
+123
+00:14:08.190 --> 00:14:17.270
+Siva Krishna: RFID here. You can put on Gilroy. not. You can give this new label. It'll create automatically.
+
+124
+00:14:17.900 --> 00:14:20.570
+Siva Krishna: This is managed out of your time. Okay?
+
+125
+00:14:23.610 --> 00:14:24.970
+Siva Krishna: Any doubts. Mona.
+
+126
+00:14:25.210 --> 00:14:43.279
+Siva Krishna: go to the recording. Okay, execute. Okay, whatever the grid, I mean, if it is, how in the world build also, just execute. Call commands. Then you will find the difference. I mean, what is that?
+
+127
+00:14:43.870 --> 00:14:48.649
+Siva Krishna: If you want, I will. I will show you the world that'd be document. Okay?
+
+128
+00:14:48.990 --> 00:15:01.300
+Manak Sahu: So what will be the pre requirement like for great configuration? What things I should be there like members and other things to be able to configure right? Initially.
+
+129
+00:15:01.530 --> 00:15:19.100
+Manak Sahu: combinations.
+
+130
+00:15:19.390 --> 00:15:31.070
+Ajith Kumar Shetty: But yeah, I would recommend to start with, I think, it's a good few cases of 4 to 5 cases on Standalone. Meanwhile, I think, Shiva, I think you can split the test cases for IP for only.
+
+131
+00:15:31.170 --> 00:15:42.679
+Ajith Kumar Shetty: Yeah, yeah, I will configure the grid. Okay, I will give the same grid tomorrow. I mean he can. That should be fine. But what I'm suggesting, since we have only one test case for IP for only right.
+
+132
+00:15:43.090 --> 00:15:48.909
+Ajith Kumar Shetty: One or 2 cases generally case we have, so I would request, create a sub sheet with IP, for only
+
+133
+00:15:49.480 --> 00:15:51.359
+Ajith Kumar Shetty: here only you can have
+
+134
+00:15:51.580 --> 00:15:54.329
+Ajith Kumar Shetty: yeah, copy paste whatever I pay for
+
+135
+00:15:55.480 --> 00:16:02.979
+Ajith Kumar Shetty: only, and copy, whichever we can execute on IP for only from the main sheet and have it in the main sheet on the at that bottom.
+
+136
+00:16:03.120 --> 00:16:06.010
+Siva Krishna: and import it to Jira.
+
+137
+00:16:07.560 --> 00:16:12.310
+Ajith Kumar Shetty: and let Manad know that what I'll get us to are assigned to him for execution.
+
+138
+00:16:14.280 --> 00:16:17.119
+Ajith Kumar Shetty: And then it's the same email. You can respond so that you can
+
+139
+00:16:17.950 --> 00:16:22.249
+Ajith Kumar Shetty: should know what he'll be testing it. So
+
+140
+00:16:33.300 --> 00:16:43.219
+Siva Krishna: this is the world we look at. Source IP is not there. The new field was introduced. Source IP,
+
+141
+00:16:43.600 --> 00:16:44.280
+okay.
+
+142
+00:16:45.120 --> 00:16:45.970
+Siva Krishna: okay.
+
+143
+00:16:49.180 --> 00:16:52.810
+Ajith Kumar Shetty: I think the for those side with the default value should be right.
+
+144
+00:16:54.690 --> 00:16:59.010
+Siva Krishna: No, default, I mean, if you don't give anything it's available to take.
+
+145
+00:16:59.250 --> 00:17:06.699
+Siva Krishna: I'm not sure
+
+146
+00:17:07.250 --> 00:17:08.909
+Ajith Kumar Shetty: to be land accurate
+
+147
+00:17:09.990 --> 00:17:16.850
+Ajith Kumar Shetty: if you don't specify anything. The source. IP, okay, source IP is different. Source address IP is different.
+
+148
+00:17:27.410 --> 00:17:33.090
+Ajith Kumar Shetty: but we don't get none on your head. We don't specify. So
+
+149
+00:17:33.720 --> 00:17:38.359
+Siva Krishna: the default values none means none default value.
+
+150
+00:17:38.990 --> 00:17:42.020
+Siva Krishna: and when you mentioned the field as effort, they have to specify the value
+
+151
+00:17:42.360 --> 00:17:47.220
+Siva Krishna: member they are mentioned, default value is none, for how it is that none
+
+152
+00:17:48.100 --> 00:17:54.000
+Ajith Kumar Shetty: one is empty, they will be sending empty value if it is not mentioned.
+
+153
+00:17:54.630 --> 00:17:57.419
+Siva Krishna: I think you should be fine, I guess.
+
+154
+00:17:58.120 --> 00:18:00.829
+Siva Krishna: Default is a post name of the Gridmaster.
+
+155
+00:18:01.840 --> 00:18:05.339
+Ajith Kumar Shetty: but there's no default value internally. They will send you none
+
+156
+00:18:05.480 --> 00:18:09.769
+Ajith Kumar Shetty: but Source IP and source address are different. No, okay, I think it should be fine. I guess
+
+157
+00:18:10.310 --> 00:18:17.580
+Siva Krishna: no default value is non means. What is this? I mean? What is this intel? They send non value. If you don't specify member fail.
+
+158
+00:18:19.140 --> 00:18:22.899
+Ajith Kumar Shetty: it will do none. It will by default, even none.
+
+159
+00:18:24.640 --> 00:18:28.679
+Ajith Kumar Shetty: and we can't add it. We can't send it internally, they send it none.
+
+160
+00:18:28.910 --> 00:18:29.880
+Siva Krishna: Okay.
+
+161
+00:18:31.050 --> 00:18:32.660
+Ajith Kumar Shetty: here, you can't send them.
+
+162
+00:18:36.750 --> 00:18:44.989
+Ajith Kumar Shetty: or you can use the okay. These are post function. There's no Github question. Right? I think you that is not applicable. I think you can ignore it.
+
+163
+00:18:46.520 --> 00:18:50.610
+Ajith Kumar Shetty: This post operation that you can't do get, and all
+
+164
+00:18:50.720 --> 00:18:53.900
+Siva Krishna: you can't validate that none.
+
+165
+00:19:05.610 --> 00:19:09.230
+Ajith Kumar Shetty: So say we don't specify
+
+166
+00:19:10.320 --> 00:19:14.900
+Ajith Kumar Shetty: even data, borrow or default values, empty name server.
+
+167
+00:19:16.450 --> 00:19:22.389
+Siva Krishna: Yeah, there is no default value for this one. Yeah, there is no default value. I think you can have a documentation, but
+
+168
+00:19:22.630 --> 00:19:28.339
+Siva Krishna: you should give that member host name only master member should be hosted.
+
+169
+00:19:28.770 --> 00:19:32.259
+Ajith Kumar Shetty: There's not none value correct. Yeah. Can't end. Well.
+
+170
+00:19:32.430 --> 00:19:36.729
+Ajith Kumar Shetty: you can have file documentation.
+
+171
+00:19:36.890 --> 00:19:37.770
+Siva Krishna: Okay.
+
+172
+00:19:38.620 --> 00:19:43.589
+Ajith Kumar Shetty: okay? Then I will do. I think we can continue if there's any thoughts. Thank you.
+
+173
+00:19:45.010 --> 00:19:48.170
+Siva Krishna:  Hello, Manak.
+
+174
+00:19:48.650 --> 00:19:54.819
+Siva Krishna: any queries, I mean, do you? I got the concept right? Yeah. Yeah. Concept.
+
+175
+00:19:55.960 --> 00:19:56.750
+Siva Krishna: Hmm.
+
+176
+00:19:56.920 --> 00:20:01.519
+Manak Sahu: so while like, how we'll get to know, like what will be the curl command.
+
+177
+00:20:01.730 --> 00:20:03.260
+Siva Krishna: So that Quenny
+
+178
+00:20:03.610 --> 00:20:16.480
+Siva Krishna: given that sheet. Okay, Hi, you, you provided all the queries. But you only created right? All call commands. Yeah. So how to create that.
+
+179
+00:20:17.810 --> 00:20:21.740
+Siva Krishna: See, this call command is will be that Tc
+
+180
+00:20:21.780 --> 00:20:29.270
+Siva Krishna: call command is like, whatever the things we are doing from the G way, same things we are doing from the back end.
+
+181
+00:20:29.470 --> 00:20:30.360
+Siva Krishna: Okay?
+
+182
+00:20:30.660 --> 00:20:41.889
+Siva Krishna: Sometimes the GM might be slow. So going through that we are giving on one more option is to go from the back end. So till here it will be same. Okay.
+
+183
+00:20:42.360 --> 00:21:02.979
+Siva Krishna: Still, here, it will be same for me. This is a post operation. Okay, you can call command you can use for get operation to create. Get this to go valid. The results. I mean this, for example, if I created as well, and you want to get that.
+
+184
+00:21:02.980 --> 00:21:27.460
+Siva Krishna: and you want to see that created or not. And if you want the information, whether what name service has been assigned to that zone. It's like a database. Okay, we really get all I mean, select particular table from that database. Okay? And means you are modifying
+
+185
+00:21:27.560 --> 00:21:52.200
+Siva Krishna: even all the existing data will be there. That data you'll be modifying like if you know you have added a zone. Is there for that zone you have added only master as a name server. If you want that number, you can add that number using put operation, that is, the call from a number, get put post, and also you have any option. Also delete an object you can utilize. You can delete it.
+
+186
+00:21:53.290 --> 00:22:00.779
+Siva Krishna: so make sure. Be careful while using delete operation. I mean, if it is on a grid, then that is up to you. That is, that is no problem. But when you think any
+
+187
+00:22:00.790 --> 00:22:11.929
+Siva Krishna: some integrator which is using by team? Okay.
+
+188
+00:22:12.340 --> 00:22:13.080
+Siva Krishna: no.
+
+189
+00:22:14.810 --> 00:22:18.159
+Siva Krishna: So this up to here, it will be same. Okay.
+
+190
+00:22:18.250 --> 00:22:21.450
+Siva Krishna: Okay. Here, you need to have a reference.
+
+191
+00:22:21.610 --> 00:22:22.470
+Manak Sahu: Okay?
+
+192
+00:22:22.850 --> 00:22:31.569
+Siva Krishna: Hmm. So whatever thing I mean, whatever the object you are doing for that object, reference should be there. For example, if you want. You are configuring any
+
+193
+00:22:32.720 --> 00:22:36.490
+Siva Krishna: you want to start any Dns service. You need to get reference of the Dns.
+
+194
+00:22:36.610 --> 00:22:39.219
+Manak Sahu: So from where we'll get this reference.
+
+195
+00:22:51.260 --> 00:22:53.979
+Siva Krishna: So now, this is the call command. Okay.
+
+196
+00:23:12.500 --> 00:23:15.559
+Siva Krishna: see? Now, I got this reference. Okay, okay.
+
+197
+00:23:15.780 --> 00:23:21.509
+Siva Krishna: this is the grid I'm using. Grid object. I got the grid defense. Okay, you want. Dns, okay.
+
+198
+00:23:23.660 --> 00:23:35.689
+Siva Krishna: this IP, if you want Member Dns, okay, reference of member, any member
+
+199
+00:23:35.990 --> 00:23:38.230
+Siva Krishna: number. Dns, you got. See?
+
+200
+00:23:38.630 --> 00:23:40.199
+Manak Sahu: Da, yeah.
+
+201
+00:23:40.510 --> 00:23:47.510
+Siva Krishna: Got it? Well, everything will be considered as a member. Can you use member? Okay? As a member like, it's a node.
+
+202
+00:23:47.610 --> 00:23:58.030
+Siva Krishna: Master number development is in node. Okay. this is master address. Okay, you can check this host. Name host, name will be there for all us. Okay.
+
+203
+00:23:58.700 --> 00:23:59.470
+Siva Krishna: hmm.
+
+204
+00:23:59.730 --> 00:24:03.710
+Siva Krishna: like this. You can get the reference, and you can do modifications.
+
+205
+00:24:04.070 --> 00:24:27.450
+Siva Krishna: Okay, like this, you need to prepare the call comment. Okay, I remember to just execute the call command that I executed those call commands. Yeah, those I executed, and reference and all. I got it. But here I got confused like from where you have created so those settings. But here we are using the post office, because this is the function
+
+206
+00:24:27.670 --> 00:24:33.599
+Siva Krishna: which will execute equally.
+
+207
+00:24:33.840 --> 00:24:34.630
+Siva Krishna: Hmm.
+
+208
+00:24:35.150 --> 00:24:40.830
+Siva Krishna: So here we are passing that you need to create the zone. Whatever the record you are putting, you can quickly
+
+209
+00:24:50.020 --> 00:24:51.650
+Siva Krishna: and bring it this ticket as well.
+
+210
+00:24:51.820 --> 00:24:52.570
+Manak Sahu: Okay.
+
+211
+00:24:53.500 --> 00:24:56.190
+Siva Krishna: so go through this, and
+
+212
+00:24:56.510 --> 00:25:00.250
+Siva Krishna: if you have any queries. You can sync up with me. Okay.
+
+213
+00:25:01.000 --> 00:25:06.499
+Siva Krishna: if you want. I will give my grid out this grid also. Okay, executive
+
+214
+00:25:06.650 --> 00:25:07.780
+Siva Krishna: the gift.
+
+215
+00:25:07.820 --> 00:25:17.230
+Siva Krishna: Okay. For now, I mean, when you can use migrants. I'm not doing that much, so you can migrate. Done so, for now
+
+216
+00:25:17.280 --> 00:25:21.380
+Manak Sahu: you can configure it for one grid. Okay.
+
+217
+00:25:21.820 --> 00:25:26.839
+Siva Krishna: you can connect with Standalone Grid. Okay? But make sure he's done a grid.
+
+218
+00:25:27.280 --> 00:25:33.820
+Siva Krishna: All type of networks should be is mandatory. Mgmt.
+
+219
+00:25:33.880 --> 00:25:38.940
+Siva Krishna: okay, make sure. Yeah. You should have all these networks. Okay. was that very important?
+
+220
+00:25:39.030 --> 00:25:40.480
+Manak Sahu: Okay? Sure.
+
+221
+00:25:42.630 --> 00:25:43.940
+Siva Krishna: any other notes
+
+222
+00:25:44.550 --> 00:25:49.449
+Manak Sahu: no Shiva, like, I'll start if I'll get any doubt I'll let you know.
+
+223
+00:25:49.520 --> 00:25:50.950
+Siva Krishna: Yeah, okay.
+
+224
+00:25:51.010 --> 00:25:53.250
+Manak Sahu: okay, sure. Yeah. Thanks. So much.
+
+225
+00:25:54.780 --> 00:25:55.490
+Right?
+
